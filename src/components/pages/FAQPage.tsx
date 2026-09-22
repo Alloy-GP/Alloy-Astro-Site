@@ -86,11 +86,14 @@ function FAQItem({ q, a, bordered, accent }: FAQItemProps) {
           <Icon name="plus" size={16} strokeWidth={2.5} />
         </span>
       </button>
-      {open && (
-        <div className="reveal" style={{ padding: '0 28px 24px', color: '#555', fontSize: 15, lineHeight: 1.7, maxWidth: 800 }}>
-          {a}
-        </div>
-      )}
+      {/* Always rendered so answers (and any links in them) are in the server HTML for crawlers; toggled via display. */}
+      <div
+        className={open ? 'reveal' : undefined}
+        hidden={!open}
+        style={{ padding: '0 28px 24px', color: '#555', fontSize: 15, lineHeight: 1.7, maxWidth: 800 }}
+      >
+        {a}
+      </div>
     </div>
   );
 }
