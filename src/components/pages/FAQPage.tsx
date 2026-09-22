@@ -1,10 +1,10 @@
 // src/components/pages/FAQPage.tsx
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import Icon from '~/components/Icon';
 import { PageHero, CtaBand } from '~/components/sections/Shells';
 import { PURPLE, PINK, YELLOW, GREEN } from '~/lib/tokens';
 
-interface QA { q: string; a: string; }
+interface QA { q: string; a: ReactNode; }
 interface Group { label: string; color: string; items: QA[]; }
 
 export default function FAQPage() {
@@ -23,6 +23,13 @@ export default function FAQPage() {
       { q: 'Do you work with anyone other than CAM?', a: "No. Exclusively community association management companies. The whole point of Alloy is depth — we'd dilute that the moment we said yes to adjacent industries." },
       { q: 'Do you serve commercial property management?', a: 'No. Strictly community associations — HOAs, condos, master-planned, mixed-use boards.' },
       { q: 'What size firms do you work with?', a: "From single-location boutiques (Steady tier) to multi-state regionals (Ascend tier). The constant is that growth isn't accidental — it's intentional." },
+      { q: "I'm on an HOA board looking for a management company. Can Alloy help?", a: (
+        <>
+          Not directly — Alloy works for management companies, not for boards. If you're a board shopping for a manager, the place we send you is{' '}
+          <a href="https://matchhoa.com" target="_blank" rel="noopener" style={{ color: PINK, fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>Match HOA</a>
+          {' '}— a free concierge service that screens management companies against your community's needs and hands you a shortlist of two or three vetted matches, usually within a week. No cost to the board, no obligation.
+        </>
+      ) },
     ]},
   ];
   return (
@@ -54,7 +61,7 @@ export default function FAQPage() {
   );
 }
 
-interface FAQItemProps { q: string; a: string; bordered: boolean; accent: string; }
+interface FAQItemProps { q: string; a: ReactNode; bordered: boolean; accent: string; }
 
 function FAQItem({ q, a, bordered, accent }: FAQItemProps) {
   const [open, setOpen] = useState(false);
