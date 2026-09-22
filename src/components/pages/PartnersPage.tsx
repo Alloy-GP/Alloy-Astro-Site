@@ -20,11 +20,12 @@ export default function PartnersPage() {
     { cat: 'Web + analytics', name: 'Vercel + Posthog',     desc: 'Site infrastructure and instrumentation. Every BoardSuite engagement runs on this stack.', color: BLUE },
   ];
 
-  const agencyPartners = [
+  const agencyPartners: { name: string; desc: string; href?: string; cta?: string }[] = [
     { name: 'Reserve study referral network', desc: 'Three reserve-study firms we recommend by region. We manage handoff; they keep the technical work; you get a coordinated client experience.' },
     { name: 'Legal counsel network',          desc: 'Vetted CC&R, transition, and HOA-litigation counsel in 12 metros. We coordinate; they handle the legal work; you get one project manager.' },
     { name: 'Accounting + audit firms',       desc: 'Five CAM-specialized accounting firms in our network. Joint engagements for portfolio-wide audit, transition, and financial review.' },
     { name: 'PR + crisis comms',              desc: 'When a story breaks beyond marketing — local news, regulatory, litigation — we hand off cleanly to specialist crisis firms we trust.' },
+    { name: 'Board matchmaking',              desc: "Boards find Alloy looking for a manager, not a marketer. We send them to Match HOA — a free concierge service that screens management companies against the community's needs and delivers a shortlist of two or three vetted matches. Boards get a clean process; the firms on the shortlist get a warm, qualified introduction.", href: 'https://matchhoa.com', cta: 'Visit Match HOA' },
   ];
 
   const philosophy = [
@@ -154,7 +155,7 @@ export default function PartnersPage() {
       </section>
 
       {/* ── Referral networks ────────────────────────────────────────────── */}
-      <section className="section section-ivory">
+      <section id="referral-networks" className="section section-ivory">
         <div className="container">
           <div style={{ marginBottom: 40, maxWidth: 760 }}>
             <Eyebrow>Referral networks</Eyebrow>
@@ -164,10 +165,18 @@ export default function PartnersPage() {
             {agencyPartners.map((a) => (
               <div
                 key={a.name}
-                style={{ background: '#fff', borderRadius: 12, padding: 28, border: '1px solid var(--border-subtle)' }}
+                style={{
+                  background: '#fff', borderRadius: 12, padding: 28, border: '1px solid var(--border-subtle)',
+                  ...(a.href ? { gridColumn: '1 / -1', borderLeft: `5px solid ${PINK}` } : {}),
+                }}
               >
                 <div className="display-md" style={{ fontSize: 22, color: PURPLE, marginBottom: 10 }}>{a.name}</div>
-                <div style={{ fontSize: 14, color: '#444', lineHeight: 1.6 }}>{a.desc}</div>
+                <div style={{ fontSize: 14, color: '#444', lineHeight: 1.6, maxWidth: 760 }}>{a.desc}</div>
+                {a.href && (
+                  <a href={a.href} target="_blank" rel="noopener" className="btn btn-secondary btn-sm btn-arrow" style={{ marginTop: 18 }}>
+                    {a.cta}
+                  </a>
+                )}
               </div>
             ))}
           </div>
