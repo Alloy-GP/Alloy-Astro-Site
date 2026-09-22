@@ -119,8 +119,10 @@ function LeadPipelineDiagram() {
 }
 
 // ── Channel Economics ─────────────────────────────────────────────────────────
+type Channel = { c: string; name: string; cpl: string; window: string; strength: string; weakness: string; example?: { label: string; href: string } };
+
 function ChannelEconomics() {
-  const channels = [
+  const channels: Channel[] = [
     {
       c: PINK,
       name: 'Local SEO + Google Business',
@@ -153,12 +155,26 @@ function ChannelEconomics() {
       strength: 'Predictable, fastest to revenue, board-targeted.',
       weakness: 'Higher CPL — but ACV justifies it 5×.',
     },
+    {
+      c: PURPLE,
+      name: 'Board matchmaking platforms',
+      cpl: 'Varies',
+      window: 'Live in days',
+      strength: 'Boards arrive already shopping — the highest-intent lead there is.',
+      weakness: "You're one of 2–3 on a shortlist. Proposal quality decides it.",
+      example: { label: 'Match HOA', href: 'https://matchhoa.com' },
+    },
   ];
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 18 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 18 }}>
       {channels.map(ch => (
         <div key={ch.name} style={{ background: '#fff', border: '1px solid var(--border-subtle)', borderTop: `4px solid ${ch.c}`, borderRadius: 12, padding: 22, display: 'flex', flexDirection: 'column', gap: 12 }}>
           <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 16, color: PURPLE, lineHeight: 1.25 }}>{ch.name}</div>
+          {ch.example && (
+            <a href={ch.example.href} target="_blank" rel="noopener" style={{ fontSize: 12, fontWeight: 700, color: ch.c, textDecoration: 'underline', textUnderlineOffset: 3, marginTop: -6 }}>
+              e.g. {ch.example.label} ↗
+            </a>
+          )}
           <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '6px 12px', fontSize: 12, paddingTop: 10, borderTop: '1px solid var(--border-subtle)' }}>
             <span style={{ color: '#999', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 700, fontSize: 10 } as CSSProperties}>CPL</span>
             <span style={{ color: PURPLE, fontFamily: 'var(--font-display)', fontWeight: 700 }}>{ch.cpl}</span>
@@ -418,7 +434,7 @@ export default function ServiceLeadGenerationPage() {
       </section>
 
       {/* ── CHANNEL ECONOMICS ────────────────────────────────────────────────── */}
-      <section className="section section-ivory">
+      <section id="channel-economics" className="section section-ivory">
         <div className="container">
           <div style={{ marginBottom: 36, maxWidth: 820 }}>
             <Eyebrow>Channel economics</Eyebrow>
