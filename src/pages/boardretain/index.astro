@@ -1,0 +1,14 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import HubPage from '~/components/rd/HubPage';
+import data from '~/data/hubs/boardretain';
+import { breadcrumbSchema } from '~/lib/schema';
+---
+<BaseLayout
+  title="BoardRetain™ — HOA Client Retention for Management Companies | Alloy GP"
+  description="BoardRetain is the keep engine for CAM firms — board education, newsletters, annual reports, and reputation management that protect the portfolio you've built."
+  pageId="system"
+  pageSchema={breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardRetain™', href: '/boardretain' }])}
+>
+  <HubPage data={data} />
+</BaseLayout>

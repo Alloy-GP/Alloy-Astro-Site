@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import BoardSuitePage from '~/components/pages/BoardSuitePage';
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
 ---
 <BaseLayout
   title="BoardSuite™ — The integrated growth system for CAM"
   description="Three tiers, one philosophy. BoardSuite engineers attract, close, and keep into a single playbook for one CAM company per market."
-  pageId="boardsuite"
+  pageId="system"
 >
-  <BoardSuitePage client:idle />
+  <BoardSuitePage />
 </BaseLayout>

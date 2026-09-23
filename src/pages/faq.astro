@@ -1,91 +1,15 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import FAQPage from '~/components/pages/FAQPage';
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How does market exclusivity actually work?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "When you sign with Alloy, your service area becomes locked. We can't engage another CAM firm in your defined metro for the duration of the engagement (and 12 months after). It's contractual — not a marketing promise.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What does an engagement cost?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Pricing is custom and engagement-dependent across all three BoardSuite tiers (Steady, Accelerate, Ascend). We scope to your portfolio, market, and execution pace. The diagnostic call gets you a real number.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: "What's the minimum commitment?",
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "12 months. Engineered growth doesn't happen in 90 days. The first 90 days are diagnostic + foundation; results compound from month 6 onward.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you replace our internal marketing?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Sometimes yes, often no. Alloy frequently runs alongside an internal marketing manager — we're the strategy and execution muscle, they're the day-to-day program runner. We'll figure out the right line during scoping.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Will you build us a website?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "If yours isn't doing the job, yes. Conversion-engineered, board-stage SEO architecture, AI-search ready. It's part of the BoardReach engine, not a separate engagement.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you do paid ads?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "Yes — Google Ads, retargeting, and conversion-rate optimization. Paid is one channel inside the BoardReach engine, not the whole strategy. We won't sell you ads as a primary growth lever.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you work with anyone other than CAM?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "No. Exclusively community association management companies. The whole point of Alloy is depth — we'd dilute that the moment we said yes to adjacent industries.",
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you serve commercial property management?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'No. Strictly community associations — HOAs, condos, master-planned, mixed-use boards.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What size firms do you work with?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: "From single-location boutiques (Steady tier) to multi-state regionals (Ascend tier). The constant is that growth isn't accidental — it's intentional.",
-      },
-    },
-  ],
-};
+import FAQPage, { FAQ_ITEMS } from '~/components/pages/FAQPage';
+import { faqSchema } from '~/lib/schema';
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+// FAQPage schema is generated from every rendered Q&A (plain-text answers).
+// Static page — no client directive; answers are server-rendered.
 ---
 <BaseLayout
   title="FAQ — HOA CAM Marketing & Growth — Alloy Growth Partners"
   description="How market exclusivity works, what BoardSuite tiers cost, why we only serve CAM, and everything else operators ask before signing on."
-  pageId="resources"
-  pageSchema={faqSchema}
+  pageSchema={faqSchema(FAQ_ITEMS)}
 >
-  <FAQPage client:idle />
+  <FAQPage />
 </BaseLayout>

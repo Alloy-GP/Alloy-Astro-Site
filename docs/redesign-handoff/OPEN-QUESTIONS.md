@@ -63,3 +63,48 @@ Design: ZIP input → ~1.6s "checking" state → Available / Not available over 
 - Trust-building guide copy comes from `src/data/courseTrustBuilding.ts` (prototype has ~1.1k words of structure; target is 4–5k).
 - Forms wire to existing endpoints: `/api/lead` (get-started), `/api/subscribe` (resources newsletter), `/api/contact`.
 - Nothing merges to `main` until you say so. The branch gets Vercel preview builds only.
+
+---
+
+## Build log additions (2026-09-23, during the build)
+
+## 10. Hubs have no FAQ section in the prototypes
+`boardreach`, `boardmatch`, `boardretain` prototypes go from "What it costs to wait" straight to the CTA bar. The handoff asks for FAQPage schema on the hubs, but Google requires the Q&As to be visible on the page. **Built without hub FAQ / FAQ schema.** The `HubPage` template renders an optional FAQ block if `faq` is added to the hub data later.
+
+## 11. Metro checker implementation (built, needs a launch decision)
+- ZIP → place: new `GET /api/metro?zip=` endpoint. Live lookup via Zippopotam (free, no key, 2.5s timeout) with a bundled 3-digit-prefix fallback table.
+- Claimed/open: within 30 miles of one of the 10 partner metros carried over from the old `MarketChecker.tsx` (Denham Springs LA, Branford CT, Orlando FL, Manchester NH, Venice FL, Fredericksburg VA, Houston TX, Austin TX, San Antonio TX, Owings Mills MD). **Confirm this list is current.**
+- Map: raw OpenStreetMap tiles (as in the prototype) with attribution. OSM's tile policy tolerates low-volume sites but not heavy production use. The tile URL is one constant in `MetroChecker.tsx` — swap in a keyed provider (MapTiler / Stadia) before launch if traffic warrants.
+- "Waitlist" → `/get-started?intent=waitlist&zip=…`, "Talk to us" → `/contact`, "Claim it" → `/get-started?zip=…`.
+
+## 12. Homepage webinar block
+Prototype copy: "Oct 14 · Live webinar · 45 min · AI search for CAM: how boards find management companies in 2026". Built as designed; "Save my seat" posts the email to the existing `/api/subscribe` (newsletter list). **Is there a real webinar? If not, remove or re-date before launch.**
+
+## 13. Service-page accent colors
+Prototypes use pink for the hero eyebrow, "Questions" eyebrow, check icons and step numerals on every service page regardless of engine; only the sibling-services card label uses the engine ink (gold / teal). Built that way.
+
+## 14. Content the redesign drops (built per prototype — say if any should come back)
+- **/about/testimonials**: the Vimeo testimonial video (Jason D., RISE AMG), the Valerie L. / Rikky M. quotes and three others, per-engine stats, and the firm-name list. Prototype has fewer, longer quotes.
+- **/careers**: old 6 roles, principles, benefits, hiring process and the careers@ mailto → prototype's 3 roles linking to /contact.
+- **/about**: "Why we exist" and "Our discipline" sections. We-Know-CAM content folded into "Why CAM-only" (`#why-cam-only`).
+- **/get-started**: the old ZIP market checker and diagnostic flow (the checker now lives on the homepage). The kept meta description still mentions a "ZIP market check".
+- **/growth-modeled**: the assumption notes and "An estimate, not a quote" sections.
+
+## 15. FAQ copy contradicts the new pricing/exclusivity copy
+Kept verbatim from the live site: exclusivity lasts "the engagement and 12 months after" (prototypes say "for the life of the engagement"); tier names Steady / Accelerate / Ascend (new pricing page: Foundation / Growth / Scale); "Do you do paid ads?" still promises Google Ads while the Google Ads page is dropped. **Needs a ruling before launch.**
+
+## 16. Legal "Last updated"
+Prototype says "Effective September 2026"; kept the live "Last updated: January 2026" because the policy text references it. Legal call.
+
+## 17. Pre-existing: `/api/lead` interpolates user input into the notification email HTML without escaping. Not touched; worth fixing separately.
+
+## 18. Resource / article pages — content decisions made during the build
+- **/resources/hoa-management-software-guide**: live sections (old ids kept) interleaved with the prototype's five; the live text called the case-study client "RISE AMG" — changed to "Apex CMG" to match `/results/apex-cmg` (the case study says the client name was changed, so the old text may have leaked the real name). Prototype adds a vendor rating table and the claim "BoardSuite Scale includes the custom integration work" — **both new claims, review.**
+- **/results/apex-cmg**: prototype says "3-year engagement / Year one·two·three" and "growth flat for three years"; the live copy describes an 18-month build and a firm "growing organically". **Both kept; pick one.** Header highlights Results.
+- **/resources/courses/trust-building**: 11 sections rendered from the full lesson data (~4,700 words); the prototype's own short section paragraphs (~800 words) were not layered on top to avoid duplication. Quiz has 5 questions (prototype said "ten"); copy adjusted. Completion text still references a "Putting Trust Signals to Work" course that doesn't exist.
+- **/resources/cam-marketing-strategy**: 5 prototype sections + 3 live sections; visible byline dropped (author kept in Article schema).
+- **/resources**: prototype's "AI search" card links to `/resources/cam-marketing-strategy` though the AI-search content now lives at `/property-management-seo` — kept as designed; the "All articles" link points at `/resources` itself.
+- Article section headings are `<h2>` (prototype used `<h3>`) to keep a valid outline under the single H1.
+
+## 19. Sitemap
+Allowlist = the 40 canonical routes + `/boardstart` and `/cam-growth-portal` (indexable today, outside the redesign). Remove those two from `SITEMAP_ROUTES` in `astro.config.mjs` if they should not be listed.

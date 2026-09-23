@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import GrowthModeledPage from '~/components/pages/GrowthModeledPage';
+import ROICalculator from '~/components/modules/ROICalculator';
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+// The page shell is static; only the calculator is an island (passed in as a child).
+// No pageId (Growth Modeled lives in the footer, not the nav).
 ---
 <BaseLayout
   title="Engineered Growth, Modeled — Alloy"
   description="Move three sliders. See your year-one impact. Modeled on Apex CMG benchmarks — sized to your portfolio, fees, and churn."
-  pageId="home"
 >
-  <GrowthModeledPage client:load />
+  <GrowthModeledPage>
+    <ROICalculator client:load />
+  </GrowthModeledPage>
 </BaseLayout>

@@ -1,39 +1,22 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServiceReputationManagementPage from '~/components/pages/ServiceReputationManagementPage';
+import ServicePage from '~/components/rd/ServicePage';
+import data from '~/data/services/reputation-management';
+import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Can you remove negative reviews for a CAM company?',
-      acceptedAnswer: { '@type': 'Answer', text: "No, and you should walk away from anyone who says they can. Google, BBB, and Yelp explicitly prohibit removal-as-service. What we can do: respond well, dilute with velocity, and surface authority content above legacy noise. Operationally, that fixes the problem within 60–90 days." },
-    },
-    {
-      '@type': 'Question',
-      name: 'What if our CAM firm has legitimately bad reviews?',
-      acceptedAnswer: { '@type': 'Answer', text: "Then the program starts with operations, not marketing. We'll surface what's driving the complaints (response time, manager turnover, financial transparency) and recommend the operational fix first. Reputation work without operational fix is paint over rust." },
-    },
-    {
-      '@type': 'Question',
-      name: 'How do you handle Reddit, Nextdoor, and community forums?',
-      acceptedAnswer: { '@type': 'Answer', text: "Monitoring across 20+ surfaces. Direct engagement only where the platform allows (Nextdoor, Reddit AMAs). Off-platform mediation for everything else. Most CAM firms ignore these surfaces — boards don't, especially the under-50 directors." },
-    },
-    {
-      '@type': 'Question',
-      name: 'How does reputation management fit with BoardSuite?',
-      acceptedAnswer: { '@type': 'Answer', text: "Reputation is a BoardRetain (Keep) engine — protecting the portfolio you have. But it feeds BoardReach (Attract) directly: high local rankings, strong AI-search summaries, and visible review velocity all bring in new boards. One investment, two returns." },
-    },
-  ],
-};
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+const description = "Protect and build your CAM firm's online reputation. Review monitoring, response management, and proactive reputation-building for HOA management companies.";
+const schema = [
+  faqSchema(data.faq.items),
+  serviceSchema({ name: data.name, description, url: data.href }),
+  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardRetain™', href: '/boardretain' }, { name: data.name, href: data.href }]),
+];
 ---
 <BaseLayout
   title="HOA Reputation Management | BoardRetain™ | Alloy GP"
-  description="Protect and build your CAM firm's online reputation. Review monitoring, response management, and proactive reputation-building for HOA management companies."
-  pageId="services"
-  pageSchema={faqSchema}
+  description={description}
+  pageId="system"
+  pageSchema={schema}
 >
-  <ServiceReputationManagementPage client:idle />
+  <ServicePage data={data} />
 </BaseLayout>
