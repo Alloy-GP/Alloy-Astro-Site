@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Growth Modeled | Alloy GP</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="./alloy-motion.js"></script><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Book.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Medium.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Bold.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Black.woff2) format("woff2");font-weight:900}
+body{margin:0;background:#fff;font-family:Gotham,Poppins,system-ui,sans-serif;color:#381c4f}
+a{color:#381c4f}a:hover{color:#d9356e}
+html{scroll-behavior:smooth}
+</style></helmet>
+<div style="min-width:1024px">
+<dc-import name="SiteHeader" active="" hint-size="100%,67px"></dc-import><section style="padding:104px 40px 72px;background:#fff;"><div style="max-width:1160px;margin:0 auto;"><div style="display:grid;grid-template-columns:1.3fr .9fr;gap:80px;align-items:end"><div style="display:flex;flex-direction:column;gap:28px"><div style="display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#d9356e"><span style="width:28px;height:3px;background:#d9356e;border-radius:2px"></span>Growth modeled</div><h1 style="margin:0;font-weight:900;font-size:76px;line-height:.95;letter-spacing:-.03em;color:#381c4f;text-wrap:pretty">What does year one look like <span style="color:#d9356e">for your portfolio?</span></h1></div><div style="display:flex;flex-direction:column;gap:20px"><p style="margin:0;font-size:18px;line-height:1.65;color:#555;font-weight:400;text-wrap:pretty">Three sliders — associations, doors, cost per door. New contracts, churn prevented, and year-one revenue, modeled on Alloy partner benchmarks. The existing interactive tool ports here unchanged.</p></div></div></div></section>
+<section style="padding:0 40px 96px;background:#fff;"><div style="max-width:1160px;margin:0 auto;"><div style="border:1px dashed #c9c1d6;border-radius:10px;background:#f8f7fc;min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center;padding:40px"><div style="display:flex;flex-direction:column;gap:10px;max-width:520px"><div style="font-weight:700;font-size:20px;color:#381c4f">Existing Growth Model component mounts here</div><p style="margin:0;font-size:14px;line-height:1.65;color:#555;font-weight:400;text-wrap:pretty">KEEP page per the sitemap spec — the React sliders and outputs carry over from the current Astro build. Restyle to the new type scale only.</p></div></div></div></section>
+<div style="height:96px;background:#f8f7fc"></div>
+<section style="padding:0 40px 96px;background:#f8f7fc"><div style="max-width:1160px;margin:0 auto;"><div style="display:flex;gap:24px;align-items:center;justify-content:space-between;background:#381c4f;border-radius:10px;padding:28px 32px;color:#fff"><div style="font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.01em;text-wrap:pretty">Want the real number? The Strategic Review builds the model on your actual portfolio.</div><a href="get-started.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:10px;box-shadow:0 8px 24px rgba(217,53,110,.25);display:inline-flex;align-items:center;white-space:nowrap;text-decoration:none;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Claim your market</a></div></div></section>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic { componentDidMount(){ AlloyMotion.mount(this); } componentWillUnmount(){ AlloyMotion.unmount(this); } renderVals(){ return {}; } }
+</script>
+</body>
+</html>
