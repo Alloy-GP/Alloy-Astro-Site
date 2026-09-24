@@ -198,6 +198,9 @@
   .rd-h2 { font-size: 32px; }
   .rd-h2--sm, .rd-h2--44 { font-size: 28px; }
   .rd-h3, .rd-h3--lg { font-size: 22px; }
+  .rd-trustbar { padding: 24px 0; }
+  .rd-trustbar-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .rd-trustbar-items { gap: 10px 24px; font-size: 15px; }
   .rd-oc { padding: 22px 18px; }
   .rd-oc-tile { padding: 16px; }
   .rd-nc { padding: 22px 18px 18px; }

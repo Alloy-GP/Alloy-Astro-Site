@@ -740,3 +740,9 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-logo-link { display: inline-flex; align-items: center; opacity: .9; transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
 .rd-logo-link:hover { opacity: 1; transform: translateY(-1px); }
 .rd-logo-link img { height: 44px; width: auto; display: block; }
+
+/* ---------- Homepage trust bar (below the hero) ---------- */
+.rd-trustbar { background: #fff; border-top: 1px solid var(--border-subtle); padding: 36px 0; }
+.rd-trustbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.rd-trustbar-label { font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-purple); }
+.rd-trustbar-items { display: flex; flex-wrap: wrap; gap: 14px 48px; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--alloy-purple); }

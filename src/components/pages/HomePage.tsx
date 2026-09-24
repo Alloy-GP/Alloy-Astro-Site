@@ -15,6 +15,20 @@ const ENGINE_BLURB: Record<string, string> = {
 export default function HomePage({ chart, webinar }: { chart?: ReactNode; webinar?: ReactNode }) {
   return (
     <div className="rd-page">
+      {/* Trust bar */}
+      <section className="rd-trustbar" aria-label="Trusted by">
+        <div className="rd-wrap rd-trustbar-inner">
+          <div className="rd-trustbar-label">Trusted by CAM operators across</div>
+          <ul className="rd-trustbar-items">
+            <li>Apex CMG*</li>
+            <li>BBB Accredited</li>
+            <li>CAI Member</li>
+            <li>Austin · Phoenix · Denver</li>
+            <li>35+ years CAM ops</li>
+          </ul>
+        </div>
+      </section>
+
       {/* Network leads · MatchHOA */}
       <section className="rd-section rd-bg-purple" style={{ padding: '80px 0' }}>
         <div className="rd-wrap rd-grid rd-grid--hero-11" style={{ gap: 64, alignItems: 'stretch' }}>
