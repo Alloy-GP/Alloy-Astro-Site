@@ -735,3 +735,8 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
   .rd-oc-line { stroke-dashoffset: 0; }
   .rd-oc-dot-end { opacity: 1; transform: none; }
 }
+
+/* Partner wordmark link (MatchHOA in the Network leads band) */
+.rd-logo-link { display: inline-flex; align-items: center; opacity: .9; transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
+.rd-logo-link:hover { opacity: 1; transform: translateY(-1px); }
+.rd-logo-link img { height: 44px; width: auto; display: block; }

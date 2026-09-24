@@ -3,7 +3,7 @@
 // Islands are passed in as named slots from index.astro: `chart` (NetworkLeadsChart) and `webinar` (WebinarSignup).
 import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
-import { Eyebrow, TextLink, CtaBar, Label, Btn, ArrowIcon } from '~/components/rd/atoms';
+import { Eyebrow, TextLink, CtaBar, Label, Btn } from '~/components/rd/atoms';
 
 const ENGINE_BLURB: Record<string, string> = {
   reach: 'Boards find you before they start shopping. Local SEO, AI search, content, ads.',
@@ -25,7 +25,9 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
             <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Boards submit on MatchHOA. In your metro, every one goes to you.</p>
             <div className="rd-row rd-row--wrap" style={{ gap: 22, paddingTop: 6 }}>
               <Btn href="/get-started" className="rd-btn--inline">Claim your market</Btn>
-              <a href="https://matchhoa.com" className="rd-link rd-link--12" style={{ color: 'var(--alloy-yellow)' }} target="_blank" rel="noopener">matchhoa.com <ArrowIcon /></a>
+              <a href="https://matchhoa.com" className="rd-logo-link" target="_blank" rel="noopener" title="matchhoa.com">
+                <img src="/assets/match-hoa-white.svg" alt="MatchHOA" width={110} height={44} loading="lazy" />
+              </a>
             </div>
           </div>
         </div>

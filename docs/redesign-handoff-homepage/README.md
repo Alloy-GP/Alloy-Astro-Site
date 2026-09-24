@@ -72,7 +72,7 @@ Padding 80px 40px. Grid `1.1fr 1fr`, gap 64, `align-items:stretch`. **Chart left
   - Paid ads: "Average board leads a CAM firm gets running its own Google Ads with an active budget. Paid for, one click at a time."
   - Network: "Boards we bring in through MatchHOA and hand to you at no cost — included as an Alloy partner. Nobody else in your market can buy them."
 
-**Copy right** (vertically centered): eyebrow "NETWORK LEADS · MATCHHOA" (yellow, 28×3 rule) · H2 44px/900 "We run the place boards go to find their next management company." · 17px 85%: "Boards submit on MatchHOA. In your metro, every one goes to you." · row: primary pink **Claim your market** + yellow text link **matchhoa.com →** (external).
+**Copy right** (vertically centered): eyebrow "NETWORK LEADS · MATCHHOA" (yellow, 28×3 rule) · H2 44px/900 "We run the place boards go to find their next management company." · 17px 85%: "Boards submit on MatchHOA. In your metro, every one goes to you." · row: primary pink **Claim your market** + the **MatchHOA wordmark** (`assets/match-hoa-white.svg`, 44px tall, white, links to matchhoa.com in a new tab, 90% opacity → 100% + 1px lift on hover). No text link.
 
 ---
 
@@ -100,7 +100,12 @@ Emphasis ease `cubic-bezier(0.16,1,0.3,1)` for reveals; standard `cubic-bezier(0
 ## Tokens
 Purple `#381c4f` · Pink `#d9356e` (hover `#c12a60`, press `#a82451`) · Yellow `#f5d880` · Blue `#a1c8e7` · Green `#aed7d0` · Off-white `#f8f7fc` · Border `#e8e4ef` · Body `#555` · Purple-90 `#4c3361` · **Success `#16a34a` (new)** · Map base `#2a1440`.
 
+## Changelog (since v1 of this handoff)
+- **MatchHOA logo** replaces the "matchhoa.com →" text link in the Network leads section. Asset: `assets/match-hoa-white.svg` — the client's wordmark with every path hard-filled `#ffffff` (the source SVG shipped with no fills). Also included: `assets/match-hoa-wordmark.svg` (white text + coral `#f47c6c` heart) if a two-tone version is preferred. Copy to `/public/assets/`.
+- **Ledger chart**: "With Alloy" band now starts at x=70 of 500 (~14% in) so a short pre-Alloy flat stretch reads before the climb; line points updated (see §3). Axis labels are Year 1 / Year 2 / Year 3; copy says "three years in."
+
 ## Files
 - `site/index.dc.html` — the homepage (open this)
+- `assets/match-hoa-white.svg`, `assets/match-hoa-wordmark.svg` — MatchHOA logo variants
 - `site/SiteHeader.dc.html`, `site/SiteFooter.dc.html`, `site/alloy-motion.js`, `site/support.js` — required to run it
 - `assets/`, `fonts/`
