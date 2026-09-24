@@ -1,211 +1,174 @@
-// src/components/pages/CourseTrustBuildingPage.tsx
-// Cover page for the Trust-Building course.
+// src/components/pages/CourseTrustBuildingPage.tsx — /resources/courses/trust-building
+// Template 5 — one long-form guide replacing the 10-lesson course + quiz.
+// Layout + hero/TOC/aside/related-service copy from
+// docs/redesign-handoff/site/resources-courses-trust-building.dc.html.
+// Section bodies = each lesson's FULL content from ~/data/courseTrustBuilding
+// (not summarized). Section ids are the old lesson slugs so the 301s from
+// /courses/trust-building/lessons/<slug> land on the right anchor.
+//
+// Static component. The knowledge check is a separate island
+// (~/components/modules/TrustBuildingQuiz, client:visible) passed in as
+// `children` from the route and rendered inside #knowledge-check.
+import type { ReactNode } from 'react';
+import { Breadcrumb, Eyebrow, Label, Btn, CtaBar, TextLink, ArrowIcon } from '~/components/rd/atoms';
+import { LESSONS } from '~/data/courseTrustBuilding';
+import { PINK, BLUE, REACH_INK } from '~/lib/tokens';
 
-const Check = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#d9356e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
-);
+// Label ink for blue-accented cards (the prototype's #4a86ad). Not yet a token.
+const BLUE_INK = '#4a86ad';
 
-export default function CourseTrustBuildingPage() {
+/** Section titles from the prototype TOC, keyed by the (mandatory) lesson slug. */
+const TITLES: Record<string, string> = {
+  'intro': 'Intro to trust-building',
+  'why-trust-signals-matter': 'Why trust signals matter to HOA boards',
+  'what-reviews-are': 'What reviews are — and why they carry weight',
+  'reviews-extra-factors': 'Reviews: extra factors that influence impact',
+  'what-testimonials-are': 'What testimonials are — and why they stand out',
+  'testimonials-extra-factors': 'Testimonials: extra factors that influence impact',
+  'what-case-studies-are': 'What case studies are — and why they convince',
+  'case-studies-extra-factors': 'Case studies: extra factors that influence impact',
+  'recapping-trust-signals': 'Recapping the three trust signals',
+  'from-proof-to-persuasion': 'From proof to persuasion: using trust signals effectively',
+};
+
+const TOC: Array<{ id: string; label: string }> = [
+  ...LESSONS.map((l) => ({ id: l.slug, label: TITLES[l.slug] ?? l.title })),
+  { id: 'knowledge-check', label: 'Knowledge check' },
+];
+
+const KEEP_READING = [
+  { kind: 'Guide', ink: REACH_INK, accent: PINK, meta: 'Long read', title: 'The HOA management software guide.', href: '/resources/hoa-management-software-guide' },
+  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min', title: 'CAM marketing strategy: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
+];
+
+/**
+ * Restyle a lesson's stored HTML for the rd-article column. Content is
+ * untouched; only the wrappers change:
+ *   <h2>                  → <h3 class="rd-h4"> (section title is the h2)
+ *   div.pull-quote        → <blockquote> (.rd-article blockquote)
+ *   div.takeaways block   → off-white rd card with pink label + title
+ * Runs at SSR only (this component ships no client JS).
+ */
+function lessonHtml(html: string): string {
+  return html
+    .replace(/<h2>/g, '<h3 class="rd-h4" style="margin-top:14px">')
+    .replace(/<\/h2>/g, '</h3>')
+    .replace(/<div class="pull-quote">([\s\S]*?)<\/div>/g, '<blockquote>$1</blockquote>')
+    .replace(
+      /<div class="takeaways">\s*<div class="takeaways-eyebrow">([\s\S]*?)<\/div>\s*<div class="takeaways-title">([\s\S]*?)<\/div>\s*<ul>([\s\S]*?)<\/ul>\s*<\/div>/g,
+      (_m, eyebrow: string, title: string, items: string) =>
+        '<div class="rd-card rd-card--off rd-stack rd-stack--10" style="padding:22px 24px;margin-top:6px">' +
+        `<div class="rd-label rd-label--12 rd-label--pink">${eyebrow}</div>` +
+        `<div class="rd-title-18">${title}</div>` +
+        `<ul style="font-size:15px;line-height:1.6">${items}</ul>` +
+        '</div>',
+    )
+    .trim();
+}
+
+function Section({ id, title, children }: { id: string; title: ReactNode; children: ReactNode }) {
+  const n = TOC.findIndex((t) => t.id === id) + 1;
   return (
-    <div className="course-page">
-      {/* HERO */}
-      <section className="hero">
-        <div className="container">
-          <div className="hero-grid">
-            <div>
-              <div className="crumbs">
-                <a href="/courses">Courses</a>
-                <span className="sep">/</span>
-                <span className="here">Building Trust</span>
-              </div>
+    <section id={id} className="rd-article-section">
+      <div className="rd-article-head" style={{ gap: 14 }}>
+        <span className="rd-numeral rd-numeral--36">{String(n).padStart(2, '0')}</span>
+        <h2 className="rd-h3 rd-h3--sm" style={{ lineHeight: 1.2 }}>{title}</h2>
+      </div>
+      {children}
+    </section>
+  );
+}
 
-              <div className="pill-row">
-                <span className="pill">Building Trust</span>
-                <span className="pill level">Foundations</span>
-              </div>
+export default function CourseTrustBuildingPage({ children }: { children?: ReactNode }) {
+  return (
+    <div className="rd-page">
+      <section className="rd-breadcrumb-section">
+        <div className="rd-wrap">
+          <Breadcrumb items={[
+            { label: 'Resources', href: '/resources' },
+            { label: 'Courses', href: '/resources/courses' },
+            { label: 'Trust building', href: '/resources/courses/trust-building' },
+          ]} />
+        </div>
+      </section>
 
-              <h1>Trust-Building for CAM Firms: <em>Reviews, testimonials &amp; case studies.</em></h1>
-
-              <p className="hero-sub">
-                Three trust signals decide whether boards consider you or choose you. This course shows you what each one is, where it shows up in the HOA decision process, and how to put the right proof in front of the right board at the right time.
-              </p>
-
-              <div className="meta-strip">
-                <div className="meta-item"><span className="meta-label">Lessons</span><span className="meta-value">10</span></div>
-                <div className="meta-item"><span className="meta-label">Quiz</span><span className="meta-value">1</span></div>
-                <div className="meta-item"><span className="meta-label">Time</span><span className="meta-value">~60 min</span></div>
-                <div className="meta-item"><span className="meta-label">Level</span><span className="meta-value">Foundations</span></div>
-                <div className="meta-item"><span className="meta-label">Format</span><span className="meta-value">Self-paced</span></div>
-              </div>
-            </div>
-
-            <aside className="enroll-card">
-              <div className="enroll-card-eyebrow">Free • Open registration</div>
-              <div className="enroll-card-price">$0</div>
-              <div className="enroll-card-price-note">No card. No upsell. Just the course.</div>
-
-              <a href="/courses/trust-building/lessons/intro" className="btn btn-primary">Start the course →</a>
-
-              <ul className="enroll-includes">
-                <li><Check />10 short, focused lessons</li>
-                <li><Check />1 knowledge-check quiz</li>
-                <li><Check />Built around HOA board decisions</li>
-                <li><Check />No prerequisites</li>
-              </ul>
-
-              <a href="#curriculum" className="btn btn-ghost">↓ Preview the curriculum</a>
-            </aside>
+      {/* Hero */}
+      <section className="rd-section" style={{ padding: '56px 0 72px' }}>
+        <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
+          <div className="rd-stack" style={{ gap: 28 }}>
+            <Eyebrow>Course · Self-paced</Eyebrow>
+            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 5.9vw, 68px)' }}>Trust building for CAM firms: <span className="rd-accent">reviews, testimonials, case studies.</span></h1>
+          </div>
+          <div className="rd-stack" style={{ gap: 16 }}>
+            <p className="rd-intro" style={{ lineHeight: 1.65 }}>The complete guide — ten sections, one page. How HOA boards weigh the three proof signals, and how to build a system that keeps them current.</p>
+            <div className="rd-tiny rd-w-500">10 sections · ~45 min</div>
           </div>
         </div>
       </section>
 
-      {/* WHY THIS COURSE */}
-      <section className="block">
-        <div className="container">
-          <div className="why-grid">
-            <div>
-              <div className="section-eyebrow">Why this course</div>
-              <div className="why-quote">Trust is the difference between being considered and being chosen.</div>
+      {/* Body */}
+      <section className="rd-section" style={{ paddingTop: 0 }}>
+        <div className="rd-wrap rd-grid rd-grid--article rd-gap-80">
+          <aside className="rd-toc">
+            <nav className="rd-stack" aria-label="On this page" style={{ gap: 13 }}>
+              <Label>On this page</Label>
+              <div className="rd-toc-list" style={{ borderTop: 0 }}>
+                {TOC.map((t) => <a key={t.id} href={`#${t.id}`}>{t.label}</a>)}
+              </div>
+            </nav>
+            <div className="rd-bg-purple rd-ink-white rd-stack" style={{ borderRadius: 10, padding: 22, gap: 12, marginTop: 6 }}>
+              <div className="rd-title-16">Want this done for your firm?</div>
+              <p className="rd-tiny rd-muted-80">Thirty minutes with a CAM operator. Written 90-day plan, yours to keep.</p>
+              <Btn href="/get-started" size="xs">Claim your market</Btn>
             </div>
-            <div className="why-body">
-              <p>HOA boards make high-stakes decisions that affect their communities' finances, property values, and quality of life. Before they award a contract, they're looking for proof you'll deliver — and most CAM firms are showing the wrong proof at the wrong moment.</p>
-              <p>Reviews, testimonials, and case studies aren't interchangeable. Each one carries weight at a different stage of the board's journey. By the end of this course, you'll know which signal to use when — and how to make sure the right one is sitting in front of the right board at the right time.</p>
-            </div>
+          </aside>
+
+          <article className="rd-article" style={{ minWidth: 0 }}>
+            {LESSONS.map((l) => (
+              <Section key={l.slug} id={l.slug} title={TITLES[l.slug] ?? l.title}>
+                <div className="rd-stack rd-stack--18" dangerouslySetInnerHTML={{ __html: lessonHtml(l.bodyHtml) }} />
+                {l.slug === 'from-proof-to-persuasion' ? (
+                  <div className="rd-card rd-card--off rd-stack" style={{ padding: '22px 24px', gap: 8 }}>
+                    <Label tone="pink" size={12}>Related service</Label>
+                    <div className="rd-title-18" style={{ fontSize: 17 }}>Reputation Management</div>
+                    <div className="rd-small rd-small--14" style={{ lineHeight: 1.65 }}>The review system, the responses, and the monitoring — built into your managers’ workflow.</div>
+                    <div><TextLink href="/boardretain/reputation-management" size={12}>See the service</TextLink></div>
+                  </div>
+                ) : null}
+              </Section>
+            ))}
+
+            <Section id="knowledge-check" title="Knowledge check">
+              <p>Five quick questions on what you just read. No login, no email — score yourself.</p>
+              {children}
+            </Section>
+          </article>
+        </div>
+      </section>
+
+      {/* Keep reading */}
+      <section className="rd-section rd-bg-off">
+        <div className="rd-wrap rd-stack rd-stack--24">
+          <Label>Keep reading</Label>
+          <div className="rd-grid rd-grid--3 rd-gap-20">
+            {KEEP_READING.map((k) => (
+              <a key={k.href} href={k.href} className="rd-card" style={{ display: 'flex', flexDirection: 'column', gap: 12, borderLeft: `5px solid ${k.accent}`, padding: '26px 26px 22px 28px' }}>
+                <div className="rd-row rd-row--between">
+                  <span className="rd-label rd-label--12" style={{ color: k.ink }}>{k.kind}</span>
+                  <span className="rd-tiny rd-tiny--12">{k.meta}</span>
+                </div>
+                <div className="rd-title-22 rd-ink" style={{ fontSize: 21 }}>{k.title}</div>
+                <span className="rd-link rd-link--12" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>Read <ArrowIcon /></span>
+              </a>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* WHAT YOU'LL LEARN */}
-      <section className="block alt">
-        <div className="container">
-          <div className="section-eyebrow">What you'll learn</div>
-          <h2 className="section-title">By the end, you'll be able to —</h2>
-          <p className="section-lead">Five concrete capabilities you'll walk away with. Each one ties directly to how boards evaluate firms.</p>
-
-          <div className="objectives">
-            <div className="objective"><div className="objective-num">1</div><div className="objective-text">Define what trust signals are and explain their importance in CAM marketing.</div></div>
-            <div className="objective"><div className="objective-num">2</div><div className="objective-text">Differentiate between reviews, testimonials, and case studies — and the role each plays.</div></div>
-            <div className="objective"><div className="objective-num">3</div><div className="objective-text">Explain why each trust signal matters to HOA boards in their decision-making process.</div></div>
-            <div className="objective"><div className="objective-num">4</div><div className="objective-text">Evaluate how different trust signals support various stages of the board journey.</div></div>
-            <div className="objective"><div className="objective-num">5</div><div className="objective-text">Recognize how showcasing trust signals strengthens credibility and board confidence.</div></div>
-          </div>
-        </div>
-      </section>
-
-      {/* CURRICULUM */}
-      <section className="block" id="curriculum">
-        <div className="container">
-          <div className="section-eyebrow">Course curriculum</div>
-          <h2 className="section-title">Five modules. Ten lessons. One quiz.</h2>
-          <p className="section-lead">Each module unpacks one trust signal — what it is, why it matters, and the extra factors that change its impact.</p>
-
-          <div className="curriculum">
-            {/* Module 1 */}
-            <div className="module">
-              <div className="module-head">
-                <div className="module-mark intro">01</div>
-                <div className="module-info">
-                  <span className="module-tag">Module 1 · Introduction</span>
-                  <span className="module-title">Why trust signals matter to HOA boards</span>
-                </div>
-                <div className="module-meta">2 lessons</div>
-              </div>
-              <div className="module-body">
-                <a className="lesson" href="/courses/trust-building/lessons/intro">
-                  <span className="lesson-num">01</span>
-                  <span className="lesson-title">Intro to <em>Trust-Building for CAM Firms</em></span>
-                  <span className="lesson-type"><span className="dot"></span>Lesson · 4 min</span>
-                </a>
-                <a className="lesson" href="/courses/trust-building/lessons/why-trust-signals-matter">
-                  <span className="lesson-num">02</span>
-                  <span className="lesson-title">Why trust signals matter to HOA boards</span>
-                  <span className="lesson-type"><span className="dot"></span>Lesson · 6 min</span>
-                </a>
-              </div>
-            </div>
-
-            {/* Module 2 */}
-            <div className="module">
-              <div className="module-head">
-                <div className="module-mark reviews">02</div>
-                <div className="module-info">
-                  <span className="module-tag">Module 2 · Reviews</span>
-                  <span className="module-title">Homeowner voices, board decisions</span>
-                </div>
-                <div className="module-meta">2 lessons</div>
-              </div>
-              <div className="module-body">
-                <a className="lesson" href="#"><span className="lesson-num">03</span><span className="lesson-title">What reviews are and why they carry weight</span><span className="lesson-type"><span className="dot"></span>Lesson · 7 min</span></a>
-                <a className="lesson" href="#"><span className="lesson-num">04</span><span className="lesson-title">Reviews: extra factors that influence impact</span><span className="lesson-type"><span className="dot"></span>Lesson · 5 min</span></a>
-              </div>
-            </div>
-
-            {/* Module 3 */}
-            <div className="module">
-              <div className="module-head">
-                <div className="module-mark testimonials">03</div>
-                <div className="module-info">
-                  <span className="module-tag">Module 3 · Testimonials</span>
-                  <span className="module-title">Personal stories that reassure</span>
-                </div>
-                <div className="module-meta">2 lessons</div>
-              </div>
-              <div className="module-body">
-                <a className="lesson" href="#"><span className="lesson-num">05</span><span className="lesson-title">What testimonials are and why they stand out</span><span className="lesson-type"><span className="dot"></span>Lesson · 6 min</span></a>
-                <a className="lesson" href="#"><span className="lesson-num">06</span><span className="lesson-title">Testimonials: extra factors that influence impact</span><span className="lesson-type"><span className="dot"></span>Lesson · 5 min</span></a>
-              </div>
-            </div>
-
-            {/* Module 4 */}
-            <div className="module">
-              <div className="module-head">
-                <div className="module-mark cases">04</div>
-                <div className="module-info">
-                  <span className="module-tag">Module 4 · Case studies</span>
-                  <span className="module-title">Proof boards can see in action</span>
-                </div>
-                <div className="module-meta">2 lessons</div>
-              </div>
-              <div className="module-body">
-                <a className="lesson" href="#"><span className="lesson-num">07</span><span className="lesson-title">What case studies are and why they convince</span><span className="lesson-type"><span className="dot"></span>Lesson · 7 min</span></a>
-                <a className="lesson" href="#"><span className="lesson-num">08</span><span className="lesson-title">Case studies: extra factors that influence impact</span><span className="lesson-type"><span className="dot"></span>Lesson · 6 min</span></a>
-              </div>
-            </div>
-
-            {/* Module 5 */}
-            <div className="module">
-              <div className="module-head">
-                <div className="module-mark conclusion">05</div>
-                <div className="module-info">
-                  <span className="module-tag">Module 5 · Wrap-up</span>
-                  <span className="module-title">From proof to persuasion</span>
-                </div>
-                <div className="module-meta">2 lessons + quiz</div>
-              </div>
-              <div className="module-body">
-                <a className="lesson" href="#"><span className="lesson-num">09</span><span className="lesson-title">Recapping the 3 trust signals</span><span className="lesson-type"><span className="dot"></span>Lesson · 4 min</span></a>
-                <a className="lesson" href="#"><span className="lesson-num">10</span><span className="lesson-title">From proof to persuasion: using trust signals effectively</span><span className="lesson-type"><span className="dot"></span>Lesson · 6 min</span></a>
-                <a className="lesson quiz" href="/courses/trust-building-quiz">
-                  <span className="lesson-num">★</span>
-                  <span className="lesson-title">Check your learning — Trust-Building knowledge check</span>
-                  <span className="lesson-type"><span className="dot"></span>Quiz · 5 min</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="final-cta" id="start">
-        <div className="container-narrow">
-          <div className="final-cta-eyebrow">Ready to start?</div>
-          <h2>Show the right proof at the right moment.</h2>
-          <p>10 lessons. ~60 minutes. No card, no upsell. Just the framework — and a knowledge check at the end.</p>
-          <div className="final-cta-actions">
-            <a href="/courses/trust-building/lessons/intro" className="btn btn-primary-on-dark">Start the course →</a>
-            <a href="/courses" className="btn btn-secondary-on-dark">Browse all courses</a>
-          </div>
+      <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
+        <div className="rd-wrap">
+          <CtaBar text="Thirty minutes tells you which engine to fix first — and whether your metro is open." />
         </div>
       </section>
     </div>
