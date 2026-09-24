@@ -5,8 +5,9 @@ import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
 import { Eyebrow, TextLink, CtaBar, Label, Btn } from '~/components/rd/atoms';
 
-// Trust-bar partner logo. Color version by default; '/assets/innovia-coop-black.png' is the mono alternative.
-const INNOVIA_LOGO = '/assets/innovia-coop.png';
+// Trust-bar partner logo — mono version, softened via .rd-trustbar-items img (see redesign.css).
+// '/assets/innovia-coop.png' is the full-color alternative.
+const INNOVIA_LOGO = '/assets/innovia-coop-black.png';
 
 const ENGINE_BLURB: Record<string, string> = {
   reach: 'Boards find you before they start shopping. Local SEO, AI search, content, ads.',
@@ -25,7 +26,7 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
           <ul className="rd-trustbar-items">
             <li>BBB Accredited</li>
             <li>CAI Member</li>
-            <li><img src={INNOVIA_LOGO} alt="Innovia Co-op" width={465} height={240} loading="lazy" /></li>
+            <li><img src={INNOVIA_LOGO} alt="Innovia Co-op" width={1950} height={950} loading="lazy" /></li>
             <li>35+ years CAM ops</li>
           </ul>
         </div>
