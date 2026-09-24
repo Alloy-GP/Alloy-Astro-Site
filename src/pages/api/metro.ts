@@ -5,20 +5,7 @@
 // LOCK_RADIUS_MI of an existing Alloy partner metro (one CAM firm per metro).
 import type { APIRoute } from 'astro';
 
-interface LockedMetro { label: string; lat: number; lng: number }
-const LOCKED_METROS: LockedMetro[] = [
-  { label: 'Denham Springs, LA', lat: 30.4863, lng: -90.9559 },
-  { label: 'Branford, CT', lat: 41.2793, lng: -72.8151 },
-  { label: 'Orlando, FL', lat: 28.5383, lng: -81.3792 },
-  { label: 'Manchester, NH', lat: 42.9956, lng: -71.4548 },
-  { label: 'Venice, FL', lat: 27.0998, lng: -82.4543 },
-  { label: 'Fredericksburg, VA', lat: 38.3032, lng: -77.4605 },
-  { label: 'Houston, TX', lat: 29.7604, lng: -95.3698 },
-  { label: 'Austin, TX', lat: 30.2672, lng: -97.7431 },
-  { label: 'San Antonio, TX', lat: 29.4241, lng: -98.4936 },
-  { label: 'Owings Mills, MD', lat: 39.4193, lng: -76.7802 },
-];
-const LOCK_RADIUS_MI = 30;
+import { claimStatus } from '~/data/metros';
 
 // Fallback: 3-digit ZIP prefix → [city/state, lat, lng]. Used only when the live lookup fails.
 const PREFIX: Record<string, [string, number, number]> = {
@@ -33,15 +20,6 @@ const PREFIX: Record<string, [string, number, number]> = {
   '850': ['Phoenix, AZ', 33.45, -112.07], '852': ['Phoenix, AZ', 33.45, -112.07], '891': ['Las Vegas, NV', 36.17, -115.14],
   '900': ['Los Angeles, CA', 34.05, -118.24], '921': ['San Diego, CA', 32.72, -117.16], '941': ['San Francisco, CA', 37.77, -122.42], '981': ['Seattle, WA', 47.61, -122.33],
 };
-
-function distanceMi(lat1: number, lng1: number, lat2: number, lng2: number): number {
-  const R = 3958.8;
-  const toRad = (d: number) => (d * Math.PI) / 180;
-  const dLat = toRad(lat2 - lat1);
-  const dLng = toRad(lng2 - lng1);
-  const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
-  return 2 * R * Math.asin(Math.sqrt(a));
-}
 
 const json = (body: unknown, status = 200, cache = false) =>
   new Response(JSON.stringify(body), {
@@ -78,12 +56,6 @@ export const GET: APIRoute = async ({ url }) => {
     [name, lat, lng] = p;
   }
 
-  let nearest: (LockedMetro & { d: number }) | undefined;
-  for (const m of LOCKED_METROS) {
-    const d = distanceMi(lat, lng, m.lat, m.lng);
-    if (!nearest || d < nearest.d) nearest = { ...m, d };
-  }
-  const claimed = !!nearest && nearest.d <= LOCK_RADIUS_MI;
-
-  return json({ zip, name, lat, lng, claimed, ...(claimed && nearest ? { near: nearest.label } : {}) }, 200, true);
+  const status = claimStatus(lat, lng);
+  return json({ zip, name, lat, lng, ...status }, 200, true);
 };

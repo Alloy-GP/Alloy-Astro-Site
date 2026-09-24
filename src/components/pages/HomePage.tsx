@@ -1,9 +1,9 @@
 // src/components/pages/HomePage.tsx — everything on "/" below the hero.
 // Static (no client directive). Copy from docs/redesign-handoff/site/index.dc.html.
-// The webinar email form is an island passed in as `children` from index.astro.
-import type { ReactNode, CSSProperties } from 'react';
+// Islands are passed in as named slots from index.astro: `chart` (NetworkLeadsChart) and `webinar` (WebinarSignup).
+import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
-import { Eyebrow, TextLink, CtaBar, Label } from '~/components/rd/atoms';
+import { Eyebrow, TextLink, CtaBar, Label, Btn, ArrowIcon } from '~/components/rd/atoms';
 
 const ENGINE_BLURB: Record<string, string> = {
   reach: 'Boards find you before they start shopping. Local SEO, AI search, content, ads.',
@@ -11,36 +11,21 @@ const ENGINE_BLURB: Record<string, string> = {
   retain: 'The portfolio you have stays yours. Board education, reputation, newsletters.',
 };
 
-const grow = (w: string, delay?: string): CSSProperties => ({ ['--grow' as string]: w, ...(delay ? { ['--grow-delay' as string]: delay } : {}) } as CSSProperties);
 
-export default function HomePage({ children }: { children?: ReactNode }) {
+export default function HomePage({ chart, webinar }: { chart?: ReactNode; webinar?: ReactNode }) {
   return (
     <div className="rd-page">
-      {/* MatchHOA band */}
-      <section className="rd-section rd-section--tight rd-bg-purple">
-        <div className="rd-wrap rd-grid" style={{ gridTemplateColumns: '1fr 1.2fr', alignItems: 'center' }}>
-          <div className="rd-stack rd-stack--14">
-            <Eyebrow tone="yellow">Where the boards already are</Eyebrow>
-            <h2 className="rd-h2 rd-h2--sm" style={{ color: '#fff' }}>We also run the place boards go to find their next management company.</h2>
-          </div>
-          <div className="rd-stack rd-stack--18">
-            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>MatchHOA connects HOA and condo boards with vetted management firms. Alloy partners get first look at the boards in their metro.</p>
-            <div data-reveal className="rd-inset rd-stack" style={{ gap: 12 }}>
-              <div className="rd-row rd-row--between rd-tiny rd-tiny--12 rd-w-500" style={{ color: '#fff', opacity: .75 }}>
-                <span>Board inquiries per month, same metro</span><span>Alloy partners only</span>
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', gap: '10px 14px', alignItems: 'center', fontSize: 13, fontWeight: 500 }}>
-                <span style={{ opacity: .8 }}>Direct to the CAM firm</span>
-                <div className="rd-bar-track"><div className="rd-bar" data-grow style={{ ...grow('30%', '100ms'), background: 'rgba(255,255,255,.35)' }} /></div>
-                <span className="rd-stat-num rd-stat-num--40" style={{ fontSize: 22, minWidth: 28, textAlign: 'right' }}><span data-count="3">3</span></span>
-                <span>Through MatchHOA</span>
-                <div className="rd-bar-track"><div className="rd-bar rd-bar--yellow" data-grow style={grow('100%', '250ms')} /></div>
-                <span className="rd-stat-num rd-stat-num--40" style={{ fontSize: 22, minWidth: 28, textAlign: 'right', color: 'var(--alloy-yellow)' }}><span data-count="10">10</span></span>
-              </div>
-              <div className="rd-row rd-row--between rd-tiny rd-tiny--12" style={{ color: '#fff', opacity: .75, paddingTop: 4 }}>
-                <span>Only one Alloy partner receives MatchHOA boards per metro.</span>
-                <a href="https://matchhoa.com" className="rd-link rd-link--white rd-link--12" style={{ opacity: 1 }} target="_blank" rel="noopener">matchhoa.com</a>
-              </div>
+      {/* Network leads · MatchHOA */}
+      <section className="rd-section rd-bg-purple" style={{ padding: '80px 0' }}>
+        <div className="rd-wrap rd-grid rd-grid--hero-11" style={{ gap: 64, alignItems: 'stretch' }}>
+          {chart}
+          <div className="rd-stack rd-stack--18" style={{ justifyContent: 'center' }}>
+            <Eyebrow tone="yellow">Network leads · MatchHOA</Eyebrow>
+            <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>We run the place boards go to find their next management company.</h2>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Boards submit on MatchHOA. In your metro, every one goes to you.</p>
+            <div className="rd-row rd-row--wrap" style={{ gap: 22, paddingTop: 6 }}>
+              <Btn href="/get-started" className="rd-btn--inline">Claim your market</Btn>
+              <a href="https://matchhoa.com" className="rd-link rd-link--12" style={{ color: 'var(--alloy-yellow)' }} target="_blank" rel="noopener">matchhoa.com <ArrowIcon /></a>
             </div>
           </div>
         </div>
@@ -51,7 +36,7 @@ export default function HomePage({ children }: { children?: ReactNode }) {
         <div className="rd-wrap rd-stack rd-stack--48">
           <div className="rd-grid rd-grid--2 rd-grid--end">
             <h2 className="rd-h2">The partner ledger.</h2>
-            <p className="rd-body" style={{ lineHeight: 1.55 }}>One CAM company, one metro, eighteen months in. This is what the exclusivity bought them.</p>
+            <p className="rd-body" style={{ lineHeight: 1.55 }}>One CAM company, one metro, three years in. This is what the exclusivity bought them.</p>
           </div>
           <div className="rd-grid rd-grid--2 rd-gap-20">
             <div data-reveal data-stagger className="rd-ledger">
@@ -61,14 +46,14 @@ export default function HomePage({ children }: { children?: ReactNode }) {
               <div className="rd-ledger-quote">“We went from chasing RFPs to having boards reach out directly.” <span className="rd-ink-body" style={{ fontWeight: 400 }}>— CEO, Alloy CAM partner</span></div>
             </div>
             <div data-reveal className="rd-card rd-card--pad rd-stack rd-stack--14">
-              <div className="rd-row rd-row--between rd-tiny rd-tiny--12 rd-w-500"><span>Lead intake, indexed</span><span>2023 → 2025</span></div>
-              <svg viewBox="0 0 500 260" width="100%" style={{ display: 'block', overflow: 'visible', flex: 1 }} role="img" aria-label="Lead intake trend, 2023 to 2025, rising sharply after Alloy engagement">
+              <div className="rd-row rd-row--between rd-tiny rd-tiny--12 rd-w-500"><span>Lead intake, indexed</span><span>Year 1 → Year 3</span></div>
+              <svg viewBox="0 0 500 260" width="100%" style={{ display: 'block', overflow: 'visible', flex: 1 }} role="img" aria-label="Lead intake trend, year one to year three, rising sharply after Alloy engagement">
                 <line x1="0" y1="220" x2="500" y2="220" stroke="#e8e4ef" /><line x1="0" y1="150" x2="500" y2="150" stroke="#e8e4ef" /><line x1="0" y1="80" x2="500" y2="80" stroke="#e8e4ef" /><line x1="0" y1="10" x2="500" y2="10" stroke="#e8e4ef" />
-                <rect x="160" y="0" width="340" height="220" fill="rgba(245,216,128,.18)" data-fade />
-                <text x="168" y="26" fontSize="11" fontWeight="700" fill="#381c4f" fontFamily="Gotham,sans-serif">WITH ALLOY</text>
-                <polyline fill="none" stroke="#381c4f" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round" points="0,214 55,210 110,212 160,204 210,186 270,160 330,124 390,86 450,50 500,20" pathLength={1} data-draw />
+                <rect x="70" y="0" width="430" height="220" fill="rgba(245,216,128,.18)" data-fade />
+                <text x="78" y="26" fontSize="11" fontWeight="700" fill="#381c4f" fontFamily="Gotham,sans-serif">WITH ALLOY</text>
+                <polyline fill="none" stroke="#381c4f" strokeWidth="3.5" strokeLinejoin="round" strokeLinecap="round" points="0,214 35,212 70,211 120,200 170,184 230,160 290,128 350,94 410,60 460,36 500,20" pathLength={1} data-draw />
                 <circle cx="500" cy="20" r="6" fill="#d9356e" data-pop />
-                <text x="0" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">2023</text><text x="238" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">2024</text><text x="474" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">2025</text>
+                <text x="0" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">Year 1</text><text x="228" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">Year 2</text><text x="462" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">Year 3</text>
               </svg>
               <div><TextLink href="/results/apex-cmg" size={12}>Read the full case study</TextLink></div>
             </div>
@@ -136,7 +121,7 @@ export default function HomePage({ children }: { children?: ReactNode }) {
                 <div className="rd-small rd-small--14">For owners and BD leads. Recording sent to everyone who registers.</div>
               </div>
             </div>
-            {children}
+            {webinar}
           </div>
         </div>
       </section>

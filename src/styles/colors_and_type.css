@@ -76,6 +76,11 @@
   --engine-match:        #b8942a;
   --engine-retain:       #3f8f83;
 
+  /* Semantic success (metro "open" state, Claim-it button) + map base (redesign homepage) */
+  --success:             #16a34a;
+  --success-hover:       #15803d;
+  --map-base:            #2a1440;
+
   /* Neutrals */
   --alloy-white:         #ffffff;
   --alloy-off-white:     #f8f7fc; /* Soft page backgrounds */

@@ -42,7 +42,8 @@ src/
 │   │   ├── types.ts                 # ServicePageData / StatItem / ProseSection / Step / Cta
 │   │   ├── property-management-seo.ts, email-marketing.ts, hoa-website-design.ts, … (15 services)
 │   ├── hubs/                        # ONE file per engine hub (HubPageData): boardreach.ts, boardmatch.ts, boardretain.ts (+ types.ts)
-│   └── courseTrustBuilding.ts       # Lesson + quiz content for /resources/courses/trust-building
+│   ├── courseTrustBuilding.ts       # Lesson + quiz content for /resources/courses/trust-building
+│   └── metros.ts                    # Partner metros (claimed) + open metros for the map, lock radius, claimStatus()
 │
 ├── layouts/
 │   └── BaseLayout.astro             # <html>, <head> (SEO, fonts, analytics), SiteHeader (island), <main>, SiteFooter (static), motion <script>
@@ -59,11 +60,12 @@ src/
 │   │   └── HubPage.tsx              # Template 2 — renders a HubPageData object (the 3 engine hubs)
 │   │
 │   ├── sections/
-│   │   ├── HeroStatic.astro         # Homepage hero as static HTML (LCP); takes the MetroChecker island as its slot
+│   │   ├── HeroStatic.astro         # Homepage hero as static HTML (LCP); takes the HeroCard island as its slot
 │   │   ├── Shells.tsx               # LEGACY shells (PageHero, CtaBand, …) — still imported by landing-page code; do not use for new work
 │   │
 │   ├── modules/                     # Interactive islands + self-contained modules
-│   │   ├── MetroChecker.tsx         # Homepage "One firm per metro" ZIP checker (client:load) → /api/metro
+│   │   ├── HeroCard.tsx             # Homepage hero card (client:load): outcome-tile carousel + metro check (ZIP → /api/metro, OSM map strip)
+│   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
 │   │   ├── WebinarSignup.tsx        # Homepage "Save my seat" email capture (client:visible) → /api/subscribe
 │   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe
 │   │   ├── TrustBuildingQuiz.tsx    # Knowledge check at the end of the trust-building guide (client:visible)
@@ -71,7 +73,7 @@ src/
 │   │   └── GrowthPortal / BoardStart pieces live inside their landing-page components
 │   │
 │   ├── pages/                       # ONE component per non-templated page — content only, no layout
-│   │   ├── HomePage.tsx             # /  (everything below the static hero; webinar island passed as children)
+│   │   ├── HomePage.tsx             # /  (below the hero; islands arrive as named slots `chart` + `webinar`)
 │   │   ├── BoardSuitePage.tsx       # /boardsuite            ServicesPage.tsx   # /services
 │   │   ├── PricingPage.tsx          # /pricing (exports PRICING_FAQ)   ResultsPage.tsx  # /results
 │   │   ├── GetStartedPage.tsx       # /get-started (default = static shell; named export GetStartedForm = island → /api/lead)
@@ -89,7 +91,7 @@ src/
 │   ├── AccentBar.tsx, AnimatedNumber.tsx, Button.tsx, EngineLoop.tsx, Eyebrow.tsx, Icon.tsx, PillarMark.tsx, Tag.tsx  # legacy atoms (Icon still used)
 │
 └── pages/                           # Astro routes — thin shells
-    ├── index.astro                  → HeroStatic + MetroChecker island, HomePage + WebinarSignup island
+    ├── index.astro                  → HeroStatic + HeroCard island, HomePage + NetworkLeadsChart/WebinarSignup slots
     ├── boardsuite.astro, services.astro, pricing.astro, results.astro, get-started.astro
     ├── about.astro, about/testimonials.astro, partners.astro, careers.astro, faq.astro, contact.astro, growth-modeled.astro
     ├── privacy-policy.astro, terms-conditions.astro, 404.astro
@@ -151,7 +153,7 @@ Islands inside a static page component are passed as `children` from the route (
 
 ### Tokens (`colors_and_type.css`, mirrored in `lib/tokens.ts`)
 Brand: `--alloy-purple #381c4f` · `--alloy-purple-deep #290d41` · `--alloy-pink #d9356e` (hover `#c12a60`, press `#a82451`) · `--alloy-yellow #f5d880` · `--alloy-blue #a1c8e7` · `--alloy-green #aed7d0` · off-white `#f8f7fc` · border `#e8e4ef` · border-strong `#c9c1d6` · body `#555` · purple-90 `#4c3361`.
-**Engine ink (readable on white):** `--engine-reach #d9356e` · `--engine-match #b8942a` · `--engine-retain #3f8f83`.
+**Engine ink (readable on white):** `--engine-reach #d9356e` · `--engine-match #b8942a` · `--engine-retain #3f8f83`. **Success:** `--success #16a34a` (hover `#15803d`). **Map base:** `--map-base #2a1440`.
 Radius 10 (cards, buttons) / 8 (chips, fields). Shadows `--shadow-sm/md/lg/pink`. Easing `--ease-standard` (120ms hover / 200ms state), `--ease-emphasis` (320ms+ reveals).
 
 ### Heavy weight rule
@@ -164,6 +166,8 @@ The handoff specifies Gotham **900**. This site maps 800 → Gotham-Black and 90
 - **Surfaces:** `.rd-card` (+ `--pad --pad-lg --pad-sm --off --purple --hover`) · `.rd-panel-dark` · `.rd-inset` · `.rd-tile` · `.rd-tag` · `.rd-dot` · rules `.rd-rule-top/-bottom/-right`, `.rd-divider`
 - **Blocks:** `.rd-breadcrumb` · `.rd-statband(--4)` + `.rd-stat` · `.rd-prose-row` · `.rd-outcome` · `.rd-service-cards/.rd-builds` · `.rd-checklist` + `.rd-check` · `.rd-steps(--3)` + `.rd-step` · `.rd-threeup(--dark)` · `.rd-faq` (static list or `<details>` accordion) · `.rd-cta-bar` · `.rd-table(-wrap)` · `.rd-field(-label/-group)` · `.rd-article`, `.rd-toc` · `.rd-aside-card`, `.rd-system-card`, `.rd-proof`, `.rd-engine-tile`, `.rd-pill-link`, `.rd-tiers`, `.rd-bullets`, `.rd-services-grid`, homepage pieces (`.rd-metro`, `.rd-map*`, `.rd-ledger*`, `.rd-news-*`, `.rd-webinar`)
 - **Hover states (site-wide):** pink btn → `#c12a60`, press `#a82451` + 1px down · dark btn → purple-90 · outline → fills purple · text links → pink + underline offset 4px (yellow on purple) · cards → translateY(-2px) + shadow-md + border-strong · chips → purple border, pink text · footer links → yellow.
+
+**Light sections:** every off-white `<section class="rd-bg-off">` (alias `.section-light`) carries the textured treatment — grain, 2px five-color rule, purple wash — from layered `background-image`s; an off-white block directly following another keeps only the grain. Don't stack an off-white spacer above an off-white section unless you want that behavior.
 
 Mobile is not designed; `mobile.css` collapses every `rd-grid--*` to one column ≤980px, steps type down (H1 → 54 / 42 / 36), stacks stat bands and steps, and makes tables scroll. Prefer `rd-grid--*` classes over inline `gridTemplateColumns` so grids stack.
 
@@ -245,4 +249,5 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-09-24 | **Homepage update** from `docs/redesign-handoff-homepage/`: new hero outcomes card (`HeroCard.tsx` — two-page tile carousel + 150px metro map strip with metro dots, pin drop, result pill; replaces `MetroChecker.tsx`), Network-leads column chart with tooltips (`NetworkLeadsChart.tsx`) replacing the MatchHOA bars, ledger copy/chart to Year 1→3, textured light sections site-wide, `--success` token, shared `data/metros.ts` used by `/api/metro`. Hero grid 1.1fr/1fr. Off-white spacers folded into CTA sections in `ServicePage`/`HubPage`. |
 | 2026-09-23 | **Site redesign build (branch `skyleralloygp/site-redesign`).** Added `docs/redesign-handoff/` (prototypes + specs + OPEN-QUESTIONS). New `nav.ts` data model (4-item nav, engines/services). Rewrote `SiteHeader`/`SiteFooter` + `chrome.css`. Added `redesign.css` (`rd-*` system), `lib/motion.ts`, `lib/schema.ts`, engine ink tokens, chevron icons. Added `rd/atoms.tsx`, `rd/ServicePage.tsx`, `rd/HubPage.tsx`; 15 service data files + 3 hub data files. Rebuilt all 40 canonical pages; new `/boardmatch`, `/boardretain`, `/boardreach/hoa-social-media-marketing`, `/resources/cam-marketing-strategy`. Homepage: static hero + `MetroChecker` (new `/api/metro`, Zippopotam + prefix fallback, 30-mi lock radius) + `WebinarSignup`. Trust-building course collapsed to one anchored guide + `TrustBuildingQuiz`. `astro.config.mjs`: sitemap allowlist, 146 chain-free redirects, dropped `/boardmatch` redirect. Deleted 20 legacy routes and 36 unused components. |

@@ -2,7 +2,8 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import HeroStatic from '~/components/sections/HeroStatic.astro';
 import HomePage from '~/components/pages/HomePage';
-import MetroChecker from '~/components/modules/MetroChecker';
+import HeroCard from '~/components/modules/HeroCard';
+import NetworkLeadsChart from '~/components/modules/NetworkLeadsChart';
 import WebinarSignup from '~/components/modules/WebinarSignup';
 // Title + description unchanged from the pre-redesign page (zero SEO regression).
 ---
@@ -14,8 +15,11 @@ import WebinarSignup from '~/components/modules/WebinarSignup';
 >
   <!--
     HeroStatic renders the h1 as pure static HTML (no island wrapper) so Chrome records LCP
-    at HTML parse time. Only the metro checker and the webinar email form hydrate.
+    at HTML parse time. Only the hero outcomes card, the network-leads chart, and the webinar form hydrate.
   -->
-  <HeroStatic><MetroChecker client:load /></HeroStatic>
-  <HomePage><WebinarSignup client:visible /></HomePage>
+  <HeroStatic><HeroCard client:load /></HeroStatic>
+  <HomePage>
+    <NetworkLeadsChart slot="chart" client:visible />
+    <WebinarSignup slot="webinar" client:visible />
+  </HomePage>
 </BaseLayout>

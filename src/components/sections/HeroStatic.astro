@@ -1,14 +1,14 @@
 ---
 // src/components/sections/HeroStatic.astro
 // Homepage hero — static HTML (no React island) so the h1 paints at HTML parse time and
-// Chrome records LCP immediately. The interactive metro checker is passed in as the slot
+// Chrome records LCP immediately. The interactive outcomes card (carousel + metro check) is the slot
 // and hydrates independently (client:load).
 //
 // Usage (src/pages/index.astro):
-//   <HeroStatic><MetroChecker client:load /></HeroStatic>
+//   <HeroStatic><HeroCard client:load /></HeroStatic>
 ---
 <section class="rd-page rd-section rd-section--hero">
-  <div class="rd-wrap rd-grid rd-grid--hero-wide">
+  <div class="rd-wrap rd-grid rd-grid--hero-11">
     <div class="rd-stack rd-stack--32">
       <!-- The keyword line is the page's H1 (styled as the eyebrow); the display headline is an h2. -->
       <h1 class="rd-eyebrow" style="margin:0">Not Just Marketing for HOA Management Companies</h1>

@@ -104,8 +104,7 @@ export default function HubPage({ data }: { data: HubPageData }) {
         </section>
       ) : null}
 
-      <div className="rd-bg-off" style={{ height: 56 }} />
-      <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
+      <section className="rd-section rd-bg-off" style={{ paddingTop: 56 }}>
         <div className="rd-wrap">
           <CtaBar text={data.cta.text} {...(data.cta.label ? { label: data.cta.label } : {})} {...(data.cta.href ? { href: data.cta.href } : {})} />
         </div>

@@ -110,8 +110,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
-      <div className="rd-spacer-96 rd-bg-off" />
-      <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
+      <section className="rd-section rd-bg-off">
         <div className="rd-wrap">
           <CtaBar text={data.cta.text} {...(data.cta.label ? { label: data.cta.label } : {})} {...(data.cta.href ? { href: data.cta.href } : {})} />
         </div>

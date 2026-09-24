@@ -108,3 +108,11 @@ Prototype says "Effective September 2026"; kept the live "Last updated: January 
 
 ## 19. Sitemap
 Allowlist = the 40 canonical routes + `/boardstart` and `/cam-growth-portal` (indexable today, outside the redesign). Remove those two from `SITEMAP_ROUTES` in `astro.config.mjs` if they should not be listed.
+
+
+## 20. Homepage update (docs/redesign-handoff-homepage, built 2026-09-24)
+- **Hero copy conflict.** The update's prototype uses the old subhead ("You know how to manage…") and no eyebrow; your later instruction gave a keyword eyebrow-as-H1 and a new subhead. **Kept your copy.** Say if the prototype's should win.
+- **Illustrative numbers.** Outcome tiles (28 inquiries, #9→#3, 4/4 AI engines, 10 boards) and the network chart (3 vs 10 board leads/month) are placeholders per the README — confirm or replace with reporting data.
+- **Open-metro dots** on the idle map come from a hand-picked list of large metros in `src/data/metros.ts`; the claimed list is the same 10 partner metros as before. Replace both from the CMS when available.
+- **Success green `#16a34a`** added as `--success` / `--success-hover` tokens.
+- **Textured light sections** (grain + 2px five-color rule + wash) now apply to every off-white `<section>` site-wide via `.rd-bg-off` / `.section-light`, as the README asks.
