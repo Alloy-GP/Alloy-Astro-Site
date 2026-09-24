@@ -5,6 +5,9 @@ import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
 import { Eyebrow, TextLink, CtaBar, Label, Btn } from '~/components/rd/atoms';
 
+// Trust-bar partner logo. Color version by default; '/assets/innovia-coop-black.png' is the mono alternative.
+const INNOVIA_LOGO = '/assets/innovia-coop.png';
+
 const ENGINE_BLURB: Record<string, string> = {
   reach: 'Boards find you before they start shopping. Local SEO, AI search, content, ads.',
   match: 'Conversations become signed contracts. Proposals, RFP system, fractional BD.',
@@ -23,7 +26,7 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
             <li>Apex CMG*</li>
             <li>BBB Accredited</li>
             <li>CAI Member</li>
-            <li>Austin · Phoenix · Denver</li>
+            <li><img src={INNOVIA_LOGO} alt="Innovia Co-op" width={465} height={240} loading="lazy" /></li>
             <li>35+ years CAM ops</li>
           </ul>
         </div>

@@ -743,6 +743,9 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 
 /* ---------- Homepage trust bar (below the hero) ---------- */
 .rd-trustbar { background: #fff; border-top: 1px solid var(--border-subtle); padding: 36px 0; }
-.rd-trustbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-.rd-trustbar-label { font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-purple); }
-.rd-trustbar-items { display: flex; flex-wrap: wrap; gap: 14px 48px; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--alloy-purple); }
+.rd-trustbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: nowrap; }
+.rd-trustbar-label { flex: none; white-space: nowrap; font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-purple); }
+.rd-trustbar-items { display: flex; align-items: center; flex-wrap: nowrap; gap: 14px 40px; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--alloy-purple); white-space: nowrap; }
+.rd-trustbar-items li { display: flex; align-items: center; }
+.rd-trustbar-items img { height: 50px; width: auto; display: block; margin: -12px -14px; } /* PNG has ~40% transparent padding; visible mark ≈ 30px */
+.rd-trustbar-items img.is-mono { opacity: .85; }
