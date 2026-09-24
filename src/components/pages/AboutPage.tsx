@@ -1,206 +1,89 @@
-// src/components/pages/AboutPage.tsx — /about
-// Template 6 (Editorial). Layout + copy from docs/redesign-handoff/site/about.dc.html.
-// Absorbs /about/we-know-cam: the "Why CAM-only" section carries the prototype copy plus the
-// WeKnowCam proofs and the Alloy-vs-generic-agency comparison (formerly WeKnowCamPage.tsx).
-// Team section keeps the real partner names/roles/bios and the designed role card
-// (monogram + role icon) in place of the prototype's photo placeholders.
-import type { CSSProperties } from 'react';
+// src/components/pages/AboutPage.tsx
+// Ported from pages.jsx AboutPage().
+import Eyebrow from '~/components/Eyebrow';
+import AccentBar from '~/components/AccentBar';
 import Icon from '~/components/Icon';
-import { Eyebrow, Label, StatBand, CtaBar } from '~/components/rd/atoms';
-import type { StatItem } from '~/data/services/types';
 import { PURPLE, PINK, YELLOW, GREEN } from '~/lib/tokens';
 
-/** Editorial pages set body copy at 1.65 (rd-body/rd-intro default to 1.6, rd-small to 1.55). */
-const LH: CSSProperties = { lineHeight: 1.65 };
-
-const STATS: StatItem[] = [
-  { value: 35, suffix: '+ years', note: 'Combined CAM operations experience across the partners' },
-  { value: 1, suffix: 'industry', note: 'Community association management. Nothing else.' },
-  { value: 1, suffix: 'firm per metro', note: 'Locked by contract for the life of the engagement' },
-];
-
-// From WeKnowCamPage — "35+ yrs" is omitted here because the stat band directly below carries it.
-const PROOFS: Array<{ k: string; v: string; tone: 'pink' | 'yellow' | 'green' }> = [
-  { k: 'Inside ops', v: 'Marketing, learning, and executive functions — not from a brochure, from running them.', tone: 'pink' },
-  { k: 'CAI Member', v: "Engaged with the Community Associations Institute, the industry's governing body.", tone: 'yellow' },
-  { k: 'Operator-built', v: 'Every framework forged inside a real CAM firm before it became a deliverable.', tone: 'green' },
-];
-
-// From WeKnowCamPage — "The honest comparison".
-const VERSUS = [
-  { dim: 'Industry knowledge', us: "We've run CAM ops. We know AAR, AGR, manager-load math, and proposal anatomy.", them: 'Generic playbook adapted from B2B SaaS or local-services campaigns.' },
-  { dim: 'Conflict of interest', us: 'One CAM firm per metro, by contract. Your strategy stays yours.', them: 'Same agency works with three competing firms in one city.' },
-  { dim: 'Sales handoff', us: 'Groundwork prospects, qualifies, hands off with full context.', them: 'A web form lead. Good luck closing it.' },
-  { dim: 'Retention strategy', us: 'BoardRetain protects existing portfolio with education, SOPs, comms.', them: "Retention isn't on the agency's roadmap." },
-  { dim: 'Time to results', us: 'Engineered ramp — first signals in 90 days, compound by month 12.', them: "Month-to-month volume metrics that don't tie to revenue." },
-];
-
-// Real partners (carried from the pre-redesign AboutPage). Each gets a designed role card —
-// not a photo placeholder — until real headshots are commissioned.
-const PARTNERS = [
-  { name: 'Skyler Nelson', role: 'Managing Partner · Marketing', color: PINK, icon: 'target', roleLabel: 'Marketing',
-    bio: 'Spent years inside HOA management running marketing — knows what boards search for, what makes a proposal land, and what fails.' },
-  { name: 'Justin Guenther', role: 'Managing Partner · Learning & Development', color: YELLOW, icon: 'book', roleLabel: 'Learning & Development',
-    bio: 'Built training and education programs inside a management company. Translates that capability into authority content no other agency can produce.' },
-  { name: 'Cameron Lange', role: 'Managing Partner · Executive', color: GREEN, icon: 'compass', roleLabel: 'Executive',
-    bio: "Operated at the executive level inside CAM. Brings the operator's view of growth, retention, and what really drives portfolio value." },
-];
-
-const RULES = [
-  { h: 'One CAM firm per market.', d: 'When you hire us, your competitor can’t. Ask your current agency if they’d agree to that.' },
-  { h: 'All-in pricing.', d: 'The number you see is the number you pay. No rate cards, no scope surprises.' },
-  { h: 'Twelve months minimum.', d: 'Growth compounds. We don’t take engagements too short to prove it.' },
-  { h: 'Outcomes, not deliverables.', d: 'Lead volume, win rate, retention — reported quarterly. Not blog-post counts.' },
-];
-
-const roleStyle: CSSProperties = { fontSize: 13, color: 'var(--alloy-pink)', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', marginTop: 2 };
-
-function RoleCard({ name, color, icon, roleLabel }: { name: string; color: string; icon: string; roleLabel: string }) {
-  const monogram = name.split(' ').map((n) => n[0]).join('');
-  return (
-    // Designed graphic in the prototype's 4:5 photo slot. Icon = the partner's domain
-    // (target = marketing, book = L&D, compass = executive). Swap for <img> headshots later.
-    <div
-      style={{
-        aspectRatio: '4 / 5', borderRadius: 10, position: 'relative', overflow: 'hidden',
-        background: `linear-gradient(135deg, ${color} 0%, ${PURPLE} 130%)`,
-        display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: 22,
-      }}
-    >
-      <div aria-hidden="true" style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18) 0%, transparent 55%), linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.28) 100%)' }} />
-      <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end' }}>
-        <span
-          aria-hidden="true"
-          style={{
-            fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 22, color: '#fff', letterSpacing: '0.02em', opacity: 0.85,
-            background: 'rgba(255,255,255,0.10)', backdropFilter: 'blur(4px)', borderRadius: 999, padding: '4px 10px',
-            border: '1px solid rgba(255,255,255,0.18)',
-          }}
-        >
-          {monogram}
-        </span>
-      </div>
-      <div aria-hidden="true" style={{ position: 'relative', flex: 1, display: 'grid', placeItems: 'center' }}>
-        <div style={{ width: 96, height: 96, borderRadius: '50%', background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.22)', display: 'grid', placeItems: 'center', color: '#fff' }}>
-          <Icon name={icon} size={48} strokeWidth={1.5} />
-        </div>
-      </div>
-      <div style={{ position: 'relative', fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.92)' }}>
-        {roleLabel}
-      </div>
-    </div>
-  );
-}
-
 export default function AboutPage() {
+  // Each partner gets a designed gradient card with an icon representing their role
+  // — not a "photo placeholder" — until real headshots are commissioned.
+  const partners = [
+    { name: 'Skyler Nelson', role: 'Managing Partner · Marketing', color: PINK,
+      icon: 'target', roleLabel: 'Marketing',
+      bio: 'Spent years inside HOA management running marketing — knows what boards search for, what makes a proposal land, and what fails.' },
+    { name: 'Justin Guenther', role: 'Managing Partner · Learning & Development', color: YELLOW,
+      icon: 'book', roleLabel: 'Learning & Development',
+      bio: 'Built training and education programs inside a management company. Translates that capability into authority content no other agency can produce.' },
+    { name: 'Cameron Lange', role: 'Managing Partner · Executive', color: GREEN,
+      icon: 'compass', roleLabel: 'Executive',
+      bio: 'Operated at the executive level inside CAM. Brings the operator\'s view of growth, retention, and what really drives portfolio value.' },
+  ];
+
   return (
-    <div className="rd-page">
-      {/* Hero */}
-      <section className="rd-section rd-section--hero" style={{ paddingBottom: 72 }}>
-        <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
-          <div className="rd-stack" style={{ gap: 28 }}>
-            <Eyebrow>About Alloy</Eyebrow>
-            <h1 className="rd-h1">Operators first. <span className="rd-accent">Marketers second.</span></h1>
-          </div>
-          <div className="rd-stack" style={{ gap: 20 }}>
-            <p className="rd-intro" style={LH}>Alloy was built by people who ran CAM portfolios and got tired of agencies that didn’t know what a reserve study was. We only work in community association management. We only take one firm per metro. That’s the whole model.</p>
+    <>
+      <section className="hero bg-ivory">
+        <div className="hero-bg-grid"></div>
+        <div className="hero-inner" style={{ padding: '80px 32px 64px' }}>
+          <div style={{ maxWidth: 900 }}>
+            <Eyebrow>Who we are</Eyebrow>
+            <h1 className="display-xl" style={{ margin: '16px 0 22px', color: PURPLE }}>
+              Built by three CAM operators who got <span style={{ color: PINK }}>tired of watching firms grow by accident.</span>
+            </h1>
+            <p className="lead">35+ combined years inside a community association management company — running marketing, learning &amp; development, and executive operations. Alloy is the agency we wished existed when we were inside.</p>
           </div>
         </div>
+        <AccentBar height={6} />
       </section>
 
-      {/* Why CAM-only (absorbs /about/we-know-cam) */}
-      <section id="why-cam-only" className="rd-section">
-        <div className="rd-wrap rd-stack" style={{ gap: 72 }}>
-          <div className="rd-grid rd-grid--prose">
-            <div className="rd-stack rd-stack--18">
-              <Eyebrow tone="purple">Why CAM-only</Eyebrow>
-              <h2 className="rd-h2">Generic agencies guess. <span className="rd-accent">We know.</span></h2>
-              <p className="rd-small" style={LH}>The CAM industry has its own language, its own buying cycle, its own board dynamics. An agency that doesn't already know that wastes the first six months learning. We don't have a learning curve.</p>
-            </div>
-            <div className="rd-stack rd-stack--18">
-              <p className="rd-body" style={LH}>An agency that also does dentists and restaurants learns your industry on your retainer. We already know which queries boards type, which directories matter, what a transition plan has to say, and why the renewal decision is made eleven months early.</p>
-              <p className="rd-body" style={LH}>Every process we run — SEO, proposals, newsletters, board education — was built for CAM and nothing else. There is no template we adapt from another category. There is no other category.</p>
-              <p className="rd-body" style={LH}>It also means we can’t hide. If a firm in your metro is growing, boards know who’s behind it. That accountability is the point.</p>
-              <div className="rd-grid rd-grid--3 rd-gap-24" style={{ paddingTop: 18 }}>
-                {PROOFS.map((p) => (
-                  <div key={p.k} className={`rd-proof-item rd-proof-item--${p.tone}`}>
-                    <div className="rd-title-18">{p.k}</div>
-                    <p className="rd-tiny" style={{ marginTop: 8 }}>{p.v}</p>
+      <section className="section section-white">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            {partners.map((p, i) => (
+              <div key={i} className="card card-pad" style={{ display: 'flex', flexDirection: 'column', gap: 16, borderTop: `5px solid ${p.color}` }}>
+                {/* Role card — designed graphic, not a photo placeholder. The icon represents
+                    each partner's domain (target = marketing, book = L&D, compass = executive).
+                    Replace with real headshots when they're commissioned. */}
+                <div style={{
+                  aspectRatio: '1 / 1', borderRadius: 12,
+                  background: `linear-gradient(135deg, ${p.color} 0%, ${PURPLE} 130%)`,
+                  position: 'relative', overflow: 'hidden',
+                  display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+                  padding: 22,
+                }}>
+                  {/* Subtle radial highlight + bottom darken for depth */}
+                  <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 25%, rgba(255,255,255,0.18) 0%, transparent 55%), linear-gradient(180deg, transparent 55%, rgba(0,0,0,0.28) 100%)' }} aria-hidden="true"></div>
+
+                  {/* Monogram — small, top-right, watermark-like */}
+                  <div style={{ position: 'relative', display: 'flex', justifyContent: 'flex-end' }}>
+                    <span style={{
+                      fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 22, color: '#fff',
+                      letterSpacing: '0.02em', opacity: 0.85,
+                      background: 'rgba(255,255,255,0.10)', backdropFilter: 'blur(4px)',
+                      borderRadius: 999, padding: '4px 10px', border: '1px solid rgba(255,255,255,0.18)',
+                    }}>{p.name.split(' ').map(n => n[0]).join('')}</span>
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
 
-          <div className="rd-stack rd-stack--24">
-            <div className="rd-stack rd-stack--10">
-              <Label>The honest comparison</Label>
-              <h3 className="rd-h3">What changes when your agency speaks CAM.</h3>
-            </div>
-            <div className="rd-card rd-table-wrap">
-              <table className="rd-table" style={{ minWidth: 640 }}>
-                <thead>
-                  <tr>
-                    <th style={{ width: '22%' }}>Dimension</th>
-                    <th style={{ width: '39%', color: 'var(--alloy-pink)' }}>Alloy</th>
-                    <th style={{ width: '39%' }}>Generic agency</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {VERSUS.map((r) => (
-                    <tr key={r.dim}>
-                      <td><strong>{r.dim}</strong></td>
-                      <td>{r.us}</td>
-                      <td className="rd-td-muted">{r.them}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+                  {/* Icon — centered hero element, the visual focus */}
+                  <div style={{ position: 'relative', flex: 1, display: 'grid', placeItems: 'center' }} aria-hidden="true">
+                    <div style={{
+                      width: 96, height: 96, borderRadius: '50%',
+                      background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.22)',
+                      display: 'grid', placeItems: 'center', color: '#fff',
+                    }}>
+                      <Icon name={p.icon} size={48} strokeWidth={1.5} />
+                    </div>
+                  </div>
 
-      {/* Stat band */}
-      <section className="rd-section rd-section--band rd-bg-purple">
-        <div className="rd-wrap">
-          <StatBand stats={STATS} />
-        </div>
-      </section>
-
-      {/* The partners */}
-      <section className="rd-section rd-bg-off">
-        <div className="rd-wrap rd-stack rd-stack--40">
-          <Eyebrow>The partners</Eyebrow>
-          <div className="rd-grid rd-grid--3" style={{ gap: 32 }}>
-            {PARTNERS.map((p) => (
-              <div key={p.name} className="rd-stack" style={{ gap: 12 }}>
-                <RoleCard name={p.name} color={p.color} icon={p.icon} roleLabel={p.roleLabel} />
+                  {/* Role caption — bottom-left, tasteful, replaces the "Photo placeholder" text */}
+                  <div style={{ position: 'relative', fontFamily: 'var(--font-display)', fontSize: 11, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.92)' }}>
+                    {p.roleLabel}
+                  </div>
+                </div>
                 <div>
-                  <div className="rd-title-18">{p.name}</div>
-                  <div style={roleStyle}>{p.role}</div>
-                </div>
-                <p className="rd-small rd-small--14" style={LH}>{p.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How we work */}
-      <section className="rd-section">
-        <div className="rd-wrap rd-grid rd-grid--prose">
-          <div className="rd-stack rd-stack--18">
-            <Eyebrow>How we work</Eyebrow>
-            <h2 className="rd-h2">Four rules.</h2>
-          </div>
-          <div className="rd-stack">
-            {RULES.map((r, i) => (
-              <div key={r.h} className="rd-rule-bottom" style={{ display: 'grid', gridTemplateColumns: '64px 1fr', gap: 20, padding: '24px 0' }}>
-                <span className="rd-numeral" style={{ fontSize: 32 }}>{String(i + 1).padStart(2, '0')}</span>
-                <div className="rd-stack rd-stack--6">
-                  <div className="rd-h4">{r.h}</div>
-                  <p className="rd-small" style={LH}>{r.d}</p>
+                  <div className="display-md" style={{ fontSize: 22, color: PURPLE, margin: '8px 0 4px' }}>{p.name}</div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 700, color: p.color === YELLOW ? '#8a6d12' : p.color === GREEN ? '#2c6a62' : PINK, marginBottom: 12 }}>{p.role}</div>
+                  <div style={{ fontSize: 14, color: '#555', lineHeight: 1.6 }}>{p.bio}</div>
                 </div>
               </div>
             ))}
@@ -208,12 +91,37 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="rd-section rd-bg-off">
-        <div className="rd-wrap">
-          <CtaBar text="Thirty minutes with an operator, not a sales rep. If your metro is open, we’ll say so." />
+      <section className="section section-dark">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 80, alignItems: 'start' }}>
+            <div>
+              <Eyebrow onDark>Why we exist</Eyebrow>
+              <h2 className="display-lg" style={{ color: '#fff', margin: '16px 0 0' }}>The problems we kept seeing — every CAM firm, every market.</h2>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
+              {[
+                { h: 'Broken growth engine', d: 'Referrals are unpredictable. Shared lead platforms send the same prospect to five competitors. Websites talk to residents, not boards.' },
+                { h: 'Owner-dependent sales', d: 'Growth stalls when the owner can\'t personally drive every deal. The business is one missed week away from a flat quarter.' },
+                { h: 'Proposal fatigue', d: 'Strong operators losing bids to firms with better positioning, better discovery, better proposals — not better service.' },
+                { h: 'Manager-transition churn', d: 'Associations leaving after a community manager change because there\'s no system holding the relationship together.' },
+              ].map(p => (
+                <div key={p.h} style={{ borderLeft: `3px solid ${PINK}`, paddingLeft: 20 }}>
+                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, color: '#fff', marginBottom: 6 }}>{p.h}</div>
+                  <div style={{ fontSize: 14, color: 'rgba(255,255,255,0.72)', lineHeight: 1.6 }}>{p.d}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
-    </div>
+
+      <section className="section section-ivory">
+        <div className="container-narrow" style={{ textAlign: 'center' }}>
+          <Eyebrow noLine>Our discipline</Eyebrow>
+          <h2 className="display-lg" style={{ margin: '16px auto 14px', color: PURPLE, maxWidth: 700 }}>Strategic. Direct. Insider. Encouraging. Human.</h2>
+          <p className="lead" style={{ margin: '0 auto 0' }}>Five voice pillars that show up in every recommendation, every deliverable, every meeting. We lead with frameworks. We say what we mean. We speak the CAM language. We lift, never lecture. And we're never robotic.</p>
+        </div>
+      </section>
+    </>
   );
 }

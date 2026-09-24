@@ -1,0 +1,42 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import AISearchArticle from '~/components/pages/AISearchArticle';
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'How CAM Firms Win in AI Search',
+  description: "ChatGPT, Perplexity, Gemini, and Google AI Overviews now answer board questions before your website does. Here's how to be the answer they cite.",
+  url: 'https://alloygp.co/resource-hub/ai-search-for-cam',
+  mainEntityOfPage: 'https://alloygp.co/resource-hub/ai-search-for-cam',
+  author: {
+    '@type': 'Person',
+    name: 'Skyler Nelson',
+    jobTitle: 'Managing Partner',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Alloy Growth Partners',
+      url: 'https://alloygp.co',
+    },
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Alloy Growth Partners',
+    url: 'https://alloygp.co',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://alloygp.co/assets/alloy-logo-full-color.svg',
+    },
+  },
+  image: 'https://alloygp.co/assets/alloy-og.png',
+};
+---
+<BaseLayout
+  title="How CAM Firms Win in AI Search — Alloy Resource Hub"
+  description="ChatGPT, Perplexity, Gemini, and Google AI Overviews now answer board questions before your website does. Here's how to be the answer they cite."
+  pageId="resources"
+  ogType="article"
+  pageSchema={articleSchema}
+>
+  <AISearchArticle client:idle />
+</BaseLayout>

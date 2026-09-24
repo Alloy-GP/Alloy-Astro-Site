@@ -1,22 +1,44 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/email-marketing';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
+import ServiceEmailMarketingPage from '~/components/pages/ServiceEmailMarketingPage';
 
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'Done-for-you email marketing built for CAM firms. Drip sequences, board nurture campaigns, and newsletter systems that keep your firm top of mind.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: 'Email Marketing', description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }, { name: data.name, href: data.href }]),
-];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How is email marketing different from Newsletter Production?',
+      acceptedAnswer: { '@type': 'Answer', text: "Newsletter Production is the print + email newsletter engine for your associations — homeowner-facing, monthly, association-by-association. Email Marketing is the broader program: it includes those newsletters but adds board nurture (RFP-stage), new-business cadence (cold pipeline growth), and the segmentation/automation layer that ties them together. Most BoardSuite Engineered tier clients run both." },
+    },
+    {
+      '@type': 'Question',
+      name: 'What email platform do you use for CAM email marketing?',
+      acceptedAnswer: { '@type': 'Answer', text: "We work in your stack — Mailchimp, ActiveCampaign, HubSpot, Brevo, Klaviyo. If you don't have one, we'll spec the right one for your portfolio size and budget. We don't lock you into a proprietary tool." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will boards actually open CAM marketing emails?',
+      acceptedAnswer: { '@type': 'Answer', text: "When the cadence is right and the content is operator-grade. The median open rate on Alloy CAM email programs is 38% — well above the 21% B2B benchmark. The reason: boards already trust your firm and the content is genuinely useful. The wrong cadence kills the engine — that's why we audit first." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you handle homeowner emails too?',
+      acceptedAnswer: { '@type': 'Answer', text: "Yes — that's the operations track. Maintenance announcements, project updates, special-assessment communications, annual meeting notices. CAM-fluent writing your managers don't have time to do well." },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does email marketing fit with BoardSuite?',
+      acceptedAnswer: { '@type': 'Answer', text: "Email Marketing runs across BoardReach (board nurture + new-business cadence) and BoardRetain (homeowner ops). It's the connective tissue between the engines. List growth from BoardReach feeds nurture; nurture ages into BoardMatch proposal stage; ops emails from BoardRetain protect the portfolio." },
+    },
+  ],
+};
 ---
 <BaseLayout
   title="HOA Email Marketing for CAM Companies | Alloy GP"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="Done-for-you email marketing built for CAM firms. Drip sequences, board nurture campaigns, and newsletter systems that keep your firm top of mind."
+  pageId="services"
+  pageSchema={faqSchema}
 >
-  <ServicePage data={data} />
+  <ServiceEmailMarketingPage client:idle />
 </BaseLayout>

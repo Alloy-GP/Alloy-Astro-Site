@@ -2,9 +2,6 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import HeroStatic from '~/components/sections/HeroStatic.astro';
 import HomePage from '~/components/pages/HomePage';
-import MetroChecker from '~/components/modules/MetroChecker';
-import WebinarSignup from '~/components/modules/WebinarSignup';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
 ---
 <BaseLayout
   title="Alloy — One growth partner. Three engines. Exclusively CAM."
@@ -13,9 +10,11 @@ import WebinarSignup from '~/components/modules/WebinarSignup';
   animatedBar={true}
 >
   <!--
-    HeroStatic renders the h1 as pure static HTML (no island wrapper) so Chrome records LCP
-    at HTML parse time. Only the metro checker and the webinar email form hydrate.
+    HeroStatic renders the homepage h1 as pure static HTML — no React island,
+    no hydration wrapper. Chrome records LCP at HTML parse time (~0 ms element
+    render delay) instead of at React's requestIdleCallback (~2,450 ms).
+    HomePagecomponent receives hideHero=true so it skips the duplicate Hero.
   -->
-  <HeroStatic><MetroChecker client:load /></HeroStatic>
-  <HomePage><WebinarSignup client:visible /></HomePage>
+  <HeroStatic />
+  <HomePage client:idle hideHero={true} />
 </BaseLayout>

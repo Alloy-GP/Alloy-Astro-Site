@@ -1,22 +1,108 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/hoa-website-design';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
+import ServiceHOAWebsiteDesignPage from '~/components/pages/ServiceHOAWebsiteDesignPage';
 
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'CAM-specific website design for management firms. Built for boards, RFPs, homeowners, and talent — engineered for 3.2× more proposal requests.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: 'HOA Website Design', description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }, { name: data.name, href: data.href }]),
-];
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'HOA Website Design for Management Companies',
+  serviceType: 'Website design and development for HOA / CAM management firms',
+  provider: {
+    '@type': 'Organization',
+    name: 'Alloy Growth Partners',
+    url: 'https://alloygp.co',
+    logo: 'https://alloygp.co/assets/alloy-logo-full-color.svg',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'United States',
+  },
+  url: 'https://alloygp.co/boardreach/hoa-website-design',
+  description: 'CAM-specific website design and build engineered for four audiences: researching boards, active RFPs, homeowners, and talent. Astro-based, performance-tuned, board-portal compatible.',
+  audience: {
+    '@type': 'BusinessAudience',
+    audienceType: 'Community Association Management companies',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home',        item: 'https://alloygp.co' },
+    { '@type': 'ListItem', position: 2, name: 'BoardReach',  item: 'https://alloygp.co/boardreach' },
+    { '@type': 'ListItem', position: 3, name: 'HOA Website Design', item: 'https://alloygp.co/boardreach/hoa-website-design' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'WordPress, Astro, or something else?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "We build on whatever fits your team's capacity. WordPress with a structured block setup is the right answer for most CAM firms — your marketing person can publish pages without a dev. For larger firms with engineering capacity, headless Astro or Next.js gives speed and AI-search advantages. We'll recommend in the discovery phase, not before.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you redesign without rebuilding?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sometimes. If the existing site has clean structure and CMS, we can rebrand and reorganize without a full rebuild. But most CAM sites we see are 2014–2018 vintage with structural problems no skin can fix. The audit tells us. About one in four engagements ends up redesign-only.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you handle the homeowner portal?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "We integrate with your portal (Vantaca, AppFolio, CINC, FrontSteps, AssociaCONNECT, etc.) — single-sign-on links, deep links to maintenance forms, document download paths. We don't build the portal itself. That's a different category of software.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How much does it cost?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Standard 5–12 page CAM site engagements range from $25K–$75K depending on integrations, content scope, and brand-system depth. We don't ship template-shop sites — every CAM firm gets a designed, written, engineered build. Scope and number on a 30-min call after the audit.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can we keep our current branding?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Yes. We can build the site to your existing identity, or refresh elements that aren't working. A full rebrand is a separate engagement (Branding for HOA Management Companies). Most CAM firms start with a site refresh and discover what their brand needs to do along the way.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What about hosting and ongoing maintenance?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We launch on Vercel (Astro/Next) or a managed WordPress host (WP Engine, Kinsta) of your choice. Ongoing maintenance — security updates, content refreshes, performance monitoring — is bundled into BoardSuite tiers, or available as a standalone retainer.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does this fit with BoardSuite?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Your website is the surface every BoardSuite engine touches. Lead-gen channels send traffic here. AI-search citations point boards here. Authority content lives here. Without a website that converts, the engines fill a leaky bucket. Most BoardSuite engagements include a website build or refresh in the first 90 days.',
+      },
+    },
+  ],
+};
 ---
 <BaseLayout
   title="HOA Website Design for Management Companies | Alloy GP"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="CAM-specific website design for management firms. Built for boards, RFPs, homeowners, and talent — engineered for 3.2× more proposal requests."
+  pageId="services"
+  pageSchema={[serviceSchema, breadcrumbSchema, faqSchema]}
 >
-  <ServicePage data={data} />
+  <ServiceHOAWebsiteDesignPage client:idle />
 </BaseLayout>

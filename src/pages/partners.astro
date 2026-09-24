@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import PartnersPage from '~/components/pages/PartnersPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Static page — no client directive. No pageId (lives in the footer, not the nav).
 ---
 <BaseLayout
   title="Partners | Alloy Growth Partners — CAM Technology & Referral Network"
   description="Direct integrations with Vantaca, AppFolio, Buildium, CINC, TownSq, and more. Vetted referral networks for reserve study, legal, accounting, and crisis. The infrastructure behind every BoardSuite engagement."
+  pageId="about"
 >
-  <PartnersPage />
+  <PartnersPage client:idle />
 </BaseLayout>

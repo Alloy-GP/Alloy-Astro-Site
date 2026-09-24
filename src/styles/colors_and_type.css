@@ -71,11 +71,6 @@
   --alloy-blue:          #a1c8e7; /* Trust, calm, secondary info */
   --alloy-green:         #aed7d0; /* Growth, retention, success */
 
-  /* Engine ink colors — engine labels/numerals readable on white (redesign) */
-  --engine-reach:        #d9356e;
-  --engine-match:        #b8942a;
-  --engine-retain:       #3f8f83;
-
   /* Neutrals */
   --alloy-white:         #ffffff;
   --alloy-off-white:     #f8f7fc; /* Soft page backgrounds */

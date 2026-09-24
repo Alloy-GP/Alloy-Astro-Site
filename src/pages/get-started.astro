@@ -1,15 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import GetStartedPage, { GetStartedForm } from '~/components/pages/GetStartedPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// The page shell is static; only the lead form hydrates (it posts to /api/lead).
+import GetStartedPage from '~/components/pages/GetStartedPage';
 ---
 <BaseLayout
   title="Get Started — Claim Your Market | Alloy"
   description="Diagnostic intake for CAM operators. ZIP market check, portfolio sizing, and engine diagnosis — before the 30-minute strategic review call."
-  pageId="system"
+  pageId="about"
 >
-  <GetStartedPage>
-    <GetStartedForm client:load />
-  </GetStartedPage>
+  <GetStartedPage client:load />
 </BaseLayout>

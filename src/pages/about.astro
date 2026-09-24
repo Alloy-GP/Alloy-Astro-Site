@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import AboutPage from '~/components/pages/AboutPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Static page — no client directive. About lives in the footer, not the nav, so no pageId.
 ---
 <BaseLayout
   title="About Alloy — Built by CAM operators, for CAM operators"
   description="Three CAM operators with 35+ years inside community association management. We built the agency we wished existed when we were inside."
+  pageId="about"
 >
-  <AboutPage />
+  <AboutPage client:idle />
 </BaseLayout>

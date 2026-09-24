@@ -1,22 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/groundwork';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
-
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'Alloy actively prospects on your behalf, qualifies board leads, and hands them off ready to close. Targeted 40–60% qualified-to-close rate.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: data.name, description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardMatch™', href: '/boardmatch' }, { name: data.name, href: data.href }]),
-];
+import GroundworkPage from '~/components/pages/GroundworkPage';
 ---
 <BaseLayout
   title="Groundwork — Fractional Business Development for CAM | Alloy"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="Alloy actively prospects on your behalf, qualifies board leads, and hands them off ready to close. Targeted 40–60% qualified-to-close rate."
+  pageId="services"
 >
-  <ServicePage data={data} />
+  <GroundworkPage client:idle />
 </BaseLayout>

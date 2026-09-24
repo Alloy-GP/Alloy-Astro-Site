@@ -1,22 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/thought-leadership';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
-
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'We turn your principals into voices the industry actually hears — through essays, research, podcasts, and stages. Not content marketing. Industry leadership that buys you a decade of inbound.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: data.name, description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardRetain™', href: '/boardretain' }, { name: data.name, href: data.href }]),
-];
+import ServiceThoughtLeadershipPage from '~/components/pages/ServiceThoughtLeadershipPage';
 ---
 <BaseLayout
   title="Thought Leadership for HOA Management Companies | Alloy GP"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="We turn your principals into voices the industry actually hears — through essays, research, podcasts, and stages. Not content marketing. Industry leadership that buys you a decade of inbound."
+  pageId="services"
 >
-  <ServicePage data={data} />
+  <ServiceThoughtLeadershipPage client:idle />
 </BaseLayout>

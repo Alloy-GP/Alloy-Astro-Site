@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ContactPage from '~/components/pages/ContactPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Island: the contact form needs client-side state + fetch to /api/contact.
-// No pageId (Contact lives in the footer, not the nav).
 ---
 <BaseLayout
   title="Contact Alloy — Claim Your Market"
   description="30 minutes. No pitch. Just diagnostic clarity on which growth engine is leaking and how to fix it."
+  pageId="about"
 >
-  <ContactPage client:load />
+  <ContactPage variant="contact" client:load />
 </BaseLayout>

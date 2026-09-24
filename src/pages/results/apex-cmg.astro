@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import RiseDeepCaseStudy from '~/components/pages/RiseDeepCaseStudy';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Static page — no client directive.
 ---
 <BaseLayout
   title="Apex CMG Case Study — CAM Growth Results — Alloy"
   description="The full Apex CMG story: phase-by-phase build, four engines, deliverables, before/after. 535% lead intake, 3× proposals, 1,580% YoY opportunities."
-  pageId="results"
+  pageId="resources"
 >
-  <RiseDeepCaseStudy />
+  <RiseDeepCaseStudy client:idle />
 </BaseLayout>

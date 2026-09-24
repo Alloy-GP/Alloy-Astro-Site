@@ -1,22 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/rfp-response-system';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
-
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'We author and design your high-stakes proposal end-to-end — strategy memo, fee modeling, transition plan, and selection-meeting coaching. Win the RFP that changes your year.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: data.name, description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardMatch™', href: '/boardmatch' }, { name: data.name, href: data.href }]),
-];
+import ServiceRFPResponsePage from '~/components/pages/ServiceRFPResponsePage';
 ---
 <BaseLayout
   title="RFP Response for HOA Management Companies | Alloy GP"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="We author and design your high-stakes proposal end-to-end — strategy memo, fee modeling, transition plan, and selection-meeting coaching. Win the RFP that changes your year."
+  pageId="services"
 >
-  <ServicePage data={data} />
+  <ServiceRFPResponsePage client:idle />
 </BaseLayout>

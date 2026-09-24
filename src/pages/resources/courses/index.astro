@@ -1,13 +1,12 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import CoursesPage from '~/components/pages/CoursesPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Static page — no client directive; courses.css no longer needed (rd-* classes).
+import '~/styles/courses.css';
 ---
 <BaseLayout
   title="CAM Growth Courses | Alloy"
   description="Free micro-courses for CAM operators. Learn how to win more boards, build trust, and grow your portfolio with field-tested frameworks."
   pageId="resources"
 >
-  <CoursesPage />
+  <CoursesPage client:idle />
 </BaseLayout>

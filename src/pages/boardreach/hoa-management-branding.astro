@@ -1,22 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/hoa-management-branding';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
-
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'Brand strategy and identity design built for CAM firms. Logo, visual system, messaging architecture, and brand guidelines that make your firm look like the market leader.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: 'Branding for CAM', description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }, { name: data.name, href: data.href }]),
-];
+import ServiceBrandingPage from '~/components/pages/ServiceBrandingPage';
 ---
 <BaseLayout
   title="Brand Identity for HOA Management Companies | BoardReach™ | Alloy GP"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="Brand strategy and identity design built for CAM firms. Logo, visual system, messaging architecture, and brand guidelines that make your firm look like the market leader."
+  pageId="services"
 >
-  <ServicePage data={data} />
+  <ServiceBrandingPage client:idle />
 </BaseLayout>

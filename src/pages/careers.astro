@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import CareersPage from '~/components/pages/CareersPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Static page — no client directive. No pageId (lives in the footer, not the nav).
 ---
 <BaseLayout
   title="Careers at Alloy Growth Partners — Join the CAM Industry's Growth Agency"
   description="We're hiring across strategy, design, editorial, and engineering. Remote-first, operator-obsessed, and building the marketing engine for a $9B industry nobody serves well."
+  pageId="about"
 >
-  <CareersPage />
+  <CareersPage client:idle />
 </BaseLayout>

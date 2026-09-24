@@ -1,22 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/proposal-optimization';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
-
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'We rebuild your CAM proposal from a price quote into a board-conversion document. Five-phase system that cuts page count in half and lifts warm-RFP win rates to 47%.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: data.name, description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardMatch™', href: '/boardmatch' }, { name: data.name, href: data.href }]),
-];
+import ServiceProposalOptimizationPage from '~/components/pages/ServiceProposalOptimizationPage';
 ---
 <BaseLayout
   title="Proposal Optimization for HOA Management Companies | Alloy GP"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="We rebuild your CAM proposal from a price quote into a board-conversion document. Five-phase system that cuts page count in half and lifts warm-RFP win rates to 47%."
+  pageId="services"
 >
-  <ServicePage data={data} />
+  <ServiceProposalOptimizationPage client:idle />
 </BaseLayout>

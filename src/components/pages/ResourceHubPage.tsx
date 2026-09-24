@@ -1,112 +1,94 @@
-// src/components/pages/ResourceHubPage.tsx — /resources
-// Template 4 (resources index). Copy from docs/redesign-handoff/site/resources.dc.html.
-// Static component. The newsletter form is a separate island
-// (~/components/modules/NewsletterSignup) passed in as `children` from the
-// route so only the form hydrates.
-import type { ReactNode } from 'react';
-import { Eyebrow, Label, Btn, TextLink } from '~/components/rd/atoms';
-import { PINK, YELLOW, BLUE, GREEN, REACH_INK, MATCH_INK, RETAIN_INK } from '~/lib/tokens';
+// src/components/pages/ResourceHubPage.tsx
+import Eyebrow from '~/components/Eyebrow';
+import Tag from '~/components/Tag';
+import { PageHero, CtaBand } from '~/components/sections/Shells';
+import { PURPLE, PINK, YELLOW, GREEN, BLUE } from '~/lib/tokens';
 
-// Label ink for blue-accented cards (the prototype's #4a86ad). Not yet a token.
-const BLUE_INK = '#4a86ad';
+const tagFor = (color: string) =>
+  color === PINK ? 'pink' : color === YELLOW ? 'yellow' : color === GREEN ? 'green' : 'blue';
 
-interface Resource {
-  kind: string;
-  ink: string;
-  accent: string;
-  meta: string;
-  title: string;
-  href: string;
-}
-
-const SIDE: Resource[] = [
-  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies', href: '/resources/courses/trust-building' },
-  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'CAM marketing strategy: the plan before the tactics', href: '/resources/cam-marketing-strategy' },
-];
-
-const LATEST: Resource[] = [
-  { kind: 'AI search', ink: REACH_INK, accent: PINK, meta: '7 min read', title: 'Boards are asking ChatGPT who manages HOAs in their city. Is your firm the answer?', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Local', ink: BLUE_INK, accent: BLUE, meta: '5 min read', title: 'Why the map pack now decides your shortlist before the RFP does.', href: '/property-management-seo' },
-  { kind: 'Tips', ink: MATCH_INK, accent: YELLOW, meta: 'Checklist', title: 'Five things a CAM firm can fix this quarter without an agency.', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Sales', ink: MATCH_INK, accent: YELLOW, meta: '8 min read', title: 'Closing one in four? Here’s what the firms at one in two do differently.', href: '/boardmatch/proposal-optimization' },
-  { kind: 'Retention', ink: RETAIN_INK, accent: GREEN, meta: '6 min read', title: 'The renewal conversation starts eleven months early.', href: '/boardretain/newsletter-production' },
-  { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
-];
-
-function ResourceCard({ r }: { r: Resource }) {
+export default function ResourceHubPage() {
+  const featured = [
+    { type: 'Article', color: PINK, title: 'How CAM Firms Win in AI Search', excerpt: "ChatGPT, Perplexity, Gemini, Google AI Overviews — being cited is the new being on page one. Here's how to be the answer.", href: '/resource-hub/ai-search-for-cam', read: '9 min' },
+    { type: 'Article', color: YELLOW, title: 'The CAM Marketing Strategy That Actually Compounds', excerpt: "Why 'do more marketing' fails and what an engineered, system-first growth strategy looks like over 18 months.", href: '/resource-hub/cam-marketing-strategy', read: '11 min' },
+    { type: 'Micro-course', color: GREEN, title: 'Building Trust as a CAM', excerpt: '6 lessons + knowledge check. Free. Why trust — not service quality — decides which CAM firms boards renew, refer, and rave about.', href: '/courses/trust-building', read: '6 lessons' },
+  ];
+  const more = [
+    { type: 'Buyer\'s guide', color: BLUE, title: 'HOA Management Software: 2026 Buyer\'s Guide for CAM Firms', read: '12 min', href: '/resources/hoa-management-software-guide' },
+    { type: 'Article', color: PINK, title: 'The 26 questions every board really wants answered', read: '8 min' },
+    { type: 'Field guide', color: BLUE, title: 'Manager-transition checklist that prevents account churn', read: '6 min' },
+    { type: 'Article', color: YELLOW, title: 'Why your proposal loses before you submit it', read: '10 min' },
+    { type: 'Micro-course', color: GREEN, title: 'Build your authority library in 30 days', read: '5 lessons' },
+    { type: 'Article', color: PINK, title: 'What boards search for at 11pm on a Tuesday', read: '7 min' },
+    { type: 'Field guide', color: YELLOW, title: 'Proposal anatomy that wins 1-in-2 RFPs', read: '12 min' },
+  ];
   return (
-    <div
-      className="rd-stack"
-      style={{ background: '#fff', borderRadius: 10, borderLeft: `5px solid ${r.accent}`, padding: '26px 26px 22px 28px', boxShadow: 'var(--shadow-sm)', gap: 12 }}
-    >
-      <div className="rd-row rd-row--between">
-        <span className="rd-label rd-label--12" style={{ color: r.ink }}>{r.kind}</span>
-        <span className="rd-tiny rd-tiny--12">{r.meta}</span>
-      </div>
-      <div className="rd-title-22 rd-ink" style={{ fontSize: 21 }}>{r.title}</div>
-      <div style={{ marginTop: 'auto' }}><TextLink href={r.href} size={12}>Read</TextLink></div>
-    </div>
-  );
-}
-
-export default function ResourceHubPage({ children }: { children?: ReactNode }) {
-  return (
-    <div className="rd-page">
-      {/* Hero */}
-      <section className="rd-section rd-section--hero" style={{ paddingBottom: 64 }}>
-        <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
-          <div className="rd-stack" style={{ gap: 28 }}>
-            <Eyebrow>Resources</Eyebrow>
-            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 7.25vw, 84px)' }}>Field notes for <span className="rd-accent">CAM operators.</span></h1>
-          </div>
-          <p className="rd-intro">Guides, courses, and articles on how boards find, choose, and keep management companies — written by people who have run portfolios, not marketers guessing at the category.</p>
-        </div>
-      </section>
-
-      {/* Featured guide + course + strategy */}
-      <section className="rd-section" style={{ paddingTop: 0 }}>
-        <div className="rd-wrap">
-          <div className="rd-grid rd-grid--hero-wide rd-gap-20 rd-rule-top" style={{ paddingTop: 48 }}>
-            <div className="rd-bg-purple rd-ink-white rd-stack rd-stack--18" style={{ borderRadius: 10, padding: 40, minHeight: 340 }}>
-              <Label tone="yellow" size={12}>Featured guide</Label>
-              <div className="rd-h2 rd-h2--sm">The HOA management software guide.</div>
-              <p className="rd-body rd-body--16 rd-muted-85" style={{ maxWidth: 520 }}>Vantaca, AppFolio, Buildium, CINC and the rest — compared the way an operator compares them, with what each one means for boards, owners, and your marketing stack.</p>
-              <Btn href="/resources/hoa-management-software-guide" size="sm" style={{ padding: '14px 22px', marginTop: 'auto', alignSelf: 'flex-start' }}>Read the guide</Btn>
-            </div>
-            <div className="rd-stack rd-gap-20">
-              {SIDE.map((r) => <ResourceCard key={r.title} r={r} />)}
-            </div>
+    <>
+      <PageHero
+        eyebrow="Resource Hub"
+        h1={<>Field-tested playbooks for <span style={{ color: PINK }}>CAM operators.</span></>}
+        sub="Everything we've learned engineering growth for community association management firms — articles, micro-courses, frameworks, and field guides. Free. Built by people who lived inside CAM."
+      />
+      <section className="section section-white">
+        <div className="container">
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: 24, marginBottom: 48 }}>
+            {featured.map((it, i) => {
+              const isHero = i === 0;
+              return (
+                <a key={it.title} href={it.href} className="card" style={{
+                  display: 'flex', flexDirection: 'column', textDecoration: 'none',
+                  background: isHero ? `linear-gradient(135deg, ${PURPLE} 0%, #290d41 100%)` : '#fff',
+                  color: isHero ? '#fff' : 'inherit',
+                  gridRow: isHero ? 'span 2' : 'auto',
+                  padding: 32, gap: 16,
+                  border: isHero ? 'none' : '1px solid var(--border-subtle)',
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Tag color={tagFor(it.color) as any}>{it.type}</Tag>
+                    <span style={{ fontSize: 12, color: isHero ? 'rgba(255,255,255,0.7)' : '#888', fontFamily: 'var(--font-display)' }}>{it.read}</span>
+                  </div>
+                  <div style={{
+                    fontFamily: 'var(--font-display)', fontWeight: 800, lineHeight: 1.15, letterSpacing: '-0.02em',
+                    fontSize: isHero ? 36 : 22,
+                    color: isHero ? '#fff' : PURPLE,
+                  }}>{it.title}</div>
+                  <div style={{ fontSize: 14, color: isHero ? 'rgba(255,255,255,0.78)' : '#555', lineHeight: 1.6 }}>{it.excerpt}</div>
+                  <div style={{ marginTop: 'auto', paddingTop: 12, fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: it.color }}>Read →</div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
-
-      {/* Latest */}
-      <section className="rd-section rd-bg-off">
-        <div className="rd-wrap rd-stack" style={{ gap: 36 }}>
-          <div className="rd-grid rd-grid--2 rd-grid--end">
-            <h2 className="rd-h2">Latest.</h2>
-            <p className="rd-body">What’s changing in how boards search, shop, and decide — and what to do about it this quarter.</p>
+      <section className="section section-ivory">
+        <div className="container">
+          <div style={{ marginBottom: 32 }}>
+            <Eyebrow>More from the hub</Eyebrow>
+            <h2 className="display-lg" style={{ margin: '14px 0 0', color: PURPLE }}>Recent articles & guides.</h2>
           </div>
-          <div className="rd-grid rd-grid--3 rd-gap-20">
-            {LATEST.map((r) => <ResourceCard key={r.title} r={r} />)}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
+            {more.map(it => {
+              const cardStyle: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: 12, textDecoration: 'none', color: 'inherit' };
+              const inner = (
+                <>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                    <Tag color={tagFor(it.color) as any}>{it.type}</Tag>
+                    <span style={{ fontSize: 12, color: '#888', fontFamily: 'var(--font-display)' }}>{it.read}</span>
+                  </div>
+                  <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, color: PURPLE, letterSpacing: '-0.01em', lineHeight: 1.3 }}>{it.title}</div>
+                  <div style={{ marginTop: 'auto', fontFamily: 'var(--font-display)', fontSize: 12, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', color: it.color }}>
+                    {'href' in it ? 'Read →' : 'Coming soon'}
+                  </div>
+                </>
+              );
+              return 'href' in it
+                ? <a key={it.title} href={(it as any).href} className="card card-pad" style={cardStyle}>{inner}</a>
+                : <div key={it.title} className="card card-pad" style={cardStyle}>{inner}</div>;
+            })}
           </div>
-          <div><TextLink href="/resources" size={12}>All articles</TextLink></div>
         </div>
       </section>
-
-      {/* Newsletter */}
-      <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
-        <div className="rd-wrap">
-          <div className="rd-card rd-card--pad-lg rd-row rd-row--between rd-row--wrap" style={{ gap: 40 }}>
-            <div className="rd-stack rd-stack--6">
-              <Label tone="pink" size={12}>The Alloy briefing</Label>
-              <div className="rd-title-22 rd-ink" style={{ fontSize: 24 }}>CAM growth, engineered — in your inbox.</div>
-              <p className="rd-small rd-small--14">One short email every other Tuesday. Attract, close, keep. No fluff.</p>
-            </div>
-            {children}
-          </div>
-        </div>
-      </section>
-    </div>
+      <CtaBand headline="Want this in your inbox?" sub="One thoughtful piece per month. No filler, no upsells. Unsubscribe anytime." primary="Subscribe" primaryHref="/strategic-review-request" />
+    </>
   );
 }

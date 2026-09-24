@@ -1,15 +1,44 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import PricingPage, { PRICING_FAQ } from '~/components/pages/PricingPage';
-import { faqSchema } from '~/lib/schema';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// FAQPage schema is built from the same items rendered in the visible FAQ.
+import PricingPage from '~/components/pages/PricingPage';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Why is there a 12-month minimum for Alloy engagements?',
+      acceptedAnswer: { '@type': 'Answer', text: "Marketing systems compound. Months 1–3 are build. Months 4–6 are tuning. Months 7–12 are when the data actually starts answering questions. Anything shorter is paying for setup costs without seeing the return — and we're not in the business of selling that." },
+    },
+    {
+      '@type': 'Question',
+      name: "What does 'all-in' pricing actually mean?",
+      acceptedAnswer: { '@type': 'Answer', text: "The retainer covers every deliverable in your tier — content production, paid spend management (not media spend itself), design, dev, strategy. There is no per-asset fee, no surcharge for revisions, no 'agency hours' meter. Media spend (Google Ads budget, mail-house print, etc.) is billed at cost, separately." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can we mix and match across BoardSuite pricing tiers?',
+      acceptedAnswer: { '@type': 'Answer', text: "Selectively, yes — usually as add-ons to Foundation or Growth. Common requests: Foundation + Newsletter Production, or Growth + Fractional BD. We'll quote those at the Strategic Review based on scope. We don't unbundle Scale because the integrations are what make it Scale." },
+    },
+    {
+      '@type': 'Question',
+      name: "What's the off-ramp if the engagement isn't working?",
+      acceptedAnswer: { '@type': 'Answer', text: "At month 6 we run a formal joint review against the outcomes set in your engagement letter. If we're materially behind, you can either renegotiate scope or terminate without penalty. Five years in, we've activated this clause twice — both times it was the right call." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Alloy take equity or revenue share?',
+      acceptedAnswer: { '@type': 'Answer', text: "No. Cash retainer only. We've turned down equity offers because alignment-via-incentives is a story we don't believe — alignment-via-results is the only one that holds up. Our outcomes show up monthly; so does the invoice." },
+    },
+  ],
+};
 ---
 <BaseLayout
   title="Pricing — BoardSuite Plans | Alloy GP"
   description="Transparent, all-in pricing for CAM growth. Three BoardSuite tiers — Foundation, Growth, Scale — one CAM firm per market. No rate cards, no surprise fees."
-  pageId="pricing"
-  pageSchema={faqSchema(PRICING_FAQ)}
+  pageId="services"
+  pageSchema={faqSchema}
 >
-  <PricingPage />
+  <PricingPage client:idle />
 </BaseLayout>

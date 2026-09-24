@@ -27,7 +27,6 @@
 import '../styles/colors_and_type.css';
 import '../styles/site.css';
 import '../styles/chrome.css';
-import '../styles/redesign.css';
 import '../styles/mobile.css';
 
 import SpeedInsights from '@vercel/speed-insights/astro';
@@ -244,11 +243,6 @@ const orgLd = {
     <main>
       <slot />
     </main>
-    {!hideFooter && <SiteFooter animatedBar={animatedBar} />}
-    <!-- Scroll-reveal motion (data-reveal contract) — see src/lib/motion.ts -->
-    <script>
-      import { initMotion } from '~/lib/motion';
-      initMotion();
-    </script>
+    {!hideFooter && <SiteFooter animatedBar={animatedBar} client:visible />}
   </body>
 </html>

@@ -1,22 +1,44 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/annual-report-production';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
+import ServiceAnnualReportPage from '~/components/pages/ServiceAnnualReportPage';
 
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = "Transform your CAM firm's annual report from a compliance packet into a retention asset. Designed reports, plain-English narrative, multi-channel delivery.";
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: data.name, description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardRetain™', href: '/boardretain' }, { name: data.name, href: data.href }]),
-];
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How is the Alloy annual report different from our required annual disclosure?',
+      acceptedAnswer: { '@type': 'Answer', text: "We layer on top of your compliance disclosure — we don't replace it. Required state and CC&R disclosures are reproduced verbatim per your counsel. The Alloy work is the narrative wrapper, the design system, and the multi-channel distribution that turns the legal document into something homeowners read." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Who writes the HOA annual report?',
+      acceptedAnswer: { '@type': 'Answer', text: "Alloy editorial team writes; your manager and board chair are interviewed and quoted. The board chair letter is ghost-written and voice-matched, then approved verbatim before publication. We don't put words in board mouths — we shape the words they already use into a piece they're proud to sign." },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the timeline for HOA annual report production?',
+      acceptedAnswer: { '@type': 'Answer', text: "Standard production runs 6–8 weeks from intake to delivered files. We recommend kicking off 10 weeks before your annual meeting. Rush production (4 weeks) available with a surcharge — but we'll tell you honestly if it's worth it." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you do annual reports for a single property or only firm-wide?',
+      acceptedAnswer: { '@type': 'Answer', text: "Both. Single-property reports run $8K–$18K depending on scope and photography. Firm-wide programs (10+ properties on a templated system) drop to $4K–$8K per property after the system is built. Most ROI is in the firm-wide model." },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does annual report production fit with BoardSuite?',
+      acceptedAnswer: { '@type': 'Answer', text: "Annual reports are a BoardRetain (Keep) flagship. They're the single most-forwarded artifact a board sends to other boards — which means they double as a BoardReach (Attract) tool. Operators running this program report 1.7x higher board renewal probability and meaningful inbound from other associations." },
+    },
+  ],
+};
 ---
 <BaseLayout
   title="HOA Annual Report Production | BoardRetain™ | Alloy GP"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="Transform your CAM firm's annual report from a compliance packet into a retention asset. Designed reports, plain-English narrative, multi-channel delivery."
+  pageId="services"
+  pageSchema={faqSchema}
 >
-  <ServicePage data={data} />
+  <ServiceAnnualReportPage client:idle />
 </BaseLayout>

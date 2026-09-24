@@ -1,14 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import HubPage from '~/components/rd/HubPage';
-import data from '~/data/hubs/boardreach';
-import { breadcrumbSchema } from '~/lib/schema';
+import CamMarketingPage from '~/components/pages/CamMarketingPage';
 ---
 <BaseLayout
   title="BoardReach™ — CAM Marketing Services | Alloy"
   description="Full-service marketing built for HOA management firms — SEO, social, email, content, video, and paid acquisition in one connected system."
-  pageId="system"
-  pageSchema={breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }])}
+  pageId="services"
 >
-  <HubPage data={data} />
+  <CamMarketingPage client:idle />
 </BaseLayout>

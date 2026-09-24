@@ -1,46 +1,24 @@
-// src/components/pages/ContactPage.tsx — /contact
-// Template 6 (Editorial). Layout + copy from docs/redesign-handoff/site/contact.dc.html.
-// Form logic carried over from the pre-redesign page: POSTs FormData to /api/contact with
-// name / email / message / subscribe / source (page URL + referrer + UTMs). /api/contact only
-// accepts those fields, so the prototype's Company + "reaching out about" fields are appended
-// to the message body rather than sent as new keys. Hydrated with client:load (see contact.astro).
+// src/components/pages/ContactPage.tsx
 import { useState, useEffect } from 'react';
-import type { CSSProperties, ChangeEvent, FormEvent, ReactNode } from 'react';
-import { Eyebrow, Btn, CheckIcon } from '~/components/rd/atoms';
+import type { ChangeEvent } from 'react';
+import Eyebrow from '~/components/Eyebrow';
+import Button from '~/components/Button';
+import Icon from '~/components/Icon';
+import { PURPLE, PINK, YELLOW } from '~/lib/tokens';
 
-const LH: CSSProperties = { lineHeight: 1.65 };
+interface ContactFormState { name: string; email: string; message: string; subscribe: boolean; }
+interface LeadFormState { name: string; email: string; company: string; units: string; goal: string; }
+interface Props { variant?: 'contact' | 'lead'; }
 
-const TOPICS = ['General question', 'Partnerships', 'Press', 'Careers'] as const;
-
-interface ContactFormState {
-  name: string;
-  email: string;
-  company: string;
-  topic: string;
-  message: string;
-  subscribe: boolean;
-}
-
-const DETAILS: Array<{ label: string; value: ReactNode }> = [
-  { label: 'Email', value: <a href="mailto:contact@alloygp.co" className="rd-ink" style={{ textDecoration: 'none' }}>contact@alloygp.co</a> },
-  { label: 'Phone', value: <a href="tel:+12108455989" className="rd-ink" style={{ textDecoration: 'none' }}>210-845-5989</a> },
-  { label: 'Office', value: 'Austin, TX · Serving CAM nationwide' },
-  { label: 'Credentials', value: 'BBB Accredited · CAI Member' },
-];
-
-const detailLabel: CSSProperties = { fontWeight: 700, fontSize: 11, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--alloy-body-gray)', paddingTop: 3 };
-const fieldLabel: CSSProperties = { fontSize: 11, letterSpacing: '.1em' };
-const fieldGroup: CSSProperties = { gap: 6 };
-const span2: CSSProperties = { gridColumn: '1 / -1' };
-
-export default function ContactPage() {
+export default function ContactPage({ variant = 'lead' }: Props) {
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState<ContactFormState>({ name: '', email: '', company: '', topic: TOPICS[0], message: '', subscribe: false });
+
+  const [contactForm, setContactForm] = useState<ContactFormState>({ name: '', email: '', message: '', subscribe: false });
+  const [leadForm, setLeadForm] = useState<LeadFormState>({ name: '', email: '', company: '', units: '', goal: '' });
   const [sourceData, setSourceData] = useState('');
 
-  // Attribution: page URL, referrer, and UTMs travel with every submission (unchanged).
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
@@ -53,29 +31,35 @@ export default function ContactPage() {
     setSourceData(parts.join('\n'));
   }, []);
 
-  const update = <K extends keyof ContactFormState>(k: K, v: ContactFormState[K]) =>
-    setForm(f => ({ ...f, [k]: v }));
+  const updateContact = (k: keyof ContactFormState, v: string | boolean) =>
+    setContactForm(f => ({ ...f, [k]: v }));
+  const updateLead = (k: keyof LeadFormState, v: string) =>
+    setLeadForm(f => ({ ...f, [k]: v }));
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError('');
 
-    // Only decorate a non-empty message, so /api/contact's "message required" check still applies.
-    const extra = [`Reaching out about: ${form.topic}`, form.company.trim() ? `Company: ${form.company.trim()}` : null]
-      .filter(Boolean)
-      .join('\n');
-    const message = form.message.trim() ? `${form.message}\n\n—\n${extra}` : form.message;
-
     const fd = new FormData();
-    fd.append('name', form.name);
-    fd.append('email', form.email);
-    fd.append('message', message);
-    fd.append('subscribe', form.subscribe ? 'true' : 'false');
+    const endpoint = variant === 'contact' ? '/api/contact' : '/api/lead';
+
+    if (variant === 'contact') {
+      fd.append('name', contactForm.name);
+      fd.append('email', contactForm.email);
+      fd.append('message', contactForm.message);
+      fd.append('subscribe', contactForm.subscribe ? 'true' : 'false');
+    } else {
+      fd.append('name', leadForm.name);
+      fd.append('email', leadForm.email);
+      fd.append('company', leadForm.company);
+      fd.append('units', leadForm.units);
+      fd.append('goal', leadForm.goal);
+    }
     fd.append('source', sourceData);
 
     try {
-      const res = await fetch('/api/contact', { method: 'POST', body: fd });
+      const res = await fetch(endpoint, { method: 'POST', body: fd });
       let json: Record<string, string> = {};
       try { json = await res.json(); } catch { /* non-JSON body */ }
       if (!res.ok) {
@@ -90,98 +74,179 @@ export default function ContactPage() {
     }
   };
 
-  return (
-    <div className="rd-page">
-      <section className="rd-section rd-section--hero">
-        <div className="rd-wrap rd-grid rd-grid--2 rd-gap-80" style={{ alignItems: 'start' }}>
-          {/* Left: intro + details */}
-          <div className="rd-stack rd-stack--40">
-            <div className="rd-stack" style={{ gap: 28 }}>
-              <Eyebrow>Contact</Eyebrow>
-              <h1 className="rd-h1 rd-h1--lg">Talk to an <span className="rd-accent">operator.</span></h1>
-              <p className="rd-intro" style={LH}>General questions, partnerships, press, and careers. If you’re a CAM owner wondering whether your metro is open, the Strategic Review is the faster path.</p>
-            </div>
-            <div className="rd-stack rd-rule-top" style={{ gap: 22, paddingTop: 32 }}>
-              {DETAILS.map((d) => (
-                <div key={d.label} style={{ display: 'grid', gridTemplateColumns: '120px 1fr', gap: 16, fontSize: 15 }}>
-                  <span style={detailLabel}>{d.label}</span>
-                  <span className="rd-ink rd-w-500">{d.value}</span>
-                </div>
-              ))}
-            </div>
-            <div className="rd-row rd-row--between rd-row--wrap" style={{ background: 'var(--alloy-off-white)', borderRadius: 10, padding: '22px 24px', gap: 16 }}>
-              <div className="rd-ink rd-w-500" style={{ fontSize: 14, lineHeight: 1.5 }}>CAM owner? Skip the form.</div>
-              <Btn href="/get-started" size="sm" className="rd-btn--inline" style={{ padding: '12px 18px' }}>Claim your market</Btn>
-            </div>
-          </div>
+  const isContact = variant === 'contact';
 
-          {/* Right: form card */}
-          <div className="rd-card rd-card--off contact-form-card rd-stack" style={{ padding: 36, gap: 22 }}>
+  return (
+    <section style={{ background: PURPLE, minHeight: 'calc(100vh - 80px)', color: '#fff', padding: '80px 0', position: 'relative', overflow: 'hidden' }}>
+      {/* Subtle gradient — pulled WAY back so the field reads as deep purple, not pink-washed. */}
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 92% 8%, rgba(217,53,110,0.14) 0%, transparent 38%), radial-gradient(circle at 8% 95%, rgba(245,216,128,0.05) 0%, transparent 45%)' }}></div>
+
+      <div className="container" style={{ position: 'relative', maxWidth: 1080, margin: '0 auto' }}>
+
+        {/* Title block — centered above the form */}
+        <div style={{ textAlign: 'center', maxWidth: 760, margin: '0 auto 48px' }}>
+          <Eyebrow onDark noLine>{isContact ? 'Get In Touch' : 'Claim Your Market'}</Eyebrow>
+          <h1 className="display-xl" style={{ margin: '16px 0 20px', color: '#fff' }}>
+            {isContact ? (
+              <>Let's talk.<br /><span style={{ color: YELLOW }}>Real humans, real replies.</span></>
+            ) : (
+              <>30 minutes. No pitch.<br /><span style={{ color: YELLOW }}>Just diagnostic clarity.</span></>
+            )}
+          </h1>
+          <p className="lead on-dark" style={{ margin: 0 }}>
+            {isContact
+              ? "Have a question or just want to connect? Send us a message and we'll get back to you within one business day."
+              : "Tell us about your CAM firm. We'll confirm whether your metro is open and book a 30-minute diagnostic — where the leaks are, which engine to fix first, and what the next 18 months could look like."
+            }
+          </p>
+        </div>
+
+        {/* Form card — centered, single column */}
+        <div style={{ maxWidth: 760, margin: '0 auto' }}>
+          <div className="contact-form-card" style={{ background: '#fff', borderRadius: 16, padding: 40, color: PURPLE, boxShadow: '0 24px 60px rgba(0,0,0,0.18)' }}>
             {submitted ? (
-              <div className="rd-stack rd-center" style={{ gap: 14, alignItems: 'center', padding: '24px 0' }}>
-                <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--alloy-green-tint)', display: 'grid', placeItems: 'center' }}>
-                  <CheckIcon size={30} color="#2c6a62" />
+              <div className="reveal" style={{ textAlign: 'center', padding: '32px 0' }}>
+                <div style={{ width: 80, height: 80, borderRadius: 999, background: 'var(--alloy-green-tint)', color: '#2c6a62', margin: '0 auto 20px', display: 'grid', placeItems: 'center' }}>
+                  <Icon name="check" size={40} strokeWidth={2.5} />
                 </div>
-                <h2 className="rd-title-26" style={{ fontSize: 24, lineHeight: 1.15 }}>Got it. We&apos;ll be in touch within one business day.</h2>
-                <p className="rd-small" style={LH}>Thanks for reaching out. We typically respond within 1 business day.</p>
+                <h2 className="display-md" style={{ color: PURPLE, margin: '0 0 12px' }}>
+                  Got it. We'll be in touch within one business day.
+                </h2>
+                <p style={{ color: '#555', lineHeight: 1.6 }}>
+                  {isContact
+                    ? "Thanks for reaching out. We typically respond within 1 business day."
+                    : "If your market is still open, we'll send a calendar link for the 30-minute diagnostic. If it's already claimed, we'll add you to the waitlist and let you know if it opens."
+                  }
+                </p>
               </div>
             ) : (
               <>
-                <h2 className="rd-title-26" style={{ fontSize: 24, lineHeight: 1.15 }}>Send a message</h2>
+                <div className="display-md" style={{ color: PURPLE, fontSize: 24, marginBottom: 6 }}>
+                  {isContact ? 'Send us a message' : 'Tell us about your firm'}
+                </div>
+                <p style={{ color: '#888', fontSize: 14, marginBottom: 28 }}>
+                  {isContact
+                    ? 'Real human reply within one business day.'
+                    : '30 seconds. Five fields. Real human reply within one business day.'
+                  }
+                </p>
 
-                {error ? (
-                  <div role="alert" style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, padding: '12px 14px', color: '#b91c1c', fontSize: 14 }}>
+                {error && (
+                  <div style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 8, padding: '12px 14px', color: '#b91c1c', fontSize: 14, marginBottom: 16 }}>
                     {error}
                   </div>
-                ) : null}
+                )}
 
-                <form onSubmit={handleSubmit} className="rd-stack" style={{ gap: 22 }}>
-                  <div className="rd-grid rd-grid--2" style={{ gap: 16 }}>
-                    <label className="rd-field-group" style={{ ...fieldGroup, ...span2 }}>
-                      <span className="rd-field-label" style={fieldLabel}>Name</span>
-                      <input className="rd-field" type="text" name="name" autoComplete="name" placeholder="Your name" required
-                        value={form.name} onChange={(e: ChangeEvent<HTMLInputElement>) => update('name', e.target.value)} />
-                    </label>
-                    <label className="rd-field-group" style={{ ...fieldGroup, ...span2 }}>
-                      <span className="rd-field-label" style={fieldLabel}>Email</span>
-                      <input className="rd-field" type="email" name="email" autoComplete="email" placeholder="you@company.com" required
-                        value={form.email} onChange={(e: ChangeEvent<HTMLInputElement>) => update('email', e.target.value)} />
-                    </label>
-                    <label className="rd-field-group" style={fieldGroup}>
-                      <span className="rd-field-label" style={fieldLabel}>Company</span>
-                      <input className="rd-field" type="text" name="company" autoComplete="organization" placeholder="Optional"
-                        value={form.company} onChange={(e: ChangeEvent<HTMLInputElement>) => update('company', e.target.value)} />
-                    </label>
-                    <label className="rd-field-group" style={fieldGroup}>
-                      <span className="rd-field-label" style={fieldLabel}>I’m reaching out about</span>
-                      <select className="rd-field" name="topic"
-                        value={form.topic} onChange={(e: ChangeEvent<HTMLSelectElement>) => update('topic', e.target.value)}>
-                        {TOPICS.map((t) => <option key={t} value={t}>{t}</option>)}
-                      </select>
-                    </label>
-                    <label className="rd-field-group" style={{ ...fieldGroup, ...span2 }}>
-                      <span className="rd-field-label" style={fieldLabel}>Message</span>
-                      <textarea className="rd-field" name="message" placeholder="How can we help?" required rows={4}
-                        value={form.message} onChange={(e: ChangeEvent<HTMLTextAreaElement>) => update('message', e.target.value)} />
-                    </label>
-                    <label style={{ ...span2, display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
-                      <input type="checkbox" name="subscribe" checked={form.subscribe}
-                        onChange={(e: ChangeEvent<HTMLInputElement>) => update('subscribe', e.target.checked)}
-                        style={{ width: 16, height: 16, accentColor: 'var(--alloy-purple)' }} />
-                      <span className="rd-tiny">Keep me in the loop with Alloy&apos;s growth insights</span>
-                    </label>
+                <form onSubmit={handleSubmit} style={{ display: 'grid', gap: 16 }}>
+                  {isContact ? (
+                    <>
+                      <div className="contact-form-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                        <Field label="Your name" value={contactForm.name} onChange={v => updateContact('name', v)} required />
+                        <Field label="Work email" type="email" value={contactForm.email} onChange={v => updateContact('email', v)} required />
+                      </div>
+                      <Field label="Message" value={contactForm.message} onChange={v => updateContact('message', v)} required multiline placeholder="What's on your mind?" />
+                      <label style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+                        <input
+                          type="checkbox"
+                          checked={contactForm.subscribe}
+                          onChange={(e: ChangeEvent<HTMLInputElement>) => updateContact('subscribe', e.target.checked)}
+                          style={{ width: 16, height: 16, accentColor: PURPLE }}
+                        />
+                        <span style={{ fontSize: 13, color: '#555' }}>Keep me in the loop with Alloy's growth insights</span>
+                      </label>
+                    </>
+                  ) : (
+                    <>
+                      <div className="contact-form-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                        <Field label="Your name" value={leadForm.name} onChange={v => updateLead('name', v)} required />
+                        <Field label="Work email" type="email" value={leadForm.email} onChange={v => updateLead('email', v)} required />
+                      </div>
+                      <div className="contact-form-2col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                        <Field label="CAM company" value={leadForm.company} onChange={v => updateLead('company', v)} required />
+                        <Field label="Associations under management" value={leadForm.units} placeholder="e.g. 120" onChange={v => updateLead('units', v)} />
+                      </div>
+                      <Field label="Primary growth goal" value={leadForm.goal} onChange={v => updateLead('goal', v)} multiline placeholder="One sentence is fine." />
+                    </>
+                  )}
+
+                  <div className="contact-form-submit" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 8, gap: 16, flexWrap: 'wrap' }}>
+                    <div className="contact-form-disclaimer" style={{ fontSize: 12, color: '#888', maxWidth: '60%' }}>By submitting, you agree to a real conversation. We won't spam you.</div>
+                    <Button variant="primary" arrow type="submit">
+                      {loading ? 'Sending…' : isContact ? 'Send message' : 'Request my diagnostic'}
+                    </Button>
                   </div>
-
-                  <button type="submit" className="rd-btn rd-btn--dark rd-btn--block" style={{ padding: '18px 28px' }} disabled={loading} aria-busy={loading}>
-                    {loading ? 'Sending…' : 'Send'}
-                  </button>
-                  <div className="rd-tiny rd-tiny--12 rd-center">We reply within one business day.</div>
                 </form>
               </>
             )}
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Contact info — full-width row beneath the form */}
+        <div style={{ marginTop: 56, paddingTop: 40, borderTop: '1px solid rgba(255,255,255,0.12)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 32 }}>
+            {[
+              { icon: 'phone',    label: 'Direct', value: '210-845-5989' },
+              { icon: 'mail',     label: 'Email',  value: 'contact@alloygp.co' },
+              { icon: 'map-pin',  label: 'HQ',     value: 'Austin, TX · Nationwide' },
+              { icon: 'calendar', label: 'Hours',  value: 'Mon–Fri · 8a–6p CT' },
+            ].map(c => (
+              <div key={c.label} style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <div style={{ width: 40, height: 40, borderRadius: 10, background: 'rgba(255,255,255,0.08)', display: 'grid', placeItems: 'center', flex: '0 0 40px' }}>
+                  <Icon name={c.icon} size={18} color="#fff" />
+                </div>
+                <div style={{ minWidth: 0 }}>
+                  <div style={{ fontFamily: 'var(--font-display)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: YELLOW }}>{c.label}</div>
+                  <div style={{ fontSize: 15, color: '#fff', fontWeight: 500 }}>{c.value}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+interface FieldProps {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
+  multiline?: boolean;
+}
+export function Field({ label, value, onChange, type = 'text', required, placeholder, multiline }: FieldProps) {
+  const sharedStyle: React.CSSProperties = {
+    padding: '12px 14px', borderRadius: 8, border: '1px solid var(--border-strong)',
+    fontSize: 15, fontFamily: 'var(--font-body)', color: PURPLE, outline: 'none',
+    background: '#fff', resize: multiline ? 'vertical' : 'none',
+  };
+  return (
+    <label style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      <span style={{ fontFamily: 'var(--font-display)', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: PURPLE }}>
+        {label}{required && <span style={{ color: PINK, marginLeft: 4 }}>*</span>}
+      </span>
+      {multiline ? (
+        <textarea
+          value={value}
+          placeholder={placeholder}
+          required={required}
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) => onChange(e.target.value)}
+          rows={3}
+          style={sharedStyle}
+        />
+      ) : (
+        <input
+          type={type}
+          value={value}
+          placeholder={placeholder}
+          required={required}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => onChange(e.target.value)}
+          style={sharedStyle}
+        />
+      )}
+    </label>
   );
 }

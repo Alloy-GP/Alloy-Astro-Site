@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ResultsPage from '~/components/pages/ResultsPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
 ---
 <BaseLayout
   title="Results & Case Studies — Alloy Growth Partners"
   description="Real numbers from real CAM firms. Apex CMG: 535% more leads, 3× proposals, 1,580% YoY opportunities — in 18 months."
-  pageId="results"
+  pageId="resources"
 >
-  <ResultsPage />
+  <ResultsPage client:idle />
 </BaseLayout>

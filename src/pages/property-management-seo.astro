@@ -1,22 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePage from '~/components/rd/ServicePage';
-import data from '~/data/services/property-management-seo';
-import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
-
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-const description = 'Local SEO, GEO, and AI search visibility engineered for CAM companies. Get cited by ChatGPT, Perplexity, Gemini, and Google AI Overviews.';
-const schema = [
-  faqSchema(data.faq.items),
-  serviceSchema({ name: 'Property Management SEO', description, url: data.href }),
-  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }, { name: data.name, href: data.href }]),
-];
+import SeoPage from '~/components/pages/SeoPage';
 ---
 <BaseLayout
   title="Property Management SEO & AI Search — Alloy"
-  description={description}
-  pageId="system"
-  pageSchema={schema}
+  description="Local SEO, GEO, and AI search visibility engineered for CAM companies. Get cited by ChatGPT, Perplexity, Gemini, and Google AI Overviews."
+  pageId="services"
 >
-  <ServicePage data={data} />
+  <SeoPage client:idle />
 </BaseLayout>

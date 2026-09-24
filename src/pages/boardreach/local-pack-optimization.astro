@@ -1,0 +1,44 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ServiceGBPLocalPackPage from '~/components/pages/ServiceGBPLocalPackPage';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: "Isn't local pack optimization just SEO?",
+      acceptedAnswer: { '@type': 'Answer', text: "Local SEO is a subset of SEO with its own ranking algorithm. The local pack uses different signals than the organic blue links — proximity, GBP completeness, review velocity, citations. We build both, but they're separate disciplines and we run them as such. The Property Management SEO service handles organic; this service handles the local pack and GBP." },
+    },
+    {
+      '@type': 'Question',
+      name: 'We have multiple offices. How is local pack optimization priced?',
+      acceptedAnswer: { '@type': 'Answer', text: "Local SEO is sized by metro. One metro is included in Foundation. One metro on Growth. Up to 5 metros on Scale. Adding metros mid-engagement is a project add-on — quoted by complexity (single office vs. multi-zip service area)." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you fix a hijacked Google Business Profile?',
+      acceptedAnswer: { '@type': 'Answer', text: "Yes. We've reclaimed profiles where ownership was lost during a manager transition, agency change, or after acquisition. Process takes 2–6 weeks depending on Google's verification path. We document every step so it stays in your control after." },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you buy reviews for CAM companies?',
+      acceptedAnswer: { '@type': 'Answer', text: "No. Never. We build review-request flows that ask the right people (boards mid-renewal, satisfied homeowners, vendors) at the right moments. Velocity is real. Authenticity is the whole point — boards read reviews to filter for legitimate firms." },
+    },
+    {
+      '@type': 'Question',
+      name: 'How does GBP and local pack optimization fit with BoardSuite?',
+      acceptedAnswer: { '@type': 'Answer', text: "GBP & Local Pack is a BoardReach engine. It runs alongside Property Management SEO and AI Search & GEO as the three discovery surfaces. Most CAM firms run all three — they share signals (NAP, reviews, schema) and reinforce each other. Foundation tier includes the local pack stack for one metro." },
+    },
+  ],
+};
+---
+<BaseLayout
+  title="GBP & Local Pack Optimization for CAM Companies | Alloy"
+  description="Get into the local pack for every HOA management search in your metro. GBP buildout, NAP cleanup, review velocity, citations — the full local stack for CAM firms."
+  pageId="services"
+  pageSchema={faqSchema}
+>
+  <ServiceGBPLocalPackPage client:idle />
+</BaseLayout>

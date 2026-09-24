@@ -1,12 +1,11 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import TestimonialsPage from '~/components/pages/TestimonialsPage';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Static page — no client directive. No pageId (lives in the footer, not the nav).
 ---
 <BaseLayout
   title="Testimonials — In their own words — Alloy"
   description="Real CAM operators share what changed when they partnered with Alloy. Video and written testimonials from firms using Reach, Match, and Retain."
+  pageId="about"
 >
-  <TestimonialsPage />
+  <TestimonialsPage client:idle />
 </BaseLayout>

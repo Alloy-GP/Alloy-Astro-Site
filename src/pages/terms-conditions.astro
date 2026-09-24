@@ -1,12 +1,10 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { TermsPage } from '~/components/pages/LegalPages';
-// Title + description unchanged from the pre-redesign page (zero SEO regression).
-// Static page — no client directive.
 ---
 <BaseLayout
   title="Terms & Conditions — Alloy Growth Partners"
   description="Terms governing your use of alloygp.co and engagements with Alloy Growth Partners."
 >
-  <TermsPage />
+  <TermsPage client:idle />
 </BaseLayout>
