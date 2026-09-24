@@ -35,10 +35,12 @@ const VERSUS = [
   { dim: 'Time to results', us: 'Engineered ramp — first signals in 90 days, compound by month 12.', them: "Month-to-month volume metrics that don't tie to revenue." },
 ];
 
-// Real partners (carried from the pre-redesign AboutPage). Each gets a designed role card —
-// not a photo placeholder — until real headshots are commissioned.
-const PARTNERS = [
+// Real partners (carried from the pre-redesign AboutPage). A partner renders a headshot when `photo`
+// is set; otherwise the designed role card stands in until a headshot is supplied.
+// `photo` = /assets/team/<slug> (a .jpg + .webp pair, 800×1000, 4:5). Partners without one get the RoleCard graphic.
+const PARTNERS: Array<{ name: string; role: string; color: string; icon: string; roleLabel: string; bio: string; photo?: string }> = [
   { name: 'Skyler Nelson', role: 'Managing Partner · Marketing', color: PINK, icon: 'target', roleLabel: 'Marketing',
+    photo: '/assets/team/skyler-nelson',
     bio: 'Spent years inside HOA management running marketing — knows what boards search for, what makes a proposal land, and what fails.' },
   { name: 'Justin Guenther', role: 'Managing Partner · Learning & Development', color: YELLOW, icon: 'book', roleLabel: 'Learning & Development',
     bio: 'Built training and education programs inside a management company. Translates that capability into authority content no other agency can produce.' },
@@ -54,6 +56,23 @@ const RULES = [
 ];
 
 const roleStyle: CSSProperties = { fontSize: 13, color: 'var(--alloy-pink)', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', marginTop: 2 };
+
+function PhotoCard({ src, name }: { src: string; name: string }) {
+  return (
+    <picture>
+      <source srcSet={`${src}.webp`} type="image/webp" />
+      <img
+        src={`${src}.jpg`}
+        alt={`${name}, headshot`}
+        width={800}
+        height={1000}
+        loading="lazy"
+        decoding="async"
+        style={{ aspectRatio: '4 / 5', width: '100%', height: 'auto', objectFit: 'cover', borderRadius: 10, display: 'block', background: 'var(--alloy-light-gray)' }}
+      />
+    </picture>
+  );
+}
 
 function RoleCard({ name, color, icon, roleLabel }: { name: string; color: string; icon: string; roleLabel: string }) {
   const monogram = name.split(' ').map((n) => n[0]).join('');
@@ -169,13 +188,13 @@ export default function AboutPage() {
       </section>
 
       {/* The partners */}
-      <section className="rd-section rd-bg-off">
+      <section id="partners" className="rd-section rd-bg-off">
         <div className="rd-wrap rd-stack rd-stack--40">
           <Eyebrow>The partners</Eyebrow>
           <div className="rd-grid rd-grid--3" style={{ gap: 32 }}>
             {PARTNERS.map((p) => (
               <div key={p.name} className="rd-stack" style={{ gap: 12 }}>
-                <RoleCard name={p.name} color={p.color} icon={p.icon} roleLabel={p.roleLabel} />
+                {p.photo ? <PhotoCard src={p.photo} name={p.name} /> : <RoleCard name={p.name} color={p.color} icon={p.icon} roleLabel={p.roleLabel} />}
                 <div>
                   <div className="rd-title-18">{p.name}</div>
                   <div style={roleStyle}>{p.role}</div>
