@@ -59,7 +59,7 @@
   color: var(--alloy-purple);
   text-wrap: pretty;
 }
-.rd-h1--xl   { font-size: 90px; }
+.rd-h1--xl   { font-size: 76px; } /* homepage hero — 90px in the prototype, reduced 15% for a shorter hero */
 .rd-h1--lg   { font-size: 80px; }
 .rd-h1--md   { font-size: 72px; }
 .rd-h1--sm   { font-size: 56px; line-height: 1; letter-spacing: -.025em; }
