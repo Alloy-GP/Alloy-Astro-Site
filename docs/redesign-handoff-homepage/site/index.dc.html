@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alloy — Growth engineered exclusively for CAM</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Book.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Medium.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Bold.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Black.woff2) format("woff2");font-weight:900}
+body{margin:0;background:#fff;font-family:Gotham,Poppins,system-ui,sans-serif;color:#381c4f}
+a{color:#381c4f}a:hover{color:#d9356e}
+@keyframes alloyTipIn{0%{opacity:0;transform:translateX(-50%) translateY(8px)}100%{opacity:1;transform:translateX(-50%) translateY(0)}}
+@keyframes alloyPaneIn{0%{opacity:0;transform:translateX(18px)}100%{opacity:1;transform:translateX(0)}}
+@keyframes alloyPin{0%{transform:translateY(-24px) scale(.6);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+@keyframes alloyTipIn2{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes alloyPulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+</style></helmet>
+<div style="min-width:1024px">
+<dc-import name="SiteHeader" active="" hint-size="100%,67px"></dc-import>
+
+  <section style="padding:104px 40px 96px;background:#fff">
+    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <h1 style="margin:0;font-weight:900;font-size:80px;line-height:.95;letter-spacing:-.03em;color:#381c4f;text-wrap:pretty">Attract the right boards. Match their needs. <span style="color:#d9356e">Retain their business.</span></h1>
+        <p style="margin:0;font-size:20px;line-height:1.5;color:#555;font-weight:400;max-width:560px;text-wrap:pretty">You know how to manage. We handle the growth — and we only do it for CAM. No dentists, no SaaS, no distractions. One firm per metro, so boards reach you before they shop.</p>
+        <div style="display:flex;gap:14px;align-items:center">
+          <a href="get-started.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:10px;box-shadow:0 8px 24px rgba(217,53,110,.25);text-decoration:none;display:inline-block;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Claim your market</a>
+          <a href="boardsuite.dc.html" style="font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;padding:14px 4px;text-decoration:none;display:inline-block;transition:color 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="color:#d9356e;text-decoration:underline;text-underline-offset:4px">See what's inside →</a>
+        </div>
+      </div>
+      <div style="background:#381c4f;border-radius:10px;padding:28px 30px;display:flex;flex-direction:column;gap:18px;color:#fff;box-shadow:0 16px 40px rgba(56,28,79,.18)">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f5d880">Your metro. Your growth.</div><div style="font-size:11px;font-weight:500;opacity:.65">One partner per market</div></div>
+        <div ref="{{ dashRef }}" onMouseEnter="{{ dashPause }}" onMouseLeave="{{ dashResume }}" style="display:flex;flex-direction:column;gap:14px">
+          <sc-if value="{{ dashA }}" hint-placeholder-val="{{ true }}"><div key="a" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;animation:alloyPaneIn 420ms cubic-bezier(0.16,1,0.3,1) both">
+          <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;min-width:0;height:188px;box-sizing:border-box">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:#d9356e">Paid leads</span></div>
+            <div style="display:flex;align-items:baseline;gap:6px"><span style="font-weight:900;font-size:38px;line-height:1;letter-spacing:-.02em">{{ adsNum }}</span><span style="font-size:12px;font-weight:500;opacity:.75">inquiries</span></div>
+            <div style="height:56px"><svg viewBox="0 0 120 44" width="100%" height="56" preserveAspectRatio="none" style="display:block">{{ adsBars }}</svg></div>
+          </div>
+          <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;min-width:0;height:188px;box-sizing:border-box">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:#a1c8e7">Organic + local</span></div>
+            <div style="display:flex;align-items:baseline;gap:6px"><span style="font-weight:900;font-size:38px;line-height:1;letter-spacing:-.02em">{{ localNum }}</span><span style="font-size:12px;font-weight:500;opacity:.75">on the map</span></div>
+            <div style="height:56px"><svg viewBox="0 0 120 44" width="100%" height="56" preserveAspectRatio="none" style="display:block;overflow:visible"><polyline points="0,40 20,38 40,30 60,26 80,16 100,10 120,4" fill="none" stroke="#a1c8e7" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" pathLength="1" style="{{ localLine }}"></polyline><circle cx="120" cy="4" r="4" fill="#fff" style="{{ localDot }}"></circle></svg></div>
+          </div>
+        </div></sc-if>
+          <sc-if value="{{ dashB }}" hint-placeholder-val="{{ false }}"><div key="b" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;animation:alloyPaneIn 420ms cubic-bezier(0.16,1,0.3,1) both">
+          <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;min-width:0;height:188px;box-sizing:border-box">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:#f5d880">AI exposure</span></div>
+            <div style="display:flex;align-items:baseline;gap:6px"><span style="font-weight:900;font-size:38px;line-height:1;letter-spacing:-.02em">{{ aiNum }}</span><span style="font-size:12px;font-weight:500;opacity:.75">AI engines</span></div>
+            <div style="height:56px"><div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;height:56px">{{ aiPills }}</div></div>
+          </div>
+          <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:20px 22px;display:flex;flex-direction:column;gap:14px;min-width:0;height:188px;box-sizing:border-box">
+            <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:#aed7d0">Network leads</span></div>
+            <div style="display:flex;align-items:baseline;gap:6px"><span style="font-weight:900;font-size:38px;line-height:1;letter-spacing:-.02em">{{ matchNum }}</span><span style="font-size:12px;font-weight:500;opacity:.75">boards</span></div>
+            <div style="height:56px"><div style="display:flex;flex-direction:column;gap:8px;justify-content:center;height:56px"><div style="display:flex;align-items:center;gap:8px"><span style="width:38px;font-size:10px;font-weight:700;letter-spacing:.08em;color:#aed7d0">MHOA</span><div style="flex:1;height:10px;border-radius:5px;background:rgba(255,255,255,.12);overflow:hidden"><div style="{{ matchBar2 }}"></div></div></div><div style="display:flex;align-items:center;gap:8px"><span style="width:38px;font-size:10px;font-weight:700;letter-spacing:.08em;opacity:.6">GA</span><div style="flex:1;height:10px;border-radius:5px;background:rgba(255,255,255,.12);overflow:hidden"><div style="{{ matchBar1 }}"></div></div></div></div></div>
+          </div>
+        </div></sc-if>
+          <div style="display:flex;justify-content:center;gap:6px">{{ dashDots }}</div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:18px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-weight:700;font-size:14px">Is your metro still open?</div><div style="font-size:11px;font-weight:500;opacity:.65">{{ metroLabel }}</div></div>
+          <div style="position:relative;height:150px;border-radius:8px;overflow:hidden;background:#2a1440">
+            <div style="{{ mapLayerStyle }}">{{ tileLayer }}</div>
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(56,28,79,.35),rgba(56,28,79,.55))"></div>
+            <div style="position:absolute;inset:0;box-shadow:inset 0 0 40px rgba(42,20,64,.9);pointer-events:none"></div>
+            {{ metroDots }}
+            <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">{{ pulseBig }}</div></sc-if>
+            <sc-if value="{{ isResult }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:{{ statusColor }};border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.45);animation:alloyPin 500ms cubic-bezier(0.16,1,0.3,1) both"></div>
+              <div style="position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;border:2px solid {{ statusColor }};animation:alloyPulse 1.6s ease-out infinite"></div>
+              <div style="position:absolute;left:10px;right:10px;bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border-radius:8px;padding:9px 10px 9px 14px;color:#381c4f;box-shadow:0 8px 24px rgba(0,0,0,.35);animation:alloyTipIn2 380ms cubic-bezier(0.16,1,0.3,1) 120ms both">
+                <div style="display:flex;align-items:center;gap:8px;min-width:0"><span style="width:8px;height:8px;border-radius:50%;flex:none;background:{{ statusColor }}"></span><span style="font-weight:700;font-size:13px;white-space:nowrap">{{ metroName }}</span><span style="font-size:12px;color:#555;font-weight:500;white-space:nowrap">{{ statusShort }}</span></div>
+                <div style="display:flex;gap:6px;align-items:center;flex:none">
+                  <sc-if value="{{ available }}" hint-placeholder-val="{{ false }}"><a href="get-started.dc.html" style="background:#16a34a;color:#fff;font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;border-radius:8px;text-decoration:none;box-shadow:0 6px 16px rgba(22,163,74,.35);display:inline-flex;align-items:center;gap:6px;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#15803d"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Claim it</a></sc-if>
+                  <sc-if value="{{ unavailable }}" hint-placeholder-val="{{ false }}"><a href="contact.dc.html" style="background:#381c4f;color:#fff;font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:9px 12px;border-radius:8px;text-decoration:none;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#4c3361">Waitlist</a></sc-if>
+                  <span onClick="{{ reset }}" style="font-size:11px;font-weight:700;color:#555;cursor:pointer;padding:6px">✕</span>
+                </div>
+              </div>
+            </sc-if>
+            <div style="position:absolute;left:8px;bottom:4px;font-size:8px;opacity:.45;font-weight:400">© OpenStreetMap</div>
+          </div>
+          <div style="display:flex;gap:8px"><input value="{{ zip }}" onChange="{{ onZip }}" onKeyDown="{{ onKey }}" placeholder="Enter your ZIP code" inputmode="numeric" maxlength="5" style="flex:1;min-width:0;width:0;background:#fff;border:none;outline:none;border-radius:8px;padding:12px 14px;font-size:14px;color:#381c4f;font-weight:500;font-family:Gotham,Poppins,sans-serif"><span onClick="{{ onCheck }}" style="background:#d9356e;color:#fff;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:12px 18px;border-radius:10px;display:flex;align-items:center;cursor:pointer;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60">Check</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:#381c4f;color:#fff;padding:80px 40px">
+    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:stretch">
+      <div ref="{{ matchRef }}" style="background:rgba(255,255,255,.07);border-radius:10px;padding:28px 32px 24px;display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f5d880">Board leads per month, same metro</div><div style="font-size:11px;font-weight:500;opacity:.6">Illustrative</div></div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch;height:220px;border-bottom:1px solid rgba(255,255,255,.18)">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:flex-end">
+            <div style="font-weight:900;font-size:44px;line-height:1;letter-spacing:-.02em;opacity:.85">{{ n3 }}</div>
+            <div style="{{ colAStyle }}"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:12px;height:100%;justify-content:flex-end">
+            <div style="font-weight:900;font-size:44px;line-height:1;letter-spacing:-.02em;color:#aed7d0">{{ n10 }}</div>
+            <div style="{{ colBStyle }}"></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center">
+            <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.85"><span>Your own paid ads</span><span style="position:relative;display:inline-flex;align-items:center" onMouseEnter="{{ tipAOn }}" onMouseLeave="{{ tipAOff }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="cursor:help;opacity:.75;transition:opacity 120ms cubic-bezier(0.2,0.8,0.2,1)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><sc-if value="{{ tipA }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 12px);width:300px;background:#fff;color:#381c4f;border-radius:10px;padding:16px 18px;font-size:14px;line-height:1.55;font-weight:500;box-shadow:0 16px 40px rgba(0,0,0,.3);z-index:5;text-transform:none;letter-spacing:0;animation:alloyTipIn 240ms cubic-bezier(0.16,1,0.3,1) both"><span style="position:absolute;left:50%;margin-left:-6px;bottom:-6px;width:12px;height:12px;background:#fff;transform:rotate(45deg);border-radius:2px"></span>Average board leads a CAM firm gets running its own Google Ads with an active budget. Paid for, one click at a time.</span></sc-if></span></div>
+            <div style="font-size:13px;font-weight:500;opacity:.7">You pay per click.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center">
+            <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#aed7d0"><span>MatchHOA network</span><span style="position:relative;display:inline-flex;align-items:center" onMouseEnter="{{ tipBOn }}" onMouseLeave="{{ tipBOff }}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="cursor:help;opacity:.75;transition:opacity 120ms cubic-bezier(0.2,0.8,0.2,1)"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg><sc-if value="{{ tipB }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 12px);width:300px;background:#fff;color:#381c4f;border-radius:10px;padding:16px 18px;font-size:14px;line-height:1.55;font-weight:500;box-shadow:0 16px 40px rgba(0,0,0,.3);z-index:5;text-transform:none;letter-spacing:0;animation:alloyTipIn 240ms cubic-bezier(0.16,1,0.3,1) both"><span style="position:absolute;left:50%;margin-left:-6px;bottom:-6px;width:12px;height:12px;background:#fff;transform:rotate(45deg);border-radius:2px"></span>Boards we bring in through MatchHOA and hand to you at no cost — included as an Alloy partner. Nobody else in your market can buy them.</span></sc-if></span></div>
+            <div style="font-size:13px;font-weight:700">Included. Yours alone.</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;justify-content:center">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#f5d880"><span style="width:28px;height:3px;background:#f5d880;border-radius:2px"></span>Network leads · MatchHOA</div>
+        <h2 style="margin:0;font-weight:900;font-size:44px;line-height:1;letter-spacing:-.025em;text-wrap:pretty">We run the place boards go to find their next management company.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;font-weight:400;opacity:.85;text-wrap:pretty">Boards submit on MatchHOA. In your metro, every one goes to you.</p>
+        <div style="display:flex;align-items:center;gap:22px;padding-top:6px">
+          <a href="get-started.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:10px;box-shadow:0 8px 24px rgba(217,53,110,.25);text-decoration:none;display:inline-block;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Claim your market</a>
+          <a href="https://matchhoa.com" target="_blank" rel="noopener" title="matchhoa.com" style="display:inline-flex;align-items:center;opacity:.9;transition:opacity 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="opacity:1;transform:translateY(-1px)"><img src="../assets/match-hoa-white.svg" alt="MatchHOA" style="height:44px;display:block"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="position:relative;padding:96px 40px;background:linear-gradient(180deg,rgba(56,28,79,.05) 0,rgba(56,28,79,0) 140px),#f8f7fc"><div style="position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .22 0 0 0 0 .11 0 0 0 0 .31 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:160px 160px"></div><div style="position:absolute;top:0;left:0;right:0;display:flex;height:2px"><div style="flex:1;background:#d9356e"></div><div style="flex:1;background:#f5d880"></div><div style="flex:1;background:#a1c8e7"></div><div style="flex:1;background:#aed7d0"></div><div style="flex:1;background:#381c4f"></div></div><div style="max-width:1160px;margin:0 auto;position:relative;display:flex;flex-direction:column;gap:48px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end">
+        <h2 style="margin:0;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.025em;color:#381c4f;text-wrap:pretty">The partner ledger.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">One CAM company, one metro, three years in. This is what the exclusivity bought them.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div ref="{{ ledgerRef }}" style="display:flex;flex-direction:column;background:#fff;border-radius:10px;border:1px solid #e8e4ef">
+          <div style="{{ row1Style }}"><span style="font-size:15px;color:#381c4f;font-weight:500">Lead intake vs. prior baseline</span><span style="font-weight:900;font-size:40px;line-height:1;color:#381c4f">+{{ n535 }}<span style="font-weight:700;font-size:.5em;margin-left:.08em;vertical-align:baseline">%</span></span></div>
+          <div style="{{ row2Style }}"><span style="font-size:15px;color:#381c4f;font-weight:500">Proposal requests</span><span style="font-weight:900;font-size:40px;line-height:1;color:#381c4f">{{ nx3 }}<span style="font-weight:700;font-size:.5em;margin-left:.08em;vertical-align:baseline">×</span></span></div>
+          <div style="{{ row3Style }}"><span style="font-size:15px;color:#381c4f;font-weight:500">Qualified → closed</span><span style="font-weight:900;font-size:40px;line-height:1;color:#381c4f">{{ n40 }}<span style="font-weight:700;font-size:.5em;margin-left:.08em;vertical-align:baseline">–60%</span></span></div>
+          <div style="{{ row4Style }}">“We went from chasing RFPs to having boards reach out directly.” <span style="color:#555;font-weight:400">— CEO, Alloy CAM partner</span></div>
+        </div>
+        <div style="background:#fff;border-radius:10px;border:1px solid #e8e4ef;padding:28px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:#555;font-weight:500"><span>Lead intake, indexed</span><span>Year 1 → Year 3</span></div>
+          <svg viewBox="0 0 500 260" width="100%" style="display:block;overflow:visible;flex:1">
+            <line x1="0" y1="220" x2="500" y2="220" stroke="#e8e4ef"></line><line x1="0" y1="150" x2="500" y2="150" stroke="#e8e4ef"></line><line x1="0" y1="80" x2="500" y2="80" stroke="#e8e4ef"></line><line x1="0" y1="10" x2="500" y2="10" stroke="#e8e4ef"></line>
+            <rect x="70" y="0" width="430" height="220" fill="rgba(245,216,128,.18)" style="{{ rectStyle }}"></rect>
+            <text x="78" y="26" font-size="11" font-weight="700" fill="#381c4f" font-family="Gotham,sans-serif">WITH ALLOY</text>
+            <polyline fill="none" stroke="#381c4f" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" points="0,214 35,212 70,211 120,200 170,184 230,160 290,128 350,94 410,60 460,36 500,20" pathLength="1" style="{{ lineStyle }}"></polyline>
+            <circle cx="500" cy="20" r="6" fill="#d9356e" style="{{ dotStyle }}"></circle>
+            <text x="0" y="248" font-size="11" fill="#555" font-family="Gotham,sans-serif">Year 1</text><text x="228" y="248" font-size="11" fill="#555" font-family="Gotham,sans-serif">Year 2</text><text x="462" y="248" font-size="11" fill="#555" font-family="Gotham,sans-serif">Year 3</text>
+          </svg>
+          <a href="results-apex-cmg.dc.html" style="font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block;transition:color 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="color:#d9356e;text-decoration:underline;text-underline-offset:4px">Read the full case study →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="padding:96px 40px;background:#fff">
+    <div style="max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end">
+        <h2 style="margin:0;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.025em;color:#381c4f;text-wrap:pretty">What you get in your metro.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">Attract, close, keep — run as one playbook, by one partner, for one CAM company in your market.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #e8e4ef">
+        <div style="padding:32px 32px 32px 0;border-right:1px solid #e8e4ef;display:flex;flex-direction:column;gap:12px"><span style="font-weight:900;font-size:40px;line-height:1;letter-spacing:-.03em;color:#d9356e">01</span><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d9356e">Attract</span><div style="font-weight:700;font-size:26px;color:#381c4f">BoardReach™</div><div style="font-size:15px;color:#555;line-height:1.55;font-weight:400">Boards find you before they start shopping. Local SEO, AI search, content, ads.</div></div>
+        <div style="padding:32px;border-right:1px solid #e8e4ef;display:flex;flex-direction:column;gap:12px"><span style="font-weight:900;font-size:40px;line-height:1;letter-spacing:-.03em;color:#b8942a">02</span><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b8942a">Close</span><div style="font-weight:700;font-size:26px;color:#381c4f">BoardMatch™</div><div style="font-size:15px;color:#555;line-height:1.55;font-weight:400">Conversations become signed contracts. Proposals, RFP system, fractional BD.</div></div>
+        <div style="padding:32px 0 32px 32px;display:flex;flex-direction:column;gap:12px"><span style="font-weight:900;font-size:40px;line-height:1;letter-spacing:-.03em;color:#3f8f83">03</span><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#3f8f83">Keep</span><div style="font-weight:700;font-size:26px;color:#381c4f">BoardRetain™</div><div style="font-size:15px;color:#555;line-height:1.55;font-weight:400">The portfolio you have stays yours. Board education, reputation, newsletters.</div></div>
+      </div>
+      <div style="display:flex;gap:24px;align-items:center;justify-content:space-between;background:#381c4f;border-radius:10px;padding:28px 32px;color:#fff">
+        <div style="font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.01em;text-wrap:pretty">Not sure which engine is leaking? Thirty minutes, and we'll tell you.</div>
+        <a href="get-started.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:10px;box-shadow:0 8px 24px rgba(217,53,110,.25);white-space:nowrap;text-decoration:none;display:inline-block;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Claim your market</a>
+      </div>
+    </div>
+  </section>
+  <section style="position:relative;padding:96px 40px;background:linear-gradient(180deg,rgba(56,28,79,.05) 0,rgba(56,28,79,0) 140px),#f8f7fc"><div style="position:absolute;inset:0;opacity:.06;pointer-events:none;background-image:url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .22 0 0 0 0 .11 0 0 0 0 .31 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E&quot;);background-size:160px 160px"></div><div style="position:absolute;top:0;left:0;right:0;display:flex;height:2px"><div style="flex:1;background:#d9356e"></div><div style="flex:1;background:#f5d880"></div><div style="flex:1;background:#a1c8e7"></div><div style="flex:1;background:#aed7d0"></div><div style="flex:1;background:#381c4f"></div></div><div style="max-width:1160px;margin:0 auto;position:relative;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end">
+        <h2 style="margin:0;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.025em;color:#381c4f;text-wrap:pretty">What's changing in CAM growth right now.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">Search is moving to AI answers, boards are shopping locally first, and most CAM sites weren't built for either. Here's what we're seeing and what to do about it.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px;align-items:stretch">
+        <div style="background:#fff;border-radius:10px;border-left:5px solid #d9356e;padding:30px 30px 26px 32px;box-shadow:0 2px 6px rgba(56,28,79,.08);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d9356e">AI search</span><span style="font-size:12px;color:#555;font-weight:400">7 min read</span></div>
+          <div style="font-weight:700;font-size:28px;line-height:1.15;letter-spacing:-.01em;color:#381c4f;text-wrap:pretty">Boards are asking ChatGPT who manages HOAs in their city. Is your firm the answer?</div>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">AI answers pull from a handful of sources — reviews, local citations, and pages that actually explain what you do. Most CAM sites give them nothing to quote. Three fixes you can make this month.</p>
+          <a href="property-management-seo.dc.html" style="margin-top:auto;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block">Read the field note →</a>
+        </div>
+        <div style="background:#fff;border-radius:10px;border-left:5px solid #a1c8e7;padding:30px 26px 26px 28px;box-shadow:0 2px 6px rgba(56,28,79,.08);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4a86ad">Local</span><span style="font-size:12px;color:#555;font-weight:400">5 min</span></div>
+          <div style="font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.005em;color:#381c4f;text-wrap:pretty">Why the map pack now decides your shortlist before the RFP does.</div>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#555;font-weight:400">Boards check Google Maps first. If you're not in the top three for your metro, you're not in the conversation.</p>
+          <a href="property-management-seo.dc.html" style="margin-top:auto;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block">Read →</a>
+        </div>
+        <div style="background:#fff;border-radius:10px;border-left:5px solid #f5d880;padding:30px 26px 26px 28px;box-shadow:0 2px 6px rgba(56,28,79,.08);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b8942a">Tips</span><span style="font-size:12px;color:#555;font-weight:400">Checklist</span></div>
+          <div style="font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.005em;color:#381c4f;text-wrap:pretty">Five things a CAM firm can fix this quarter without an agency.</div>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#555;font-weight:400">Review velocity, service-area pages, a proposal that answers the board's real question. Small, unglamorous, effective.</p>
+          <a href="resources-cam-marketing-strategy.dc.html" style="margin-top:auto;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block">Get the list →</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;background:#fff;border:1px solid #e8e4ef;border-radius:10px;padding:28px 32px">
+        <div style="display:flex;gap:24px;align-items:center">
+          <div style="flex:none;background:#381c4f;color:#fff;border-radius:10px;padding:14px 16px;text-align:center;min-width:64px"><div style="font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#f5d880">Oct</div><div style="font-weight:900;font-size:30px;line-height:1">14</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d9356e">Live webinar · 45 min</div>
+            <div style="font-weight:700;font-size:22px;line-height:1.2;color:#381c4f;text-wrap:pretty">AI search for CAM: how boards find management companies in 2026</div>
+            <div style="font-size:14px;color:#555;font-weight:400">For owners and BD leads. Recording sent to everyone who registers.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px"><div style="background:#f8f7fc;border:1px solid #e8e4ef;border-radius:8px;padding:13px 16px;font-size:14px;color:#999;font-weight:400;min-width:220px">Work email</div><a href="resources.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:13px 20px;border-radius:10px;display:flex;align-items:center;white-space:nowrap;text-decoration:none;display:;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Save my seat</a></div>
+      </div>
+    </div>
+  </section>
+
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { zip: '', phase: 'idle', metro: null, tipA: false, tipB: false, dash: 0, dashPaused: false };
+  // ZIP prefix → metro (mock geocode; swap for a real lookup in production)
+  ZIPS = {
+    787: ['Austin', 30.27, -97.74, 1], 786: ['Austin', 30.27, -97.74, 1],
+    331: ['Miami', 25.76, -80.19, 1], 332: ['Miami', 25.76, -80.19, 1],
+    752: ['Dallas', 32.78, -96.80, 1], 750: ['Dallas', 32.78, -96.80, 1],
+    336: ['Tampa', 27.95, -82.46, 1], 891: ['Las Vegas', 36.17, -115.14, 1],
+    328: ['Orlando', 28.54, -81.38, 1], '029': ['Providence', 41.82, -71.41, 1],
+    '064': ['Branford', 41.28, -72.82, 1], '031': ['Manchester', 42.99, -71.46, 1], 234: ['Virginia Beach', 36.85, -75.98, 1],
+    850: ['Phoenix', 33.45, -112.07, 0], 852: ['Phoenix', 33.45, -112.07, 0],
+    802: ['Denver', 39.74, -104.99, 0], 282: ['Charlotte', 35.23, -80.84, 0],
+    921: ['San Diego', 32.72, -117.16, 0], 300: ['Atlanta', 33.75, -84.39, 0], 303: ['Atlanta', 33.75, -84.39, 0],
+    606: ['Chicago', 41.88, -87.63, 0], 100: ['New York', 40.71, -74.01, 0], 981: ['Seattle', 47.61, -122.33, 0],
+    770: ['Houston', 29.76, -95.37, 0], 782: ['San Antonio', 29.42, -98.49, 0],
+    334: ['West Palm Beach', 26.71, -80.05, 0], 339: ['Fort Myers', 26.64, -81.87, 0],
+    372: ['Nashville', 36.16, -86.78, 0], 275: ['Raleigh', 35.78, -78.64, 0], 322: ['Jacksonville', 30.33, -81.66, 0],
+    941: ['San Francisco', 37.77, -122.42, 0], 900: ['Los Angeles', 34.05, -118.24, 0], 841: ['Salt Lake City', 40.76, -111.89, 0],
+  };
+  lookup(zip) {
+    const m = this.ZIPS[zip.slice(0, 3)];
+    if (m) return { name: m[0], lat: m[1], lng: m[2], claimed: !!m[3] };
+    return { name: `ZIP ${zip}`, lat: 39.5, lng: -98.35, claimed: false, unknown: true };
+  }
+  project(lat, lng, view) {
+    const n = Math.pow(2, view.z), toXY = (la, lo) => { const r = la * Math.PI / 180; return [(lo + 180) / 360 * n, (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * n]; };
+    const [cx, cy] = toXY(view.lat, view.lng), [x, y] = toXY(lat, lng);
+    return { x: `calc(50% + ${(x - cx) * 256}px)`, y: `calc(50% + ${(y - cy) * 256}px)` };
+  }
+  tiles(lat, lng, z, cols, rows) {
+    const n = Math.pow(2, z);
+    const x = (lng + 180) / 360 * n;
+    const r = lat * Math.PI / 180;
+    const y = (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * n;
+    const tx = Math.floor(x), ty = Math.floor(y), out = [];
+    for (let dy = -rows; dy <= rows; dy++) for (let dx = -cols; dx <= cols; dx++) {
+      const X = tx + dx, Y = ty + dy;
+      if (Y < 0 || Y >= n) continue;
+      out.push({ key: `${z}-${X}-${Y}`, src: `https://tile.openstreetmap.org/${z}/${((X % n) + n) % n}/${Y}.png`,
+        style: { position: 'absolute', width: 256, height: 256, left: `calc(50% + ${(X - x) * 256}px)`, top: `calc(50% + ${(Y - y) * 256}px)`, filter: 'grayscale(1) contrast(1.05)' } });
+    }
+    return out;
+  }
+  onCheck = () => {
+    const zip = this.state.zip.trim();
+    if (zip.length < 3 || this.state.phase === 'loading') return;
+    this.setState({ phase: 'loading', metro: this.lookup(zip) });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ phase: 'result' }), 1600);
+  };
+  _seen = {};
+  componentDidMount() {
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { const k = en.target.dataset.reveal; if (en.isIntersecting && !this._seen[k]) { this._seen[k] = true; this.setState({ ['rv_' + k]: true }); this._io.unobserve(en.target); } });
+    }, { threshold: 0.35 });
+    const attach = () => { [this._matchEl, this._ledgerEl, this._dashEl].forEach(el => el && this._io.observe(el)); };
+    setTimeout(attach, 50);
+    this._dashT = setInterval(() => { if (this.state.rv_dash && !this.state.dashPaused) this.setState(s => ({ dash: (s.dash + 1) % 2 })); }, 4200);
+  }
+  componentWillUnmount() { this._io && this._io.disconnect(); clearInterval(this._dashT); }
+  _count(key, to, on, ms = 1100) {
+    if (!on) return 0;
+    if (this._cnt?.[key] !== undefined) return this._cnt[key];
+    this._cnt = this._cnt || {}; this._cnt[key] = 0;
+    const t0 = performance.now();
+    const tick = (t) => { const p = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - p, 3); this._cnt[key] = Math.round(to * e); this.forceUpdate(); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+    return 0;
+  }
+  renderVals() {
+    const { zip, phase, metro } = this.state;
+    const E = 'cubic-bezier(0.16,1,0.3,1)';
+    const m = !!this.state.rv_match, l = !!this.state.rv_ledger;
+    const row = (i, on, extra) => ({ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '26px 28px', borderBottom: '1px solid #e8e4ef', opacity: on ? 1 : 0, transform: on ? 'translateY(0)' : 'translateY(10px)', transition: `opacity 480ms ${E} ${i * 110}ms, transform 480ms ${E} ${i * 110}ms`, ...extra });
+    const motion = {
+      matchRef: (el) => { this._matchEl = el; if (el) el.dataset.reveal = 'match'; },
+      ledgerRef: (el) => { this._ledgerEl = el; if (el) el.dataset.reveal = 'ledger'; },
+      row1Style: row(0, l), row2Style: row(1, l), row3Style: row(2, l),
+      row4Style: { ...row(3, l), padding: '22px 28px', borderBottom: 'none', fontSize: 15, lineHeight: 1.5, color: '#381c4f', fontWeight: 500, display: 'block' },
+      n535: this._count('n535', 535, l, 1400), nx3: this._count('nx3', 3, l), n40: this._count('n40', 40, l),
+      rectStyle: { opacity: l ? 1 : 0, transition: `opacity 600ms ${E} 900ms` },
+      lineStyle: { strokeDasharray: 1, strokeDashoffset: l ? 0 : 1, transition: `stroke-dashoffset 1600ms ${E} 200ms` },
+      dotStyle: { opacity: l ? 1 : 0, transform: l ? 'scale(1)' : 'scale(0)', transformOrigin: '500px 20px', transition: `opacity 300ms ${E} 1700ms, transform 400ms ${E} 1700ms` },
+    };
+    // ---- hero outcomes dashboard ----
+    const d = !!this.state.rv_dash, hh = React.createElement, EZ = 'cubic-bezier(0.16,1,0.3,1)';
+    const ADS = [3, 5, 4, 8, 9, 12, 14, 13, 18, 21, 24, 28];
+    const adsBars = hh(React.Fragment, null, ADS.map((v, i) => hh('rect', { key: i, x: i * 10 + 1, y: 44 - (d ? v / 28 * 44 : 0), width: 7, height: d ? v / 28 * 44 : 0, rx: 1.5, fill: i === ADS.length - 1 ? '#fff' : '#d9356e', style: { transition: `y 700ms ${EZ} ${i * 45}ms, height 700ms ${EZ} ${i * 45}ms` } })));
+    const aiPills = hh(React.Fragment, null, ['ChatGPT', 'Gemini', 'Perplexity', 'Google'].map((t, i) => hh('span', { key: t, style: { fontSize: 10, fontWeight: 700, padding: '0 8px', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', textOverflow: 'ellipsis', background: d ? 'rgba(245,216,128,.18)' : 'rgba(255,255,255,.06)', border: `1px solid ${d ? '#f5d880' : 'rgba(255,255,255,.15)'}`, color: d ? '#f5d880' : 'rgba(255,255,255,.4)', whiteSpace: 'nowrap', transition: `all 400ms ${EZ} ${300 + i * 200}ms` } }, t)));
+    const dashVals = {
+      dashRef: (el) => { this._dashEl = el; if (el) el.dataset.reveal = 'dash'; },
+      colAStyle: { width: '100%', maxWidth: 140, borderRadius: '8px 8px 0 0', background: 'rgba(255,255,255,.28)', height: m ? '30%' : '0%', transition: `height 900ms ${EZ} 100ms` },
+      colBStyle: { width: '100%', maxWidth: 140, borderRadius: '8px 8px 0 0', background: '#aed7d0', height: m ? '100%' : '0%', transition: `height 1100ms ${EZ} 250ms` },
+      n3: this._count('n3', 3, m), n10: this._count('n10', 10, m),
+      adsNum: this._count('ads', 28, d, 1300), localNum: '#' + (d ? Math.max(3, 9 - this._count('lr', 6, d, 1400)) : 9), aiNum: this._count('ai', 4, d, 900) + '/4', matchNum: this._count('mh', 10, d, 1100),
+      adsBars, aiPills,
+      localLine: { strokeDasharray: 1, strokeDashoffset: d ? 0 : 1, transition: `stroke-dashoffset 1400ms ${EZ} 200ms` },
+      localDot: { opacity: d ? 1 : 0, transform: d ? 'scale(1)' : 'scale(0)', transformOrigin: '120px 4px', transition: `opacity 300ms ${EZ} 1500ms, transform 400ms ${EZ} 1500ms` },
+      matchBar1: { height: '100%', borderRadius: 4, background: 'rgba(255,255,255,.35)', width: d ? '30%' : '0%', transition: `width 800ms ${EZ} 150ms` },
+      matchBar2: { height: '100%', borderRadius: 4, background: '#aed7d0', width: d ? '100%' : '0%', transition: `width 1000ms ${EZ} 300ms` },
+    };
+    const idle = phase === 'idle';
+    const view = idle || (metro && metro.unknown) ? { lat: 37.8, lng: -96.5, z: 3 } : { lat: metro.lat, lng: metro.lng, z: 10 };
+    const pulse = React.createElement('div', { style: { position: 'relative', width: 12, height: 12 } },
+      React.createElement('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', background: '#fff', border: '2px solid #fff' } }),
+      React.createElement('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', border: '2px solid #f5d880', animation: 'alloyPulse 1.2s ease-out infinite' } }));
+    return { ...motion, ...dashVals,
+      tipA: this.state.tipA, tipB: this.state.tipB,
+      dashA: this.state.dash === 0, dashB: this.state.dash === 1,
+      dashPause: () => this.setState({ dashPaused: true }), dashResume: () => this.setState({ dashPaused: false }),
+      dashDots: React.createElement(React.Fragment, null, [0, 1].map(i => React.createElement('span', { key: i, onClick: () => this.setState({ dash: i }), style: { width: i === this.state.dash ? 20 : 6, height: 6, borderRadius: 3, background: i === this.state.dash ? '#f5d880' : 'rgba(255,255,255,.3)', cursor: 'pointer', transition: 'width 300ms cubic-bezier(0.16,1,0.3,1), background 300ms cubic-bezier(0.16,1,0.3,1)' } }))),
+      tipAOn: () => this.setState({ tipA: true }), tipAOff: () => this.setState({ tipA: false }),
+      tipBOn: () => this.setState({ tipB: true }), tipBOff: () => this.setState({ tipB: false }),
+      zip,
+      onZip: e => this.setState({ zip: e.target.value.replace(/\D/g, '').slice(0, 5) }),
+      onKey: e => { if (e.key === 'Enter') this.onCheck(); },
+      onCheck: this.onCheck,
+      reset: () => this.setState({ phase: 'idle', zip: '', metro: null }),
+      isIdle: idle, isLoading: phase === 'loading', isResult: phase === 'result', notResult: phase !== 'result',
+      tileLayer: React.createElement(React.Fragment, null, ...this.tiles(view.lat, view.lng, view.z, 3, 1).map(t => React.createElement('img', { key: t.key, src: t.src, alt: '', style: t.style }))),
+      mapLayerStyle: { position: 'absolute', inset: 0, transition: 'transform 900ms cubic-bezier(0.16,1,0.3,1), opacity 400ms', transform: phase === 'loading' ? 'scale(1.12)' : 'scale(1)', opacity: phase === 'loading' ? .6 : 1 },
+      metroDots: (idle || (metro && metro.unknown)) ? React.createElement(React.Fragment, null, ...Object.values(this.ZIPS).filter((m, i, a) => a.findIndex(x => x[0] === m[0]) === i).map(m => { const p = this.project(m[1], m[2], view); return React.createElement('span', { key: m[0], title: m[0], style: { position: 'absolute', left: p.x, top: p.y, width: m[3] ? 7 : 5, height: m[3] ? 7 : 5, margin: '-3px 0 0 -3px', borderRadius: '50%', background: m[3] ? '#d9356e' : 'rgba(255,255,255,.55)', boxShadow: m[3] ? '0 0 0 4px rgba(217,53,110,.25)' : 'none' } }); })) : null,
+      pulseBig: React.createElement('div', { style: { position: 'relative', width: 18, height: 18 } }, React.createElement('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', background: '#fff' } }), React.createElement('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', border: '2px solid #f5d880', animation: 'alloyPulse 1.1s ease-out infinite' } })),
+      statusShort: metro && metro.claimed ? '· claimed' : '· open',
+      available: phase === 'result' && !metro.claimed,
+      unavailable: phase === 'result' && metro.claimed,
+      metroName: metro ? metro.name : '',
+      metroLabel: idle ? 'Live availability' : (phase === 'result' ? (metro.claimed ? 'Claimed' : 'Open') : 'Checking…'),
+      statusLabel: metro && metro.claimed ? 'Claimed by another CAM firm' : 'Available — no Alloy partner here yet',
+      statusColor: metro && metro.claimed ? '#d9356e' : '#16a34a',
+      pulse,
+    };
+  }
+}
+</script>
+</body>
+</html>

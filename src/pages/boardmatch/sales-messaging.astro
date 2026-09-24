@@ -1,11 +1,22 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServiceSalesMessagingPage from '~/components/pages/ServiceSalesMessagingPage';
+import ServicePage from '~/components/rd/ServicePage';
+import data from '~/data/services/sales-messaging';
+import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
+
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+const description = 'We rebuild your BD narrative — the 30-second answer, differentiation, proof, and objection responses — into one coherent story your team tells consistently. Not website copy. The words humans say.';
+const schema = [
+  faqSchema(data.faq.items),
+  serviceSchema({ name: data.name, description, url: data.href }),
+  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardMatch™', href: '/boardmatch' }, { name: data.name, href: data.href }]),
+];
 ---
 <BaseLayout
   title="Sales Messaging for HOA Management Companies | Alloy GP"
-  description="We rebuild your BD narrative — the 30-second answer, differentiation, proof, and objection responses — into one coherent story your team tells consistently. Not website copy. The words humans say."
-  pageId="services"
+  description={description}
+  pageId="system"
+  pageSchema={schema}
 >
-  <ServiceSalesMessagingPage client:idle />
+  <ServicePage data={data} />
 </BaseLayout>

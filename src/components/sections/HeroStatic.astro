@@ -1,92 +1,26 @@
 ---
 // src/components/sections/HeroStatic.astro
-// Static Astro version of the homepage statsHero (variant=refined, color=deep).
-//
-// WHY THIS EXISTS:
-// The React Hero lives inside <HomePage client:idle>, which Astro wraps in an
-// <astro-island> that hydrates via requestIdleCallback (~2,450 ms on throttled
-// mobile). React's hydrateRoot normalises inline hex colours to rgb() strings,
-// causing a DOM attribute patch on the h1 at ~2,450 ms — which resets Chrome's
-// LCP timestamp to that hydration moment even though the element was visible
-// from initial HTML paint.
-//
-// By rendering the hero as pure static HTML here (no island wrapper, no React),
-// Chrome records LCP at initial HTML parse/paint — moving the score from ~5.7 s
-// to roughly 0.5–1 s.
+// Homepage hero — static HTML (no React island) so the h1 paints at HTML parse time and
+// Chrome records LCP immediately. The interactive outcomes card (carousel + metro check) is the slot
+// and hydrates independently (client:load).
 //
 // Usage (src/pages/index.astro):
-//   import HeroStatic from '~/components/sections/HeroStatic.astro';
-//   …
-//   <HeroStatic />
-//   <HomePage client:idle hideHero={true} />
+//   <HeroStatic><HeroCard client:load /></HeroStatic>
 ---
-
-<section class="hero bg-deep">
-  <div class="hero-bg-grid"></div>
-  <div class="hero-inner">
-
-    <div style="max-width:1100px">
-      <div class="eyebrow on-dark">Growth for CAM companies</div>
-
-      <h1 class="display-xxl" style="margin:20px 0 24px;color:#fff">
-        Your CAM company<br>knows how to manage.<br>
-        <span style="color:#f5d880">We handle the growth.</span>
-      </h1>
-
-      <p class="lead" style="color:rgba(255,255,255,0.78);margin-bottom:36px">
-        Alloy is the CAM industry&#39;s dedicated growth agency. We engineer the
-        system between reputation and revenue — so boards reach you before they
-        shop.
-      </p>
-
-      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:64px">
-        <a href="/strategic-review-request" class="btn btn-primary btn-arrow">Claim Your Market</a>
-        <a href="/services" class="btn btn-secondary on-dark">See the system</a>
+<section class="rd-page rd-section rd-section--hero">
+  <div class="rd-wrap rd-grid rd-grid--hero-11">
+    <div class="rd-stack rd-stack--32">
+      <!-- The keyword line is the page's H1 (styled as the eyebrow); the display headline is an h2. -->
+      <h1 class="rd-eyebrow rd-eyebrow--noline" style="margin:0">Marketing for HOA Management Companies</h1>
+      <h2 class="rd-h1 rd-h1--xl">Attract the right boards. Match their needs. <span class="rd-accent">Retain their business.</span></h2>
+      <p class="rd-intro rd-intro--lg rd-max-560">Alloy brings CAM firms more leads from the communities that fit their portfolio. Then we help you win those boards and keep them long after the contract is signed. One firm per metro. Built only for CAM.</p>
+      <div class="rd-row rd-row--wrap">
+        <a href="/get-started" class="rd-btn rd-btn--inline">Claim your market</a>
+        <a href="/boardsuite" class="rd-link rd-link--pad">See what’s inside
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
       </div>
     </div>
-
-    <!-- Stats grid — mirrors BigStat component output exactly -->
-    <div
-      class="hero-stats-grid"
-      style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.12)"
-    >
-      <!-- PINK: Lead intake -->
-      <div style="border-top:3px solid #d9356e;padding-top:14px">
-        <div style="font-family:var(--font-display);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.75);margin-bottom:8px">Lead intake (Apex CMG*)</div>
-        <div style="font-family:var(--font-display);font-weight:800;font-size:44px;line-height:0.95;letter-spacing:-0.025em;color:#fff;margin-bottom:6px">535%</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.6)">vs prior baseline</div>
-      </div>
-
-      <!-- YELLOW: Proposal requests -->
-      <div style="border-top:3px solid #f5d880;padding-top:14px">
-        <div style="font-family:var(--font-display);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.75);margin-bottom:8px">Proposal requests</div>
-        <div style="font-family:var(--font-display);font-weight:800;font-size:44px;line-height:0.95;letter-spacing:-0.025em;color:#fff;margin-bottom:6px">3&times;</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.6)">growth in 18 months</div>
-      </div>
-
-      <!-- BLUE: Groundwork conversion -->
-      <div style="border-top:3px solid #a1c8e7;padding-top:14px">
-        <div style="font-family:var(--font-display);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.75);margin-bottom:8px">Groundwork conversion</div>
-        <div style="font-family:var(--font-display);font-weight:800;font-size:44px;line-height:0.95;letter-spacing:-0.025em;color:#fff;margin-bottom:6px">40&#8209;60%</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.6)">qualified to closed</div>
-      </div>
-
-      <!-- GREEN: CAM industry years -->
-      <div style="border-top:3px solid #aed7d0;padding-top:14px">
-        <div style="font-family:var(--font-display);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.75);margin-bottom:8px">CAM industry years</div>
-        <div style="font-family:var(--font-display);font-weight:800;font-size:44px;line-height:0.95;letter-spacing:-0.025em;color:#fff;margin-bottom:6px">35+</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.6)">across three partners</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- AccentBar: animated 5-colour stripe, 8px height -->
-  <div class="accent-bar animated" style="height:8px">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <slot />
   </div>
 </section>

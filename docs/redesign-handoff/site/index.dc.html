@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alloy — Growth engineered exclusively for CAM</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Book.woff2) format("woff2");font-weight:400}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Medium.woff2) format("woff2");font-weight:500}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Bold.woff2) format("woff2");font-weight:700}
+@font-face{font-family:Gotham;src:url(../fonts/Gotham-Black.woff2) format("woff2");font-weight:900}
+body{margin:0;background:#fff;font-family:Gotham,Poppins,system-ui,sans-serif;color:#381c4f}
+a{color:#381c4f}a:hover{color:#d9356e}
+@keyframes alloyPulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(2.4);opacity:0}}
+</style></helmet>
+<div style="min-width:1024px">
+<dc-import name="SiteHeader" active="" hint-size="100%,67px"></dc-import>
+
+  <section style="padding:104px 40px 96px;background:#fff">
+    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1.3fr .9fr;gap:80px;align-items:stretch">
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <h1 style="margin: 0; font-weight: 900; font-size: 90px; line-height: .95; letter-spacing: -.03em; color: #381C4F; text-wrap: pretty">More doors. More revenue. <span style="color:#d9356e">Built only for CAM.</span></h1>
+        <p style="margin:0;font-size:20px;line-height:1.5;color:#555;font-weight:400;max-width:560px;text-wrap:pretty">You know how to manage. We handle the growth — and we only do it for CAM. No dentists, no SaaS, no distractions. One firm per metro, so boards reach you before they shop.</p>
+        <div style="display:flex;gap:14px;align-items:center">
+          <a href="get-started.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:10px;box-shadow:0 8px 24px rgba(217,53,110,.25);text-decoration:none;display:inline-block;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Claim your market</a>
+          <a href="boardsuite.dc.html" style="font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;padding:14px 4px;text-decoration:none;display:inline-block;transition:color 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="color:#d9356e;text-decoration:underline;text-underline-offset:4px">See what's inside →</a>
+        </div>
+      </div>
+      <div style="background:#381c4f;border-radius:10px;padding:32px 36px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;color:#fff;box-shadow:0 16px 40px rgba(56,28,79,.18)">
+        <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#f5d880">One firm per metro</div><div style="font-size:12px;font-weight:500;opacity:.7">{{ metroLabel }}</div></div>
+        <div style="position:relative;flex:1;min-height:250px;border-radius:8px;overflow:hidden;background:#2a1440">
+          {{ tileLayer }}
+          <div style="position:absolute;inset:0;background:rgba(56,28,79,.45)"></div>
+          <sc-if value="{{ isIdle }}" hint-placeholder-val="{{ true }}">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px"><div style="font-weight:700;font-size:18px;line-height:1.3;text-shadow:0 2px 12px rgba(0,0,0,.4)">Enter your ZIP to see your metro.</div></div>
+          </sc-if>
+          <sc-if value="{{ isLoading }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px">{{ pulse }}<div style="font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-shadow:0 2px 12px rgba(0,0,0,.4)">Checking {{ metroName }}…</div></div>
+          </sc-if>
+          <sc-if value="{{ isResult }}" hint-placeholder-val="{{ false }}">
+            <div style="position:absolute;left:50%;top:44%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:50%;background:#d9356e;border:3px solid #fff;box-shadow:0 4px 16px rgba(0,0,0,.4)"></div>
+            <div style="position:absolute;left:12px;right:12px;bottom:12px;background:#fff;border-radius:8px;padding:14px 16px;color:#381c4f;display:flex;align-items:center;justify-content:space-between;gap:12px;box-shadow:0 6px 18px rgba(0,0,0,.25)">
+              <div style="display:flex;flex-direction:column;gap:3px"><div style="font-weight:700;font-size:15px">{{ metroName }}</div><div style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#555"><span style="width:8px;height:8px;border-radius:50%;background:{{ statusColor }}"></span>{{ statusLabel }}</div></div>
+              <sc-if value="{{ available }}" hint-placeholder-val="{{ false }}"><a href="get-started.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:12px 16px;border-radius:10px;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Claim it</a></sc-if>
+              <sc-if value="{{ unavailable }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:8px"><span style="background:#381c4f;color:#fff;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:12px 14px;border-radius:10px;white-space:nowrap;cursor:pointer">Waitlist</span><span style="border:2px solid #381c4f;color:#381c4f;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-radius:10px;white-space:nowrap;cursor:pointer">Talk to us</span></div></sc-if>
+            </div>
+          </sc-if>
+          <div style="position:absolute;left:8px;bottom:4px;font-size:9px;opacity:.5;font-weight:400">© OpenStreetMap</div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.14);padding-top:22px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-weight:700;font-size:15px">Is your metro still open?</div><sc-if value="{{ isResult }}" hint-placeholder-val="{{ false }}"><span onClick="{{ reset }}" style="font-size:12px;font-weight:500;opacity:.7;cursor:pointer">Check another →</span></sc-if></div>
+          <div style="display:flex;gap:10px"><input value="{{ zip }}" onChange="{{ onZip }}" onKeyDown="{{ onKey }}" placeholder="Your ZIP code" inputmode="numeric" maxlength="5" style="flex:1;background:#fff;border:none;outline:none;border-radius:8px;padding:14px 16px;font-size:15px;color:#381c4f;font-weight:500;font-family:Gotham,Poppins,sans-serif"><span onClick="{{ onCheck }}" style="background:#d9356e;color:#fff;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:14px 20px;border-radius:10px;display:flex;align-items:center;cursor:pointer">Check</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:#381c4f;color:#fff;padding:56px 40px">
+    <div style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#f5d880"><span style="width:28px;height:3px;background:#f5d880;border-radius:2px"></span>Where the boards already are</div>
+        <h2 style="margin:0;font-weight:900;font-size:40px;line-height:1;letter-spacing:-.025em;text-wrap:pretty">We also run the place boards go to find their next management company.</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <p style="margin:0;font-size:17px;line-height:1.55;font-weight:400;opacity:.85;text-wrap:pretty">MatchHOA connects HOA and condo boards with vetted management firms. Alloy partners get first look at the boards in their metro.</p>
+        <div ref="{{ matchRef }}" style="display:flex;flex-direction:column;gap:12px;background:rgba(255,255,255,.07);border-radius:10px;padding:20px 22px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:500;opacity:.75"><span>Board inquiries per month, same metro</span><span>Alloy partners only</span></div>
+          <div style="display:grid;grid-template-columns:auto 1fr auto;gap:10px 14px;align-items:center;font-size:13px;font-weight:500">
+            <span style="opacity:.8">Direct to the CAM firm</span><div style="height:14px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden"><div style="{{ bar1Style }}"></div></div><span style="font-weight:900;font-size:22px;line-height:1;min-width:28px;text-align:right">{{ n3 }}</span>
+            <span>Through MatchHOA</span><div style="height:14px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden"><div style="{{ bar2Style }}"></div></div><span style="font-weight:900;font-size:22px;line-height:1;color:#f5d880;min-width:28px;text-align:right">{{ n10 }}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:400;opacity:.75;padding-top:4px"><span>Only one Alloy partner receives MatchHOA boards per metro.</span><a href="https://matchhoa.com" style="font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;opacity:1;text-decoration:none;display:inline-block">matchhoa.com →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="padding:96px 40px;background:#f8f7fc">
+    <div style="max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:48px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end">
+        <h2 style="margin:0;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.025em;color:#381c4f;text-wrap:pretty">The partner ledger.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">One CAM company, one metro, eighteen months in. This is what the exclusivity bought them.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div ref="{{ ledgerRef }}" style="display:flex;flex-direction:column;background:#fff;border-radius:10px;border:1px solid #e8e4ef">
+          <div style="{{ row1Style }}"><span style="font-size:15px;color:#381c4f;font-weight:500">Lead intake vs. prior baseline</span><span style="font-weight:900;font-size:40px;line-height:1;color:#381c4f">+{{ n535 }}<span style="font-weight:700;font-size:.5em;margin-left:.08em;vertical-align:baseline">%</span></span></div>
+          <div style="{{ row2Style }}"><span style="font-size:15px;color:#381c4f;font-weight:500">Proposal requests</span><span style="font-weight:900;font-size:40px;line-height:1;color:#381c4f">{{ nx3 }}<span style="font-weight:700;font-size:.5em;margin-left:.08em;vertical-align:baseline">×</span></span></div>
+          <div style="{{ row3Style }}"><span style="font-size:15px;color:#381c4f;font-weight:500">Qualified → closed</span><span style="font-weight:900;font-size:40px;line-height:1;color:#381c4f">{{ n40 }}<span style="font-weight:700;font-size:.5em;margin-left:.08em;vertical-align:baseline">–60%</span></span></div>
+          <div style="{{ row4Style }}">“We went from chasing RFPs to having boards reach out directly.” <span style="color:#555;font-weight:400">— CEO, Alloy CAM partner</span></div>
+        </div>
+        <div style="background:#fff;border-radius:10px;border:1px solid #e8e4ef;padding:28px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;font-size:12px;color:#555;font-weight:500"><span>Lead intake, indexed</span><span>2023 → 2025</span></div>
+          <svg viewBox="0 0 500 260" width="100%" style="display:block;overflow:visible;flex:1">
+            <line x1="0" y1="220" x2="500" y2="220" stroke="#e8e4ef"></line><line x1="0" y1="150" x2="500" y2="150" stroke="#e8e4ef"></line><line x1="0" y1="80" x2="500" y2="80" stroke="#e8e4ef"></line><line x1="0" y1="10" x2="500" y2="10" stroke="#e8e4ef"></line>
+            <rect x="160" y="0" width="340" height="220" fill="rgba(245,216,128,.18)" style="{{ rectStyle }}"></rect>
+            <text x="168" y="26" font-size="11" font-weight="700" fill="#381c4f" font-family="Gotham,sans-serif">WITH ALLOY</text>
+            <polyline fill="none" stroke="#381c4f" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round" points="0,214 55,210 110,212 160,204 210,186 270,160 330,124 390,86 450,50 500,20" pathLength="1" style="{{ lineStyle }}"></polyline>
+            <circle cx="500" cy="20" r="6" fill="#d9356e" style="{{ dotStyle }}"></circle>
+            <text x="0" y="248" font-size="11" fill="#555" font-family="Gotham,sans-serif">2023</text><text x="238" y="248" font-size="11" fill="#555" font-family="Gotham,sans-serif">2024</text><text x="474" y="248" font-size="11" fill="#555" font-family="Gotham,sans-serif">2025</text>
+          </svg>
+          <a href="results-apex-cmg.dc.html" style="font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block;transition:color 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="color:#d9356e;text-decoration:underline;text-underline-offset:4px">Read the full case study →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="padding:96px 40px;background:#fff">
+    <div style="max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end">
+        <h2 style="margin:0;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.025em;color:#381c4f;text-wrap:pretty">What you get in your metro.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">Attract, close, keep — run as one playbook, by one partner, for one CAM company in your market.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #e8e4ef">
+        <div style="padding:32px 32px 32px 0;border-right:1px solid #e8e4ef;display:flex;flex-direction:column;gap:12px"><span style="font-weight:900;font-size:40px;line-height:1;letter-spacing:-.03em;color:#d9356e">01</span><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d9356e">Attract</span><div style="font-weight:700;font-size:26px;color:#381c4f">BoardReach™</div><div style="font-size:15px;color:#555;line-height:1.55;font-weight:400">Boards find you before they start shopping. Local SEO, AI search, content, ads.</div></div>
+        <div style="padding:32px;border-right:1px solid #e8e4ef;display:flex;flex-direction:column;gap:12px"><span style="font-weight:900;font-size:40px;line-height:1;letter-spacing:-.03em;color:#b8942a">02</span><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b8942a">Close</span><div style="font-weight:700;font-size:26px;color:#381c4f">BoardMatch™</div><div style="font-size:15px;color:#555;line-height:1.55;font-weight:400">Conversations become signed contracts. Proposals, RFP system, fractional BD.</div></div>
+        <div style="padding:32px 0 32px 32px;display:flex;flex-direction:column;gap:12px"><span style="font-weight:900;font-size:40px;line-height:1;letter-spacing:-.03em;color:#3f8f83">03</span><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#3f8f83">Keep</span><div style="font-weight:700;font-size:26px;color:#381c4f">BoardRetain™</div><div style="font-size:15px;color:#555;line-height:1.55;font-weight:400">The portfolio you have stays yours. Board education, reputation, newsletters.</div></div>
+      </div>
+      <div style="display:flex;gap:24px;align-items:center;justify-content:space-between;background:#381c4f;border-radius:10px;padding:28px 32px;color:#fff">
+        <div style="font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.01em;text-wrap:pretty">Not sure which engine is leaking? Thirty minutes, and we'll tell you.</div>
+        <a href="get-started.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:16px 28px;border-radius:10px;box-shadow:0 8px 24px rgba(217,53,110,.25);white-space:nowrap;text-decoration:none;display:inline-block;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Claim your market</a>
+      </div>
+    </div>
+  </section>
+  <section style="padding:96px 40px;background:#f8f7fc">
+    <div style="max-width:1160px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end">
+        <h2 style="margin:0;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.025em;color:#381c4f;text-wrap:pretty">What's changing in CAM growth right now.</h2>
+        <p style="margin:0;font-size:17px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">Search is moving to AI answers, boards are shopping locally first, and most CAM sites weren't built for either. Here's what we're seeing and what to do about it.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:20px;align-items:stretch">
+        <div style="background:#fff;border-radius:10px;border-left:5px solid #d9356e;padding:30px 30px 26px 32px;box-shadow:0 2px 6px rgba(56,28,79,.08);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d9356e">AI search</span><span style="font-size:12px;color:#555;font-weight:400">7 min read</span></div>
+          <div style="font-weight:700;font-size:28px;line-height:1.15;letter-spacing:-.01em;color:#381c4f;text-wrap:pretty">Boards are asking ChatGPT who manages HOAs in their city. Is your firm the answer?</div>
+          <p style="margin:0;font-size:15px;line-height:1.55;color:#555;font-weight:400;text-wrap:pretty">AI answers pull from a handful of sources — reviews, local citations, and pages that actually explain what you do. Most CAM sites give them nothing to quote. Three fixes you can make this month.</p>
+          <a href="property-management-seo.dc.html" style="margin-top:auto;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block">Read the field note →</a>
+        </div>
+        <div style="background:#fff;border-radius:10px;border-left:5px solid #a1c8e7;padding:30px 26px 26px 28px;box-shadow:0 2px 6px rgba(56,28,79,.08);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#4a86ad">Local</span><span style="font-size:12px;color:#555;font-weight:400">5 min</span></div>
+          <div style="font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.005em;color:#381c4f;text-wrap:pretty">Why the map pack now decides your shortlist before the RFP does.</div>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#555;font-weight:400">Boards check Google Maps first. If you're not in the top three for your metro, you're not in the conversation.</p>
+          <a href="property-management-seo.dc.html" style="margin-top:auto;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block">Read →</a>
+        </div>
+        <div style="background:#fff;border-radius:10px;border-left:5px solid #f5d880;padding:30px 26px 26px 28px;box-shadow:0 2px 6px rgba(56,28,79,.08);display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center"><span style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#b8942a">Tips</span><span style="font-size:12px;color:#555;font-weight:400">Checklist</span></div>
+          <div style="font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.005em;color:#381c4f;text-wrap:pretty">Five things a CAM firm can fix this quarter without an agency.</div>
+          <p style="margin:0;font-size:14px;line-height:1.55;color:#555;font-weight:400">Review velocity, service-area pages, a proposal that answers the board's real question. Small, unglamorous, effective.</p>
+          <a href="resources-cam-marketing-strategy.dc.html" style="margin-top:auto;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#381c4f;text-decoration:none;display:inline-block">Get the list →</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;background:#fff;border:1px solid #e8e4ef;border-radius:10px;padding:28px 32px">
+        <div style="display:flex;gap:24px;align-items:center">
+          <div style="flex:none;background:#381c4f;color:#fff;border-radius:10px;padding:14px 16px;text-align:center;min-width:64px"><div style="font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#f5d880">Oct</div><div style="font-weight:900;font-size:30px;line-height:1">14</div></div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#d9356e">Live webinar · 45 min</div>
+            <div style="font-weight:700;font-size:22px;line-height:1.2;color:#381c4f;text-wrap:pretty">AI search for CAM: how boards find management companies in 2026</div>
+            <div style="font-size:14px;color:#555;font-weight:400">For owners and BD leads. Recording sent to everyone who registers.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:10px"><div style="background:#f8f7fc;border:1px solid #e8e4ef;border-radius:8px;padding:13px 16px;font-size:14px;color:#999;font-weight:400;min-width:220px">Work email</div><a href="resources.dc.html" style="background:#d9356e;color:#fff;font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:13px 20px;border-radius:10px;display:flex;align-items:center;white-space:nowrap;text-decoration:none;display:;transition:background 120ms cubic-bezier(0.2,0.8,0.2,1),transform 120ms cubic-bezier(0.2,0.8,0.2,1)" style-hover="background:#c12a60" style-active="background:#a82451;transform:translateY(1px)">Save my seat</a></div>
+      </div>
+    </div>
+  </section>
+
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { zip: '', phase: 'idle', metro: null };
+  // ZIP prefix → metro (mock geocode; swap for a real lookup in production)
+  ZIPS = {
+    787: ['Austin', 30.27, -97.74, 1], 786: ['Austin', 30.27, -97.74, 1],
+    331: ['Miami', 25.76, -80.19, 1], 332: ['Miami', 25.76, -80.19, 1],
+    752: ['Dallas', 32.78, -96.80, 1], 750: ['Dallas', 32.78, -96.80, 1],
+    336: ['Tampa', 27.95, -82.46, 1], 891: ['Las Vegas', 36.17, -115.14, 1],
+    328: ['Orlando', 28.54, -81.38, 1], '029': ['Providence', 41.82, -71.41, 1],
+    '064': ['Branford', 41.28, -72.82, 1], '031': ['Manchester', 42.99, -71.46, 1], 234: ['Virginia Beach', 36.85, -75.98, 1],
+    850: ['Phoenix', 33.45, -112.07, 0], 852: ['Phoenix', 33.45, -112.07, 0],
+    802: ['Denver', 39.74, -104.99, 0], 282: ['Charlotte', 35.23, -80.84, 0],
+    921: ['San Diego', 32.72, -117.16, 0], 300: ['Atlanta', 33.75, -84.39, 0], 303: ['Atlanta', 33.75, -84.39, 0],
+    606: ['Chicago', 41.88, -87.63, 0], 100: ['New York', 40.71, -74.01, 0], 981: ['Seattle', 47.61, -122.33, 0],
+    770: ['Houston', 29.76, -95.37, 0], 782: ['San Antonio', 29.42, -98.49, 0],
+    334: ['West Palm Beach', 26.71, -80.05, 0], 339: ['Fort Myers', 26.64, -81.87, 0],
+    372: ['Nashville', 36.16, -86.78, 0], 275: ['Raleigh', 35.78, -78.64, 0], 322: ['Jacksonville', 30.33, -81.66, 0],
+    941: ['San Francisco', 37.77, -122.42, 0], 900: ['Los Angeles', 34.05, -118.24, 0], 841: ['Salt Lake City', 40.76, -111.89, 0],
+  };
+  lookup(zip) {
+    const m = this.ZIPS[zip.slice(0, 3)];
+    if (m) return { name: m[0], lat: m[1], lng: m[2], claimed: !!m[3] };
+    return { name: `ZIP ${zip}`, lat: 39.5, lng: -98.35, claimed: false, unknown: true };
+  }
+  tiles(lat, lng, z, cols, rows) {
+    const n = Math.pow(2, z);
+    const x = (lng + 180) / 360 * n;
+    const r = lat * Math.PI / 180;
+    const y = (1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2 * n;
+    const tx = Math.floor(x), ty = Math.floor(y), out = [];
+    for (let dy = -rows; dy <= rows; dy++) for (let dx = -cols; dx <= cols; dx++) {
+      const X = tx + dx, Y = ty + dy;
+      if (Y < 0 || Y >= n) continue;
+      out.push({ key: `${z}-${X}-${Y}`, src: `https://tile.openstreetmap.org/${z}/${((X % n) + n) % n}/${Y}.png`,
+        style: { position: 'absolute', width: 256, height: 256, left: `calc(50% + ${(X - x) * 256}px)`, top: `calc(50% + ${(Y - y) * 256}px)`, filter: 'grayscale(1) contrast(1.05)' } });
+    }
+    return out;
+  }
+  onCheck = () => {
+    const zip = this.state.zip.trim();
+    if (zip.length < 3 || this.state.phase === 'loading') return;
+    this.setState({ phase: 'loading', metro: this.lookup(zip) });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ phase: 'result' }), 1600);
+  };
+  _seen = {};
+  componentDidMount() {
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { const k = en.target.dataset.reveal; if (en.isIntersecting && !this._seen[k]) { this._seen[k] = true; this.setState({ ['rv_' + k]: true }); this._io.unobserve(en.target); } });
+    }, { threshold: 0.35 });
+    const attach = () => { [this._matchEl, this._ledgerEl].forEach(el => el && this._io.observe(el)); };
+    setTimeout(attach, 50);
+  }
+  componentWillUnmount() { this._io && this._io.disconnect(); }
+  _count(key, to, on, ms = 1100) {
+    if (!on) return 0;
+    if (this._cnt?.[key] !== undefined) return this._cnt[key];
+    this._cnt = this._cnt || {}; this._cnt[key] = 0;
+    const t0 = performance.now();
+    const tick = (t) => { const p = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - p, 3); this._cnt[key] = Math.round(to * e); this.forceUpdate(); if (p < 1) requestAnimationFrame(tick); };
+    requestAnimationFrame(tick);
+    return 0;
+  }
+  renderVals() {
+    const { zip, phase, metro } = this.state;
+    const E = 'cubic-bezier(0.16,1,0.3,1)';
+    const m = !!this.state.rv_match, l = !!this.state.rv_ledger;
+    const row = (i, on, extra) => ({ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', padding: '26px 28px', borderBottom: '1px solid #e8e4ef', opacity: on ? 1 : 0, transform: on ? 'translateY(0)' : 'translateY(10px)', transition: `opacity 480ms ${E} ${i * 110}ms, transform 480ms ${E} ${i * 110}ms`, ...extra });
+    const motion = {
+      matchRef: (el) => { this._matchEl = el; if (el) el.dataset.reveal = 'match'; },
+      ledgerRef: (el) => { this._ledgerEl = el; if (el) el.dataset.reveal = 'ledger'; },
+      bar1Style: { height: '100%', borderRadius: 4, background: 'rgba(255,255,255,.35)', width: m ? '30%' : '0%', transition: `width 900ms ${E} 100ms` },
+      bar2Style: { height: '100%', borderRadius: 4, background: '#f5d880', width: m ? '100%' : '0%', transition: `width 1100ms ${E} 250ms` },
+      n3: this._count('n3', 3, m), n10: this._count('n10', 10, m),
+      row1Style: row(0, l), row2Style: row(1, l), row3Style: row(2, l),
+      row4Style: { ...row(3, l), padding: '22px 28px', borderBottom: 'none', fontSize: 15, lineHeight: 1.5, color: '#381c4f', fontWeight: 500, display: 'block' },
+      n535: this._count('n535', 535, l, 1400), nx3: this._count('nx3', 3, l), n40: this._count('n40', 40, l),
+      rectStyle: { opacity: l ? 1 : 0, transition: `opacity 600ms ${E} 900ms` },
+      lineStyle: { strokeDasharray: 1, strokeDashoffset: l ? 0 : 1, transition: `stroke-dashoffset 1600ms ${E} 200ms` },
+      dotStyle: { opacity: l ? 1 : 0, transform: l ? 'scale(1)' : 'scale(0)', transformOrigin: '500px 20px', transition: `opacity 300ms ${E} 1700ms, transform 400ms ${E} 1700ms` },
+    };
+    const idle = phase === 'idle';
+    const view = idle || (metro && metro.unknown) ? { lat: 38.5, lng: -97, z: 4 } : { lat: metro.lat, lng: metro.lng, z: 10 };
+    const pulse = React.createElement('div', { style: { position: 'relative', width: 20, height: 20 } },
+      React.createElement('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', background: '#d9356e', border: '3px solid #fff' } }),
+      React.createElement('div', { style: { position: 'absolute', inset: 0, borderRadius: '50%', border: '2px solid #f5d880', animation: 'alloyPulse 1.2s ease-out infinite' } }));
+    return { ...motion,
+      zip,
+      onZip: e => this.setState({ zip: e.target.value.replace(/\D/g, '').slice(0, 5) }),
+      onKey: e => { if (e.key === 'Enter') this.onCheck(); },
+      onCheck: this.onCheck,
+      reset: () => this.setState({ phase: 'idle', zip: '', metro: null }),
+      tileLayer: React.createElement(React.Fragment, null, ...this.tiles(view.lat, view.lng, view.z, 2, 1).map(t => React.createElement('img', { key: t.key, src: t.src, alt: '', style: t.style }))),
+      isIdle: idle, isLoading: phase === 'loading', isResult: phase === 'result',
+      available: phase === 'result' && !metro.claimed,
+      unavailable: phase === 'result' && metro.claimed,
+      metroName: metro ? metro.name : '',
+      metroLabel: idle ? 'Live availability' : (phase === 'result' ? (metro.claimed ? 'Claimed' : 'Open') : 'Checking…'),
+      statusLabel: metro && metro.claimed ? 'Claimed by another CAM firm' : 'Available — no Alloy partner here yet',
+      statusColor: metro && metro.claimed ? '#d9356e' : '#3f8f83',
+      pulse,
+    };
+  }
+}
+</script>
+</body>
+</html>

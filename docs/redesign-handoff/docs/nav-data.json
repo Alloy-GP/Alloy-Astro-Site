@@ -1,0 +1,229 @@
+{
+  "primary": [
+    {
+      "id": "system",
+      "label": "The System",
+      "href": "/services",
+      "dropdown": true
+    },
+    {
+      "id": "results",
+      "label": "Results",
+      "href": "/results"
+    },
+    {
+      "id": "pricing",
+      "label": "Pricing",
+      "href": "/pricing"
+    },
+    {
+      "id": "resources",
+      "label": "Resources",
+      "href": "/resources"
+    }
+  ],
+  "cta": {
+    "label": "Claim Your Market",
+    "href": "/get-started"
+  },
+  "engines": [
+    {
+      "key": "reach",
+      "title": "BoardReach™",
+      "stage": "Attract",
+      "sub": "Get found before boards shop",
+      "color": "#d9356e",
+      "href": "/boardreach",
+      "services": [
+        {
+          "label": "Property Management SEO",
+          "sub": "Google, the map pack, and the AI answer",
+          "href": "/property-management-seo"
+        },
+        {
+          "label": "HOA Website Design",
+          "sub": "Turn visitors into inbound board inquiries",
+          "href": "/boardreach/hoa-website-design"
+        },
+        {
+          "label": "Branding for CAM",
+          "sub": "An identity boards remember at the vote",
+          "href": "/boardreach/hoa-management-branding"
+        },
+        {
+          "label": "Social Media Marketing",
+          "sub": "Founder thought-leadership, on a cadence",
+          "href": "/boardreach/hoa-social-media-marketing"
+        },
+        {
+          "label": "Email Marketing",
+          "sub": "Nurture sequences written for boards",
+          "href": "/boardreach/email-marketing"
+        },
+        {
+          "label": "Lead Generation",
+          "sub": "Lead magnets and demand-gen assets",
+          "href": "/boardreach/property-management-lead-generation"
+        },
+        {
+          "label": "Print & Marketing Materials",
+          "sub": "Proposal, deck, mailer, and signage systems",
+          "href": "/boardreach/print-production"
+        }
+      ]
+    },
+    {
+      "key": "match",
+      "title": "BoardMatch™",
+      "stage": "Close",
+      "sub": "Turn conversations into contracts",
+      "color": "#b8942a",
+      "href": "/boardmatch",
+      "services": [
+        {
+          "label": "Groundwork — Fractional BD",
+          "sub": "Senior BD muscle without the senior BD salary",
+          "href": "/boardmatch/groundwork"
+        },
+        {
+          "label": "Proposal Optimization",
+          "sub": "Rebuild the standing proposal boards compare you on",
+          "href": "/boardmatch/proposal-optimization"
+        },
+        {
+          "label": "RFP Response System",
+          "sub": "Done-for-you on a single high-stakes RFP",
+          "href": "/boardmatch/rfp-response-system"
+        },
+        {
+          "label": "Sales Messaging & UVP",
+          "sub": "The words that separate you from every other firm",
+          "href": "/boardmatch/sales-messaging"
+        }
+      ]
+    },
+    {
+      "key": "retain",
+      "title": "BoardRetain™",
+      "stage": "Keep",
+      "sub": "Protect the portfolio you have",
+      "color": "#3f8f83",
+      "href": "/boardretain",
+      "services": [
+        {
+          "label": "Board Education Programs",
+          "sub": "Educate boards so they renew with confidence",
+          "href": "/boardretain/board-education"
+        },
+        {
+          "label": "Newsletter Production",
+          "sub": "Done-for-you newsletters boards actually read",
+          "href": "/boardretain/newsletter-production"
+        },
+        {
+          "label": "Reputation Management",
+          "sub": "Protect and build your firm's online reputation",
+          "href": "/boardretain/reputation-management"
+        },
+        {
+          "label": "Thought Leadership",
+          "sub": "Position your firm as the CAM authority",
+          "href": "/boardretain/thought-leadership"
+        },
+        {
+          "label": "Annual Report Production",
+          "sub": "The yearly proof boards forward to owners",
+          "href": "/boardretain/annual-report-production"
+        }
+      ]
+    }
+  ],
+  "boardsuiteTile": {
+    "title": "BoardSuite™ — all three, in unison",
+    "sub": "The full system. One playbook, one accountable team.",
+    "href": "/boardsuite"
+  },
+  "dropdownFooter": {
+    "text": "Not sure which engine is leaking? Thirty minutes tells you.",
+    "cta": "Claim your market →",
+    "href": "/get-started"
+  },
+  "footer": {
+    "company": [
+      [
+        "About",
+        "/about"
+      ],
+      [
+        "BoardSuite",
+        "/boardsuite"
+      ],
+      [
+        "All services",
+        "/services"
+      ],
+      [
+        "Testimonials",
+        "/about/testimonials"
+      ],
+      [
+        "Pricing",
+        "/pricing"
+      ],
+      [
+        "Careers",
+        "/careers"
+      ],
+      [
+        "Partners",
+        "/partners"
+      ],
+      [
+        "Contact",
+        "/contact"
+      ]
+    ],
+    "resources": [
+      [
+        "Resource Hub",
+        "/resources"
+      ],
+      [
+        "Results",
+        "/results"
+      ],
+      [
+        "Courses",
+        "/resources/courses"
+      ],
+      [
+        "Software Guide",
+        "/resources/hoa-management-software-guide"
+      ],
+      [
+        "Growth Modeled",
+        "/growth-modeled"
+      ],
+      [
+        "FAQ",
+        "/faq"
+      ]
+    ],
+    "legal": [
+      [
+        "Terms",
+        "/terms-conditions"
+      ],
+      [
+        "Privacy",
+        "/privacy-policy"
+      ]
+    ],
+    "tagline": "Growth engineered exclusively for CAM.",
+    "contact": [
+      "Austin, TX · Serving CAM nationwide",
+      "contact@alloygp.co · 210-845-5989",
+      "BBB Accredited · CAI Member"
+    ]
+  }
+}

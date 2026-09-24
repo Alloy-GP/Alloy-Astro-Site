@@ -1,11 +1,16 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ResourceHubPage from '~/components/pages/ResourceHubPage';
+import NewsletterSignup from '~/components/modules/NewsletterSignup';
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+// The page itself is static; only the newsletter form hydrates.
 ---
 <BaseLayout
   title="Resources — CAM Growth Guides & Courses | Alloy"
   description="Field-tested playbooks, micro-courses, and frameworks for CAM operators. Built by people who've run growth inside management firms."
   pageId="resources"
 >
-  <ResourceHubPage client:idle />
+  <ResourceHubPage>
+    <NewsletterSignup client:idle />
+  </ResourceHubPage>
 </BaseLayout>
