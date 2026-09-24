@@ -23,7 +23,6 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
         <div className="rd-wrap rd-trustbar-inner">
           <div className="rd-trustbar-label">Trusted by CAM operators across</div>
           <ul className="rd-trustbar-items">
-            <li>Apex CMG*</li>
             <li>BBB Accredited</li>
             <li>CAI Member</li>
             <li><img src={INNOVIA_LOGO} alt="Innovia Co-op" width={465} height={240} loading="lazy" /></li>
