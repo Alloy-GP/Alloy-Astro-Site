@@ -25,11 +25,10 @@ export async function getRecentIssues(limit = 5): Promise<NewsletterIssue[]> {
   try {
     mailchimp.setConfig({ apiKey, server });
     const res = await mailchimp.campaigns.list({
-      status: 'sent',
-      type: 'regular',
+      status: 'sent', // regular + variate (A/B) sends; automations aren't campaigns and never appear here
       sortField: 'send_time',
       sortDir: 'DESC',
-      count: Math.max(limit, 10),
+      count: Math.max(limit * 3, 15),
       fields: ['campaigns.id', 'campaigns.send_time', 'campaigns.archive_url', 'campaigns.long_archive_url', 'campaigns.settings.subject_line', 'campaigns.settings.title', 'campaigns.settings.preview_text'],
     });
     const issues: NewsletterIssue[] = (res?.campaigns ?? [])
@@ -40,9 +39,13 @@ export async function getRecentIssues(limit = 5): Promise<NewsletterIssue[]> {
         sentAt: c.send_time ?? '',
         url: c.long_archive_url || c.archive_url || '',
       }))
-      .filter((i: NewsletterIssue) => i.title && i.url);
-    cache = { at: Date.now(), issues };
-    return issues.slice(0, limit);
+      .filter((i: NewsletterIssue) => i.title && i.url)
+      .sort((a: NewsletterIssue, b: NewsletterIssue) => (b.sentAt > a.sentAt ? 1 : b.sentAt < a.sentAt ? -1 : 0));
+    // Resends reuse the subject line — keep only the newest of each.
+    const seen = new Set<string>();
+    const deduped = issues.filter((i) => { const k = i.title.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
+    cache = { at: Date.now(), issues: deduped };
+    return deduped.slice(0, limit);
   } catch (err) {
     console.error('Mailchimp campaigns.list failed:', (err as any)?.response?.body ?? err);
     return cache?.issues.slice(0, limit) ?? [];
