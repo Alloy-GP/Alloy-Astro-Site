@@ -68,7 +68,7 @@ export default function NewsletterSignup({ source = 'resources-page' }: { source
         {loading ? 'Subscribing…' : 'Subscribe'}
       </button>
       {status === 'error' && error ? <div role="alert" className="rd-tiny" style={{ color: 'var(--alloy-pink)' }}>{error}</div> : null}
-      <p className="rd-tiny rd-tiny--12 rd-center" style={{ color: 'var(--fg-muted)' }}>Every other Tuesday. Unsubscribe anytime.</p>
+      <p className="rd-tiny rd-tiny--12 rd-center" style={{ color: 'var(--fg-muted)' }}>Unsubscribe anytime.</p>
     </form>
   );
 }

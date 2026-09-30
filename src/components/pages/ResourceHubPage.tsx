@@ -101,7 +101,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
           <div className="rd-stack rd-stack--24">
             <Eyebrow tone="yellow">The Alloy Briefing</Eyebrow>
             <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>Our newsletter for CAM operators.</h2>
-            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Every other Tuesday. Attract, close, keep.</p>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Attract, close, keep — in your inbox.</p>
             {issues.length > 0 ? (
               <div className="rd-stack rd-stack--14" style={{ marginTop: 8 }}>
                 <Label tone="yellow">Recent issues</Label>
