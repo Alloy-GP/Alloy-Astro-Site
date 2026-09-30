@@ -1,7 +1,17 @@
 // src/components/pages/ServicesPage.tsx — /services
 // Template 4b — service index. Copy from docs/redesign-handoff/site/services.dc.html.
 import { ENGINES } from '~/lib/nav';
+import type { EngineKey } from '~/lib/nav';
 import { Eyebrow, TextLink, Btn, ChevronRightIcon, Label } from '~/components/rd/atoms';
+
+// One paragraph per engine: what it fixes, when to start there. First line of each is the
+// pre-redesign /services headline; the rest is lifted from the old page's service lists
+// and the "Not sure where to start?" band below.
+const ENGINE_BLURB: Record<EngineKey, string> = {
+  reach: 'Get found before boards start shopping. Boards check Google, the map pack, AI answers, and review sites before they call anyone. BoardReach puts your firm in those results, in your metro, with a site and brand that turn the visit into an inquiry. Start here when referrals slow and inbound is thin.',
+  match: 'Turn conversations into signed contracts. You get the meetings and RFPs. Boards still pick someone else. BoardMatch rebuilds what they judge you on — proposal, RFP response, sales language — and adds a fractional BD lead when you need one. Start here when you lose at the proposal stage.',
+  retain: 'Protect the portfolio you have. Retention is your cheapest growth, and the least managed. BoardRetain covers board education, newsletters, annual reports, and reputation — the work that keeps you visible between meetings. Start here when boards leave at renewal or take it out to bid.',
+};
 
 export default function ServicesPage() {
   return (
@@ -31,6 +41,7 @@ export default function ServicesPage() {
                     <div className="rd-title-22 rd-ink">{e.title}</div>
                   </div>
                 </div>
+                <p className="rd-small" style={{ lineHeight: 1.65 }}>{ENGINE_BLURB[e.key]}</p>
                 <div className="rd-services-list">
                   {e.services.map((s) => (
                     <a key={s.href} href={s.href}><span>{s.label}</span><ChevronRightIcon /></a>

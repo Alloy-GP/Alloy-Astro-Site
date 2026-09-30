@@ -2,7 +2,7 @@
 // Template 4e — Strategic Review intake. Copy from docs/redesign-handoff/site/get-started.dc.html.
 //
 // Two exports:
-//   default GetStartedPage — static page shell (hero copy, 3 steps, 30 · 90 · 1 band).
+//   default GetStartedPage — static page shell (hero copy, 3 steps, FAQ, 30 · 90 · 1 band).
 //     Renders `children` in the form slot so the route can pass the island in.
 //   GetStartedForm         — the interactive lead form (React island, client:load).
 // Keeping the band out of the island means the data-count spans are plain SSR HTML
@@ -13,7 +13,8 @@
 // is growth stuck") are folded into `goal` so they still reach the notify email.
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, FormEvent, ReactNode } from 'react';
-import { Eyebrow, Label, CheckIcon } from '~/components/rd/atoms';
+import { Eyebrow, Label, CheckIcon, FaqList } from '~/components/rd/atoms';
+import type { FaqItem } from '~/lib/schema';
 
 const STEPS = [
   { title: 'You submit. We research.', body: 'Before the call we pull your local search footprint, review velocity, and how boards in your metro currently find management companies.' },
@@ -25,6 +26,14 @@ const BAND = [
   { value: 30, unit: ' min', note: 'With a CAM operator who has run a portfolio — not an account manager.' },
   { value: 90, unit: '-day plan', note: 'Written, specific to your metro, yours to keep — whether or not you hire us.' },
   { value: 1, unit: ' firm per metro', note: 'If your market is open, we hold it while you decide. If it isn’t, we’ll tell you.' },
+];
+
+/** Objections from the pre-redesign /get-started FAQ, tightened. Exported so the route can emit FAQPage schema. */
+export const GET_STARTED_FAQ: FaqItem[] = [
+  { q: 'What happens on the call?', a: 'A CAM operator runs it, not a salesperson. No pitch deck. We walk through the public data we pulled beforehand — search visibility, review velocity, AI citations — and agree which engine to fix first. Pricing comes up only if you raise it.' },
+  { q: 'Who is it for — and who isn’t it for?', a: 'CAM firms that want to win more boards in their metro. If your portfolio doesn’t justify a retainer, we’ll tell you on the call. Not ready to spend yet? Same call. Many of our best partnerships started with a review 6, 12, even 24 months before signing.' },
+  { q: 'Does it cost anything?', a: 'No. The review and the written 90-day plan are free, and the plan is yours whether or not you hire us. If we’re not the fit, we tell you what to fix and who to fix it with. No follow-up pressure.' },
+  { q: 'What if my metro is already taken?', a: 'Submit anyway. We keep a quiet waitlist. If a slot opens in your metro, you’re the first call. The review and the plan are the same either way.' },
 ];
 
 // Door bands mirror the pre-redesign intake (Under 1,500 / 1,500–5,000 / 5,000–15,000 / 15,000+).
@@ -227,6 +236,19 @@ export default function GetStartedPage({ children }: { children?: ReactNode }) {
           </div>
 
           {children ?? <GetStartedForm />}
+        </div>
+      </section>
+
+      {/* Objections — compact FAQ under the form + steps */}
+      <section className="rd-section" style={{ paddingTop: 0 }}>
+        <div className="rd-wrap">
+          <div className="rd-grid rd-grid--prose rd-rule-top" style={{ paddingTop: 48 }}>
+            <div className="rd-stack rd-stack--18">
+              <Eyebrow tone="purple">Before you wonder</Eyebrow>
+              <h2 className="rd-h2 rd-h2--sm">The questions every operator asks here.</h2>
+            </div>
+            <FaqList items={GET_STARTED_FAQ} />
+          </div>
         </div>
       </section>
 

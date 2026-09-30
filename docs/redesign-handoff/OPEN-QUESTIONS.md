@@ -116,3 +116,18 @@ Allowlist = the 40 canonical routes + `/boardstart` and `/cam-growth-portal` (in
 - **Open-metro dots** on the idle map come from a hand-picked list of large metros in `src/data/metros.ts`; the claimed list is the same 10 partner metros as before. Replace both from the CMS when available.
 - **Success green `#16a34a`** added as `--success` / `--success-hover` tokens.
 - **Textured light sections** (grain + 2px five-color rule + wash) now apply to every off-white `<section>` site-wide via `.rd-bg-off` / `.section-light`, as the README asks.
+
+## 21. Content depth restored (2026-09-30) — items to confirm
+Service pages were rebuilt from the prototypes at ~400 words; the pre-redesign pages ran 700–1,700. All 15 service pages and six other pages were brought back to comparable depth using the old pages' substance (see git history for the retired components). Figures reused from the old pages that should be re-confirmed before launch:
+- Reputation: **87% of board directors read reviews before contacting a firm** (old page credited an "Alloy CAM operator survey, 2026"); **200+ negative reviews handled, none escalated to legal**.
+- RFP Response: **200+ CAM selection meetings sat through**. Thought Leadership: **200+ trade-press placements**.
+- Branding: **73% of firms haven't refreshed in 8+ years**. Annual Report: **88% never open the stapled packet; 1.7× renewal probability**. Email: **38% open rate vs a 21% B2B benchmark**.
+- Deliberately dropped where they conflicted with approved prototype stats or pricing framing: old dollar ranges (website $25K–$75K, RFP $14k–$32k, thought leadership $9k–$16k/mo, annual report $8K–$18K), old timelines that contradict the new ones (14-day RFP sprint vs 10 days; 12–16 week rebrand vs 60–90 days), "64% win rate" (vs 40–60%), "30–60 reviews/quarter" (vs 10+).
+
+## 22. Social media positioning gap
+The old `/services/social-media-marketing-for-hoa-management-companies` page sold **per-association community feeds** (dozens of feeds, 2–3 posts a week per association, replacing the board secretary) and ranked for that intent. The redesign repositions social as founder-led LinkedIn for the firm. Its URL now 301s to `/boardreach/hoa-social-media-marketing`, so those searches have no matching page. **Decide:** is the community-feed service still offered? If yes it needs a section or its own page; if no, expect that traffic to fall.
+
+## 23. Testimonials, careers, video — confirm before launch
+- **/about/testimonials** now shows the real quotes the old page had (Rim E. in full, Valerie L., Rikky M.) plus the Jason D. / RISE AMG video. Three old quotes (Marcus T., Dana W., Priya S.) were **left out** because the old component paired them with placeholder firm names ("Cardinal CAM", "Sunbelt HOA Group") — confirm they are real before publishing (they're in `git show c3c47de:src/components/pages/TestimonialsPage.tsx`).
+- **Anonymity:** the video caption names RISE AMG, while `/results/apex-cmg` anonymizes the same firm as "Apex CMG*". Decide whether the case study stays anonymous; if so, the video caption (or the video) has to go.
+- **/careers** benefits are the old page's figures verbatim (100%/80% health cover, $2K HSA, 4% 401(k), 16 weeks parental leave, $3K learning budget, two offsites a year). Confirm they're current. Roles now email careers@alloygp.co.
