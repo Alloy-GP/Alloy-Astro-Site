@@ -766,3 +766,14 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-nl-issue:hover { color: var(--alloy-yellow); }
 .rd-nl-issue-title { font-weight: 700; font-size: 16px; line-height: 1.35; }
 .rd-nl-issue-meta { flex: none; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; opacity: .7; white-space: nowrap; }
+
+/* ---------- Newsletter archive (/resources/newsletter) ---------- */
+.rd-arch { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--border-subtle); }
+.rd-arch-row { display: grid; grid-template-columns: 120px 1fr 24px; gap: 24px; align-items: start; padding: 18px 0; border-bottom: 1px solid var(--border-subtle); color: var(--alloy-purple); text-decoration: none; transition: color var(--dur-fast) var(--ease-standard); }
+.rd-arch-row:hover { color: var(--alloy-pink); }
+.rd-arch-date { font-size: 13px; font-weight: 500; color: var(--alloy-body-gray); padding-top: 3px; white-space: nowrap; }
+.rd-arch-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.rd-arch-title { font-family: var(--font-display); font-weight: 700; font-size: 18px; line-height: 1.3; }
+.rd-arch-preview { font-size: 14px; line-height: 1.5; color: var(--alloy-body-gray); }
+.rd-arch-arrow { padding-top: 4px; opacity: .5; transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
+.rd-arch-row:hover .rd-arch-arrow { opacity: 1; transform: translateX(3px); }

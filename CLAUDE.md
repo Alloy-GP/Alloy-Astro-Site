@@ -33,6 +33,8 @@ src/
 │   ├── nav.ts                       # NAV DATA: PRIMARY, CTA, ENGINES (3 engines × services), BOARDSUITE_TILE, DROPDOWN_FOOTER, FOOTER + helpers
 │   ├── tokens.ts                    # JS color constants (PURPLE, PINK, YELLOW, BLUE, GREEN, BLUE_DEEP, REACH_INK, MATCH_INK, RETAIN_INK, ENGINE_INK)
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
+│   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
+│   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
 │   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
 │
 ├── config/site.ts                   # Site-wide SEO defaults (name, URL, OG image, org schema)
@@ -77,7 +79,8 @@ src/
 │   │   ├── BoardSuitePage.tsx       # /boardsuite            ServicesPage.tsx   # /services
 │   │   ├── PricingPage.tsx          # /pricing (exports PRICING_FAQ)   ResultsPage.tsx  # /results
 │   │   ├── GetStartedPage.tsx       # /get-started (default = static shell; named export GetStartedForm = island → /api/lead)
-│   │   ├── ResourceHubPage.tsx      # /resources             CoursesPage.tsx    # /resources/courses
+│   │   ├── ResourceHubPage.tsx      # /resources (recent issues via `issues` prop)   CoursesPage.tsx  # /resources/courses
+│   │   ├── NewsletterArchivePage.tsx # /resources/newsletter — every sent issue, by year, 24/page (?page=N)
 │   │   ├── CourseTrustBuildingPage.tsx  # /resources/courses/trust-building (11 anchored sections + quiz)
 │   │   ├── MarketingStrategyArticle.tsx # /resources/cam-marketing-strategy
 │   │   ├── HOASoftwareGuide.tsx     # /resources/hoa-management-software-guide
@@ -102,11 +105,11 @@ src/
     ├── boardmatch/{groundwork,proposal-optimization,rfp-response-system,sales-messaging}.astro
     ├── boardretain/index.astro                  → HubPage (hubs/boardretain)
     ├── boardretain/{board-education,newsletter-production,reputation-management,thought-leadership,annual-report-production}.astro
-    ├── resources/index.astro, resources/cam-marketing-strategy.astro, resources/hoa-management-software-guide.astro
+    ├── resources/index.astro (fetches getRecentIssues), resources/newsletter.astro (getAllIssues, paginated), resources/cam-marketing-strategy.astro, resources/hoa-management-software-guide.astro
     ├── resources/courses/index.astro, resources/courses/trust-building.astro
     ├── results/apex-cmg.astro
     ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter), untouched by the redesign
-    └── api/ {lead,contact,subscribe,metro,ping,thinktank}.ts             # endpoints
+    └── api/ {lead,contact,subscribe,metro,newsletters,ping,thinktank}.ts # endpoints (newsletters: issues JSON; ?raw=1 diagnostics)
 ```
 
 **Retired in the redesign (now 301s in `astro.config.mjs`):** `/our-approach*`, `/we-know-cam`, `/about/we-know-cam`, `/resource-hub*`, `/courses*` (10 lessons + quiz), `/services/social-media-marketing-for-hoa-management-companies`, `/services/hoa-newsletter-production`, `/hoa-cam-marketing-services`, `/groundwork`, `/hoa-board-education-programs`, `/strategic-review-request`, `/boardreach/local-pack-optimization`, `/boardreach/google-ads-ppc`, `/results/rise-amg`.
@@ -249,5 +252,6 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-09-30 | **Newsletter**: `/resources` gets an Alloy Briefing section (recent issues from Mailchimp + first-name/email signup, subscribers tagged `newsletter` + source); new `/resources/newsletter` archive page (all sent issues incl. A/B sends, grouped by year, 24/page, `?page=N` noindexed); `/api/newsletters`; footer Resources column links Newsletter. Trust bar under the hero (BBB · CAI · Innovia logo · 35+ yrs). About: Skyler headshot. |
 | 2026-09-24 | **Homepage update** from `docs/redesign-handoff-homepage/`: new hero outcomes card (`HeroCard.tsx` — two-page tile carousel + 150px metro map strip with metro dots, pin drop, result pill; replaces `MetroChecker.tsx`), Network-leads column chart with tooltips (`NetworkLeadsChart.tsx`) replacing the MatchHOA bars, ledger copy/chart to Year 1→3, textured light sections site-wide, `--success` token, shared `data/metros.ts` used by `/api/metro`. Hero grid 1.1fr/1fr. Off-white spacers folded into CTA sections in `ServicePage`/`HubPage`. |
 | 2026-09-23 | **Site redesign build (branch `skyleralloygp/site-redesign`).** Added `docs/redesign-handoff/` (prototypes + specs + OPEN-QUESTIONS). New `nav.ts` data model (4-item nav, engines/services). Rewrote `SiteHeader`/`SiteFooter` + `chrome.css`. Added `redesign.css` (`rd-*` system), `lib/motion.ts`, `lib/schema.ts`, engine ink tokens, chevron icons. Added `rd/atoms.tsx`, `rd/ServicePage.tsx`, `rd/HubPage.tsx`; 15 service data files + 3 hub data files. Rebuilt all 40 canonical pages; new `/boardmatch`, `/boardretain`, `/boardreach/hoa-social-media-marketing`, `/resources/cam-marketing-strategy`. Homepage: static hero + `MetroChecker` (new `/api/metro`, Zippopotam + prefix fallback, 30-mi lock radius) + `WebinarSignup`. Trust-building course collapsed to one anchored guide + `TrustBuildingQuiz`. `astro.config.mjs`: sitemap allowlist, 146 chain-free redirects, dropped `/boardmatch` redirect. Deleted 20 legacy routes and 36 unused components. |

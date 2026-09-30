@@ -115,6 +115,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
                     </li>
                   ))}
                 </ul>
+                <div><TextLink href="/resources/newsletter" tone="white" size={12}>All issues</TextLink></div>
               </div>
             ) : null}
           </div>

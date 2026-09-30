@@ -123,6 +123,7 @@ export const FOOTER = {
   resources: [
     ['Resource Hub', '/resources'],
     ['Results', '/results'],
+    ['Newsletter', '/resources/newsletter'],
     ['Courses', '/resources/courses'],
     ['Software Guide', '/resources/hoa-management-software-guide'],
     ['Growth Modeled', '/growth-modeled'],

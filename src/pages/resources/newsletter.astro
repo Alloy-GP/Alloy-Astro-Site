@@ -1,0 +1,43 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import NewsletterArchivePage, { PAGE_SIZE } from '~/components/pages/NewsletterArchivePage';
+import NewsletterSignup from '~/components/modules/NewsletterSignup';
+import { getAllIssues } from '~/lib/newsletters';
+import { breadcrumbSchema } from '~/lib/schema';
+import { SITE } from '~/config/site';
+
+const all = await getAllIssues();
+const pages = Math.max(1, Math.ceil(all.length / PAGE_SIZE));
+const requested = parseInt(Astro.url.searchParams.get('page') ?? '1', 10);
+const page = Math.min(pages, Math.max(1, Number.isFinite(requested) ? requested : 1));
+if (Astro.url.searchParams.has('page') && (String(page) !== Astro.url.searchParams.get('page') || page === 1)) {
+  // Normalize odd/out-of-range page params (and ?page=1) to the canonical URL.
+  return Astro.redirect(page <= 1 ? '/resources/newsletter' : `/resources/newsletter?page=${page}`, 301);
+}
+const slice = all.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=86400');
+
+const schema = [
+  breadcrumbSchema([{ name: 'Resources', href: '/resources' }, { name: 'Newsletter', href: '/resources/newsletter' }]),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'The Alloy Briefing — newsletter archive',
+    itemListOrder: 'https://schema.org/ItemListOrderDescending',
+    numberOfItems: all.length,
+    itemListElement: slice.map((i, idx) => ({ '@type': 'ListItem', position: (page - 1) * PAGE_SIZE + idx + 1, name: i.title, url: i.url })),
+  },
+];
+const suffix = page > 1 ? ` — Page ${page}` : '';
+---
+<BaseLayout
+  title={`The Alloy Briefing — Newsletter Archive${suffix} | Alloy GP`}
+  description="Every issue of The Alloy Briefing, Alloy Growth Partners' newsletter for CAM operators on attracting, closing, and keeping HOA boards."
+  pageId="resources"
+  pageSchema={schema}
+  {...(page > 1 ? { robots: 'noindex,follow' } : {})}
+>
+  <NewsletterArchivePage issues={slice} page={page} pages={pages} total={all.length}>
+    <NewsletterSignup source="newsletter-archive" client:idle />
+  </NewsletterArchivePage>
+</BaseLayout>

@@ -17,37 +17,50 @@ const DEV_SAMPLE: NewsletterIssue[] = [
 const TTL_MS = 10 * 60 * 1000;
 let cache: { at: number; issues: NewsletterIssue[] } | null = null;
 
-export async function getRecentIssues(limit = 5): Promise<NewsletterIssue[]> {
-  if (cache && Date.now() - cache.at < TTL_MS) return cache.issues.slice(0, limit);
+const FIELDS = ['campaigns.id', 'campaigns.send_time', 'campaigns.archive_url', 'campaigns.long_archive_url', 'campaigns.settings.subject_line', 'campaigns.settings.title', 'campaigns.settings.preview_text', 'total_items'];
+
+function normalize(campaigns: any[]): NewsletterIssue[] {
+  const issues: NewsletterIssue[] = campaigns
+    .map((c: any) => ({
+      id: String(c.id),
+      title: (c.settings?.subject_line || c.settings?.title || '').trim(),
+      preview: (c.settings?.preview_text || '').trim(),
+      sentAt: c.send_time ?? '',
+      url: c.long_archive_url || c.archive_url || '',
+    }))
+    .filter((i) => i.title && i.url)
+    .sort((a, b) => (b.sentAt > a.sentAt ? 1 : b.sentAt < a.sentAt ? -1 : 0));
+  // Resends reuse the subject line — keep only the newest of each.
+  const seen = new Set<string>();
+  return issues.filter((i) => { const k = i.title.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
+}
+
+/** Every sent issue (regular + A/B), newest first. Cached 10 min per server instance. */
+export async function getAllIssues(): Promise<NewsletterIssue[]> {
+  if (cache && Date.now() - cache.at < TTL_MS) return cache.issues;
   const apiKey = import.meta.env.MAILCHIMP_API_KEY;
   const server = import.meta.env.MAILCHIMP_SERVER_PREFIX;
-  if (!apiKey || !server) return import.meta.env.DEV ? DEV_SAMPLE.slice(0, limit) : [];
+  if (!apiKey || !server) return import.meta.env.DEV ? DEV_SAMPLE : [];
   try {
     mailchimp.setConfig({ apiKey, server });
-    const res = await mailchimp.campaigns.list({
-      status: 'sent', // regular + variate (A/B) sends; automations aren't campaigns and never appear here
-      sortField: 'send_time',
-      sortDir: 'DESC',
-      count: Math.max(limit * 3, 15),
-      fields: ['campaigns.id', 'campaigns.send_time', 'campaigns.archive_url', 'campaigns.long_archive_url', 'campaigns.settings.subject_line', 'campaigns.settings.title', 'campaigns.settings.preview_text'],
-    });
-    const issues: NewsletterIssue[] = (res?.campaigns ?? [])
-      .map((c: any) => ({
-        id: String(c.id),
-        title: (c.settings?.subject_line || c.settings?.title || '').trim(),
-        preview: (c.settings?.preview_text || '').trim(),
-        sentAt: c.send_time ?? '',
-        url: c.long_archive_url || c.archive_url || '',
-      }))
-      .filter((i: NewsletterIssue) => i.title && i.url)
-      .sort((a: NewsletterIssue, b: NewsletterIssue) => (b.sentAt > a.sentAt ? 1 : b.sentAt < a.sentAt ? -1 : 0));
-    // Resends reuse the subject line — keep only the newest of each.
-    const seen = new Set<string>();
-    const deduped = issues.filter((i) => { const k = i.title.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
-    cache = { at: Date.now(), issues: deduped };
-    return deduped.slice(0, limit);
+    const all: any[] = [];
+    const PAGE = 100;
+    for (let offset = 0; offset < 1000; offset += PAGE) {
+      const res = await mailchimp.campaigns.list({ status: 'sent', sortField: 'send_time', sortDir: 'DESC', count: PAGE, offset, fields: FIELDS });
+      const rows = res?.campaigns ?? [];
+      all.push(...rows);
+      if (rows.length < PAGE || all.length >= (res?.total_items ?? 0)) break;
+    }
+    const issues = normalize(all);
+    cache = { at: Date.now(), issues };
+    return issues;
   } catch (err) {
     console.error('Mailchimp campaigns.list failed:', (err as any)?.response?.body ?? err);
-    return cache?.issues.slice(0, limit) ?? [];
+    return cache?.issues ?? [];
   }
+}
+
+/** The newest `limit` issues (used by /resources). */
+export async function getRecentIssues(limit = 5): Promise<NewsletterIssue[]> {
+  return (await getAllIssues()).slice(0, limit);
 }
