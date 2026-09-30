@@ -94,14 +94,28 @@ export default function ResourceHubPage({ children }: { children?: ReactNode }) 
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
-        <div className="rd-wrap">
-          <div className="rd-card rd-card--pad-lg rd-row rd-row--between rd-row--wrap" style={{ gap: 40 }}>
-            <div className="rd-stack rd-stack--6">
-              <Label tone="pink" size={12}>The Alloy briefing</Label>
-              <div className="rd-title-22 rd-ink" style={{ fontSize: 24 }}>CAM growth, engineered — in your inbox.</div>
-              <p className="rd-small rd-small--14">One short email every other Tuesday. Attract, close, keep. No fluff.</p>
+      {/* Newsletter — The Alloy Briefing (Mailchimp via /api/subscribe) */}
+      <section id="newsletter" className="rd-section rd-bg-purple">
+        <div className="rd-wrap rd-grid rd-grid--hero-11" style={{ gap: 64, alignItems: 'center' }}>
+          <div className="rd-stack rd-stack--24">
+            <Eyebrow tone="yellow">The Alloy Briefing · Newsletter</Eyebrow>
+            <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>The growth memo CAM operators actually read.</h2>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>One short email every other Tuesday. Attract, close, keep — what’s changing in how boards find and choose management companies, and one thing to do about it before the next issue.</p>
+            <ul className="rd-nl-points">
+              <li><span className="rd-nl-point-num">01</span><div><div className="rd-title-16">What boards are searching this month</div><div className="rd-small rd-small--14" style={{ opacity: .75 }}>Local, AI, and review signals from the metros we watch.</div></div></li>
+              <li><span className="rd-nl-point-num">02</span><div><div className="rd-title-16">One tactic you can run without an agency</div><div className="rd-small rd-small--14" style={{ opacity: .75 }}>Scoped to an afternoon. Proposal, profile, or renewal — one lever at a time.</div></div></li>
+              <li><span className="rd-nl-point-num">03</span><div><div className="rd-title-16">A number from a real engagement</div><div className="rd-small rd-small--14" style={{ opacity: .75 }}>What moved, what didn’t, and why — anonymized, never inflated.</div></div></li>
+            </ul>
+            <div className="rd-row rd-row--wrap" style={{ gap: 10 }}>
+              <span className="rd-tag rd-tag--outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>Every other Tuesday</span>
+              <span className="rd-tag rd-tag--outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>~4 min read</span>
+              <span className="rd-tag rd-tag--outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>Written by operators</span>
+            </div>
+          </div>
+          <div className="rd-card rd-card--pad-lg rd-nl-card">
+            <div className="rd-stack rd-stack--6" style={{ marginBottom: 20 }}>
+              <Label tone="pink" size={12}>Join the list</Label>
+              <div className="rd-title-22 rd-ink" style={{ fontSize: 24 }}>Get the next Briefing.</div>
             </div>
             {children}
           </div>

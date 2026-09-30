@@ -749,3 +749,14 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-trustbar-items li { display: flex; align-items: center; }
 .rd-trustbar-items img { height: 50px; width: auto; display: block; margin: -12px -14px; opacity: .55; transition: opacity var(--dur-fast) var(--ease-standard); } /* PNG has ~40% transparent padding; visible mark ≈ 30px. Mono logo softened so it supports rather than leads. */
 .rd-trustbar-items li:hover img { opacity: .8; }
+
+/* ---------- Newsletter section (/resources) ---------- */
+.rd-nl-points { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.rd-nl-points li { display: flex; gap: 16px; align-items: flex-start; }
+.rd-nl-points .rd-title-16 { color: #fff; }
+.rd-nl-points .rd-small { color: #fff; }
+.rd-nl-point-num { flex: none; font-family: var(--font-display); font-weight: 800; font-size: 18px; line-height: 1.2; color: var(--alloy-yellow); min-width: 28px; }
+.rd-nl-card { border-color: transparent; box-shadow: var(--shadow-lg); }
+.rd-nl-card:hover { transform: none; }
+.rd-nl-success { display: flex; gap: 14px; align-items: flex-start; padding: 8px 0; }
+.rd-nl-success-icon { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--success); display: inline-flex; align-items: center; justify-content: center; }
