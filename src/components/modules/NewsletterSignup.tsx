@@ -46,7 +46,7 @@ export default function NewsletterSignup({ source = 'resources-page' }: { source
         </span>
         <div>
           <div className="rd-title-18">You’re in{firstName.trim() ? `, ${firstName.trim()}` : ''}.</div>
-          <p className="rd-small rd-small--14">A welcome note is on its way. The next Briefing lands on a Tuesday.</p>
+          <p className="rd-small rd-small--14">Welcome note on its way.</p>
         </div>
       </div>
     );
@@ -65,10 +65,10 @@ export default function NewsletterSignup({ source = 'resources-page' }: { source
         <input id="nl-email" type="email" name="email" required autoComplete="email" placeholder="you@yourfirm.com" className="rd-field" value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <button type="submit" className="rd-btn rd-btn--block" disabled={loading} style={{ opacity: loading ? 0.7 : 1 }}>
-        {loading ? 'Subscribing…' : 'Send me the Briefing'}
+        {loading ? 'Subscribing…' : 'Subscribe'}
       </button>
       {status === 'error' && error ? <div role="alert" className="rd-tiny" style={{ color: 'var(--alloy-pink)' }}>{error}</div> : null}
-      <p className="rd-tiny rd-tiny--12 rd-center" style={{ color: 'var(--fg-muted)' }}>Every other Tuesday. Unsubscribe in one click. We never share your email.</p>
+      <p className="rd-tiny rd-tiny--12 rd-center" style={{ color: 'var(--fg-muted)' }}>Every other Tuesday. Unsubscribe anytime.</p>
     </form>
   );
 }

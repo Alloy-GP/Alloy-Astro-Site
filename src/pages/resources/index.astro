@@ -2,15 +2,20 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ResourceHubPage from '~/components/pages/ResourceHubPage';
 import NewsletterSignup from '~/components/modules/NewsletterSignup';
+import { getRecentIssues } from '~/lib/newsletters';
 // Title + description unchanged from the pre-redesign page (zero SEO regression).
 // The page itself is static; only the newsletter form hydrates.
+// Recent newsletter issues come from Mailchimp's campaign archive (cached 10 min server-side);
+// the response is CDN-cached so Mailchimp isn't hit per visitor.
+const issues = await getRecentIssues(5);
+Astro.response.headers.set('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=86400');
 ---
 <BaseLayout
   title="Resources — CAM Growth Guides & Courses | Alloy"
   description="Field-tested playbooks, micro-courses, and frameworks for CAM operators. Built by people who've run growth inside management firms."
   pageId="resources"
 >
-  <ResourceHubPage>
+  <ResourceHubPage issues={issues}>
     <NewsletterSignup source="resources-page" client:idle />
   </ResourceHubPage>
 </BaseLayout>

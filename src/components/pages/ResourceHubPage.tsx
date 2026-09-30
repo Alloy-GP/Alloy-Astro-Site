@@ -4,7 +4,8 @@
 // (~/components/modules/NewsletterSignup) passed in as `children` from the
 // route so only the form hydrates.
 import type { ReactNode } from 'react';
-import { Eyebrow, Label, Btn, TextLink } from '~/components/rd/atoms';
+import { formatIssueDate, type NewsletterIssue } from '~/lib/newsletter-issue';
+import { Eyebrow, Label, Btn, TextLink, ArrowIcon } from '~/components/rd/atoms';
 import { PINK, YELLOW, BLUE, GREEN, REACH_INK, MATCH_INK, RETAIN_INK } from '~/lib/tokens';
 
 // Label ink for blue-accented cards (the prototype's #4a86ad). Not yet a token.
@@ -49,7 +50,7 @@ function ResourceCard({ r }: { r: Resource }) {
   );
 }
 
-export default function ResourceHubPage({ children }: { children?: ReactNode }) {
+export default function ResourceHubPage({ children, issues = [] }: { children?: ReactNode; issues?: NewsletterIssue[] }) {
   return (
     <div className="rd-page">
       {/* Hero */}
@@ -94,28 +95,33 @@ export default function ResourceHubPage({ children }: { children?: ReactNode }) 
         </div>
       </section>
 
-      {/* Newsletter — The Alloy Briefing (Mailchimp via /api/subscribe) */}
+      {/* Newsletter — The Alloy Briefing: recent issues from Mailchimp + signup */}
       <section id="newsletter" className="rd-section rd-bg-purple">
-        <div className="rd-wrap rd-grid rd-grid--hero-11" style={{ gap: 64, alignItems: 'center' }}>
+        <div className="rd-wrap rd-grid rd-grid--hero-11" style={{ gap: 64, alignItems: 'start' }}>
           <div className="rd-stack rd-stack--24">
-            <Eyebrow tone="yellow">The Alloy Briefing · Newsletter</Eyebrow>
-            <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>The growth memo CAM operators actually read.</h2>
-            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>One short email every other Tuesday. Attract, close, keep — what’s changing in how boards find and choose management companies, and one thing to do about it before the next issue.</p>
-            <ul className="rd-nl-points">
-              <li><span className="rd-nl-point-num">01</span><div><div className="rd-title-16">What boards are searching this month</div><div className="rd-small rd-small--14" style={{ opacity: .75 }}>Local, AI, and review signals from the metros we watch.</div></div></li>
-              <li><span className="rd-nl-point-num">02</span><div><div className="rd-title-16">One tactic you can run without an agency</div><div className="rd-small rd-small--14" style={{ opacity: .75 }}>Scoped to an afternoon. Proposal, profile, or renewal — one lever at a time.</div></div></li>
-              <li><span className="rd-nl-point-num">03</span><div><div className="rd-title-16">A number from a real engagement</div><div className="rd-small rd-small--14" style={{ opacity: .75 }}>What moved, what didn’t, and why — anonymized, never inflated.</div></div></li>
-            </ul>
-            <div className="rd-row rd-row--wrap" style={{ gap: 10 }}>
-              <span className="rd-tag rd-tag--outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>Every other Tuesday</span>
-              <span className="rd-tag rd-tag--outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>~4 min read</span>
-              <span className="rd-tag rd-tag--outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,.3)' }}>Written by operators</span>
-            </div>
+            <Eyebrow tone="yellow">The Alloy Briefing</Eyebrow>
+            <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>Our newsletter for CAM operators.</h2>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Every other Tuesday. Attract, close, keep.</p>
+            {issues.length > 0 ? (
+              <div className="rd-stack rd-stack--14" style={{ marginTop: 8 }}>
+                <Label tone="yellow">Recent issues</Label>
+                <ul className="rd-nl-issues">
+                  {issues.map((i) => (
+                    <li key={i.id}>
+                      <a href={i.url} target="_blank" rel="noopener" className="rd-nl-issue">
+                        <span className="rd-nl-issue-title">{i.title}</span>
+                        <span className="rd-nl-issue-meta">{formatIssueDate(i.sentAt)}<ArrowIcon size={12} /></span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
           <div className="rd-card rd-card--pad-lg rd-nl-card">
             <div className="rd-stack rd-stack--6" style={{ marginBottom: 20 }}>
-              <Label tone="pink" size={12}>Join the list</Label>
-              <div className="rd-title-22 rd-ink" style={{ fontSize: 24 }}>Get the next Briefing.</div>
+              <Label tone="pink" size={12}>Subscribe</Label>
+              <div className="rd-title-22 rd-ink" style={{ fontSize: 24 }}>Get the next issue.</div>
             </div>
             {children}
           </div>
