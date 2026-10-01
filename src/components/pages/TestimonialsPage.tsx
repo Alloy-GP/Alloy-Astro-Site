@@ -15,7 +15,11 @@ const QUOTES: Quote[] = [
   { quote: 'Truly amazing business partners who align themselves with you to grow, learn and stay relevant in the marketing and business development field. Working with Alloy was a game changer for me.', who: 'Valerie L.', context: 'Business Development' },
 ];
 
-const VIMEO_ID = '1131397045';
+const VIDEOS = [
+  { id: '1131397045', hash: '', title: 'A CAM company CEO on working with Alloy', who: 'CEO, Alloy CAM partner', len: '2:58' },
+  // Unlisted on Vimeo → needs the privacy hash. Vimeo's title: "Jeff Harman - CMGT Testimonial".
+  { id: '1230353437', hash: '22399014d8', title: 'Jeff Harman, CMGT, on working with Alloy', who: 'Jeff Harman, CMGT', len: '5:05' },
+];
 
 function Stars() {
   return (
@@ -66,27 +70,33 @@ export default function TestimonialsPage() {
 
       {/* Video — partner CEO (kept anonymous per client, 2026-10-01) */}
       <section id="video" className="rd-section rd-bg-off">
-        <div className="rd-wrap rd-grid rd-grid--prose" style={{ alignItems: 'center' }}>
-          <div className="rd-stack rd-stack--18">
-            <Eyebrow>Operator stories</Eyebrow>
-            <h2 className="rd-h2 rd-h2--sm">Hear it from them.</h2>
-            <p className="rd-body" style={LH}>The CEO of an Alloy CAM partner, in under three minutes, on what changes when your agency speaks the language of community association management.</p>
-          </div>
-          <figure className="rd-stack rd-stack--14" style={{ margin: 0 }}>
-            <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden', background: 'var(--alloy-purple)', boxShadow: 'var(--shadow-md)' }}>
-              <iframe
-                src={`https://player.vimeo.com/video/${VIMEO_ID}`}
-                loading="lazy"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="A CAM company CEO on working with Alloy"
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
-              />
+        <div className="rd-wrap rd-stack rd-stack--40">
+          <div className="rd-grid rd-grid--2 rd-grid--end">
+            <div className="rd-stack rd-stack--18">
+              <Eyebrow>Operator stories</Eyebrow>
+              <h2 className="rd-h2 rd-h2--sm">Hear it from them.</h2>
             </div>
-            <figcaption className="rd-tiny">
-              <strong className="rd-ink">CEO, Alloy CAM partner</strong> · 2:58
-            </figcaption>
-          </figure>
+            <p className="rd-body" style={LH}>Two CAM operators on what changes when your agency speaks the language of community association management — one in under three minutes, one in five.</p>
+          </div>
+          <div className="rd-grid rd-grid--2 rd-gap-20">
+            {VIDEOS.map((v) => (
+              <figure key={v.id} className="rd-stack rd-stack--14" style={{ margin: 0 }}>
+                <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden', background: 'var(--alloy-purple)', boxShadow: 'var(--shadow-md)' }}>
+                  <iframe
+                    src={`https://player.vimeo.com/video/${v.id}${v.hash ? `?h=${v.hash}` : ''}`}
+                    loading="lazy"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title={v.title}
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+                  />
+                </div>
+                <figcaption className="rd-tiny">
+                  <strong className="rd-ink">{v.who}</strong> · {v.len}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -20,9 +20,6 @@ const STATS: StatItem[] = [
   { value: 1, suffix: 'firm per metro', note: 'Locked by contract for the engagement — and it renews with you' },
 ];
 
-// Partner testimonial video (client, 2026-10-01): "Jeff Harman - CMGT Testimonial", 5:05. Unlisted on Vimeo → needs the privacy hash.
-const VIMEO_ID = '1230353437';
-const VIMEO_HASH = '22399014d8';
 
 // From WeKnowCamPage — "35+ yrs" is omitted here because the stat band directly below carries it.
 const PROOFS: Array<{ k: string; v: string; tone: 'pink' | 'yellow' | 'green' }> = [
@@ -212,31 +209,7 @@ export default function AboutPage() {
       </section>
 
       {/* How we work */}
-      {/* Founders video */}
-      <section id="video" className="rd-section">
-        <div className="rd-wrap rd-grid rd-grid--prose" style={{ alignItems: 'center' }}>
-          <div className="rd-stack rd-stack--18">
-            <Eyebrow>Partner story</Eyebrow>
-            <h2 className="rd-h2 rd-h2--sm">Hear it from a partner.</h2>
-            <p className="rd-body" style={LH}>Jeff Harman of CMGT on what changed for his management company once the marketing was run by people who have run a CAM portfolio themselves.</p>
-          </div>
-          <figure className="rd-stack rd-stack--14" style={{ margin: 0 }}>
-            <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden', background: 'var(--alloy-purple)', boxShadow: 'var(--shadow-md)' }}>
-              <iframe
-                src={`https://player.vimeo.com/video/${VIMEO_ID}?h=${VIMEO_HASH}`}
-                loading="lazy"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Jeff Harman, CMGT, on working with Alloy"
-                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
-              />
-            </div>
-            <figcaption className="rd-tiny"><strong className="rd-ink">Jeff Harman, CMGT</strong> · 5:05</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section className="rd-section rd-bg-off">
+      <section className="rd-section">
         <div className="rd-wrap rd-grid rd-grid--prose">
           <div className="rd-stack rd-stack--18">
             <Eyebrow>How we work</Eyebrow>
