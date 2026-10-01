@@ -674,8 +674,8 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-mc-svg.is-loading { opacity: .6; }
 .rd-mc-layer { transform-origin: 0 0; transition: transform 900ms var(--ease-emphasis); }
 .rd-mc-states path { fill: rgba(255,255,255,.08); stroke: rgba(255,255,255,.16); stroke-width: .8; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
-.rd-mc-dots { transition: opacity 300ms var(--ease-standard); }
-.rd-mc-dots.is-hidden { opacity: 0; }
+.rd-mc-dots { transition: opacity 360ms var(--ease-standard) 880ms; } /* wait for the 900ms zoom-out, then fade in */
+.rd-mc-dots.is-hidden { opacity: 0; transition-delay: 0ms; }
 .rd-mc-metro--open { fill: rgba(255,255,255,.55); }
 .rd-mc-metro--claimed circle { fill: var(--alloy-pink); }
 .rd-mc-metro--claimed .rd-mc-halo { fill: rgba(217,53,110,.25); }

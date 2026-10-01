@@ -16,7 +16,7 @@ const LH: CSSProperties = { lineHeight: 1.65 };
 const STATS: StatItem[] = [
   { value: 35, suffix: '+ years', note: 'Combined CAM operations experience across the partners' },
   { value: 1, suffix: 'industry', note: 'Community association management. Nothing else.' },
-  { value: 1, suffix: 'firm per metro', note: 'Locked by contract for the life of the engagement' },
+  { value: 1, suffix: 'firm per metro', note: 'Locked by contract for the engagement — and it renews with you' },
 ];
 
 // From WeKnowCamPage — "35+ yrs" is omitted here because the stat band directly below carries it.

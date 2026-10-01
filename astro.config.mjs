@@ -8,7 +8,7 @@ const SITEMAP_ROUTES = new Set([
   '/', '/about', '/about/testimonials',
   '/boardmatch', '/boardmatch/groundwork', '/boardmatch/proposal-optimization', '/boardmatch/rfp-response-system', '/boardmatch/sales-messaging',
   '/boardreach', '/boardreach/email-marketing', '/boardreach/hoa-management-branding', '/boardreach/hoa-social-media-marketing',
-  '/boardreach/hoa-website-design', '/boardreach/print-production', '/boardreach/property-management-lead-generation',
+  '/boardreach/hoa-website-design', '/boardreach/print-production', '/boardreach/property-management-lead-generation', '/boardreach/google-ads-ppc',
   '/boardretain', '/boardretain/annual-report-production', '/boardretain/board-education', '/boardretain/newsletter-production',
   '/boardretain/reputation-management', '/boardretain/thought-leadership',
   '/boardsuite', '/careers', '/contact', '/faq', '/get-started', '/growth-modeled', '/partners', '/pricing', '/privacy-policy',
@@ -169,9 +169,8 @@ export default defineConfig({
     '/courses/trust-building/lessons/from-proof-to-persuasion': '/resources/courses/trust-building#from-proof-to-persuasion',
     '/courses/trust-building-quiz': '/resources/courses/trust-building#knowledge-check',
     '/learn/is-online-employee-training-too-much': '/resources/courses/trust-building',
-    // Dropped pages (never fully launched, but were in the nav + sitemap so they've been crawled)
+    // Dropped page (was in the nav + sitemap so it's been crawled). Google Ads returned as a page 2026-10-01.
     '/boardreach/local-pack-optimization': '/property-management-seo',
-    '/boardreach/google-ads-ppc': '/boardreach/property-management-lead-generation',
 
     '/results.html': '/results',
     '/results/rise-amg.html': '/results/apex-cmg',
@@ -225,7 +224,7 @@ export default defineConfig({
     '/category/website': '/boardreach',
 
     // WordPress custom taxonomy: focus (each has a unique target)
-    '/focus/advertising-ads': '/boardreach/property-management-lead-generation',
+    '/focus/advertising-ads': '/boardreach/google-ads-ppc',
     '/focus/communication': '/boardretain/newsletter-production',
     '/focus/content-branding': '/services',
     '/focus/nurturing': '/boardreach/email-marketing',
@@ -249,7 +248,7 @@ export default defineConfig({
     '/services/conversion-rate-optimization-for-cam-company-websites': '/services',
     '/services/email-marketing-for-hoa-management-cam-companies': '/boardreach/email-marketing',
     '/services/follow-up-content-email-sequences-for-boards': '/boardreach/email-marketing',
-    '/services/hoa-management-google-ads-ppc-management': '/boardreach/property-management-lead-generation',
+    '/services/hoa-management-google-ads-ppc-management': '/boardreach/google-ads-ppc',
     '/services/marketing-strategy-campaign-planning-for-cam-companies': '/resources/cam-marketing-strategy',
     '/services/organic-local-seo-for-cam-companies': '/property-management-seo',
     '/services/proposal-optimization-for-hoa-management-companies': '/boardmatch/groundwork',

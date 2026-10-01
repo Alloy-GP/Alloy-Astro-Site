@@ -35,6 +35,7 @@ const data: HubPageData = {
         services: [
           { label: 'Lead Generation', sub: 'Lead magnets and demand-gen assets for boards', href: '/boardreach/property-management-lead-generation' },
           { label: 'Email Marketing', sub: 'Nurture sequences written for the board timeline', href: '/boardreach/email-marketing' },
+          { label: 'Google Ads & PPC', sub: 'Paid search on board-stage queries, tied to pipeline', href: '/boardreach/google-ads-ppc' },
         ],
       },
     ],

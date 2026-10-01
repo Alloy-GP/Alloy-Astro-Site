@@ -81,7 +81,7 @@ const data: ServicePageData = {
     items: [
       { q: 'Do boards actually take these?', a: 'When the manager introduces them at onboarding and references them in meetings, yes. The playbook is half the product.' },
       { q: 'Can we sell this to boards?', a: 'Some firms do. Most include it as a retention differentiator and mention it in every proposal.' },
-      { q: 'Is this included in BoardSuite?', a: 'Growth includes four micro-courses, branded to your firm. Scale adds custom course production, so the library can grow into what’s specific to your portfolio.' },
+      { q: 'Is this included in BoardSuite?', a: 'Accelerate includes four micro-courses, branded to your firm. Ascend adds custom course production, so the library can grow into what’s specific to your portfolio.' },
       { q: 'Who writes the courses?', a: 'We do, from interviews with your managers and your own documents — the budget calendar, meeting procedures, how you run bids. Your firm reviews everything before it goes live. Courses teach general practice and your process; they don’t replace advice from the association’s attorney or reserve specialist.' },
     ],
   },

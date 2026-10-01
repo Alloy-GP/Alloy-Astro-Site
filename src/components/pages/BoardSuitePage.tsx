@@ -10,9 +10,9 @@ const ENGINE_COPY: Record<string, string> = {
 };
 
 const TIERS = [
-  { name: 'Foundation', sub: 'Under 1,500 doors. Brand, website, local SEO, reviews.' },
-  { name: 'Growth', sub: '1,500–5,000 doors. All three engines running.', popular: true },
-  { name: 'Scale', sub: '5,000+ doors, multi-market. Fractional BD, dedicated operator.' },
+  { name: 'Steady', sub: 'Under 1,500 doors. Brand, website, local SEO, reviews.' },
+  { name: 'Accelerate', sub: '1,500–5,000 doors. All three engines running.', popular: true },
+  { name: 'Ascend', sub: '5,000+ doors, multi-market. Fractional BD, dedicated operator.' },
 ];
 
 export default function BoardSuitePage() {
@@ -97,7 +97,7 @@ export default function BoardSuitePage() {
             <h2 className="rd-h2" style={{ color: '#fff' }}>One CAM company per metro. Yours, or your competitor’s.</h2>
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
-            <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>When you partner with Alloy, no competing CAM firm in your service area can engage us — for the life of the engagement. Your strategy, your messaging, your competitive intel, protected by contract.</p>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>When you partner with Alloy, no competing CAM firm in your service area can engage us — for the length of the engagement, and it renews with your contract unless something changes. Your strategy, your messaging, your competitive intel, protected by contract.</p>
             <div className="rd-bullets">
               <div className="rd-bullet">No conflicts of interest, ever</div>
               <div className="rd-bullet">Competitive analysis in every quarterly review</div>

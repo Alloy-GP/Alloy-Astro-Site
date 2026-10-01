@@ -46,7 +46,7 @@ const data: ServicePageData = {
     {
       h: 'Who Groundwork is for.',
       p: [
-        'Firms that close well once they’re in the room but don’t get in often enough. Groundwork sits in the Scale tier of BoardSuite™, built for firms past 5,000 doors and working more than one market.',
+        'Firms that close well once they’re in the room but don’t get in often enough. Groundwork sits in the Ascend tier of BoardSuite™, built for firms past 5,000 doors and working more than one market.',
         'It’s the wrong first move if your proposals are losing rooms. More meetings won’t fix a close problem. Start with Proposal Optimization, then fill the calendar.',
       ],
     },

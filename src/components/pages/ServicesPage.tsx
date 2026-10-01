@@ -20,7 +20,7 @@ export default function ServicesPage() {
         <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
           <div className="rd-stack" style={{ gap: 28 }}>
             <Eyebrow>The System · All services</Eyebrow>
-            <h1 className="rd-h1 rd-h1--lg">Sixteen services. <span className="rd-accent">Three engines.</span> One partner.</h1>
+            <h1 className="rd-h1 rd-h1--lg">Seventeen services. <span className="rd-accent">Three engines.</span> One partner.</h1>
           </div>
           <div className="rd-stack" style={{ gap: 20 }}>
             <p className="rd-intro">Every service below is built for community association management and nothing else. Take one to fix a leak, or run all three engines as BoardSuite.</p>

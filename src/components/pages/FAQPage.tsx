@@ -19,13 +19,13 @@ const MATCH_HOA_TEXT =
 
 export const FAQ_GROUPS: Group[] = [
   { label: 'Working with Alloy', items: [
-    { q: 'How does market exclusivity actually work?', a: "When you sign with Alloy, your service area becomes locked. We can't engage another CAM firm in your defined metro for the duration of the engagement (and 12 months after). It's contractual — not a marketing promise." },
+    { q: 'How does market exclusivity actually work?', a: "When you sign with Alloy, your service area becomes locked. We can't engage another CAM firm in your defined metro for the length of the engagement, and the exclusivity renews with your contract unless something changes. It's contractual — not a marketing promise." },
     { q: 'Where are you based, and does it matter?', a: 'Austin, Texas. Our partners are across the country; the work is remote with on-site visits for kickoffs and annual planning.' },
     { q: 'Do you replace our internal marketing?', a: "Sometimes yes, often no. Alloy frequently runs alongside an internal marketing manager — we're the strategy and execution muscle, they're the day-to-day program runner. We'll figure out the right line during scoping." },
   ] },
   { label: 'Capabilities', items: [
     { q: 'Will you build us a website?', a: "If yours isn't doing the job, yes. Conversion-engineered, board-stage SEO architecture, AI-search ready. It's part of the BoardReach engine, not a separate engagement." },
-    { q: 'Do you do paid ads?', a: "Yes — Google Ads, retargeting, and conversion-rate optimization. Paid is one channel inside the BoardReach engine, not the whole strategy. We won't sell you ads as a primary growth lever." },
+    { q: 'Do you do paid ads?', a: "Yes — Google Ads, retargeting, and conversion-rate optimization, run on board-stage queries rather than homeowner traffic. Paid is one channel inside the BoardReach engine, not the whole strategy, and we won't sell you ads as a primary growth lever. See Google Ads & PPC under BoardReach for how it's run." },
   ] },
   { label: 'Industry fit', items: [
     { q: 'Do you work with anyone other than CAM?', a: "No. Exclusively community association management companies. The whole point of Alloy is depth — we'd dilute that the moment we said yes to adjacent industries." },

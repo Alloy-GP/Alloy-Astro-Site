@@ -131,3 +131,9 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 - **/about/testimonials** now shows the real quotes the old page had (Rim E. in full, Valerie L., Rikky M.) plus the Jason D. / RISE AMG video. Three old quotes (Marcus T., Dana W., Priya S.) were **left out** because the old component paired them with placeholder firm names ("Cardinal CAM", "Sunbelt HOA Group") — confirm they are real before publishing (they're in `git show c3c47de:src/components/pages/TestimonialsPage.tsx`).
 - **Anonymity:** the video caption names RISE AMG, while `/results/apex-cmg` anonymizes the same firm as "Apex CMG*". Decide whether the case study stays anonymous; if so, the video caption (or the video) has to go.
 - **/careers** benefits are the old page's figures verbatim (100%/80% health cover, $2K HSA, 4% 401(k), 16 weeks parental leave, $3K learning budget, two offsites a year). Confirm they're current. Roles now email careers@alloygp.co.
+
+
+## 24. Resolved 2026-10-01 (client)
+- Tier names are **Steady / Accelerate / Ascend** (not Foundation / Growth / Scale). Renamed on /pricing, /boardsuite, and in service FAQs.
+- Exclusivity wording: **for the length of the engagement, renewing with the contract unless something changes.** Applied on /faq, /boardsuite, /about.
+- **Google Ads is still offered.** `/boardreach/google-ads-ppc` restored as a service page (old URL, old title/description); the legacy `/focus/advertising-ads` and `/services/hoa-management-google-ads-ppc-management` redirects point at it again; added to nav, footer, BoardReach hub, and sitemap. Services count is now 17.

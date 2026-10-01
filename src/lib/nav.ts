@@ -55,6 +55,7 @@ export const ENGINES: NavEngine[] = [
       { label: 'Social Media Marketing', sub: 'Founder thought-leadership, on a cadence', href: '/boardreach/hoa-social-media-marketing' },
       { label: 'Email Marketing', sub: 'Nurture sequences written for boards', href: '/boardreach/email-marketing' },
       { label: 'Lead Generation', sub: 'Lead magnets and demand-gen assets', href: '/boardreach/property-management-lead-generation' },
+      { label: 'Google Ads & PPC', sub: 'Paid search on the queries boards actually run', href: '/boardreach/google-ads-ppc' },
       { label: 'Print & Marketing Materials', sub: 'Proposal, deck, mailer, and signage systems', href: '/boardreach/print-production' },
     ],
   },
@@ -106,7 +107,7 @@ export type FooterLink = [label: string, href: string];
 export const FOOTER = {
   /** Short labels used in the footer engine columns (design copy) */
   engineLabels: {
-    reach: ['Property Management SEO', 'HOA Website Design', 'Branding for CAM', 'Social Media Marketing', 'Email Marketing', 'Lead Generation', 'Print & Marketing Materials'],
+    reach: ['Property Management SEO', 'HOA Website Design', 'Branding for CAM', 'Social Media Marketing', 'Email Marketing', 'Lead Generation', 'Google Ads & PPC', 'Print & Marketing Materials'],
     match: ['Groundwork BD', 'Proposal Optimization', 'RFP Response', 'Sales Messaging'],
     retain: ['Board Education', 'Newsletters', 'Reputation', 'Thought Leadership', 'Annual Reports'],
   } as Record<EngineKey, string[]>,

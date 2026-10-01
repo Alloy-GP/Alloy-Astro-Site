@@ -17,7 +17,7 @@ export const PRICING_FAQ: FaqItem[] = [
   },
   {
     q: 'Can we mix and match across tiers?',
-    a: 'Selectively, yes — usually as add-ons to Foundation or Growth. Common requests: Foundation + Newsletter Production, or Growth + Fractional BD. We’ll quote those at the Strategic Review based on scope. We don’t unbundle Scale because the integrations are what make it Scale.',
+    a: 'Selectively, yes — usually as add-ons to Steady or Accelerate. Common requests: Steady + Newsletter Production, or Growth + Fractional BD. We’ll quote those at the Strategic Review based on scope. We don’t unbundle Scale because the integrations are what make it Scale.',
   },
   {
     q: 'What’s the off-ramp if it isn’t working?',
@@ -31,20 +31,20 @@ export const PRICING_FAQ: FaqItem[] = [
 
 const TIERS: Array<{ name: string; sub: string; items: string[]; popular?: boolean }> = [
   {
-    name: 'Foundation',
+    name: 'Steady',
     sub: 'Under 1,500 doors. No marketing function yet.',
     items: ['Brand refresh + website', 'Local SEO + Google Business Profile', 'Review engine', 'Quarterly strategic review'],
   },
   {
-    name: 'Growth',
+    name: 'Accelerate',
     sub: '1,500–5,000 doors. Building a real growth motion.',
-    items: ['Everything in Foundation', 'AI search + content engine', 'Paid acquisition', 'Proposal + RFP system', 'Newsletter + board education', 'Monthly strategic review'],
+    items: ['Everything in Steady', 'AI search + content engine', 'Paid acquisition', 'Proposal + RFP system', 'Newsletter + board education', 'Monthly strategic review'],
     popular: true,
   },
   {
-    name: 'Scale',
+    name: 'Ascend',
     sub: '5,000+ doors, multi-market. Hitting growth ceilings.',
-    items: ['Everything in Growth', 'Fractional BD prospecting', 'Local SEO in up to 5 metros', 'CRM / portal integrations', 'Dedicated CAM operator', 'Bi-weekly strategic review'],
+    items: ['Everything in Accelerate', 'Fractional BD prospecting', 'Local SEO in up to 5 metros', 'CRM / portal integrations', 'Dedicated CAM operator', 'Bi-weekly strategic review'],
   },
 ];
 
@@ -138,9 +138,9 @@ export default function PricingPage() {
                 <thead>
                   <tr>
                     <td style={TH} />
-                    <th scope="col" style={TH}>Foundation</th>
-                    <th scope="col" style={{ ...TH, color: 'var(--alloy-pink)' }}>Growth</th>
-                    <th scope="col" style={TH}>Scale</th>
+                    <th scope="col" style={TH}>Steady</th>
+                    <th scope="col" style={{ ...TH, color: 'var(--alloy-pink)' }}>Accelerate</th>
+                    <th scope="col" style={TH}>Ascend</th>
                   </tr>
                 </thead>
                 <tbody>
