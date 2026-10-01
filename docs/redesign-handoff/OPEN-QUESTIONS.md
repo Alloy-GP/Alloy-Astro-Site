@@ -197,3 +197,7 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Second testimonial video:** the client's "another video to use on that page" meant **/about/testimonials** — it now shows two videos side by side (CEO, anonymous · Jeff Harman, CMGT). The link is unlisted (`vimeo.com/1230353437/22399014d8`), so the embed uses `?h=`. Named per Vimeo's own title — flagged in case it should be anonymous like the case study.
 
+## 34. Legal pages date (resolved 2026-10-01)
+
+**Decision:** keep "Last updated: January 2026" on /privacy-policy and /terms-conditions for now; the prototype's "Effective September 2026" is not used. Revisit if legal text changes.
+
