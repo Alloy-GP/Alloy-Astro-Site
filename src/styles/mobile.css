@@ -346,6 +346,10 @@
   .rd-hc-guarantee-link { padding: 12px 0; margin: -10px 0 -12px; display: inline-flex; align-items: center; }   /* 44px tap target */
   .rd-hc-result { padding: 12px; }
   .rd-hc-result-actions { width: 100%; justify-content: space-between; }
+  .rd-dialog-panel { padding: 28px 22px 24px; border-radius: 14px; }
+  .rd-dialog-title { font-size: 24px; }
+  .rd-dialog-actions { flex-direction: column; align-items: stretch; }
+  .rd-dialog-actions .rd-hc-btn { width: 100%; }
   .rd-network { padding: 56px 0 !important; }
   .rd-network .rd-grid { gap: 32px !important; }
   .rd-network .rd-logo-link { align-self: center; }

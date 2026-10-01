@@ -73,7 +73,7 @@ Design: ZIP input → ~1.6s "checking" state → Available / Not available over 
 
 ## 11. Metro checker implementation (built, needs a launch decision)
 - ZIP → place: new `GET /api/metro?zip=` endpoint. Live lookup via Zippopotam (free, no key, 2.5s timeout) with a bundled 3-digit-prefix fallback table.
-- Claimed/open: within 30 miles of one of the 10 partner metros carried over from the old `MarketChecker.tsx` (Denham Springs LA, Branford CT, Orlando FL, Manchester NH, Venice FL, Fredericksburg VA, Houston TX, Austin TX, San Antonio TX, Owings Mills MD). **Confirm this list is current.**
+- Claimed/open: within 15 miles (client decision 2026-10-01; was 30) of one of the 10 partner metros carried over from the old `MarketChecker.tsx` (Denham Springs LA, Branford CT, Orlando FL, Manchester NH, Venice FL, Fredericksburg VA, Houston TX, Austin TX, San Antonio TX, Owings Mills MD). **Confirm this list is current.**
 - Map: **resolved 2026-10-01** — replaced the OpenStreetMap raster tiles with a flat, brand-colored vector map of the contiguous US (US Census boundaries, public domain; `src/data/us-map.ts`, Albers projection in `src/lib/albers.ts`). No third-party tiles, no attribution, no network dependency.
 - "Waitlist" → `/get-started?intent=waitlist&zip=…`, "Talk to us" → `/contact`, "Claim it" → `/get-started?zip=…`.
 
@@ -162,4 +162,6 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 - **Guarantee terms link:** there is no terms page, so "See guarantee terms" → `/faq#guarantee` (new anchored entry using only the handoff's wording + "full terms are part of your engagement agreement"). The old FAQ answer "Do you guarantee results? — No." contradicted the card and was rewritten. **Legal must confirm the promise before launch** (launch checklist #15).
 - **Mobile:** stacked as specified (card ≈1,300px tall on a 390px phone). A horizontal rail for the three moments is the alternative if that feels long.
 - The vector US map (`us-map.ts`, `albers.ts`) and the illustrative outcome tiles are gone, which also closes launch question 6.
+
+**Addendum (2026-10-01, client):** keep the guarantee and show the terms in a **modal**, not a page — the condition is that the firm follows the programs Alloy puts in place so Alloy can deliver on the promise (`lib/dialog.ts`, `#guarantee-terms` in `HeroCard.tsx`; `/faq#guarantee` is the no-JS fallback and uses the same wording). Mock card content is fine ("they are examples"). Exclusivity: the client will send a list of partner office cities/addresses; everything within **15 miles** of an office is claimed (`LOCK_RADIUS_MI` 30 → 15). Legal sign-off on the guarantee wording is still owed.
 

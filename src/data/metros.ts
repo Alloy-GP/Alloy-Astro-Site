@@ -1,12 +1,13 @@
 // src/data/metros.ts
-// Partner-metro data for the homepage metro checker and /api/metro.
-// CLAIMED = metros with an active Alloy partner (one CAM firm per metro); anything within
-// LOCK_RADIUS_MI of one of these is "claimed". OPEN = larger metros shown as open dots on the
-// idle map. Replace with a CMS-backed list when available (see OPEN-QUESTIONS §11).
+// Partner-metro data for the homepage availability check (/api/metro).
+// CLAIMED = partner office locations (one CAM firm per metro); anything within LOCK_RADIUS_MI of one
+// is "claimed". The client decided 2026-10-01: 15 miles around each partner office address — the
+// city list below is the pre-redesign placeholder until the client's office-address list arrives
+// (launch checklist #5). OPEN = larger metros, now only used as a last-resort name match in /api/metro.
 
 export interface Metro { label: string; lat: number; lng: number }
 
-export const LOCK_RADIUS_MI = 30;
+export const LOCK_RADIUS_MI = 15; // client decision 2026-10-01 (was 30)
 
 export const CLAIMED_METROS: Metro[] = [
   { label: 'Denham Springs, LA', lat: 30.4863, lng: -90.9559 },

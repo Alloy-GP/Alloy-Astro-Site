@@ -700,6 +700,22 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-hc :is(input, button, a):focus-visible { outline: 2px solid var(--alloy-pink); outline-offset: 2px; }
 .rd-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+/* ---------- Modal (native <dialog>, src/lib/dialog.ts) ---------- */
+.rd-dialog { border: 0; padding: 0; background: transparent; max-width: min(560px, calc(100vw - 32px)); width: 100%; margin: auto; color: var(--alloy-purple); font-family: var(--font-display); }
+.rd-dialog::backdrop { background: rgba(41,13,65,.62); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+.rd-dialog[open] { animation: alloyPaneIn var(--dur-slow) var(--ease-emphasis) both; }
+.rd-dialog-panel { position: relative; background: #fff; border-radius: 16px; padding: 36px 36px 32px; box-shadow: 0 24px 64px rgba(41,13,65,.35); display: flex; flex-direction: column; gap: 16px; }
+.rd-dialog-close { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border: 0; border-radius: 10px; background: none; color: var(--alloy-body-gray); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard); }
+.rd-dialog-close:hover { background: var(--alloy-off-white); color: var(--alloy-pink); }
+.rd-dialog-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-gold-ink); }
+.rd-dialog-title { margin: 0; font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: -.015em; padding-right: 36px; }
+.rd-dialog-lead { margin: 0; font-size: 17px; font-weight: 500; line-height: 1.5; color: var(--alloy-purple); }
+.rd-dialog-terms { background: var(--alloy-lavender); border-radius: 12px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+.rd-dialog-terms-head { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--alloy-purple); }
+.rd-dialog-terms p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--alloy-body-gray); font-weight: 400; }
+.rd-dialog-actions { display: flex; align-items: center; gap: 12px; padding-top: 4px; }
+.rd-dialog-actions .rd-hc-btn { height: 48px; padding: 0 22px; font-size: 12px; }
+
 /* ---------- Network leads chart card ---------- */
 .rd-nc { background: rgba(255,255,255,.07); border-radius: 10px; padding: 28px 32px 24px; display: flex; flex-direction: column; gap: 20px; color: #fff; }
 .rd-nc-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }

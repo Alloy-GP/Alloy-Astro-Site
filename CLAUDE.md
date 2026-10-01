@@ -34,6 +34,7 @@ src/
 │   ├── tokens.ts                    # JS color constants (PURPLE, PINK, YELLOW, BLUE, GREEN, BLUE_DEEP, REACH_INK, MATCH_INK, RETAIN_INK, ENGINE_INK)
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
 │   ├── mobile.ts                    # ≤720 enhancements (footer accordions, sticky CTA bar observers, article TOC bar + progress) — mounted from BaseLayout
+│   ├── dialog.ts                    # native <dialog> modals: [data-dialog=id] opens, [data-dialog-close]/backdrop/Esc close — mounted from BaseLayout
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
 │   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
@@ -46,7 +47,7 @@ src/
 │   │   ├── property-management-seo.ts, email-marketing.ts, hoa-website-design.ts, … (15 services)
 │   ├── hubs/                        # ONE file per engine hub (HubPageData): boardreach.ts, boardmatch.ts, boardretain.ts (+ types.ts)
 │   ├── courseTrustBuilding.ts       # Lesson + quiz content for /resources/courses/trust-building
-│   └── metros.ts                    # Partner metros (claimed) + open metros, lock radius, claimStatus() — used by /api/metro
+│   └── metros.ts                    # Partner office metros (claimed, 15-mi radius — office list owed by client) + open metros, claimStatus() — used by /api/metro
 │
 ├── layouts/
 │   └── BaseLayout.astro             # <html>, <head> (SEO, fonts, analytics), SiteHeader (island), <main>, SiteFooter (static), motion <script>
@@ -255,6 +256,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Guarantee terms modal** (`lib/dialog.ts`, `.rd-dialog*`): the hero card's "See guarantee terms" opens a native `<dialog>` with the condition (the firm runs the programs Alloy puts in place); `/faq#guarantee` stays as the no-JS fallback and matches. Exclusivity radius 30 → **15 miles** around partner office addresses (list owed by client). Mock card content approved by client. |
 | 2026-10-01 | **Hero card 2b** (`docs/redesign-handoff-hero-2b/`, final): outcomes carousel + vector map replaced by the static "three search moments" card with the pays-for-itself guarantee; hero recomposed (copy in two columns, card full width below — the card is designed at 960px). New `MetroCheck` island; `/api/metro` accepts `q=` metro **or** ZIP (Zippopotam city endpoint for "City, ST", Nominatim fallback, own metro list last). Removed `data/us-map.ts`, `lib/albers.ts`, `.context/gen-us-map.mjs`. FAQ gains an anchored `#guarantee` entry (the card's terms link) and "Do you guarantee results?" was rewritten to match — **guarantee wording needs legal sign-off before launch** (launch checklist #15). `/get-started` prefills `?metro=` / `?intent=waitlist`. |
 | 2026-10-01 | **Real content only**: webinar block + `WebinarSignup` removed (no event scheduled); homepage news cards and `/resources` Latest now link only to real pieces; live article *How CAM Firms Win in AI Search* restored at `/resources/ai-search-for-cam` (`AISearchArticle.tsx`, original title/description, `/resource-hub/ai-search-for-cam` → there). |
 | 2026-10-01 | **Mobile build** per `docs/redesign-handoff/docs/mobile-spec.md`: header panel rewrite (`SiteHeader`), footer accordion blocks (`SiteFooter`), `lib/mobile.ts` (footer toggles, sticky CTA, TOC bar), `mobile.css` rd-* section rewritten, class hooks on Home/Results/GetStarted/Contact/About/Pricing, `Breadcrumb` marks the parent crumb, `StatBand` gains `compact`, soft hyphen in hub system-row titles. QA tooling `.context/mobile-qa.mjs`, `.context/eval.mjs`. |

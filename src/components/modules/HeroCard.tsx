@@ -105,10 +105,31 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
           <div className="rd-hc-guarantee-body">
             <span className="rd-hc-guarantee-title">Pays for itself. Guaranteed.</span>
             <span className="rd-hc-guarantee-text">If new business doesn’t cover our fee within 24 months, we refund the difference.</span>
-            <a href="/faq#guarantee" className="rd-hc-guarantee-link">See guarantee terms</a>
+            <a href="/faq#guarantee" className="rd-hc-guarantee-link" data-dialog="guarantee-terms">See guarantee terms</a>
           </div>
         </div>
       </div>
+
+      {/* Guarantee terms — native <dialog>, opened by src/lib/dialog.ts (no-JS fallback: /faq#guarantee) */}
+      <dialog id="guarantee-terms" className="rd-dialog" aria-labelledby="guarantee-terms-title">
+        <div className="rd-dialog-panel">
+          <button type="button" className="rd-dialog-close" data-dialog-close aria-label="Close">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg>
+          </button>
+          <div className="rd-dialog-eyebrow">The guarantee</div>
+          <h3 id="guarantee-terms-title" className="rd-dialog-title">Pays for itself. Guaranteed.</h3>
+          <p className="rd-dialog-lead">If the new business Alloy brings in doesn’t cover our fee within 24 months of starting, we refund the difference.</p>
+          <div className="rd-dialog-terms">
+            <div className="rd-dialog-terms-head">The one condition</div>
+            <p>The guarantee holds when your firm runs the programs we put in place — the review requests, proposals, follow-ups, and board touchpoints that make the system work. We build it; you run it with us. That’s how we can make the promise.</p>
+            <p>How new business and the fee are measured is spelled out in your engagement agreement before you sign, so there’s nothing to interpret later.</p>
+          </div>
+          <div className="rd-dialog-actions">
+            <a href="/get-started" className="rd-hc-btn">Claim your market</a>
+            <button type="button" className="rd-hc-again" data-dialog-close>Close</button>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 }
