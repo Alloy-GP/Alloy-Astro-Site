@@ -158,7 +158,7 @@ export default function ResultsPage() {
       <section className="rd-section" style={{ padding: '0 0 96px' }}>
         {/* data-reveal sits one level up: the rise CSS matches [data-rise] as a descendant of the root. */}
         <div className="rd-wrap" data-reveal>
-          <div data-rise className="rd-grid rd-grid--4 rd-rule-top" style={{ gap: 28, paddingTop: 40 }}>
+          <div data-rise className="rd-grid rd-grid--4 rd-grid--stats rd-rule-top" style={{ gap: 28, paddingTop: 40 }}>
             {HEADLINE_STATS.map((s) => (
               <div key={s.note} className={`rd-proof-item${s.rule !== 'blue' ? ` rd-proof-item--${s.rule}` : ''}`} style={s.rule === 'blue' ? BLUE_RULE : undefined}>
                 <StatNumber stat={{ value: s.value, suffix: s.suffix, note: s.note, ...(s.prefix ? { prefix: s.prefix } : {}) }} />

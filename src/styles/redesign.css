@@ -355,6 +355,8 @@ a.rd-card { text-decoration: none; color: inherit; display: block; }
 .rd-threeup > *:last-child  { padding-right: 0; border-right: 0; }
 .rd-threeup--dark { border-top-color: rgba(255,255,255,.14); }
 .rd-threeup--dark > * { border-right-color: rgba(255,255,255,.14); }
+.rd-engine-item { text-decoration: none; color: inherit; }   /* homepage "What you get" — whole block links to the hub */
+.rd-engine-item:hover .rd-title-26 { color: var(--alloy-pink); }
 
 /* FAQ — accordion (native <details>); first item open by default */
 .rd-faq { display: flex; flex-direction: column; border-top: 1px solid var(--border-subtle); }
@@ -415,6 +417,7 @@ textarea.rd-field { resize: vertical; min-height: 120px; }
 .rd-toc-list a { display: flex; gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border-subtle); font-size: 14px; font-weight: 500; color: var(--alloy-purple); text-decoration: none; transition: color var(--dur-fast) var(--ease-standard); }
 .rd-toc-list a:hover { color: var(--alloy-pink); }
 .rd-toc-list a span:first-child { font-weight: 700; font-size: 12px; color: var(--alloy-pink); min-width: 20px; }
+.rd-toc-bar { display: none; }                      /* mobile-only sticky TOC bar, built by src/lib/mobile.ts */
 
 /* Bars (charts) */
 .rd-bar-track { height: 14px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }
@@ -590,6 +593,7 @@ textarea.rd-field { resize: vertical; min-height: 120px; }
 .rd-news-card--lead { padding: 30px 30px 26px 32px; }
 .rd-news-card--blue { border-left-color: var(--alloy-blue); }
 .rd-news-card--yellow { border-left-color: var(--alloy-yellow); }
+.rd-news-rail { display: contents; }               /* ≤720: becomes a 280px snap rail (mobile.css) */
 .rd-news-card .rd-title-22 { color: var(--alloy-purple); }
 .rd-webinar { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; background: #fff; border: 1px solid var(--border-subtle); border-radius: 10px; padding: 28px 32px; }
 .rd-date-tile { flex: none; background: var(--alloy-purple); color: #fff; border-radius: 10px; padding: 14px 16px; text-align: center; min-width: 64px; }
@@ -778,3 +782,6 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-arch-preview { font-size: 14px; line-height: 1.5; color: var(--alloy-body-gray); }
 .rd-arch-arrow { padding-top: 4px; opacity: .5; transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
 .rd-arch-row:hover .rd-arch-arrow { opacity: 1; transform: translateX(3px); }
+
+/* Mobile sticky CTA bar — hidden on desktop; layout + motion in mobile.css */
+.rd-sticky-cta { display: none; }

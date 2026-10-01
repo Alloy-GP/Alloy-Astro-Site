@@ -68,11 +68,11 @@ Hero stacks eyebrow → H1 44 → lede. Stat bands with ≤3 short stats stay **
 `≤720`: 6px accent bar; brand block `padding:40px 20px 24px` (48px icon tile, 20px headline, 13px contact) + **full-width pink CTA**. The five link columns become **accordion rows** (`min-height:52px`, yellow `#f5d880` 12px/700/.12em uppercase heading, 16px chevron rotating 180°, 1px `rgba(255,255,255,.12)` dividers). Links 15px, `padding:10px 0`, white 90%. **All collapsed on load**; collapse visually only (links stay in the DOM). Bottom bar stacks and centers: Terms · Privacy row first, then © line, 11px uppercase 60%.
 
 ## Component checklist
-- [ ] `SiteHeader.tsx` — mobile panel w/ two-level System accordion, compact CTA, burger morph
-- [ ] `StickyCtaBar.tsx` (new, mobile only) + hero-button observer
-- [ ] `FaqAccordion.tsx` (shared by service, hub, pricing, faq pages; desktop = open list, mobile = accordion)
-- [ ] `ArticleToc.tsx` — sticky sidebar on desktop, sticky bar + sheet on mobile, progress count
-- [ ] `SiteFooter.tsx` — accordion columns ≤720
-- [ ] `CompareTable` wrapper — scroll + sticky first column
-- [ ] `mobile.css` — global tokens above; remove attribute-selector hacks as components gain classes
-- [ ] QA at 390 and 360 wide, iOS Safari + Android Chrome: no horizontal overflow, inputs 16px, all tap targets ≥44px, Lighthouse mobile ≥90 performance / 100 SEO on `/`, `/property-management-seo`, `/boardreach`, `/pricing`
+- [x] `SiteHeader.tsx` — mobile panel w/ two-level System accordion, compact CTA, burger morph (2026-10-01; panel styles in `chrome.css`, breakpoints in `mobile.css`)
+- [x] Sticky CTA bar — static markup in `BaseLayout.astro` (`.rd-sticky-cta`, omitted on /get-started + /contact) + observers in `src/lib/mobile.ts` (no island needed)
+- [x] FAQ accordion — `FaqList` in `rd/atoms.tsx` renders native `<details name>` on every breakpoint (client asked for accordions on desktop too, 2026-10-01); answers stay in the DOM
+- [x] Article TOC — `.rd-toc` markup unchanged; `src/lib/mobile.ts` builds the sticky bar + "n of N" progress + jump list ≤720 and moves the purple card inline after section 2
+- [x] `SiteFooter.tsx` — five `.site-footer-block` rows, collapsed ≤720 (toggle in `mobile.ts`), mobile-only brand CTA + "{Engine} overview" links
+- [x] Compare tables — `.rd-table-wrap` ≤720: Swipe → hint, 520px min, sticky first column (pricing card hook `.rd-compare-card`)
+- [x] `mobile.css` — rd-* section rewritten to the tokens above; new class hooks `rd-network`, `rd-news-rail`, `rd-threeup--engines`, `rd-grid--stats`, `rd-grid--team`, `rd-form-grid`, `rd-gs-hero`, `rd-statband--compact`, `rd-breadcrumb-parent`. Legacy attribute selectors remain for the untouched landing pages only.
+- [~] QA — `node .context/mobile-qa.mjs <url> 390 844 [out.png]` (headless Chrome, CDP): 0 horizontal overflow at 390 and 360 on /, service, hub, pricing, article, about, get-started, results, faq, testimonials; every text input 16px. Still owed: real-device pass (iOS Safari / Android Chrome) and Lighthouse mobile runs — not possible in the build sandbox.

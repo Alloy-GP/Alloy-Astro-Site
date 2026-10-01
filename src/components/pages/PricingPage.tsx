@@ -126,7 +126,7 @@ export default function PricingPage() {
             <h2 className="rd-h2">What changes between tiers.</h2>
             <p className="rd-body">The short version. Every line is scoped at the Strategic Review; nothing is added after you sign.</p>
           </div>
-          <div className="rd-card" style={{ padding: '8px 32px 16px' }}>
+          <div className="rd-card rd-compare-card" style={{ padding: '8px 32px 16px' }}>
             <div className="rd-table-wrap">
               <table className="rd-table" style={{ minWidth: 640 }}>
                 <colgroup>

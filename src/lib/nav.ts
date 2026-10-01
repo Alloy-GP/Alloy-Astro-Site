@@ -102,6 +102,14 @@ export const DROPDOWN_FOOTER = {
   href: '/get-started',
 };
 
+/** Mobile nav panel (mobile-spec.md frame 1a): secondary links row + pinned footer caption. */
+export const MOBILE_SECONDARY: Array<[label: string, href: string]> = [
+  ['About', '/about'],
+  ['Contact', '/contact'],
+  ['FAQ', '/faq'],
+];
+export const MOBILE_FOOT_CAPTION = 'One CAM firm per metro. Thirty minutes tells you if yours is open.';
+
 export type FooterLink = [label: string, href: string];
 
 export const FOOTER = {

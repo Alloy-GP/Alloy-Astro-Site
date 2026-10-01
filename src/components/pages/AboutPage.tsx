@@ -183,7 +183,7 @@ export default function AboutPage() {
       {/* Stat band */}
       <section className="rd-section rd-section--band rd-bg-purple">
         <div className="rd-wrap">
-          <StatBand stats={STATS} />
+          <StatBand stats={STATS} compact />
         </div>
       </section>
 
@@ -191,7 +191,7 @@ export default function AboutPage() {
       <section id="partners" className="rd-section rd-bg-off">
         <div className="rd-wrap rd-stack rd-stack--40">
           <Eyebrow>The partners</Eyebrow>
-          <div className="rd-grid rd-grid--3" style={{ gap: 32 }}>
+          <div className="rd-grid rd-grid--3 rd-grid--team" style={{ gap: 32 }}>
             {PARTNERS.map((p) => (
               <div key={p.name} className="rd-stack" style={{ gap: 12 }}>
                 {p.photo ? <PhotoCard src={p.photo} name={p.name} /> : <RoleCard name={p.name} color={p.color} icon={p.icon} roleLabel={p.roleLabel} />}

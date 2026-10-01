@@ -25,7 +25,7 @@ src/
 │   ├── site.css                     # LEGACY component layer (.btn, .card, .eyebrow, .container…) — still loaded; used by landing pages + a few modules
 │   ├── chrome.css                   # SITE HEADER + FOOTER (fixed header, "The System" dropdown, burger/mobile nav, footer grid)
 │   ├── redesign.css                 # PAGE SYSTEM: every `rd-*` class (layout, type, buttons, cards, stat bands, FAQ, motion states…)
-│   ├── mobile.css                   # ALL responsive rules (980 / 720 / 480). Never put media queries anywhere else.
+│   ├── mobile.css                   # ALL responsive rules (980 / 720 / 480) — contract: docs/redesign-handoff/docs/mobile-spec.md. Never put media queries anywhere else.
 │   ├── courses.css                  # legacy course styling (no longer imported by any route)
 │   └── growth-portal.css            # /cam-growth-portal landing page only
 │
@@ -34,6 +34,7 @@ src/
 │   ├── tokens.ts                    # JS color constants (PURPLE, PINK, YELLOW, BLUE, GREEN, BLUE_DEEP, REACH_INK, MATCH_INK, RETAIN_INK, ENGINE_INK)
 │   ├── albers.ts                    # Albers equal-area projection (contiguous US) used by us-map.ts
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
+│   ├── mobile.ts                    # ≤720 enhancements (footer accordions, sticky CTA bar observers, article TOC bar + progress) — mounted from BaseLayout
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
 │   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
@@ -174,7 +175,7 @@ The handoff specifies Gotham **900**. This site maps 800 → Gotham-Black and 90
 
 **Light sections:** every off-white `<section class="rd-bg-off">` (alias `.section-light`) carries the textured treatment — grain, 2px five-color rule, purple wash — from layered `background-image`s; an off-white block directly following another keeps only the grain. Don't stack an off-white spacer above an off-white section unless you want that behavior.
 
-Mobile is not designed; `mobile.css` collapses every `rd-grid--*` to one column ≤980px, steps type down (H1 → 54 / 42 / 36), stacks stat bands and steps, and makes tables scroll. Prefer `rd-grid--*` classes over inline `gridTemplateColumns` so grids stack.
+**Mobile** follows `docs/redesign-handoff/docs/mobile-spec.md` (prototype: `site/Mobile Spec.dc.html`). ≤980: header becomes a 60px bar with a compact "Claim" CTA + 44px burger → full-height panel (two-level System accordion, System + BoardReach open by default, About · Contact · FAQ row, pinned CTA); every `rd-grid--*` collapses to one column. ≤720: gutters 20, sections 56 (hero 48), H1 42–46 / H2 34 / H3 23 / body 16, buttons full-width, inputs 16px, stat bands 2-col (lone third stat spans; `.rd-statband--compact` stays 3-up), steps 2×2, chips + secondary news cards become edge-bleed snap rails, breadcrumbs collapse to one "‹ Parent" link (`.rd-breadcrumb-parent`), hub system card → 3-up tiles, build cards → rows, tiers stack with the popular one first, compare tables scroll with a sticky first column, footer columns → accordions, the article TOC → sticky "On this page · n of N" bar (`lib/mobile.ts`), and a pink sticky "Claim your market" bar appears after the hero CTA scrolls away (hidden near forms/footer; never on /get-started, /contact). Hooks: `rd-network`, `rd-news-rail`, `rd-threeup--engines`, `rd-grid--stats`, `rd-grid--team`, `rd-form-grid`, `rd-gs-hero`, `rd-compare-card`. Prefer `rd-grid--*` classes over inline `gridTemplateColumns` so grids stack. QA: `node .context/mobile-qa.mjs <url> 390 844 [out.png]` (overflow / <16px inputs / small tap targets); `node .context/eval.mjs <url> <w> <h> "<js>"` evaluates JS in headless Chrome.
 
 ---
 
@@ -255,6 +256,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Mobile build** per `docs/redesign-handoff/docs/mobile-spec.md`: header panel rewrite (`SiteHeader`), footer accordion blocks (`SiteFooter`), `lib/mobile.ts` (footer toggles, sticky CTA, TOC bar), `mobile.css` rd-* section rewritten, class hooks on Home/Results/GetStarted/Contact/About/Pricing, `Breadcrumb` marks the parent crumb, `StatBand` gains `compact`, soft hyphen in hub system-row titles. QA tooling `.context/mobile-qa.mjs`, `.context/eval.mjs`. |
 | 2026-10-01 | **Launch Q&A**: tiers Steady/Accelerate/Ascend; Google Ads & PPC page restored; FAQs are `<details>` accordions site-wide (`FaqList`); case-study client and video kept anonymous; testimonials reduced to the two client-confirmed quotes. **Favicons**: `public/favicon.ico` + `favicon-48/96.png` + `apple-touch-icon.png` + `icon-192/512.png` + `site.webmanifest` (generated by `.context/gen-favicons.mjs` from `assets/alloy-icon-1500.png`), linked from BaseLayout alongside the SVG. |
 | 2026-09-30 | **Newsletter**: `/resources` gets an Alloy Briefing section (recent issues from Mailchimp + first-name/email signup, subscribers tagged `newsletter` + source); new `/resources/newsletter` archive page (all sent issues incl. A/B sends, grouped by year, 24/page, `?page=N` noindexed); `/api/newsletters`; footer Resources column links Newsletter. Trust bar under the hero (BBB · CAI · Innovia logo · 35+ yrs). About: Skyler headshot. |
 | 2026-09-24 | **Homepage update** from `docs/redesign-handoff-homepage/`: new hero outcomes card (`HeroCard.tsx` — two-page tile carousel + 150px metro map strip with metro dots, pin drop, result pill; replaces `MetroChecker.tsx`), Network-leads column chart with tooltips (`NetworkLeadsChart.tsx`) replacing the MatchHOA bars, ledger copy/chart to Year 1→3, textured light sections site-wide, `--success` token, shared `data/metros.ts` used by `/api/metro`. Hero grid 1.1fr/1fr. Off-white spacers folded into CTA sections in `ServicePage`/`HubPage`. |

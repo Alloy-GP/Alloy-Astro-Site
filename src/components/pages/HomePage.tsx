@@ -33,7 +33,7 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
       </section>
 
       {/* Network leads · MatchHOA */}
-      <section className="rd-section rd-bg-purple" style={{ padding: '80px 0' }}>
+      <section className="rd-section rd-bg-purple rd-network" style={{ padding: '80px 0' }}>
         <div className="rd-wrap rd-grid rd-grid--hero-11" style={{ gap: 64, alignItems: 'stretch' }}>
           {chart}
           <div className="rd-stack rd-stack--18" style={{ justifyContent: 'center' }}>
@@ -87,14 +87,15 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
             <h2 className="rd-h2">What you get in your metro.</h2>
             <p className="rd-body" style={{ lineHeight: 1.55 }}>Attract, close, keep — run as one playbook, by one partner, for one CAM company in your market.</p>
           </div>
-          <div className="rd-threeup">
+          {/* Whole block is the link (≤720 it becomes a tappable 52px/1fr row — mobile.css) */}
+          <div className="rd-threeup rd-threeup--engines">
             {ENGINES.map((e, i) => (
-              <div key={e.key}>
+              <a key={e.key} href={e.href} className="rd-engine-item">
                 <span className={`rd-numeral rd-numeral--${e.key}`}>{String(i + 1).padStart(2, '0')}</span>
                 <Label tone={e.key} size={12}>{e.stage}</Label>
-                <a href={e.href} className="rd-title-26 rd-a" style={{ fontWeight: 700 }}>{e.title}</a>
-                <div className="rd-small" style={{ lineHeight: 1.55 }}>{ENGINE_BLURB[e.key]}</div>
-              </div>
+                <span className="rd-title-26 rd-ink" style={{ fontWeight: 700 }}>{e.title}</span>
+                <span className="rd-small" style={{ lineHeight: 1.55, display: 'block' }}>{ENGINE_BLURB[e.key]}</span>
+              </a>
             ))}
           </div>
           <CtaBar text="Not sure which engine is leaking? Thirty minutes, and we’ll tell you." />
@@ -115,6 +116,8 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
               <p className="rd-small" style={{ lineHeight: 1.55 }}>AI answers pull from a handful of sources — reviews, local citations, and pages that actually explain what you do. Most CAM sites give them nothing to quote. Three fixes you can make this month.</p>
               <div className="rd-mt-auto"><TextLink href="/property-management-seo" size={12}>Read the field note</TextLink></div>
             </article>
+            {/* ≤720: the two secondary cards scroll in a 280px snap rail; desktop: display: contents */}
+            <div className="rd-news-rail">
             <article className="rd-news-card rd-news-card--blue">
               <div className="rd-row rd-row--between"><span className="rd-label rd-label--12" style={{ color: '#4a86ad' }}>Local</span><span className="rd-tiny rd-tiny--12">5 min</span></div>
               <h3 className="rd-title-22">Why the map pack now decides your shortlist before the RFP does.</h3>
@@ -127,6 +130,7 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
               <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Review velocity, service-area pages, a proposal that answers the board’s real question. Small, unglamorous, effective.</p>
               <div className="rd-mt-auto"><TextLink href="/resources/cam-marketing-strategy" size={12}>Get the list</TextLink></div>
             </article>
+            </div>
           </div>
           <div className="rd-webinar">
             <div className="rd-row" style={{ gap: 24 }}>

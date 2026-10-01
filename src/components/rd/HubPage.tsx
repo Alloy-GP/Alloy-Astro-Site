@@ -27,7 +27,7 @@ export default function HubPage({ data }: { data: HubPageData }) {
                 return (
                   <a key={e.key} href={e.href} className={`rd-system-row${here ? ' is-active' : ''}`} aria-current={here ? 'page' : undefined}>
                     <div>
-                      <div className="rd-system-row-title">{e.title}</div>
+                      <div className="rd-system-row-title">{e.title.replace(/^Board/, 'Board\u00AD')}</div>{/* soft hyphen: lets the 3-up mobile tiles break "Board-Match™" cleanly */}
                       <div className="rd-system-row-sub">{e.stage}{here ? ' · you are here' : ''}</div>
                     </div>
                     <span className="rd-system-row-num">{String(i + 1).padStart(2, '0')}</span>

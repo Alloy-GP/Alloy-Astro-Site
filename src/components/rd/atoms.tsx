@@ -124,9 +124,9 @@ export function Breadcrumb({ items }: { items: Array<{ label: string; href?: str
             {last ? (
               <a href={it.href ?? '#'} className="rd-breadcrumb-cur" aria-current="page">{it.label}</a>
             ) : it.href ? (
-              <a href={it.href}>{it.label}</a>
+              <a href={it.href} className={i === items.length - 2 ? 'rd-breadcrumb-parent' : undefined}>{it.label}</a>
             ) : (
-              <span>{it.label}</span>
+              <span className={i === items.length - 2 ? 'rd-breadcrumb-parent' : undefined}>{it.label}</span>
             )}
           </span>
         );
@@ -161,10 +161,11 @@ export function StatNumber({ stat, size = 48 }: { stat: StatItem; size?: 40 | 48
 }
 
 /** Purple full-width stat band (3 or 4 up). Wrap in a `.rd-section--band.rd-bg-purple`. */
-export function StatBand({ stats, columns }: { stats: StatItem[]; columns?: 3 | 4 }) {
+export function StatBand({ stats, columns, compact = false }: { stats: StatItem[]; columns?: 3 | 4; compact?: boolean }) {
   const cols = columns ?? (stats.length >= 4 ? 4 : 3);
+  // `compact`: short stats that stay 3-up on phones (mobile-spec.md §6) instead of 2-col + spanning third.
   return (
-    <div data-reveal data-rise className={`rd-statband${cols === 4 ? ' rd-statband--4' : ''}`}>
+    <div data-reveal data-rise className={`rd-statband${cols === 4 ? ' rd-statband--4' : ''}${compact ? ' rd-statband--compact' : ''}`}>
       {stats.map((s, i) => (
         <div key={i} className="rd-stat">
           <StatNumber stat={s} />

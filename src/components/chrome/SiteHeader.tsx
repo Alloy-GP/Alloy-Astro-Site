@@ -1,9 +1,12 @@
 // src/components/chrome/SiteHeader.tsx
 // Fixed header: logo · The System ▾ · Results · Pricing · Resources · [Claim your market].
 // "The System" opens a two-level, full-width panel (engines left, services right).
-// ≤980px: burger → full-screen mobile nav with per-engine accordions (mobile.css).
+// ≤980px (mobile-spec.md, frame 1a): 60px bar with a compact "Claim" CTA + 44px burger; the panel
+// sits under the header and holds a two-level "The System" accordion (System + BoardReach open by
+// default), the other top-level rows, About · Contact · FAQ, and a pinned full-width CTA.
+// Component styles live in chrome.css; breakpoints in mobile.css.
 import { useEffect, useRef, useState } from 'react';
-import { PRIMARY, CTA, ENGINES, BOARDSUITE_TILE, DROPDOWN_FOOTER, getEngine, type EngineKey } from '~/lib/nav';
+import { PRIMARY, CTA, ENGINES, BOARDSUITE_TILE, DROPDOWN_FOOTER, MOBILE_SECONDARY, MOBILE_FOOT_CAPTION, getEngine, type EngineKey } from '~/lib/nav';
 
 /** Legacy pageId values still passed by some routes → new nav ids. */
 const ACTIVE_MAP: Record<string, string> = {
@@ -15,6 +18,9 @@ const ACTIVE_MAP: Record<string, string> = {
   pricing: 'pricing',
   resources: 'resources',
 };
+
+/** Matches mobileNavOut in mobile.css. */
+const MOBILE_CLOSE_MS = 280;
 
 interface SiteHeaderProps {
   /** BaseLayout pageId */
@@ -49,9 +55,12 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
   const [engine, setEngine] = useState<EngineKey>('reach');
   const closeTimer = useRef<number | null>(null);
 
-  // Mobile nav
+  // Mobile panel
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileEngine, setMobileEngine] = useState<EngineKey | null>(null);
+  const [mobileClosing, setMobileClosing] = useState(false);
+  const [mobileSystem, setMobileSystem] = useState(true);
+  const [mobileEngine, setMobileEngine] = useState<EngineKey | null>('reach');
+  const closingTimer = useRef<number | null>(null);
 
   const clearTimer = () => {
     if (closeTimer.current !== null) {
@@ -70,25 +79,43 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
     closeTimer.current = window.setTimeout(() => setOpen(false), 120);
   };
 
+  const openMobile = () => {
+    if (closingTimer.current !== null) { window.clearTimeout(closingTimer.current); closingTimer.current = null; }
+    setMobileClosing(false);
+    setMobileSystem(true);      // defaults on every open: The System expanded…
+    setMobileEngine('reach');   // …with BoardReach expanded
+    setMobileOpen(true);
+  };
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileClosing(true);     // keep the panel mounted for the exit animation
+    closingTimer.current = window.setTimeout(() => { setMobileClosing(false); closingTimer.current = null; }, MOBILE_CLOSE_MS);
+  };
+
   // Escape closes either menu
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { closeNow(); setMobileOpen(false); }
+      if (e.key !== 'Escape') return;
+      closeNow();
+      if (mobileOpen) closeMobile();
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, []);
+  }, [mobileOpen]);
 
-  // Lock body scroll while the mobile nav is open; close on resize to desktop
+  // Lock body scroll while the mobile panel is open; close on resize to desktop
   useEffect(() => {
     document.body.classList.toggle('nav-open', mobileOpen);
     if (!mobileOpen) return;
-    const onResize = () => { if (window.innerWidth > 980) setMobileOpen(false); };
+    const onResize = () => { if (window.innerWidth > 980) closeMobile(); };
     window.addEventListener('resize', onResize);
     return () => { window.removeEventListener('resize', onResize); document.body.classList.remove('nav-open'); };
   }, [mobileOpen]);
 
-  useEffect(() => () => clearTimer(), []);
+  useEffect(() => () => {
+    clearTimer();
+    if (closingTimer.current !== null) window.clearTimeout(closingTimer.current);
+  }, []);
 
   const cur = getEngine(engine);
 
@@ -123,16 +150,20 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
           <a href={CTA.href} className="site-cta site-cta--desktop" onMouseEnter={closeNow}>{CTA.label}</a>
         </nav>
 
-        <button
-          type="button"
-          className={`site-burger${mobileOpen ? ' is-open' : ''}`}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={mobileOpen}
-          aria-controls="site-mobile-nav"
-          onClick={() => setMobileOpen((o) => !o)}
-        >
-          <span className="site-burger-bars"><span /><span /><span /></span>
-        </button>
+        {/* ≤980px: compact CTA + burger (hidden on desktop via chrome.css) */}
+        <div className="site-header-right">
+          <a href={CTA.href} className="site-cta site-cta--mobile" aria-label={CTA.label}>Claim</a>
+          <button
+            type="button"
+            className={`site-burger${mobileOpen ? ' is-open' : ''}`}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileOpen}
+            aria-controls="site-mobile-nav"
+            onClick={() => (mobileOpen ? closeMobile() : openMobile())}
+          >
+            <span className="site-burger-bars"><span /><span /><span /></span>
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -187,50 +218,85 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
         </div>
       )}
 
-      <nav id="site-mobile-nav" className={`site-mobile-nav${mobileOpen ? ' is-open' : ''}`} aria-label="Mobile" aria-hidden={!mobileOpen}>
-        <div className="site-mobile-group">
-          <div className="site-mobile-head">The System</div>
-          {ENGINES.map((e) => {
-            const expanded = mobileEngine === e.key;
-            return (
-              <div key={e.key}>
-                <button
-                  type="button"
-                  className="site-mobile-engine-btn"
-                  aria-expanded={expanded}
-                  onClick={() => setMobileEngine(expanded ? null : e.key)}
-                >
-                  <span className="site-menu-engine-dot" style={{ background: e.color }} />
-                  <span className="site-menu-engine-text">
-                    <span className="site-menu-engine-title">{e.title}</span>
-                    <span className="site-menu-engine-sub">{e.stage} · {e.sub}</span>
-                  </span>
-                  <Chevron size={16} stroke={2} />
-                </button>
-                {expanded && (
-                  <div className="site-mobile-services">
-                    <a href={e.href} className="site-mobile-overview">Engine overview →</a>
-                    {e.services.map((s) => (
-                      <a key={s.href} href={s.href}>{s.label}</a>
-                    ))}
-                  </div>
-                )}
+      {(mobileOpen || mobileClosing) && (
+        <nav
+          id="site-mobile-nav"
+          className={`site-mobile-nav${mobileOpen ? ' is-open' : ''}${mobileClosing ? ' is-closing' : ''}`}
+          aria-label="Mobile"
+          aria-hidden={!mobileOpen}
+        >
+          <div className="site-menu-bar" aria-hidden="true"><span /><span /><span /><span /><span /></div>
+
+          <div className="site-mobile-body">
+            {/* The System — two-level accordion */}
+            <button
+              type="button"
+              className={`site-mobile-row${mobileSystem ? ' is-open' : ''}${activeId === 'system' ? ' is-active' : ''}`}
+              aria-expanded={mobileSystem}
+              aria-controls="site-mobile-system"
+              onClick={() => setMobileSystem((o) => !o)}
+            >
+              The System
+              <Chevron size={18} stroke={2} />
+            </button>
+            {mobileSystem && (
+              <div id="site-mobile-system" className="site-mobile-system">
+                <div className="site-mobile-eyebrow">Three engines</div>
+                {ENGINES.map((e) => {
+                  const expanded = mobileEngine === e.key;
+                  return (
+                    <div key={e.key} className={`site-mobile-engine${expanded ? ' is-open' : ''}`}>
+                      <button
+                        type="button"
+                        className="site-mobile-engine-btn"
+                        aria-expanded={expanded}
+                        onClick={() => setMobileEngine(expanded ? null : e.key)}
+                      >
+                        <span className="site-menu-engine-dot" style={{ background: e.color }} />
+                        <span className="site-menu-engine-text">
+                          <span className="site-menu-engine-title">{e.title}</span>
+                          <span className="site-menu-engine-sub">{e.stage} · {e.sub}</span>
+                        </span>
+                        <Chevron size={16} stroke={2} />
+                      </button>
+                      {expanded && (
+                        <div className="site-mobile-services">
+                          <a href={e.href} className="site-mobile-overview" style={{ color: e.color }}>Engine overview <Arrow size={11} /></a>
+                          {e.services.map((s) => (
+                            <a key={s.href} href={s.href}>{s.label}</a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+                <a href={BOARDSUITE_TILE.href} className="site-menu-tile site-mobile-tile">
+                  <span className="site-menu-tile-title">{BOARDSUITE_TILE.title}</span>
+                  <span className="site-menu-tile-sub">{BOARDSUITE_TILE.sub}</span>
+                </a>
               </div>
-            );
-          })}
-          <a href={BOARDSUITE_TILE.href} className="site-menu-tile site-mobile-tile">
-            <span className="site-menu-tile-title">{BOARDSUITE_TILE.title}</span>
-            <span className="site-menu-tile-sub">{BOARDSUITE_TILE.sub}</span>
-          </a>
-        </div>
-        {PRIMARY.filter((i) => !i.dropdown).map((item) => (
-          <a key={item.id} href={item.href} className={`site-mobile-link${activeId === item.id ? ' is-active' : ''}`}>
-            {item.label}
-            <Chevron dir="right" size={16} stroke={2} />
-          </a>
-        ))}
-        <a href={CTA.href} className="rd-btn rd-btn--block site-mobile-cta">{CTA.label}</a>
-      </nav>
+            )}
+
+            {PRIMARY.filter((i) => !i.dropdown).map((item) => (
+              <a key={item.id} href={item.href} className={`site-mobile-row${activeId === item.id ? ' is-active' : ''}`}>
+                {item.label}
+                <Chevron dir="right" size={16} stroke={2} />
+              </a>
+            ))}
+
+            <div className="site-mobile-secondary">
+              {MOBILE_SECONDARY.map(([label, href]) => (
+                <a key={href} href={href}>{label}</a>
+              ))}
+            </div>
+          </div>
+
+          <div className="site-mobile-foot">
+            <a href={CTA.href} className="rd-btn rd-btn--block">{CTA.label}</a>
+            <div className="site-mobile-foot-caption">{MOBILE_FOOT_CAPTION}</div>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }

@@ -149,7 +149,7 @@ export function GetStartedForm() {
         <h2 id="gs-form-title" style={TITLE}>Request your review</h2>
       </div>
 
-      <div className="rd-grid rd-grid--2" style={{ gap: 16 }}>
+      <div className="rd-grid rd-grid--2 rd-form-grid" style={{ gap: 16 }}>
         <Field id="gs-first" label="First name">
           <input id="gs-first" name="first_name" className="rd-field" placeholder="First" autoComplete="given-name" required value={first} onChange={(e) => setFirst(e.target.value)} />
         </Field>
@@ -208,7 +208,7 @@ export default function GetStartedPage({ children }: { children?: ReactNode }) {
   return (
     <div className="rd-page">
       <section className="rd-section rd-section--hero">
-        <div className="rd-wrap rd-grid rd-grid--2 rd-gap-80" style={{ alignItems: 'start' }}>
+        <div className="rd-wrap rd-grid rd-grid--2 rd-gs-hero rd-gap-80" style={{ alignItems: 'start' }}>
           <div className="rd-stack rd-stack--40">
             <div className="rd-stack" style={{ gap: 28 }}>
               <Eyebrow>Claim your market</Eyebrow>
@@ -255,7 +255,7 @@ export default function GetStartedPage({ children }: { children?: ReactNode }) {
       {/* 30 · 90 · 1 strip. data-reveal sits one level up: the rise CSS matches [data-rise] as a descendant of the root. */}
       <section className="rd-section rd-bg-purple" style={{ padding: '72px 0' }}>
         <div className="rd-wrap" data-reveal>
-          <div data-rise className="rd-statband">
+          <div data-rise className="rd-statband rd-statband--compact">
             {BAND.map((b) => (
               <div key={b.unit} className="rd-stat" style={{ gap: 8 }}>
                 <div className="rd-stat-num" style={{ fontSize: 44, letterSpacing: '-.03em' }}>

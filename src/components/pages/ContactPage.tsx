@@ -136,7 +136,7 @@ export default function ContactPage() {
                 ) : null}
 
                 <form onSubmit={handleSubmit} className="rd-stack" style={{ gap: 22 }}>
-                  <div className="rd-grid rd-grid--2" style={{ gap: 16 }}>
+                  <div className="rd-grid rd-grid--2 rd-form-grid" style={{ gap: 16 }}>
                     <label className="rd-field-group" style={{ ...fieldGroup, ...span2 }}>
                       <span className="rd-field-label" style={fieldLabel}>Name</span>
                       <input className="rd-field" type="text" name="name" autoComplete="name" placeholder="Your name" required
