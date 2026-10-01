@@ -64,7 +64,7 @@ src/
 │   │   └── HubPage.tsx              # Template 2 — renders a HubPageData object (the 3 engine hubs)
 │   │
 │   ├── sections/
-│   │   ├── HeroStatic.astro         # Homepage hero as static HTML (LCP): copy in two columns, then the full-width HeroCard slot
+│   │   ├── HeroStatic.astro         # Homepage hero wrapper (static): the HeroCard slot IS the hero — banner copy removed 2026-10-01
 │   │   ├── Shells.tsx               # LEGACY shells (PageHero, CtaBand, …) — still imported by landing-page code; do not use for new work
 │   │
 │   ├── modules/                     # Interactive islands + self-contained modules
@@ -256,6 +256,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Hero = the card.** Banner copy (keyword eyebrow, "Attract the right boards…", intro, CTAs) removed at the client's request; the card's eyebrow now carries the page H1 "Marketing for HOA Management Companies" (keyword unchanged), the card question stays the h2. Sticky mobile CTA keys off the card's button. |
 | 2026-10-01 | **Guarantee terms modal** (`lib/dialog.ts`, `.rd-dialog*`): the hero card's "See guarantee terms" opens a native `<dialog>` with the condition (the firm runs the programs Alloy puts in place); `/faq#guarantee` stays as the no-JS fallback and matches. Exclusivity radius 30 → **15 miles** around partner office addresses (list owed by client). Mock card content approved by client. |
 | 2026-10-01 | **Hero card 2b** (`docs/redesign-handoff-hero-2b/`, final): outcomes carousel + vector map replaced by the static "three search moments" card with the pays-for-itself guarantee; hero recomposed (copy in two columns, card full width below — the card is designed at 960px). New `MetroCheck` island; `/api/metro` accepts `q=` metro **or** ZIP (Zippopotam city endpoint for "City, ST", Nominatim fallback, own metro list last). Removed `data/us-map.ts`, `lib/albers.ts`, `.context/gen-us-map.mjs`. FAQ gains an anchored `#guarantee` entry (the card's terms link) and "Do you guarantee results?" was rewritten to match — **guarantee wording needs legal sign-off before launch** (launch checklist #15). `/get-started` prefills `?metro=` / `?intent=waitlist`. |
 | 2026-10-01 | **Real content only**: webinar block + `WebinarSignup` removed (no event scheduled); homepage news cards and `/resources` Latest now link only to real pieces; live article *How CAM Firms Win in AI Search* restored at `/resources/ai-search-for-cam` (`AISearchArticle.tsx`, original title/description, `/resource-hub/ai-search-for-cam` → there). |

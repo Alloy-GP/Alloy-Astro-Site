@@ -637,7 +637,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
    + guarantee. Mobile rules in mobile.css. Designed at 960px; it spans the hero below the copy. */
 .rd-hc { background: #fff; border: 1px solid var(--border-subtle); border-radius: 24px; padding: 40px; box-shadow: 0 6px 18px rgba(56,28,79,.08); display: flex; flex-direction: column; gap: 26px; font-family: var(--font-display); }
 .rd-hc-head { display: flex; flex-direction: column; gap: 18px; }
-.rd-hc-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-gold-ink); line-height: 1.6; }
+.rd-hc-eyebrow { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-gold-ink); line-height: 1.6; font-family: var(--font-display); }
 .rd-hc-h2 { margin: 0; max-width: 760px; font-size: 42px; line-height: 1.08; font-weight: 700; color: var(--alloy-purple); letter-spacing: -.015em; text-wrap: balance; }
 .rd-hc-story { background: var(--alloy-lavender); border-radius: 18px; padding: 18px; }
 .rd-hc-moments { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }

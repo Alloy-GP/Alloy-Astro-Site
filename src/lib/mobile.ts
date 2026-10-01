@@ -27,7 +27,7 @@ function initStickyCta(mq: MediaQueryList) {
   const main = document.querySelector('main');
   if (!bar || !main) return;
 
-  const heroBtn = main.querySelector<HTMLElement>('.rd-section--hero .rd-btn, .rd-section--after-crumb .rd-btn, .rd-btn');
+  const heroBtn = main.querySelector<HTMLElement>('.rd-section--hero :is(.rd-btn, .rd-hc-btn), .rd-section--after-crumb .rd-btn, .rd-btn');
   const footer = document.querySelector('.site-footer');
   const forms = Array.from(main.querySelectorAll('form'));
 

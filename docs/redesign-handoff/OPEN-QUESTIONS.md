@@ -165,3 +165,5 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Addendum (2026-10-01, client):** keep the guarantee and show the terms in a **modal**, not a page — the condition is that the firm follows the programs Alloy puts in place so Alloy can deliver on the promise (`lib/dialog.ts`, `#guarantee-terms` in `HeroCard.tsx`; `/faq#guarantee` is the no-JS fallback and uses the same wording). Mock card content is fine ("they are examples"). Exclusivity: the client will send a list of partner office cities/addresses; everything within **15 miles** of an office is claimed (`LOCK_RADIUS_MI` 30 → 15). Legal sign-off on the guarantee wording is still owed.
 
+**Addendum 2 (2026-10-01, client):** remove the hero banner copy and layout — the card is the hero. To keep the page's keyword H1, the card eyebrow now reads "Marketing for HOA Management Companies" (as an `<h1>`) instead of the handoff's "Growth partner for CAM companies · One per metro"; the question headline stays an h2. Flip back by swapping the eyebrow text if the designer's line is preferred — the exclusivity message survives in the payoff and availability copy.
+

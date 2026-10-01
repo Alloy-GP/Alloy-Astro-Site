@@ -4,7 +4,8 @@
 // the referral network) and finds the same company every time → payoff line → "Is your metro still
 // open?" + the pays-for-itself guarantee. STATIC (no client directive): only the availability check
 // hydrates — it arrives as `children` from index.astro (<HeroCard><MetroCheck client:load /></HeroCard>).
-// Copy is the handoff's, verbatim. "Your Company" / "Oak Hollow HOA" are illustrative placeholders by design.
+// Copy is the handoff's, verbatim, except the eyebrow: it carries the page's keyword H1 now that the banner copy is gone.
+// "Your Company" / "Oak Hollow HOA" are illustrative placeholders by design (client-approved).
 import type { ReactNode } from 'react';
 
 type GlyphName = 'search' | 'sparkle' | 'users' | 'pin' | 'check';
@@ -58,7 +59,8 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
   return (
     <div className="rd-hc">
       <div className="rd-hc-head">
-        <div className="rd-hc-eyebrow">Growth partner for CAM companies · One per metro</div>
+        {/* The card is the hero (banner copy removed 2026-10-01): the keyword line is the page H1, styled as the eyebrow. */}
+        <h1 className="rd-hc-eyebrow">Marketing for HOA Management Companies</h1>
         <h2 className="rd-hc-h2">When a board in your city looks for a new management company, who do they find?</h2>
       </div>
 
