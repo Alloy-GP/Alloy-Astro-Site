@@ -15,3 +15,6 @@ Handoff file names (`Hero.tsx`, `statsHero`, `MarketChecker.tsx`, `/strategic-re
 branch they map to `HeroStatic.astro`, `HeroCard.tsx`, `/api/metro`, `/get-started`.
 
 `HeroCard.handoff.tsx.txt` is the designer's sample port, renamed so the repo's type-check skips it (it fails `exactOptionalPropertyTypes`). The shipped component is `src/components/modules/HeroCard.tsx` + `MetroCheck.tsx`.
+
+**Surface deviation (client, 2026-10-01):** the outer 1px border is gone and the card follows the site system — radius 10 on the card, story panel, moment cards, guarantee and dialog (fields 8), `--shadow-lg` for lift — instead of the handoff's 24/18/14 radii.
+
