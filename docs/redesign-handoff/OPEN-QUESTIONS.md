@@ -175,3 +175,10 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Research:** 88% "never open the annual packet" and 73% "haven't refreshed their brand in 8+ years" have no source (prototype copy) → rewritten without numbers. 21% email benchmark ≈ HubSpot's all-industry average (attributed); Mailchimp's own 2025 figure is ~35% because Apple Mail inflates opens. **Client confirmed real:** 38% median open rate on Alloy CAM programs; 200+ negative reviews handled; 200+ CAM selection meetings; 200+ trade-publication placements; every careers benefit and the three open roles.
 
+## 30. Homepage SEO alignment + hero polish (client, 2026-10-01)
+
+- **H1** = the hero question, now "…looks for a new **HOA** management company…" (client: "marketing" needn't be in it). The keyword eyebrow stays as a plain pink label.
+- **Title** → `Marketing for HOA Management Companies | Alloy Growth Partners`; **description** rewritten around the term; the purple band H2 names "HOA management company". This is the one deliberate title change on an existing URL.
+- **Guarantee card** is the button (whole card opens the terms modal, lifts 2px on hover).
+- **Story animation** (`lib/hero-story.ts`): one moment at a time — Google types the query then the #1 result pops; AI types the question, thinks, the answer slides in; Referral shows the request, a pink "Searching for a match…" sweep, then the match pops and the check draws. Plays once when the card is in view; static under reduced motion or without JS.
+

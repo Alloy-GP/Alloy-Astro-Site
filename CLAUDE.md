@@ -35,6 +35,7 @@ src/
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
 │   ├── mobile.ts                    # ≤720 enhancements (footer accordions, sticky CTA bar observers, article TOC bar + progress) — mounted from BaseLayout
 │   ├── dialog.ts                    # native <dialog> modals: [data-dialog=id] opens, [data-dialog-close]/backdrop/Esc close — mounted from BaseLayout
+│   ├── hero-story.ts                # homepage hero: the three search moments play one at a time (type → pop / think → slide / search → match); html.js gate
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
 │   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
@@ -200,7 +201,7 @@ States are CSS classes (`.am-prep`, `.am-in`) so React hydration can't wipe them
 ## SEO rules (non-negotiable)
 
 - Every canonical route must return 200 at the same path, no trailing slash. Internal links use final URLs.
-- **Titles/descriptions on existing URLs are unchanged** from the pre-redesign site (zero regression). New routes (`/boardmatch`, `/boardretain`) use the prototype titles.
+- **Titles/descriptions on existing URLs are unchanged** from the pre-redesign site (zero regression). New routes (`/boardmatch`, `/boardretain`) use the prototype titles. **One deliberate exception (client, 2026-10-01):** the homepage title/description now target "marketing for HOA management companies" (`Marketing for HOA Management Companies | Alloy Growth Partners`); the H1 is the hero question with "HOA management company" in it.
 - Schema via `pageSchema`: FAQPage wherever a FAQ is visible; Service + BreadcrumbList on service pages; Article on articles + software guide; Course on trust-building. Never emit FAQ schema for Q&As that aren't rendered.
 - Redirects live in `astro.config.mjs` (146 rules, no chains, no removed rules — legacy targets were re-pointed to final URLs). Wildcards stay in `vercel.json`. A redirect and a page must never share a path.
 - Sitemap = `SITEMAP_ROUTES` allowlist in `astro.config.mjs`. Add new routes there.
@@ -256,6 +257,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Homepage SEO + hero polish**: H1 is now the hero question with "HOA management company" (eyebrow is a plain pink label); title → `Marketing for HOA Management Companies | Alloy Growth Partners` + new description (deliberate); purple-band H2 says "HOA management company". Whole guarantee card is the terms button (lifts on hover). `lib/hero-story.ts`: staged, subtle animation of the three moments (BaseLayout adds `html.js` + a 3s un-hide safety net). Statistics audit applied (§29). |
 | 2026-10-01 | **Hero = the card.** Banner copy (keyword eyebrow, "Attract the right boards…", intro, CTAs) removed at the client's request; the card's eyebrow now carries the page H1 "Marketing for HOA Management Companies" (keyword unchanged), the card question stays the h2. Sticky mobile CTA keys off the card's button. |
 | 2026-10-01 | **Guarantee terms modal** (`lib/dialog.ts`, `.rd-dialog*`): the hero card's "See guarantee terms" opens a native `<dialog>` with the condition (the firm runs the programs Alloy puts in place); `/faq#guarantee` stays as the no-JS fallback and matches. Exclusivity radius 30 → **15 miles** around partner office addresses (list owed by client). Mock card content approved by client. |
 | 2026-10-01 | **Hero card 2b** (`docs/redesign-handoff-hero-2b/`, final): outcomes carousel + vector map replaced by the static "three search moments" card with the pays-for-itself guarantee; hero recomposed (copy in two columns, card full width below — the card is designed at 960px). New `MetroCheck` island; `/api/metro` accepts `q=` metro **or** ZIP (Zippopotam city endpoint for "City, ST", Nominatim fallback, own metro list last). Removed `data/us-map.ts`, `lib/albers.ts`, `.context/gen-us-map.mjs`. FAQ gains an anchored `#guarantee` entry (the card's terms link) and "Do you guarantee results?" was rewritten to match — **guarantee wording needs legal sign-off before launch** (launch checklist #15). `/get-started` prefills `?metro=` / `?intent=waitlist`. |

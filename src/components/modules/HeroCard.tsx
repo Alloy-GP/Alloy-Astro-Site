@@ -4,7 +4,7 @@
 // the referral network) and finds the same company every time → payoff line → "Is your metro still
 // open?" + the pays-for-itself guarantee. STATIC (no client directive): only the availability check
 // hydrates — it arrives as `children` from index.astro (<HeroCard><MetroCheck client:load /></HeroCard>).
-// Copy is the handoff's, verbatim, except the eyebrow: it carries the page's keyword H1 now that the banner copy is gone.
+// Copy is the handoff's, verbatim, except: the question is the page H1 and gained "HOA" (target term); the eyebrow is a plain label.
 // "Your Company" / "Oak Hollow HOA" are illustrative placeholders by design (client-approved).
 import type { ReactNode } from 'react';
 
@@ -17,10 +17,10 @@ const PATHS: Record<GlyphName, string> = {
   check: 'M20 6 9 17l-5-5',
 };
 
-export function Glyph({ name, size = 16, stroke = 2.5, color = 'currentColor' }: { name: GlyphName; size?: number; stroke?: number; color?: string }) {
+export function Glyph({ name, size = 16, stroke = 2.5, color = 'currentColor', draw = false }: { name: GlyphName; size?: number; stroke?: number; color?: string; draw?: boolean }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d={PATHS[name]} />
+      {draw ? <path className="rd-hc-draw" d={PATHS[name]} pathLength={1} /> : <path d={PATHS[name]} />}
     </svg>
   );
 }
@@ -38,11 +38,11 @@ function Moment({ icon, chipBg, chipColor, label, children }: { icon: GlyphName;
 }
 
 /** The repeated focal element: purple block, 3px gold edge, gold mark, "Your Company". */
-function Answer({ icon, trailing, rank = false }: { icon: GlyphName; trailing: string; rank?: boolean }) {
+function Answer({ icon, trailing, rank = false, anim, draw = false }: { icon: GlyphName; trailing: string; rank?: boolean; anim?: 'pop' | 'slide'; draw?: boolean }) {
   return (
-    <div className="rd-hc-answer">
+    <div className="rd-hc-answer" {...(anim ? { 'data-anim': anim } : {})}>
       {rank ? <span className="rd-hc-rank" aria-hidden="true">1</span> : null}
-      <Glyph name={icon} size={rank ? 14 : 16} stroke={icon === 'pin' ? 2 : 2.5} color="var(--alloy-gold)" />
+      <Glyph name={icon} size={rank ? 14 : 16} stroke={icon === 'pin' ? 2 : 2.5} color="var(--alloy-gold)" draw={draw} />
       <span className="rd-hc-answer-name">Your Company</span>
       <span className="rd-hc-answer-trail">{trailing}</span>
     </div>
@@ -51,7 +51,7 @@ function Answer({ icon, trailing, rank = false }: { icon: GlyphName; trailing: s
 
 function Skeleton({ width }: { width: string }) {
   return (
-    <div className="rd-hc-skel" aria-hidden="true"><span /><span style={{ width }} /></div>
+    <div className="rd-hc-skel" aria-hidden="true" data-anim="fade"><span /><span style={{ width }} /></div>
   );
 }
 
@@ -59,35 +59,40 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
   return (
     <div className="rd-hc">
       <div className="rd-hc-head">
-        {/* The card is the hero (banner copy removed 2026-10-01): the keyword line is the page H1, styled as the eyebrow. */}
-        <h1 className="rd-hc-eyebrow">Marketing for HOA Management Companies</h1>
-        <h2 className="rd-hc-h2">When a board in your city looks for a new management company, who do they find?</h2>
+        {/* The card is the hero. The question is the page H1 (client, 2026-10-01: "HOA" added for the target term); the keyword eyebrow is a plain label. */}
+        <div className="rd-hc-eyebrow">Marketing for HOA Management Companies</div>
+        <h1 className="rd-hc-title">When a board in your city looks for a new HOA management company, who do they find?</h1>
       </div>
 
       {/* Search story — three moments, same answer */}
+      {/* Search story — three moments, same answer. With JS they play one at a time (src/lib/hero-story.ts):
+          Google types the query → result pops; AI types the question → thinks → answer slides in; Referral shows the
+          request → searches → match pops with the check drawing. Final state is what's rendered here (no JS = static). */}
       <div className="rd-hc-story">
-        <div className="rd-hc-moments">
+        <div className="rd-hc-moments" data-story>
           <Moment icon="search" chipBg="#e3eef8" chipColor="#3f6f9e" label="Google search">
-            <div className="rd-hc-pill">hoa management company near me</div>
+            <div className="rd-hc-pill" data-type>hoa management company near me</div>
             <div className="rd-hc-stack">
-              <Answer icon="pin" trailing="4.9" rank />
+              <Answer icon="pin" trailing="4.9" rank anim="pop" />
               <Skeleton width="62%" />
               <Skeleton width="48%" />
             </div>
           </Moment>
           <Moment icon="sparkle" chipBg="#e1f0ec" chipColor="#2f7a6a" label="AI assistant">
-            <div className="rd-hc-bubble">Who’s the best HOA management company in Austin?</div>
+            <div className="rd-hc-bubble" data-type>Who’s the best HOA management company in Austin?</div>
             <div className="rd-hc-stack">
-              <Answer icon="sparkle" trailing="Top choice" />
-              <div className="rd-hc-sentence">A top choice, known for local experience and strong reviews.</div>
+              <div className="rd-hc-thinking" hidden aria-hidden="true"><span /><span /><span /></div>
+              <Answer icon="sparkle" trailing="Top choice" anim="slide" />
+              <div className="rd-hc-sentence" data-anim="fade">A top choice, known for local experience and strong reviews.</div>
             </div>
           </Moment>
           <Moment icon="users" chipBg="#f9e1ea" chipColor="var(--alloy-pink)" label="Referral network">
-            <div className="rd-hc-request">
+            <div className="rd-hc-request" data-anim="fade">
               <span className="rd-hc-request-title">Oak Hollow HOA</span>
               <span className="rd-hc-request-meta">212 homes · Seeking new management</span>
             </div>
-            <Answer icon="check" trailing="Matched" />
+            <div className="rd-hc-searching" hidden aria-hidden="true"><span className="rd-hc-searching-bar" /><span>Searching for a match…</span></div>
+            <Answer icon="check" trailing="Matched" anim="pop" draw />
           </Moment>
         </div>
       </div>
@@ -99,17 +104,18 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
       {/* Availability check (island) + guarantee */}
       <div className="rd-hc-bottom">
         {children}
-        <div className="rd-hc-guarantee">
-          <div className="rd-hc-guarantee-side">
+        {/* The whole guarantee card opens the terms modal (client, 2026-10-01); /faq#guarantee is the no-JS fallback */}
+        <a href="/faq#guarantee" className="rd-hc-guarantee" data-dialog="guarantee-terms" aria-haspopup="dialog">
+          <span className="rd-hc-guarantee-side">
             <Glyph name="check" size={26} stroke={3} />
             <span className="rd-hc-guarantee-mo">24 MO</span>
-          </div>
-          <div className="rd-hc-guarantee-body">
+          </span>
+          <span className="rd-hc-guarantee-body">
             <span className="rd-hc-guarantee-title">Pays for itself. Guaranteed.</span>
             <span className="rd-hc-guarantee-text">If new business doesn’t cover our fee within 24 months, we refund the difference.</span>
-            <a href="/faq#guarantee" className="rd-hc-guarantee-link" data-dialog="guarantee-terms">See guarantee terms</a>
-          </div>
-        </div>
+            <span className="rd-hc-guarantee-link">See guarantee terms</span>
+          </span>
+        </a>
       </div>
 
       {/* Guarantee terms — native <dialog>, opened by src/lib/dialog.ts (no-JS fallback: /faq#guarantee) */}

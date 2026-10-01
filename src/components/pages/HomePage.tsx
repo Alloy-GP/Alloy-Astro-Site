@@ -38,7 +38,7 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
           {chart}
           <div className="rd-stack rd-stack--18" style={{ justifyContent: 'center' }}>
             <Eyebrow tone="yellow">Network leads · MatchHOA</Eyebrow>
-            <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>We run the place boards go to find their next management company.</h2>
+            <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>We run the place boards go to find their next HOA management company.</h2>
             <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Boards submit on MatchHOA. In your metro, every one goes to you.</p>
             <div className="rd-row rd-row--wrap" style={{ gap: 22, paddingTop: 6 }}>
               <Btn href="/get-started" className="rd-btn--inline">Claim your market</Btn>
