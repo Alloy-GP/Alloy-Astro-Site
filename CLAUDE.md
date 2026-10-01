@@ -32,6 +32,7 @@ src/
 ├── lib/
 │   ├── nav.ts                       # NAV DATA: PRIMARY, CTA, ENGINES (3 engines × services), BOARDSUITE_TILE, DROPDOWN_FOOTER, FOOTER + helpers
 │   ├── tokens.ts                    # JS color constants (PURPLE, PINK, YELLOW, BLUE, GREEN, BLUE_DEEP, REACH_INK, MATCH_INK, RETAIN_INK, ENGINE_INK)
+│   ├── albers.ts                    # Albers equal-area projection (contiguous US) used by us-map.ts
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
@@ -45,7 +46,8 @@ src/
 │   │   ├── property-management-seo.ts, email-marketing.ts, hoa-website-design.ts, … (15 services)
 │   ├── hubs/                        # ONE file per engine hub (HubPageData): boardreach.ts, boardmatch.ts, boardretain.ts (+ types.ts)
 │   ├── courseTrustBuilding.ts       # Lesson + quiz content for /resources/courses/trust-building
-│   └── metros.ts                    # Partner metros (claimed) + open metros for the map, lock radius, claimStatus()
+│   ├── metros.ts                    # Partner metros (claimed) + open metros for the map, lock radius, claimStatus()
+│   └── us-map.ts                    # GENERATED (.context/gen-us-map.mjs): contiguous-US state paths + project(lat,lng) for the hero map
 │
 ├── layouts/
 │   └── BaseLayout.astro             # <html>, <head> (SEO, fonts, analytics), SiteHeader (island), <main>, SiteFooter (static), motion <script>
@@ -66,7 +68,7 @@ src/
 │   │   ├── Shells.tsx               # LEGACY shells (PageHero, CtaBand, …) — still imported by landing-page code; do not use for new work
 │   │
 │   ├── modules/                     # Interactive islands + self-contained modules
-│   │   ├── HeroCard.tsx             # Homepage hero card (client:load): outcome-tile carousel + metro check (ZIP → /api/metro, OSM map strip)
+│   │   ├── HeroCard.tsx             # Homepage hero card (client:load): outcome-tile carousel + metro check (ZIP → /api/metro) over a vector US map
 │   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
 │   │   ├── WebinarSignup.tsx        # Homepage "Save my seat" email capture (client:visible) → /api/subscribe
 │   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe

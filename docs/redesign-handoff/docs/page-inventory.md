@@ -16,7 +16,7 @@ Legend: [x] designed · [ ] to do · (3a) clone engine hub · (3b) clone service
 - [x] Article page (AR)
 - [x] Long-form guide with jump-link TOC (LG) — trust-building
 - [x] Editorial page (ED) — about, contact, faq, careers, partners, testimonials
-- [ ] Mobile pass
+- [x] Mobile pass — `site/Mobile Spec.dc.html` + `docs/mobile-spec.md`
 
 ## 2. Pages — KEEP / EXPAND on same URL
 - [x] / — 1c

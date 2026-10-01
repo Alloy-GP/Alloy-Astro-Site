@@ -74,7 +74,7 @@ Design: ZIP input → ~1.6s "checking" state → Available / Not available over 
 ## 11. Metro checker implementation (built, needs a launch decision)
 - ZIP → place: new `GET /api/metro?zip=` endpoint. Live lookup via Zippopotam (free, no key, 2.5s timeout) with a bundled 3-digit-prefix fallback table.
 - Claimed/open: within 30 miles of one of the 10 partner metros carried over from the old `MarketChecker.tsx` (Denham Springs LA, Branford CT, Orlando FL, Manchester NH, Venice FL, Fredericksburg VA, Houston TX, Austin TX, San Antonio TX, Owings Mills MD). **Confirm this list is current.**
-- Map: raw OpenStreetMap tiles (as in the prototype) with attribution. OSM's tile policy tolerates low-volume sites but not heavy production use. The tile URL is one constant in `MetroChecker.tsx` — swap in a keyed provider (MapTiler / Stadia) before launch if traffic warrants.
+- Map: **resolved 2026-10-01** — replaced the OpenStreetMap raster tiles with a flat, brand-colored vector map of the contiguous US (US Census boundaries, public domain; `src/data/us-map.ts`, Albers projection in `src/lib/albers.ts`). No third-party tiles, no attribution, no network dependency.
 - "Waitlist" → `/get-started?intent=waitlist&zip=…`, "Talk to us" → `/contact`, "Claim it" → `/get-started?zip=…`.
 
 ## 12. Homepage webinar block

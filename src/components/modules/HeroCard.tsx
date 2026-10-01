@@ -1,15 +1,15 @@
 // src/components/modules/HeroCard.tsx
 // Homepage hero — the purple "outcomes card" (client:load island).
 //   1. header row  2. two-page outcome carousel (auto-rotates, pauses on hover)
-//   3. metro check: ZIP → /api/metro → Open / Claimed over a live map strip.
-// Spec: docs/redesign-handoff-homepage README §1. Tile numbers are illustrative placeholders.
+//   3. metro check: ZIP → /api/metro → Open / Claimed over a flat vector US map (src/data/us-map.ts).
+// Spec: docs/redesign-handoff-homepage README §1 (map restyled from OSM tiles to a brand-colored
+// vector map at the client's request). Tile numbers are illustrative placeholders.
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, ReactNode } from 'react';
 import { CLAIMED_METROS, OPEN_METROS } from '~/data/metros';
+import { US_MAP, US_STATE_PATHS, project } from '~/data/us-map';
 
-const TILE_URL = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-const US_VIEW = { lat: 37.8, lng: -96.5, z: 3 };
-const METRO_ZOOM = 10;
+const METRO_ZOOM = 5; // vector-map zoom factor (× base fit) when a metro is selected
 const THINK_MS = 1600;
 const ROTATE_MS = 4200;
 const ADS = [3, 5, 4, 8, 9, 12, 14, 13, 18, 21, 24, 28];
@@ -17,39 +17,8 @@ const AI_ENGINES = ['ChatGPT', 'Gemini', 'Perplexity', 'Google'];
 
 type Phase = 'idle' | 'loading' | 'result' | 'error';
 interface Metro { name: string; lat: number; lng: number; claimed: boolean; near?: string }
-interface View { lat: number; lng: number; z: number }
 
 const reduced = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-
-/* ── Web-mercator helpers ─────────────────────────────────────────────── */
-function toXY(lat: number, lng: number, z: number): [number, number] {
-  const n = Math.pow(2, z);
-  const r = (lat * Math.PI) / 180;
-  return [((lng + 180) / 360) * n, ((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2) * n];
-}
-function project(lat: number, lng: number, view: View) {
-  const [cx, cy] = toXY(view.lat, view.lng, view.z);
-  const [x, y] = toXY(lat, lng, view.z);
-  return { left: `calc(50% + ${(x - cx) * 256}px)`, top: `calc(50% + ${(y - cy) * 256}px)` };
-}
-function tiles(view: View, cols: number, rows: number) {
-  const n = Math.pow(2, view.z);
-  const [x, y] = toXY(view.lat, view.lng, view.z);
-  const tx = Math.floor(x), ty = Math.floor(y);
-  const out: Array<{ key: string; src: string; style: CSSProperties }> = [];
-  for (let dy = -rows; dy <= rows; dy++) {
-    for (let dx = -cols; dx <= cols; dx++) {
-      const X = tx + dx, Y = ty + dy;
-      if (Y < 0 || Y >= n) continue;
-      out.push({
-        key: `${view.z}-${X}-${Y}`,
-        src: TILE_URL.replace('{z}', String(view.z)).replace('{x}', String(((X % n) + n) % n)).replace('{y}', String(Y)),
-        style: { left: `calc(50% + ${(X - x) * 256}px)`, top: `calc(50% + ${(Y - y) * 256}px)` },
-      });
-    }
-  }
-  return out;
-}
 
 /* ── Count-up hook (cubic ease-out) ───────────────────────────────────── */
 function useCount(to: number, on: boolean, ms: number): number {
@@ -152,7 +121,15 @@ function MetroCheck() {
   const reset = () => { setPhase('idle'); setZip(''); setMetro(null); setError(''); inputRef.current?.focus(); };
 
   const showMetro = phase === 'result' && metro;
-  const view: View = showMetro ? { lat: metro.lat, lng: metro.lng, z: METRO_ZOOM } : US_VIEW;
+  // Vector map. The strip is ~2.9:1, so the viewBox is 1000×350 and the 1000×600 map is scaled to
+  // fit its height (BASE_S). Zoom/pan = translate so the focus point lands at the viewBox center.
+  const VW = US_MAP.width, VH = Math.round(US_MAP.width * 0.35);
+  const BASE_S = VH / US_MAP.height;
+  const [fx, fy] = showMetro ? project(metro.lat, metro.lng) : [US_MAP.width / 2, US_MAP.height / 2];
+  const K = BASE_S * (showMetro ? METRO_ZOOM : phase === 'loading' ? 1.12 : 1);
+  const mapTransform = `translate(${(VW / 2 - fx * K).toFixed(1)}px, ${(VH / 2 - fy * K).toFixed(1)}px) scale(${K.toFixed(4)})`;
+  // Dots live in an unscaled layer in idle coordinates so their radii stay crisp.
+  const idle = (lat: number, lng: number): [number, number] => { const [x, y] = project(lat, lng); return [VW / 2 + (x - US_MAP.width / 2) * BASE_S, VH / 2 + (y - US_MAP.height / 2) * BASE_S]; };
   const statusColor = metro?.claimed ? 'var(--alloy-pink)' : 'var(--success)';
   const label = phase === 'idle' ? 'Live availability' : phase === 'loading' ? 'Checking…' : phase === 'error' ? 'Not found' : metro?.claimed ? 'Claimed' : 'Open';
 
@@ -163,17 +140,17 @@ function MetroCheck() {
         <div className="rd-mc-status" aria-live="polite">{label}</div>
       </div>
       <div className="rd-mc-map" aria-busy={phase === 'loading'}>
-        <div className={`rd-mc-tiles${phase === 'loading' ? ' is-loading' : ''}`} aria-hidden="true">
-          {tiles(view, 3, 1).map((t) => <img key={t.key} src={t.src} alt="" style={t.style} loading="lazy" decoding="async" />)}
-        </div>
-        <div className="rd-mc-shade" />
-        <div className="rd-mc-vignette" />
-        {!showMetro && (
-          <>
-            {CLAIMED_METROS.map((m) => <span key={m.label} className="rd-mc-metro rd-mc-metro--claimed" title={m.label} style={project(m.lat, m.lng, view)} />)}
-            {OPEN_METROS.map((m) => <span key={m.label} className="rd-mc-metro rd-mc-metro--open" title={m.label} style={project(m.lat, m.lng, view)} />)}
-          </>
-        )}
+        <svg className={`rd-mc-svg${phase === 'loading' ? ' is-loading' : ''}`} viewBox={`0 0 ${VW} ${VH}`} preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <g className="rd-mc-layer" style={{ transform: mapTransform }}>
+            <g className="rd-mc-states">
+              {US_STATE_PATHS.map((d, i) => <path key={i} d={d} />)}
+            </g>
+          </g>
+          <g className={`rd-mc-dots${phase === 'idle' ? '' : ' is-hidden'}`}>
+            {OPEN_METROS.map((m) => { const [x, y] = idle(m.lat, m.lng); return <circle key={m.label} className="rd-mc-metro--open" cx={x} cy={y} r={5.5}><title>{m.label}</title></circle>; })}
+            {CLAIMED_METROS.map((m) => { const [x, y] = idle(m.lat, m.lng); return <g key={m.label} className="rd-mc-metro--claimed"><circle className="rd-mc-halo" cx={x} cy={y} r={13} /><circle cx={x} cy={y} r={7.5} /><title>{m.label}</title></g>; })}
+          </g>
+        </svg>
         {phase === 'loading' && <div className="rd-mc-center"><div className="rd-mc-pulse" /></div>}
         {showMetro && (
           <>
@@ -194,7 +171,7 @@ function MetroCheck() {
                     Claim it
                   </a>
                 )}
-                <button type="button" className="rd-mc-close" onClick={reset} aria-label="Check another ZIP">✕</button>
+                <button type="button" className="rd-mc-close" onClick={reset} aria-label="Check another ZIP"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg></button>
               </div>
             </div>
           </>
@@ -202,10 +179,9 @@ function MetroCheck() {
         {phase === 'error' && (
           <div className="rd-mc-pill" role="alert">
             <div className="rd-mc-pill-main"><span className="rd-mc-pill-status" style={{ whiteSpace: 'normal' }}>{error}</span></div>
-            <div className="rd-mc-pill-actions"><button type="button" className="rd-mc-close" onClick={reset} aria-label="Try another ZIP">✕</button></div>
+            <div className="rd-mc-pill-actions"><button type="button" className="rd-mc-close" onClick={reset} aria-label="Try another ZIP"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg></button></div>
           </div>
         )}
-        <div className="rd-mc-attr"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap</a></div>
       </div>
       <form className="rd-mc-form" onSubmit={(e) => { e.preventDefault(); void check(); }}>
         <input ref={inputRef} className="rd-mc-input" value={zip} onChange={(e) => setZip(e.target.value.replace(/\D/g, '').slice(0, 5))} placeholder="Enter your ZIP code" inputMode="numeric" maxLength={5} aria-label="ZIP code" autoComplete="postal-code" />
