@@ -167,3 +167,7 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Addendum 2 (2026-10-01, client):** remove the hero banner copy and layout — the card is the hero. To keep the page's keyword H1, the card eyebrow now reads "Marketing for HOA Management Companies" (as an `<h1>`) instead of the handoff's "Growth partner for CAM companies · One per metro"; the question headline stays an h2. Flip back by swapping the eyebrow text if the designer's line is preferred — the exclusivity message survives in the payoff and availability copy.
 
+## 28. Illustrative homepage numbers (resolved 2026-10-01)
+
+**Decision:** keep. The network-leads chart (3 board leads/mo from paid ads vs 10 via MatchHOA, labelled "Illustrative") and the partner ledger (+535% lead intake, 3× proposal requests, 40–60% qualified-to-closed) stay as they are.
+
