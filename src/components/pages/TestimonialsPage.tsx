@@ -1,36 +1,29 @@
 // src/components/pages/TestimonialsPage.tsx — /about/testimonials
 // Template 6 (Editorial). Layout + copy from docs/redesign-handoff/site/about-testimonials.dc.html.
-// Restored from the pre-redesign page: the full Rim E. review, the Valerie L. / Rikky M. quotes
-// (attributed as the old page did), and the partner-CEO Vimeo video (anonymized). The old page's
-// Marcus T. / Dana W. / Priya S. quotes are left out until the client confirms they are real.
+// Only client-confirmed testimonials are shown (Rim E. and Valerie L., supplied verbatim 2026-10-01) plus the
+// partner-CEO Vimeo video (anonymized). The prototype's placeholder quotes and the old page's unverified
+// quotes (Rikky M., Marcus T., Dana W., Priya S.) are left out until the client confirms they are real.
 import type { CSSProperties } from 'react';
 import { Eyebrow, Btn, CtaBar } from '~/components/rd/atoms';
 
 const LH: CSSProperties = { lineHeight: 1.65 };
 
-interface Quote { quote: string; who: string; context: string; featured?: boolean }
+interface Quote { quote: string; who: string; context: string }
 
 const QUOTES: Quote[] = [
-  { featured: true, quote: 'Alloy has been such a valuable partner for our HOA management company. Skyler, Justin, and the whole team are not only incredibly talented but also genuinely invested in our success. They’ve helped us level up our designs, improve our SEO, and keep our marketing fresh and effective.', who: 'Rim E.', context: 'HOA management operator' },
-  { quote: 'We went from chasing RFPs to having boards reach out directly.', who: 'CEO', context: 'Alloy CAM partner · 3-year engagement' },
-  { quote: 'We finally stopped guessing where leads came from — and watched the system compound.', who: 'Principal', context: 'Alloy CAM partner · 7-month engagement' },
-  { quote: 'The proposal rebuild alone changed our close rate. Boards started asking about the transition plan instead of the fee.', who: 'Owner', context: 'Alloy CAM partner' },
-  { quote: 'Our managers actually use the board education library. Renewals got quieter.', who: 'Director of Operations', context: 'Alloy CAM partner' },
-];
-
-/** Partner reviews carried over verbatim from the pre-redesign quote wall. */
-const PARTNER_QUOTES: Array<{ quote: string; who: string; context: string }> = [
+  { quote: 'Alloy has been such a valuable partner for our HOA management company. Skyler, Justin, and the whole team are not only incredibly talented but also genuinely invested in our success. They’ve helped us level up our designs, improve our SEO, and keep our marketing fresh and effective.', who: 'Rim E.', context: 'HOA Management Operator' },
   { quote: 'Truly amazing business partners who align themselves with you to grow, learn and stay relevant in the marketing and business development field. Working with Alloy was a game changer for me.', who: 'Valerie L.', context: 'Business Development' },
-  { quote: 'We are working together with Alloy and we haven’t even begun to scratch the surface of where we are heading with this amazing company. They continue to work very hard to push us to be better than we ever imagined.', who: 'Rikky M.', context: 'CAM Operator' },
 ];
 
 const VIMEO_ID = '1131397045';
 
 function Stars() {
   return (
-    <div role="img" aria-label="5 out of 5 stars" style={{ display: 'flex', gap: 3 }}>
+    <div role="img" aria-label="5 out of 5 stars" style={{ display: 'flex', gap: 3, color: 'var(--alloy-pink)' }}>
       {[0, 1, 2, 3, 4].map((i) => (
-        <span key={i} aria-hidden="true" style={{ color: 'var(--alloy-pink)', fontSize: 14 }}>★</span>
+        <svg key={i} aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z" />
+        </svg>
       ))}
     </div>
   );
@@ -47,7 +40,7 @@ export default function TestimonialsPage() {
             <h1 className="rd-h1">What CAM operators say <span className="rd-accent">after the first year.</span></h1>
           </div>
           <div className="rd-stack" style={{ gap: 20 }}>
-            <p className="rd-intro" style={LH}>Verified partners, in their words. Firms are named where they’ve agreed; metros are not.</p>
+            <p className="rd-intro" style={LH}>Real partners, in their words. We publish first names and roles; firms and metros stay private.</p>
           </div>
         </div>
       </section>
@@ -57,15 +50,9 @@ export default function TestimonialsPage() {
         <div className="rd-wrap">
           <div className="rd-grid rd-grid--2 rd-gap-20 rd-rule-top" style={{ paddingTop: 48 }}>
             {QUOTES.map((q) => (
-              <figure
-                key={q.quote}
-                className="rd-card"
-                style={{ margin: 0, padding: q.featured ? 36 : 28, display: 'flex', flexDirection: 'column', gap: 16, ...(q.featured ? { gridColumn: '1 / -1' } : {}) }}
-              >
+              <figure key={q.who} className="rd-card" style={{ margin: 0, padding: 36, display: 'flex', flexDirection: 'column', gap: 18 }}>
                 <Stars />
-                <blockquote
-                  style={{ margin: 0, fontWeight: q.featured ? 700 : 500, fontSize: q.featured ? 26 : 17, lineHeight: 1.35, color: 'var(--alloy-purple)', textWrap: 'pretty' }}
-                >
+                <blockquote style={{ margin: 0, fontWeight: 700, fontSize: 22, lineHeight: 1.35, color: 'var(--alloy-purple)', textWrap: 'pretty' }}>
                   “{q.quote}”
                 </blockquote>
                 <figcaption className="rd-tiny" style={{ marginTop: 'auto' }}>
@@ -100,29 +87,6 @@ export default function TestimonialsPage() {
               <strong className="rd-ink">CEO, Alloy CAM partner</strong> · 2:58
             </figcaption>
           </figure>
-        </div>
-      </section>
-
-      {/* Partner reviews (pre-redesign quote wall) */}
-      <section className="rd-section">
-        <div className="rd-wrap rd-stack rd-stack--40">
-          <div className="rd-stack rd-stack--18 rd-max-720">
-            <Eyebrow tone="purple">The quote wall</Eyebrow>
-            <h2 className="rd-h2 rd-h2--sm">Different operators. Same verdict.</h2>
-            <p className="rd-body" style={LH}>Growth doesn’t come from one lever pulled hard. It comes from all three engines pulled together.</p>
-          </div>
-          <div className="rd-grid rd-grid--2 rd-gap-20">
-            {PARTNER_QUOTES.map((q) => (
-              <figure key={q.who} className="rd-card rd-card--off" style={{ margin: 0, padding: 28, display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <blockquote style={{ margin: 0, fontWeight: 500, fontSize: 17, lineHeight: 1.45, color: 'var(--alloy-purple)', textWrap: 'pretty' }}>
-                  “{q.quote}”
-                </blockquote>
-                <figcaption className="rd-tiny" style={{ marginTop: 'auto' }}>
-                  <strong className="rd-ink">{q.who}</strong> · {q.context}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
         </div>
       </section>
 
