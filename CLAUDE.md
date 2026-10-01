@@ -113,7 +113,7 @@ src/
     ├── resources/index.astro (fetches getRecentIssues), resources/newsletter.astro (getAllIssues, paginated), resources/cam-marketing-strategy.astro, resources/ai-search-for-cam.astro, resources/hoa-management-software-guide.astro
     ├── resources/courses/index.astro, resources/courses/trust-building.astro
     ├── results/apex-cmg.astro
-    ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter), untouched by the redesign
+    ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter, noindex, not in sitemap/nav — client 2026-10-01), untouched by the redesign
     └── api/ {lead,contact,subscribe,metro,newsletters,ping,thinktank}.ts # endpoints (metro: ?q= ZIP | "City, ST" | city via Zippopotam/Nominatim; newsletters: issues JSON; ?raw=1 diagnostics)
 ```
 
@@ -258,6 +258,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Landing pages** `/boardstart` + `/cam-growth-portal` → `robots="noindex,follow"` and removed from `SITEMAP_ROUTES` (client: keep live, don't index, don't put in nav). |
 | 2026-10-01 | **Header search + Log in restored** (`SiteSearch.tsx`, `lib/search-index.ts`, `LOGIN` in nav.ts) — client wanted both back with a login that doesn't clip. Second video ("Jeff Harman – CMGT Testimonial", 5:05, Vimeo 1230353437 with its privacy hash) added to **/about/testimonials** beside the CEO video — the client meant that page, not About. |
 | 2026-10-01 | **/get-started retired** (client): page + `GetStartedPage.tsx` deleted, 301 → `/contact`, five legacy rules re-pointed (no chains), out of the sitemap; all CTAs/`nav.ts` CTA/sticky bar/hero links → `/contact`; Contact form gains a "Claim my market" topic (default) and prefills from `?metro=`/`?intent=`. **About**: stat band uses the yellow-unit treatment (`StatBand unit` / `StatNumber unit` → `.rd-stat-num--unit`), (video first landed here by mistake; it lives on /about/testimonials). |
 | 2026-10-01 | **Homepage SEO + hero polish**: H1 is now the hero question with "HOA management company" (eyebrow is a plain pink label); title → `Marketing for HOA Management Companies | Alloy Growth Partners` + new description (deliberate); purple-band H2 says "HOA management company". Whole guarantee card is the terms button (lifts on hover). `lib/hero-story.ts`: staged, subtle animation of the three moments (BaseLayout adds `html.js` + a 3s un-hide safety net). Statistics audit applied (§29). |

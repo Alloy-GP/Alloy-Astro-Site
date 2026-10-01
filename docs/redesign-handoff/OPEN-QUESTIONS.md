@@ -201,3 +201,7 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Decision:** keep "Last updated: January 2026" on /privacy-policy and /terms-conditions for now; the prototype's "Effective September 2026" is not used. Revisit if legal text changes.
 
+## 35. Landing pages (resolved 2026-10-01)
+
+**Decision:** keep `/boardstart`, `/cam-growth-portal` and `/find-your-path` live for campaigns, `noindex,follow` on all three, none in the sitemap, none in the nav. (`/find-your-path` was already `noindex,nofollow`.)
+

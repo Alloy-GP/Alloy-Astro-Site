@@ -15,7 +15,7 @@ const SITEMAP_ROUTES = new Set([
   '/property-management-seo', '/resources', '/resources/ai-search-for-cam', '/resources/newsletter', '/resources/cam-marketing-strategy', '/resources/courses', '/resources/courses/trust-building',
   '/resources/hoa-management-software-guide', '/results', '/results/apex-cmg', '/services', '/terms-conditions',
   // Campaign landing pages (indexable today; not part of the redesign)
-  '/boardstart', '/cam-growth-portal',
+  // landing pages (/boardstart, /cam-growth-portal, /find-your-path) stay live but noindex + out of the sitemap (client, 2026-10-01)
 ]);
 
 export default defineConfig({
