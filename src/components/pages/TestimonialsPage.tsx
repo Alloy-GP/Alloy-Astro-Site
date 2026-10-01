@@ -1,7 +1,7 @@
 // src/components/pages/TestimonialsPage.tsx — /about/testimonials
 // Template 6 (Editorial). Layout + copy from docs/redesign-handoff/site/about-testimonials.dc.html.
 // Restored from the pre-redesign page: the full Rim E. review, the Valerie L. / Rikky M. quotes
-// (attributed as the old page did), and the Jason D. / RISE AMG Vimeo video. The old page's
+// (attributed as the old page did), and the partner-CEO Vimeo video (anonymized). The old page's
 // Marcus T. / Dana W. / Priya S. quotes are left out until the client confirms they are real.
 import type { CSSProperties } from 'react';
 import { Eyebrow, Btn, CtaBar } from '~/components/rd/atoms';
@@ -77,13 +77,13 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Video — Jason D., RISE AMG */}
+      {/* Video — partner CEO (kept anonymous per client, 2026-10-01) */}
       <section id="video" className="rd-section rd-bg-off">
         <div className="rd-wrap rd-grid rd-grid--prose" style={{ alignItems: 'center' }}>
           <div className="rd-stack rd-stack--18">
             <Eyebrow>Operator stories</Eyebrow>
             <h2 className="rd-h2 rd-h2--sm">Hear it from them.</h2>
-            <p className="rd-body" style={LH}>Jason D. runs RISE AMG. In under three minutes, he covers what changes when your agency speaks the language of community association management.</p>
+            <p className="rd-body" style={LH}>The CEO of an Alloy CAM partner, in under three minutes, on what changes when your agency speaks the language of community association management.</p>
           </div>
           <figure className="rd-stack rd-stack--14" style={{ margin: 0 }}>
             <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden', background: 'var(--alloy-purple)', boxShadow: 'var(--shadow-md)' }}>
@@ -92,12 +92,12 @@ export default function TestimonialsPage() {
                 loading="lazy"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen
-                title="Jason D., CEO of RISE AMG, on working with Alloy"
+                title="A CAM company CEO on working with Alloy"
                 style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
               />
             </div>
             <figcaption className="rd-tiny">
-              <strong className="rd-ink">Jason D.</strong> · CEO, RISE AMG · 2:58
+              <strong className="rd-ink">CEO, Alloy CAM partner</strong> · 2:58
             </figcaption>
           </figure>
         </div>

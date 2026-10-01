@@ -137,3 +137,5 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 - Tier names are **Steady / Accelerate / Ascend** (not Foundation / Growth / Scale). Renamed on /pricing, /boardsuite, and in service FAQs.
 - Exclusivity wording: **for the length of the engagement, renewing with the contract unless something changes.** Applied on /faq, /boardsuite, /about.
 - **Google Ads is still offered.** `/boardreach/google-ads-ppc` restored as a service page (old URL, old title/description); the legacy `/focus/advertising-ads` and `/services/hoa-management-google-ads-ppc-management` redirects point at it again; added to nav, footer, BoardReach hub, and sitemap. Services count is now 17.
+
+- **Case-study client stays anonymous** (client decision 2026-10-01). The testimonials video is now attributed to "CEO, Alloy CAM partner"; no firm or person names on the site. Note: the video itself may name the firm on camera — Alloy's call whether to keep it. The unreferenced legacy headshots in `public/assets` (`jason-delgado.jpg`, `apex-cmg-ceo.jpg`) were removed.

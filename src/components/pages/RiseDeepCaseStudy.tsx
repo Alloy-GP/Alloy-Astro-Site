@@ -1,6 +1,5 @@
 // src/components/pages/RiseDeepCaseStudy.tsx — /results/apex-cmg
-// (Filename kept from the pre-rename "RISE AMG" study; also rendered by the
-// legacy /results/rise-amg route.)
+// (Filename predates the anonymized study name; the legacy /results/rise-amg route 301s here.)
 //
 // Template 5 — article / case study. Hero, 4-stat strip, the four prose
 // blocks and the CTA copy come from docs/redesign-handoff/site/results-apex-cmg.dc.html.
