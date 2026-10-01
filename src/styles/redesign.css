@@ -634,9 +634,9 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 
 /* ---------- Hero card 2b (homepage) — docs/redesign-handoff-hero-2b ----------
    White card, 24px radius, three "moments" over a lavender panel, payoff line, availability check (island)
-   + guarantee. Mobile rules in mobile.css. Surfaces follow the site system (client, 2026-10-01): no outer border,
-   radius 10 / fields 8, --shadow-lg lift — not the handoff's 24/18/14 radii + 1px border. */
-.rd-hc { background: #fff; border: 0; border-radius: 10px; padding: 40px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 26px; font-family: var(--font-display); }
+   + guarantee. Mobile rules in mobile.css. Surfaces follow the site system (client, 2026-10-01): the outer card has
+   no border, shadow or padding (content sits flush in .rd-wrap); inner surfaces use radius 10 / fields 8. */
+.rd-hc { background: transparent; border: 0; border-radius: 0; padding: 0; box-shadow: none; display: flex; flex-direction: column; gap: 26px; font-family: var(--font-display); }   /* no box at all (client, 2026-10-01): the content sits flush on the hero */
 .rd-hc-head { display: flex; flex-direction: column; gap: 18px; }
 .rd-hc-eyebrow { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-gold-ink); line-height: 1.6; font-family: var(--font-display); }
 .rd-hc-h2 { margin: 0; max-width: 760px; font-size: 42px; line-height: 1.08; font-weight: 700; color: var(--alloy-purple); letter-spacing: -.015em; text-wrap: balance; }

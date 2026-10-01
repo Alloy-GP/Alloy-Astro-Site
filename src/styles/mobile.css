@@ -328,7 +328,7 @@
   .rd-tip-btn { position: relative; }
   .rd-tip-btn::after { content: ""; position: absolute; inset: -14px -8px; }   /* ≥44px hit area */
   /* Hero card 2b (docs/redesign-handoff-hero-2b/mobile.css.snippet) */
-  .rd-hc { padding: 22px; gap: 18px; }
+  .rd-hc { gap: 18px; }
   .rd-hc-h2 { font-size: 26px; }
   .rd-hc-payoff { font-size: 20px; }
   .rd-hc-bottom { grid-template-columns: 1fr; gap: 14px; }   /* guarantee lands directly under the CTA */
