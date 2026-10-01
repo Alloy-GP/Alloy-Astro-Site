@@ -20,7 +20,7 @@ const data: ServicePageData = {
       h: 'The renewal case, written a year early.',
       p: [
         'Every violation resolved, project completed, dollar saved, and meeting held is a line in the report. When the contract comes up, the board doesn’t have to remember what you did. They have it.',
-        'Most CAM firms ship a stapled, photocopied packet instead, and 88% of homeowners never open it. It checks the compliance box and does nothing for the contract. Operators who switch to a designed, narrated report see 1.7× higher board renewal probability.',
+        'Most CAM firms ship a stapled, photocopied packet instead, and most homeowners never open it. It checks the compliance box and does nothing for the contract. Operators who switch to a designed, narrated report see 1.7× higher board renewal probability.',
       ],
     },
     {

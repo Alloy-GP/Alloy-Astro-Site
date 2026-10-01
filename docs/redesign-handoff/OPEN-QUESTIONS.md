@@ -171,3 +171,7 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Decision:** keep. The network-leads chart (3 board leads/mo from paid ads vs 10 via MatchHOA, labelled "Illustrative") and the partner ledger (+535% lead intake, 3× proposal requests, 40–60% qualified-to-closed) stay as they are.
 
+## 29. Statistics audit (resolved 2026-10-01)
+
+**Research:** 88% "never open the annual packet" and 73% "haven't refreshed their brand in 8+ years" have no source (prototype copy) → rewritten without numbers. 21% email benchmark ≈ HubSpot's all-industry average (attributed); Mailchimp's own 2025 figure is ~35% because Apple Mail inflates opens. **Client confirmed real:** 38% median open rate on Alloy CAM programs; 200+ negative reviews handled; 200+ CAM selection meetings; 200+ trade-publication placements; every careers benefit and the three open roles.
+

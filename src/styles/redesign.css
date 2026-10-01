@@ -639,7 +639,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-hc { background: transparent; border: 0; border-radius: 0; padding: 0; box-shadow: none; display: flex; flex-direction: column; gap: 26px; font-family: var(--font-display); }   /* no box at all (client, 2026-10-01): the content sits flush on the hero */
 .rd-hc-head { display: flex; flex-direction: column; gap: 18px; }
 .rd-hc-eyebrow { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-gold-ink); line-height: 1.6; font-family: var(--font-display); }
-.rd-hc-h2 { margin: 0; max-width: 760px; font-size: 42px; line-height: 1.08; font-weight: 700; color: var(--alloy-purple); letter-spacing: -.015em; text-wrap: balance; }
+.rd-hc-h2 { margin: 0; max-width: 760px; font-size: 44px; line-height: 1.02; font-weight: 800; color: var(--alloy-purple); letter-spacing: -.025em; text-wrap: balance; }   /* same family + weight as .rd-h2 (handoff said 700) */
 .rd-hc-story { background: var(--alloy-lavender); border-radius: 10px; padding: 18px; }
 .rd-hc-moments { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
 .rd-hc-moment { background: #fff; border-radius: 10px; padding: 18px; display: flex; flex-direction: column; gap: 14px; min-width: 0; box-shadow: 0 2px 6px rgba(56,28,79,.08), 0 0 0 1px var(--border-subtle); }
@@ -709,7 +709,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-dialog-close { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border: 0; border-radius: 10px; background: none; color: var(--alloy-body-gray); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard); }
 .rd-dialog-close:hover { background: var(--alloy-off-white); color: var(--alloy-pink); }
 .rd-dialog-eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-gold-ink); }
-.rd-dialog-title { margin: 0; font-size: 28px; font-weight: 700; line-height: 1.1; letter-spacing: -.015em; padding-right: 36px; }
+.rd-dialog-title { margin: 0; font-size: 28px; font-weight: 800; line-height: 1.1; letter-spacing: -.015em; padding-right: 36px; }
 .rd-dialog-lead { margin: 0; font-size: 17px; font-weight: 500; line-height: 1.5; color: var(--alloy-purple); }
 .rd-dialog-terms { background: var(--alloy-lavender); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
 .rd-dialog-terms-head { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--alloy-purple); }

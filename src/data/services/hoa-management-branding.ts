@@ -20,7 +20,7 @@ const data: ServicePageData = {
       h: 'The brand does its work before you say a word.',
       p: [
         'Board members are volunteers. They don’t read your proposal cover to cover; they form an impression in the first pages and confirm it in the meeting. A coherent identity — one that looks like it belongs in the room with the incumbent — buys you the credibility to be heard.',
-        'Most CAM firms don’t clear that bar — 73% haven’t refreshed their identity in eight or more years, and most regional firms work from the same templates. A 2014 logo with no system around it, a website that looks one way and a proposal that looks another: on a shortlist of three, that reads as the risky choice.',
+        'Most CAM firms don’t clear that bar — many haven’t refreshed their identity in years, and most regional firms work from the same templates. A 2014 logo with no system around it, a website that looks one way and a proposal that looks another: on a shortlist of three, that reads as the risky choice.',
       ],
     },
     {
