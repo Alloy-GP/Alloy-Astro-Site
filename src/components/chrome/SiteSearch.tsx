@@ -128,7 +128,7 @@ export default function SiteSearch({ variant = 'icon' }: { variant?: 'icon' | 'r
               </div>
             ))}
           </div>
-          <div className="site-search-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div>
+          <div className="site-search-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>enter</kbd> open</span><span><kbd>esc</kbd> close</span></div>
         </div>
       </dialog>
     </>
