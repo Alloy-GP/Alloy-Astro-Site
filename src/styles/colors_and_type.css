@@ -78,6 +78,13 @@
 
   /* Semantic success (metro "open" state, Claim-it button) + map base (redesign homepage) */
   --success:             #16a34a;
+  /* Hero card 2b (docs/redesign-handoff-hero-2b): gold is deliberately warmer than --alloy-yellow */
+  --alloy-gold: #f2d98a;
+  --alloy-gold-ink: #b8902a;      /* gold for text on white (the fill gold fails contrast) */
+  --alloy-lavender: #f3f0f8;
+  --alloy-muted-ink: #8c7a9e;
+  --alloy-on-purple: #d9cce6;
+  --live: #2f9e85;
   --success-hover:       #15803d;
   --map-base:            #2a1440;
 

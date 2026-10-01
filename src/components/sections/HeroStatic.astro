@@ -1,24 +1,29 @@
 ---
 // src/components/sections/HeroStatic.astro
 // Homepage hero — static HTML (no React island) so the h1 paints at HTML parse time and
-// Chrome records LCP immediately. The interactive outcomes card (carousel + metro check) is the slot
-// and hydrates independently (client:load).
+// Chrome records LCP immediately. Composition (hero card 2b, 2026-10-01): copy on top in two
+// columns (keyword H1 + display headline left; intro + CTAs right), then the full-width hero card
+// as the slot. The card is designed at 960px, so it no longer sits in a right-hand column.
 //
 // Usage (src/pages/index.astro):
-//   <HeroStatic><HeroCard client:load /></HeroStatic>
+//   <HeroStatic><HeroCard><MetroCheck client:load /></HeroCard></HeroStatic>
 ---
-<section class="rd-page rd-section rd-section--hero">
-  <div class="rd-wrap rd-grid rd-grid--hero-11">
-    <div class="rd-stack rd-stack--32">
-      <!-- The keyword line is the page's H1 (styled as the eyebrow); the display headline is an h2. -->
-      <h1 class="rd-eyebrow rd-eyebrow--noline" style="margin:0">Marketing for HOA Management Companies</h1>
-      <h2 class="rd-h1 rd-h1--xl">Attract the right boards. Match their needs. <span class="rd-accent">Retain their business.</span></h2>
-      <p class="rd-intro rd-intro--lg rd-max-560">Alloy brings CAM firms more leads from the communities that fit their portfolio. Then we help you win those boards and keep them long after the contract is signed. One firm per metro. Built only for CAM.</p>
-      <div class="rd-row rd-row--wrap">
-        <a href="/get-started" class="rd-btn rd-btn--inline">Claim your market</a>
-        <a href="/boardsuite" class="rd-link rd-link--pad">See what’s inside
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </a>
+<section class="rd-page rd-section rd-section--hero rd-hero">
+  <div class="rd-wrap rd-stack rd-stack--48">
+    <div class="rd-grid rd-grid--hero-wide rd-grid--end rd-hero-copy">
+      <div class="rd-stack rd-stack--24">
+        <!-- The keyword line is the page's H1 (styled as the eyebrow); the display headline is an h2. -->
+        <h1 class="rd-eyebrow rd-eyebrow--noline" style="margin:0">Marketing for HOA Management Companies</h1>
+        <h2 class="rd-h1 rd-h1--xl">Attract the right boards. Match their needs. <span class="rd-accent">Retain their business.</span></h2>
+      </div>
+      <div class="rd-stack rd-stack--24">
+        <p class="rd-intro rd-intro--lg">Alloy brings CAM firms more leads from the communities that fit their portfolio. Then we help you win those boards and keep them long after the contract is signed. One firm per metro. Built only for CAM.</p>
+        <div class="rd-row rd-row--wrap">
+          <a href="/get-started" class="rd-btn rd-btn--inline">Claim your market</a>
+          <a href="/boardsuite" class="rd-link rd-link--pad">See what’s inside
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
       </div>
     </div>
     <slot />

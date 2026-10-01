@@ -11,7 +11,7 @@ import type { FaqItem } from '~/lib/schema';
 const LH: CSSProperties = { lineHeight: 1.65 };
 
 /** `a` is the plain-text answer (used for schema); `node` overrides the rendered answer when it contains links. */
-interface Entry { q: string; a: string; node?: ReactNode }
+interface Entry { q: string; a: string; node?: ReactNode; id?: string }
 interface Group { label: string; items: Entry[] }
 
 const MATCH_HOA_TEXT =
@@ -44,13 +44,14 @@ export const FAQ_GROUPS: Group[] = [
     },
   ] },
   { label: 'Pricing', items: [
+    { id: 'guarantee', q: 'What does “pays for itself, guaranteed” mean?', a: 'If the new business Alloy brings in doesn’t cover our fee within 24 months of starting, we refund the difference. The full terms — what counts as new business and how the fee is tallied — are part of your engagement agreement; ask for them in the Strategic Review.' },
     { q: 'What does an engagement cost?', a: 'Pricing is custom and engagement-dependent across all three BoardSuite tiers (Steady, Accelerate, Ascend). We scope to your portfolio, market, and execution pace. The diagnostic call gets you a real number.' },
     { q: "What's the minimum commitment?", a: "12 months. Engineered growth doesn't happen in 90 days. The first 90 days are diagnostic + foundation; results compound from month 6 onward." },
     { q: 'What does “all-in” mean?', a: 'The retainer covers every listed deliverable. No per-project line items, no surprise scope fees.' },
     { q: 'Can we buy one service?', a: 'Yes — most services are available standalone, and we take project work when there’s a strategic event in motion.' },
   ] },
   { label: 'Results', items: [
-    { q: 'Do you guarantee results?', a: 'No. We disclose them. Every number we publish is a contracted client outcome with its timeframe attached.' },
+    { q: 'Do you guarantee results?', a: 'We don’t guarantee rankings, lead counts, or a close rate — nobody honest can. We do guarantee the economics: if the new business Alloy brings in doesn’t cover our fee within 24 months, we refund the difference. Everything else we publish is a disclosed, contracted client outcome measured against a pre-engagement baseline, with the timeframe attached.' },
     { q: 'How fast will we see something?', a: 'Map pack in about ninety days; organic and AI search over six to twelve months; proposal and sales changes show up in the next pursuit.' },
   ] },
 ];
@@ -83,7 +84,7 @@ export default function FAQPage() {
                 <div><h2 className="rd-h3 rd-h3--sm" style={{ lineHeight: 1.2 }}>{g.label}</h2></div>
                 <div className="rd-faq rd-faq--accordion">
                   {g.items.map((it, i) => (
-                    <details key={it.q} className="rd-faq-item" {...({ name: `faq-${g.label}` } as Record<string, string>)} {...(i === 0 ? { open: true } : {})}>
+                    <details key={it.q} className="rd-faq-item" {...(it.id ? { id: it.id } : {})} {...({ name: `faq-${g.label}` } as Record<string, string>)} {...(i === 0 ? { open: true } : {})}>
                       <summary><h3 className="rd-faq-q" style={{ margin: 0, fontSize: 18 }}>{it.q}</h3><PlusIcon /></summary>
                       <p className="rd-faq-a" style={LH}>{it.node ?? it.a}</p>
                     </details>

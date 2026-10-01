@@ -203,6 +203,7 @@
   .rd-threeup > *:last-child { border-bottom: 0; }
   .rd-toc { position: static; }
   .rd-section--hero { padding: 72px 0 72px; }
+  .rd-hero > .rd-wrap { gap: 32px; }
   .rd-section { padding: 72px 0; }
   .rd-cta-bar { flex-direction: column; align-items: flex-start; }
 }
@@ -325,16 +326,26 @@
   .rd-trustbar-inner { flex-direction: column; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
   .rd-trustbar-items { flex-wrap: wrap; gap: 10px 24px; font-size: 15px; white-space: normal; }
   .rd-trustbar-items img { height: 42px; margin: -10px -8px; }
-  .rd-oc { padding: 22px 20px; gap: 14px; }
-  .rd-oc-page { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .rd-oc-tile { padding: 14px; gap: 10px; height: auto; min-height: 0; }
-  .rd-oc-tile-num b { font-size: 28px; }
-  .rd-oc-tile-chart, .rd-oc-pills, .rd-oc-hbars { height: 36px; }
-  .rd-oc-tile-chart svg { width: 100%; height: 36px; }
-  .rd-oc-dot, .rd-tip-btn { position: relative; }
-  .rd-oc-dot::after, .rd-tip-btn::after { content: ""; position: absolute; inset: -14px -8px; }   /* ≥44px hit area */
-  .rd-mc-map { height: 120px; }
-  .rd-mc-input { font-size: 16px; padding: 12px 14px; }
+  .rd-tip-btn { position: relative; }
+  .rd-tip-btn::after { content: ""; position: absolute; inset: -14px -8px; }   /* ≥44px hit area */
+  /* Hero card 2b (docs/redesign-handoff-hero-2b/mobile.css.snippet) */
+  .rd-hc { padding: 22px; border-radius: 20px; gap: 18px; }
+  .rd-hc-h2 { font-size: 26px; }
+  .rd-hc-payoff { font-size: 20px; }
+  .rd-hc-bottom { grid-template-columns: 1fr; gap: 14px; }   /* guarantee lands directly under the CTA */
+  .rd-hc-avail-h { font-size: 20px; }
+  .rd-hc-form { flex-direction: column; }
+  .rd-hc-input { height: 52px; font-size: 16px; }
+  .rd-hc-form .rd-hc-btn { width: 100%; height: 52px; }
+  .rd-hc-guarantee-side { width: 64px; }
+  .rd-hc-story { padding: 14px; }
+  .rd-hc-moment { padding: 16px; }
+  .rd-hc-answer { gap: 8px; }
+  .rd-hc-answer-name, .rd-hc-answer-trail { white-space: nowrap; }
+  .rd-hc-answer-trail { flex: none; }
+  .rd-hc-guarantee-link { padding: 12px 0; margin: -10px 0 -12px; display: inline-flex; align-items: center; }   /* 44px tap target */
+  .rd-hc-result { padding: 12px; }
+  .rd-hc-result-actions { width: 100%; justify-content: space-between; }
   .rd-network { padding: 56px 0 !important; }
   .rd-network .rd-grid { gap: 32px !important; }
   .rd-network .rd-logo-link { align-self: center; }
@@ -438,8 +449,9 @@
   .rd-h1, .rd-h1--md, .rd-h1--xl, .rd-h1--lg { font-size: 38px; }
   .rd-h1--sm { font-size: 34px; }
   .rd-h2 { font-size: 30px; }
-  .rd-oc-tile-eyebrow { white-space: normal; font-size: 10px; }
   .rd-steps, .rd-steps--3 { gap: 0 16px; }
+  .rd-hc-answer-name { font-size: 13px; }
+  .rd-hc-answer-trail { font-size: 11px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

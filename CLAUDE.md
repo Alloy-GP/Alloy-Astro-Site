@@ -32,7 +32,6 @@ src/
 ├── lib/
 │   ├── nav.ts                       # NAV DATA: PRIMARY, CTA, ENGINES (3 engines × services), BOARDSUITE_TILE, DROPDOWN_FOOTER, FOOTER + helpers
 │   ├── tokens.ts                    # JS color constants (PURPLE, PINK, YELLOW, BLUE, GREEN, BLUE_DEEP, REACH_INK, MATCH_INK, RETAIN_INK, ENGINE_INK)
-│   ├── albers.ts                    # Albers equal-area projection (contiguous US) used by us-map.ts
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
 │   ├── mobile.ts                    # ≤720 enhancements (footer accordions, sticky CTA bar observers, article TOC bar + progress) — mounted from BaseLayout
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
@@ -47,8 +46,7 @@ src/
 │   │   ├── property-management-seo.ts, email-marketing.ts, hoa-website-design.ts, … (15 services)
 │   ├── hubs/                        # ONE file per engine hub (HubPageData): boardreach.ts, boardmatch.ts, boardretain.ts (+ types.ts)
 │   ├── courseTrustBuilding.ts       # Lesson + quiz content for /resources/courses/trust-building
-│   ├── metros.ts                    # Partner metros (claimed) + open metros for the map, lock radius, claimStatus()
-│   └── us-map.ts                    # GENERATED (.context/gen-us-map.mjs): contiguous-US state paths + project(lat,lng) for the hero map
+│   └── metros.ts                    # Partner metros (claimed) + open metros, lock radius, claimStatus() — used by /api/metro
 │
 ├── layouts/
 │   └── BaseLayout.astro             # <html>, <head> (SEO, fonts, analytics), SiteHeader (island), <main>, SiteFooter (static), motion <script>
@@ -65,11 +63,12 @@ src/
 │   │   └── HubPage.tsx              # Template 2 — renders a HubPageData object (the 3 engine hubs)
 │   │
 │   ├── sections/
-│   │   ├── HeroStatic.astro         # Homepage hero as static HTML (LCP); takes the HeroCard island as its slot
+│   │   ├── HeroStatic.astro         # Homepage hero as static HTML (LCP): copy in two columns, then the full-width HeroCard slot
 │   │   ├── Shells.tsx               # LEGACY shells (PageHero, CtaBand, …) — still imported by landing-page code; do not use for new work
 │   │
 │   ├── modules/                     # Interactive islands + self-contained modules
-│   │   ├── HeroCard.tsx             # Homepage hero card (client:load): outcome-tile carousel + metro check (ZIP → /api/metro) over a vector US map
+│   │   ├── HeroCard.tsx             # Homepage hero card 2b (STATIC): three search moments → "Your Company" → payoff → availability slot + guarantee
+│   │   ├── MetroCheck.tsx           # "Is your metro still open?" island inside HeroCard (client:load): metro or ZIP → /api/metro?q= → Open/Claimed
 │   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
 │   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe
 │   │   ├── TrustBuildingQuiz.tsx    # Knowledge check at the end of the trust-building guide (client:visible)
@@ -97,7 +96,7 @@ src/
 │   ├── AccentBar.tsx, AnimatedNumber.tsx, Button.tsx, EngineLoop.tsx, Eyebrow.tsx, Icon.tsx, PillarMark.tsx, Tag.tsx  # legacy atoms (Icon still used)
 │
 └── pages/                           # Astro routes — thin shells
-    ├── index.astro                  → HeroStatic + HeroCard island, HomePage + NetworkLeadsChart slot
+    ├── index.astro                  → HeroStatic › HeroCard › MetroCheck island; HomePage + NetworkLeadsChart slot
     ├── boardsuite.astro, services.astro, pricing.astro, results.astro, get-started.astro
     ├── about.astro, about/testimonials.astro, partners.astro, careers.astro, faq.astro, contact.astro, growth-modeled.astro
     ├── privacy-policy.astro, terms-conditions.astro, 404.astro
@@ -112,7 +111,7 @@ src/
     ├── resources/courses/index.astro, resources/courses/trust-building.astro
     ├── results/apex-cmg.astro
     ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter), untouched by the redesign
-    └── api/ {lead,contact,subscribe,metro,newsletters,ping,thinktank}.ts # endpoints (newsletters: issues JSON; ?raw=1 diagnostics)
+    └── api/ {lead,contact,subscribe,metro,newsletters,ping,thinktank}.ts # endpoints (metro: ?q= ZIP | "City, ST" | city via Zippopotam/Nominatim; newsletters: issues JSON; ?raw=1 diagnostics)
 ```
 
 **Retired in the redesign (now 301s in `astro.config.mjs`):** `/our-approach*`, `/we-know-cam`, `/about/we-know-cam`, `/resource-hub*`, `/courses*` (10 lessons + quiz), `/services/social-media-marketing-for-hoa-management-companies`, `/services/hoa-newsletter-production`, `/hoa-cam-marketing-services`, `/groundwork`, `/hoa-board-education-programs`, `/strategic-review-request`, `/boardreach/local-pack-optimization`, `/boardreach/google-ads-ppc`, `/results/rise-amg`.
@@ -123,7 +122,7 @@ src/
 
 | # | Template | Where |
 |---|---|---|
-| 1 | Homepage | `HeroStatic.astro` + `HomePage.tsx` |
+| 1 | Homepage | `HeroStatic.astro` + `modules/HeroCard.tsx` (+ `MetroCheck` island) + `HomePage.tsx` |
 | 2 | Engine hub | `rd/HubPage.tsx` + `data/hubs/*.ts` |
 | 3 | Service page | `rd/ServicePage.tsx` + `data/services/*.ts` |
 | 4 | Index pages | `BoardSuitePage`, `ServicesPage`, `PricingPage`, `ResultsPage`, `GetStartedPage` |
@@ -159,7 +158,7 @@ Islands inside a static page component are passed as `children` from the route (
 
 ### Tokens (`colors_and_type.css`, mirrored in `lib/tokens.ts`)
 Brand: `--alloy-purple #381c4f` · `--alloy-purple-deep #290d41` · `--alloy-pink #d9356e` (hover `#c12a60`, press `#a82451`) · `--alloy-yellow #f5d880` · `--alloy-blue #a1c8e7` · `--alloy-green #aed7d0` · off-white `#f8f7fc` · border `#e8e4ef` · border-strong `#c9c1d6` · body `#555` · purple-90 `#4c3361`.
-**Engine ink (readable on white):** `--engine-reach #d9356e` · `--engine-match #b8942a` · `--engine-retain #3f8f83`. **Success:** `--success #16a34a` (hover `#15803d`). **Map base:** `--map-base #2a1440`.
+**Engine ink (readable on white):** `--engine-reach #d9356e` · `--engine-match #b8942a` · `--engine-retain #3f8f83`. **Success:** `--success #16a34a` (hover `#15803d`). **Hero card 2b:** `--alloy-gold #f2d98a` (fill) · `--alloy-gold-ink #b8902a` (text on white) · `--alloy-lavender #f3f0f8` · `--alloy-muted-ink #8c7a9e` · `--alloy-on-purple #d9cce6` · `--live #2f9e85`.
 Radius 10 (cards, buttons) / 8 (chips, fields). Shadows `--shadow-sm/md/lg/pink`. Easing `--ease-standard` (120ms hover / 200ms state), `--ease-emphasis` (320ms+ reveals).
 
 ### Heavy weight rule
@@ -256,6 +255,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Hero card 2b** (`docs/redesign-handoff-hero-2b/`, final): outcomes carousel + vector map replaced by the static "three search moments" card with the pays-for-itself guarantee; hero recomposed (copy in two columns, card full width below — the card is designed at 960px). New `MetroCheck` island; `/api/metro` accepts `q=` metro **or** ZIP (Zippopotam city endpoint for "City, ST", Nominatim fallback, own metro list last). Removed `data/us-map.ts`, `lib/albers.ts`, `.context/gen-us-map.mjs`. FAQ gains an anchored `#guarantee` entry (the card's terms link) and "Do you guarantee results?" was rewritten to match — **guarantee wording needs legal sign-off before launch** (launch checklist #15). `/get-started` prefills `?metro=` / `?intent=waitlist`. |
 | 2026-10-01 | **Real content only**: webinar block + `WebinarSignup` removed (no event scheduled); homepage news cards and `/resources` Latest now link only to real pieces; live article *How CAM Firms Win in AI Search* restored at `/resources/ai-search-for-cam` (`AISearchArticle.tsx`, original title/description, `/resource-hub/ai-search-for-cam` → there). |
 | 2026-10-01 | **Mobile build** per `docs/redesign-handoff/docs/mobile-spec.md`: header panel rewrite (`SiteHeader`), footer accordion blocks (`SiteFooter`), `lib/mobile.ts` (footer toggles, sticky CTA, TOC bar), `mobile.css` rd-* section rewritten, class hooks on Home/Results/GetStarted/Contact/About/Pricing, `Breadcrumb` marks the parent crumb, `StatBand` gains `compact`, soft hyphen in hub system-row titles. QA tooling `.context/mobile-qa.mjs`, `.context/eval.mjs`. |
 | 2026-10-01 | **Launch Q&A**: tiers Steady/Accelerate/Ascend; Google Ads & PPC page restored; FAQs are `<details>` accordions site-wide (`FaqList`); case-study client and video kept anonymous; testimonials reduced to the two client-confirmed quotes. **Favicons**: `public/favicon.ico` + `favicon-48/96.png` + `apple-touch-icon.png` + `icon-192/512.png` + `site.webmanifest` (generated by `.context/gen-favicons.mjs` from `assets/alloy-icon-1500.png`), linked from BaseLayout alongside the SVG. |

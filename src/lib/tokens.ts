@@ -20,4 +20,6 @@ export const ENGINE_INK = { reach: REACH_INK, match: MATCH_INK, retain: RETAIN_I
 
 export const SUCCESS = '#16a34a';
 export const SUCCESS_HOVER = '#15803d';
+export const GOLD = '#f2d98a';       // hero card 2b gold (warmer than YELLOW)
+export const GOLD_INK = '#b8902a';   // gold for text on white
 export const MAP_BASE = '#2a1440';

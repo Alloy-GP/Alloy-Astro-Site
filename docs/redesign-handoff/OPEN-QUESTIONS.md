@@ -154,3 +154,12 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Not on the live site:** the nine pre-Astro blog URLs in `astro.config.mjs` ("Old blog / article pages") are redirect-only — their content was never in this repo. Recoverable from the Wayback Machine if wanted.
 
+## 27. Hero card 2b — built (2026-10-01)
+
+**Built from** `docs/redesign-handoff-hero-2b/` (v2, "final"). Calls made because the handoff didn't settle them:
+- **Composition:** the card is designed at 960px and the old right column was 480px, so the hero is now copy on top (keyword H1 + headline left, intro + CTAs right) with the card full width beneath. The hero copy the client chose is unchanged.
+- **Metro input:** free text per the design. `/api/metro?q=` resolves a ZIP (Zippopotam), "City, ST" (Zippopotam city endpoint), or a bare city (Nominatim/OpenStreetMap with an identifying User-Agent, cached a day; falls back to our own metro list). The result replaces the form in place (no map any more): Open → "Claim it", Claimed → "Join the waitlist", both carry `?metro=` to /get-started.
+- **Guarantee terms link:** there is no terms page, so "See guarantee terms" → `/faq#guarantee` (new anchored entry using only the handoff's wording + "full terms are part of your engagement agreement"). The old FAQ answer "Do you guarantee results? — No." contradicted the card and was rewritten. **Legal must confirm the promise before launch** (launch checklist #15).
+- **Mobile:** stacked as specified (card ≈1,300px tall on a 390px phone). A horizontal rail for the three moments is the alternative if that feels long.
+- The vector US map (`us-map.ts`, `albers.ts`) and the illustrative outcome tiles are gone, which also closes launch question 6.
+

@@ -12,4 +12,11 @@ import { faqSchema } from '~/lib/schema';
   pageSchema={faqSchema(FAQ_ITEMS)}
 >
   <FAQPage />
+  <!-- Deep links like /faq#guarantee (hero card) open the targeted accordion item. -->
+  <script is:inline>
+    (function () {
+      function open() { var id = location.hash.slice(1); if (!id) return; var el = document.getElementById(id); if (el && el.tagName === 'DETAILS') { el.open = true; el.scrollIntoView({ block: 'start' }); } }
+      open(); addEventListener('hashchange', open);
+    })();
+  </script>
 </BaseLayout>

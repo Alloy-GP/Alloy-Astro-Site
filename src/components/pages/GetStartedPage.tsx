@@ -65,6 +65,13 @@ export function GetStartedForm() {
   const [doors, setDoors] = useState('');
   const [metro, setMetro] = useState('');
   const [stuck, setStuck] = useState('');
+  // Prefill from the homepage metro check: /get-started?metro=Austin,%20TX[&intent=waitlist]
+  useEffect(() => {
+    const sp = new URLSearchParams(window.location.search);
+    const m = sp.get('metro') ?? sp.get('zip');
+    if (m) setMetro(m.slice(0, 80));
+    if (sp.get('intent') === 'waitlist') setStuck((v) => v || 'My metro is already claimed — add me to the waitlist.');
+  }, []);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
