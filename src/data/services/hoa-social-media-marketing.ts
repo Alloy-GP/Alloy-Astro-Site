@@ -10,7 +10,7 @@ const data: ServicePageData = {
   h1Accent: 'boards check',
   h1Tail: 'before they call.',
   intro: 'Board members look you up. The owner, the executive team, the firm page — if the last post is from 2023, that’s the impression. Social Media Marketing for HOA management companies is founder-led thought leadership, ghostwritten and scheduled, repurposed from everything else you publish.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 20, suffix: 'posts / mo', note: 'Across the founder and firm accounts, written for you' },
     { value: 1, suffix: 'voice', note: 'Yours — we ghostwrite, you approve' },

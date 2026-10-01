@@ -38,7 +38,7 @@ export const PRIMARY: NavPrimaryItem[] = [
   { id: 'resources', label: 'Resources', href: '/resources' },
 ];
 
-export const CTA = { label: 'Claim your market', href: '/get-started' };
+export const CTA = { label: 'Claim your market', href: '/contact' };
 
 export const ENGINES: NavEngine[] = [
   {
@@ -99,7 +99,7 @@ export const BOARDSUITE_TILE = {
 export const DROPDOWN_FOOTER = {
   text: 'Not sure which engine is leaking? Thirty minutes tells you.',
   cta: 'Claim your market',
-  href: '/get-started',
+  href: '/contact',
 };
 
 /** Mobile nav panel (mobile-spec.md frame 1a): secondary links row + pinned footer caption. */

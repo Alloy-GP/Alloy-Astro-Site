@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'The newsletter that makes your work',
   h1Accent: 'visible.',
   intro: 'Boards forget what you did last quarter. Newsletter Production for HOA management companies is a done-for-you, branded monthly or quarterly newsletter — for boards, for homeowners, or both — that shows the work, teaches the basics, and keeps your firm the obvious choice at renewal.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 12, suffix: 'issues / yr', note: 'Monthly, written, designed, and sent for you' },
     { value: 2, suffix: 'audiences', note: 'Boards and homeowners, with different content and cadence' },

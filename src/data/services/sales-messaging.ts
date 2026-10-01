@@ -10,7 +10,7 @@ const data: ServicePageData = {
   h1Accent: 'you',
   h1Tail: 'can say.',
   intro: 'Every management company says “responsive,” “transparent,” and “experienced.” Sales Messaging & UVP development gives your firm a position boards can repeat back — and the language for every conversation, from first call to final vote.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 1, suffix: 'sentence', note: 'The position a board member can repeat to the rest of the board' },
     { value: 5, suffix: 'moments', note: 'First call, site visit, proposal, finalist meeting, follow-up — each scripted' },

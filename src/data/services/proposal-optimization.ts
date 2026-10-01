@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'Rebuild the proposal boards',
   h1Accent: 'compare you on.',
   intro: 'Your standing proposal is the document every board reads before they pick. Proposal Optimization rebuilds it — structure, narrative, pricing presentation, design — so it answers the board’s real questions in the order they ask them. This is the template you reuse; for a single high-stakes RFP, see RFP Response System.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 12, suffix: 'things', note: 'What boards actually evaluate in a proposal, per our audit' },
     { value: 1, display: '1 in 2', note: 'Where your close rate should be, up from the industry’s one in four' },

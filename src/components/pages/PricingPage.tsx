@@ -88,7 +88,7 @@ export default function PricingPage() {
           </div>
           <div className="rd-stack" style={{ gap: 20 }}>
             <p className="rd-intro">No project minimums. No “starting at” pricing that lands at 4× when you sign. Every retainer is all-in for the listed deliverables, billed monthly, scoped to your portfolio — with one CAM firm per market.</p>
-            <div><TextLink href="/get-started" size={12}>Get scoped pricing in your Strategic Review</TextLink></div>
+            <div><TextLink href="/contact" size={12}>Get scoped pricing in your Strategic Review</TextLink></div>
           </div>
         </div>
       </section>
@@ -109,9 +109,9 @@ export default function PricingPage() {
                   {t.items.map((it) => <li key={it}>{it}</li>)}
                 </ul>
                 {t.popular ? (
-                  <Btn href="/get-started" size="sm" style={{ marginTop: 'auto', border: '2px solid transparent' }}>Get scoped pricing</Btn>
+                  <Btn href="/contact" size="sm" style={{ marginTop: 'auto', border: '2px solid transparent' }}>Get scoped pricing</Btn>
                 ) : (
-                  <Btn href="/get-started" variant="outline" size="sm" style={{ marginTop: 'auto', padding: '12px 20px' }}>Get scoped pricing</Btn>
+                  <Btn href="/contact" variant="outline" size="sm" style={{ marginTop: 'auto', padding: '12px 20px' }}>Get scoped pricing</Btn>
                 )}
               </div>
             ))}

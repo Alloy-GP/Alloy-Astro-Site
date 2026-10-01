@@ -208,7 +208,7 @@ export default function ResultsPage() {
               ]}
               quote="“We finally stopped guessing where leads came from — and watched the system compound.”"
               by="Principal · Alloy CAM partner"
-              link={{ label: 'Request a diagnostic', href: '/get-started' }}
+              link={{ label: 'Request a diagnostic', href: '/contact' }}
             />
           </div>
         </div>

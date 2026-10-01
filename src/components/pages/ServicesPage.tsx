@@ -62,7 +62,7 @@ export default function ServicesPage() {
           </div>
           <div className="rd-stack rd-stack--18">
             <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>Referrals slowing means Attract. Losing at the proposal stage means Close. Boards leaving at renewal means Keep. Thirty minutes with a CAM operator tells you which — and what to fix first.</p>
-            <div><Btn href="/get-started" className="rd-btn--inline">Claim your market</Btn></div>
+            <div><Btn href="/contact" className="rd-btn--inline">Claim your market</Btn></div>
           </div>
         </div>
       </section>

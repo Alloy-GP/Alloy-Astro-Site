@@ -41,7 +41,7 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
             <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>We run the place boards go to find their next HOA management company.</h2>
             <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Boards submit on MatchHOA. In your metro, every one goes to you.</p>
             <div className="rd-row rd-row--wrap" style={{ gap: 22, paddingTop: 6 }}>
-              <Btn href="/get-started" className="rd-btn--inline">Claim your market</Btn>
+              <Btn href="/contact" className="rd-btn--inline">Claim your market</Btn>
               <a href="https://matchhoa.com" className="rd-logo-link" target="_blank" rel="noopener" title="matchhoa.com">
                 <img src="/assets/match-hoa-white.svg" alt="MatchHOA" width={110} height={44} loading="lazy" />
               </a>

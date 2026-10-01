@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'Look like the firm boards',
   h1Accent: 'already trust.',
   intro: 'When a board compares three management companies, the one that looks established gets the benefit of the doubt. Branding for CAM is a logo, a visual system, a messaging architecture, and the guidelines to keep them consistent across proposals, signage, and screens.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 3, suffix: 'firms', note: 'How many boards usually shortlist. Looking like the safe choice matters.' },
     { value: 60, suffix: '–90 days', note: 'Typical identity project from discovery to guidelines' },

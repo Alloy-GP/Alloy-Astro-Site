@@ -104,7 +104,7 @@ export default function BoardSuitePage() {
               <div className="rd-bullet">First access to new capabilities</div>
               <div className="rd-bullet">Lost-deal post-mortems — we follow what happened</div>
             </div>
-            <div style={{ marginTop: 8 }}><TextLink href="/get-started" tone="white" size={12}>Check if your metro is open</TextLink></div>
+            <div style={{ marginTop: 8 }}><TextLink href="/contact" tone="white" size={12}>Check if your metro is open</TextLink></div>
           </div>
         </div>
       </section>

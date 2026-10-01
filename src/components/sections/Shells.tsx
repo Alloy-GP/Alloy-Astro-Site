@@ -67,7 +67,7 @@ export function CtaBand({
   headline = 'Three engines. One playbook. Your market.',
   sub = 'Attract, close, and keep — engineered as one connected system. 30 minutes tells you which engine to fix first.',
   primary = 'Claim Your Market',
-  primaryHref = '/get-started',
+  primaryHref = '/contact',
 }: CtaBandProps) {
   return (
     <section style={{ background: 'linear-gradient(135deg, #381c4f 0%, #290d41 100%)', padding: '100px 0', color: '#fff', position: 'relative', overflow: 'hidden' }}>

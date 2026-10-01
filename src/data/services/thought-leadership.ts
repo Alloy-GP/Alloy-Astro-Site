@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'Be the firm other firms',
   h1Accent: 'quote.',
   intro: 'Boards renew with the manager who seems to know more than anyone else in the room. Thought Leadership for HOA management companies puts your principal’s expertise in writing — articles, LinkedIn, trade press, speaking — so your authority is visible to the boards you have and the ones you want.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 4, suffix: 'articles / mo', note: 'Long-form, ghostwritten, in your voice' },
     { value: 1, suffix: 'byline', note: 'Your principal’s — the person boards hire' },

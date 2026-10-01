@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'The proposal on the table should look like',
   h1Accent: 'the winner.',
   intro: 'Boards still decide in a room, with paper. Print & Marketing Materials for HOA management companies covers the proposal binder, the leave-behind, the community signage, the tradeshow booth — designed as one system and produced on time.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 1, suffix: 'system', note: 'One set of templates across proposal, deck, mailer, signage' },
     { value: 10, suffix: '-day', note: 'Turnaround on most proposal production runs' },

@@ -10,7 +10,7 @@ const data: ServicePageData = {
   h1Accent: 'board inquiries',
   h1Tail: 'you can count.',
   intro: 'Traffic isn’t a pipeline. Lead Generation for property management companies is the set of assets and campaigns that convert a curious board member into a named contact: guides, calculators, webinars, paid campaigns, and the follow-up that turns a download into a meeting.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 40, suffix: '–60%', note: 'Qualified-to-closed rate on Groundwork-handled leads' },
     { value: 3, suffix: '×', note: 'Proposal request growth for one Alloy CAM partner' },

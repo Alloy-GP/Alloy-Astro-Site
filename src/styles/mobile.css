@@ -189,7 +189,6 @@
   .rd-grid--team  { grid-template-columns: 1fr 1fr; }
   .rd-form-grid   { grid-template-columns: 1fr 1fr; gap: 14px; }
   /* source-order swaps */
-  .rd-gs-hero > .rd-stack--40 { order: 2; }            /* /get-started: form (slot) first, then the steps */
   .rd-network .rd-nc { order: 2; }                      /* homepage purple band: copy first, chart second */
   .rd-statband, .rd-statband--4 { grid-template-columns: 1fr 1fr; gap: 32px; }
   .rd-tiers { grid-template-columns: 1fr; }
@@ -381,7 +380,6 @@
   .rd-services-col { border-right: 0; border-bottom: 1px solid var(--border-subtle); }
   .rd-services-col:last-child { border-bottom: 0; }
   .rd-service-cards, .rd-pill-grid, .rd-bullets { grid-template-columns: 1fr; }
-  .rd-gs-hero { gap: 32px !important; }
 
   /* ── Article / guide (frame 1f): TOC becomes a sticky bar (built by src/lib/mobile.ts) ── */
   .rd-grid--article { display: block; }

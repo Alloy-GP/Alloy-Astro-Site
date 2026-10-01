@@ -13,11 +13,15 @@ import { PURPLE, PINK, YELLOW, GREEN } from '~/lib/tokens';
 /** Editorial pages set body copy at 1.65 (rd-body/rd-intro default to 1.6, rd-small to 1.55). */
 const LH: CSSProperties = { lineHeight: 1.65 };
 
+// Unit treatment (client, 2026-10-01): white numeral + yellow unit word at full size — "35+ years".
 const STATS: StatItem[] = [
-  { value: 35, suffix: '+ years', note: 'Combined CAM operations experience across the partners' },
+  { value: 35, display: '35+', suffix: 'years', note: 'Combined CAM operations experience across the partners' },
   { value: 1, suffix: 'industry', note: 'Community association management. Nothing else.' },
   { value: 1, suffix: 'firm per metro', note: 'Locked by contract for the engagement — and it renews with you' },
 ];
+
+// Founders video (client, 2026-10-01). Title/caption are placeholders until the client confirms what the cut is.
+const VIMEO_ID = '1230353437';
 
 // From WeKnowCamPage — "35+ yrs" is omitted here because the stat band directly below carries it.
 const PROOFS: Array<{ k: string; v: string; tone: 'pink' | 'yellow' | 'green' }> = [
@@ -183,7 +187,7 @@ export default function AboutPage() {
       {/* Stat band */}
       <section className="rd-section rd-section--band rd-bg-purple">
         <div className="rd-wrap">
-          <StatBand stats={STATS} compact />
+          <StatBand stats={STATS} compact unit />
         </div>
       </section>
 
@@ -207,7 +211,31 @@ export default function AboutPage() {
       </section>
 
       {/* How we work */}
-      <section className="rd-section">
+      {/* Founders video */}
+      <section id="video" className="rd-section">
+        <div className="rd-wrap rd-grid rd-grid--prose" style={{ alignItems: 'center' }}>
+          <div className="rd-stack rd-stack--18">
+            <Eyebrow>Watch</Eyebrow>
+            <h2 className="rd-h2 rd-h2--sm">Who we are, in our own words.</h2>
+            <p className="rd-body" style={LH}>A few minutes with the people who built Alloy — why it only serves community association management, and what that changes for the firms we work with.</p>
+          </div>
+          <figure className="rd-stack rd-stack--14" style={{ margin: 0 }}>
+            <div style={{ position: 'relative', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden', background: 'var(--alloy-purple)', boxShadow: 'var(--shadow-md)' }}>
+              <iframe
+                src={`https://player.vimeo.com/video/${VIMEO_ID}`}
+                loading="lazy"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Meet the Alloy team"
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 0 }}
+              />
+            </div>
+            <figcaption className="rd-tiny"><strong className="rd-ink">The Alloy partners</strong> · video</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="rd-section rd-bg-off">
         <div className="rd-wrap rd-grid rd-grid--prose">
           <div className="rd-stack rd-stack--18">
             <Eyebrow>How we work</Eyebrow>

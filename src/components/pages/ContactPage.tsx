@@ -10,7 +10,8 @@ import { Eyebrow, Btn, CheckIcon } from '~/components/rd/atoms';
 
 const LH: CSSProperties = { lineHeight: 1.65 };
 
-const TOPICS = ['General question', 'Partnerships', 'Press', 'Careers'] as const;
+// /contact is the "Claim your market" destination since /get-started was retired (client, 2026-10-01).
+const TOPICS = ['Claim my market', 'General question', 'Partnerships', 'Press', 'Careers'] as const;
 
 interface ContactFormState {
   name: string;
@@ -51,6 +52,16 @@ export default function ContactPage() {
       utms ? `UTMs: ${utms}` : null,
     ].filter(Boolean) as string[];
     setSourceData(parts.join('\n'));
+    // Prefill from the homepage metro check: /contact?metro=Austin,%20TX&intent=claim|waitlist
+    const metro = params.get('metro');
+    const intent = params.get('intent');
+    if (metro || intent) {
+      const lines = [
+        metro ? `Metro: ${metro.slice(0, 80)}` : null,
+        intent === 'waitlist' ? 'My metro is already claimed — add me to the waitlist.' : intent === 'claim' || metro ? 'I’d like to claim my market.' : null,
+      ].filter(Boolean) as string[];
+      setForm(f => ({ ...f, topic: 'Claim my market', message: f.message || lines.join('\n') }));
+    }
   }, []);
 
   const update = <K extends keyof ContactFormState>(k: K, v: ContactFormState[K]) =>
@@ -99,7 +110,7 @@ export default function ContactPage() {
             <div className="rd-stack" style={{ gap: 28 }}>
               <Eyebrow>Contact</Eyebrow>
               <h1 className="rd-h1 rd-h1--lg">Talk to an <span className="rd-accent">operator.</span></h1>
-              <p className="rd-intro" style={LH}>General questions, partnerships, press, and careers. If you’re a CAM owner wondering whether your metro is open, the Strategic Review is the faster path.</p>
+              <p className="rd-intro" style={LH}>CAM owner wondering whether your metro is open? Tell us the metro below and we’ll check it — thirty minutes with an operator, no pitch. Also the place for general questions, partnerships, press, and careers.</p>
             </div>
             <div className="rd-stack rd-rule-top" style={{ gap: 22, paddingTop: 32 }}>
               {DETAILS.map((d) => (
@@ -108,10 +119,6 @@ export default function ContactPage() {
                   <span className="rd-ink rd-w-500">{d.value}</span>
                 </div>
               ))}
-            </div>
-            <div className="rd-row rd-row--between rd-row--wrap" style={{ background: 'var(--alloy-off-white)', borderRadius: 10, padding: '22px 24px', gap: 16 }}>
-              <div className="rd-ink rd-w-500" style={{ fontSize: 14, lineHeight: 1.5 }}>CAM owner? Skip the form.</div>
-              <Btn href="/get-started" size="sm" className="rd-btn--inline" style={{ padding: '12px 18px' }}>Claim your market</Btn>
             </div>
           </div>
 

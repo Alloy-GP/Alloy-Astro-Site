@@ -186,3 +186,8 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Decision:** Alloy runs social for CAM firms only — never per-association / HOA board feeds. The old site's community-feed offer is gone for good; `/boardreach/hoa-social-media-marketing` (firm channels + founder-led LinkedIn) already matches and was left as is.
 
+## 32. About page + Get Started (resolved 2026-10-01)
+
+- **About:** keep the new page (old "Why we exist / Our discipline" stay retired). Stat band switched to the yellow-unit treatment ("35+ years" — numeral white, unit word yellow, hairline dividers), same data. New founders video section (Vimeo 1230353437) before "How we work" — heading/caption are placeholders until the client says what the cut is; the video returned 403/404 from the build sandbox, so its Vimeo privacy/embed-domain settings need checking.
+- **Get Started:** page removed. `/get-started` 301s to `/contact`, which is now the "Claim your market" destination: the form defaults to a "Claim my market" topic and prefills metro/intent from the hero check. The Strategic Review FAQ and the 30·90·1 strip went with the page.
+

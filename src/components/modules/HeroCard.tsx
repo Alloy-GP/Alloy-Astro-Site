@@ -133,7 +133,7 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
             <p>How new business and the fee are measured is spelled out in your engagement agreement before you sign, so there’s nothing to interpret later.</p>
           </div>
           <div className="rd-dialog-actions">
-            <a href="/get-started" className="rd-hc-btn">Claim your market</a>
+            <a href="/contact" className="rd-hc-btn">Claim your market</a>
             <button type="button" className="rd-hc-again" data-dialog-close>Close</button>
           </div>
         </div>

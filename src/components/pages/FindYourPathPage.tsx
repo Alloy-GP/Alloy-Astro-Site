@@ -18,8 +18,8 @@ import type { CSSProperties } from 'react';
 // ─────────────────────────────────────────────────────────────
 // Signup / booking destinations (repointed from the prototype's alloygp.co)
 // ─────────────────────────────────────────────────────────────
-const SIGNUP_HREF = '/get-started';
-const BOOK_HREF = '/get-started';
+const SIGNUP_HREF = '/contact';
+const BOOK_HREF = '/contact';
 
 // Site assets
 const LOGO_INVERTED = '/assets/alloy-logo-on-dark.svg';

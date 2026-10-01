@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'The RFP you',
   h1Accent: 'can’t afford to lose.',
   intro: 'Some RFPs are worth a dedicated team: the 800-door master association, the portfolio that changes your year. RFP Response System is done-for-you response production — research, narrative, deck, financials, exhibits — with a ten-day turnaround. For your everyday template, see Proposal Optimization.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 10, suffix: '-day', note: 'Turnaround from kickoff to submission-ready' },
     { value: 1, suffix: 'pursuit', note: 'Full attention on one RFP, not a template' },

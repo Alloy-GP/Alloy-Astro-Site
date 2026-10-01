@@ -247,7 +247,7 @@ export default function RiseDeepCaseStudy() {
             <div className="rd-bg-purple rd-ink-white rd-stack" style={{ borderRadius: 10, padding: 22, gap: 12, marginTop: 6 }}>
               <div className="rd-title-16">Want this done for your firm?</div>
               <p className="rd-tiny rd-muted-80">Thirty minutes with a CAM operator. Written 90-day plan, yours to keep.</p>
-              <Btn href="/get-started" size="xs">Claim your market</Btn>
+              <Btn href="/contact" size="xs">Claim your market</Btn>
             </div>
           </aside>
 

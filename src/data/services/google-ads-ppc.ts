@@ -11,7 +11,7 @@ const data: ServicePageData = {
   h1: 'Paid acquisition built around boards,',
   h1Accent: 'not homeowners.',
   intro: 'Google Ads for HOA management companies, run on the queries boards type when a contract is actually in play — RFP-active, contract-end window, replacement search. A purpose-built landing page for every campaign, reporting tied to pipeline, and a budget that scales only as conversions prove out.',
-  secondaryCta: { label: 'Talk paid strategy', href: '/get-started' },
+  secondaryCta: { label: 'Talk paid strategy', href: '/contact' },
   stats: [
     { value: 30, suffix: 'days', label: 'to a stable account', note: 'Built, launched, and optimized through first conversion data. Most agencies take ninety or more to do less.' },
     { value: 3, suffix: '–5×', label: 'landing-page conversion lift', note: 'What a purpose-built page per campaign does versus sending paid clicks to your homepage.' },

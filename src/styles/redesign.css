@@ -177,6 +177,8 @@
 .rd-stat-num--52 { font-size: 52px; }
 .rd-stat-num--40 { font-size: 40px; }
 .rd-stat-suffix { font-weight: 700; font-size: .5em; margin-left: .08em; vertical-align: baseline; }
+.rd-stat-num--unit { letter-spacing: -.03em; line-height: 1; text-wrap: balance; }
+.rd-stat-num--unit .rd-stat-unit { font-weight: 800; }   /* "35+ years": numeral white, unit word yellow, same size */
 
 /* ---------- Buttons & links ---------- */
 .rd-btn {

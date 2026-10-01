@@ -2,7 +2,7 @@
 // Everything here works on the server-rendered markup; nothing is required for the page to function.
 //   1. Footer accordions  — .site-footer-block head rows toggle their link list (all collapsed on load).
 //   2. Sticky CTA bar     — .rd-sticky-cta slides in once the hero's primary button scrolls away; hides
-//                           while the footer or any form is in view (BaseLayout omits it on /get-started, /contact).
+//                           while the footer or any form is in view (BaseLayout omits it on /contact, /contact).
 //   3. Article TOC        — .rd-toc becomes a sticky "On this page · n of N" bar that opens the jump list;
 //                           the purple "Want this done?" card moves inline after the second section.
 

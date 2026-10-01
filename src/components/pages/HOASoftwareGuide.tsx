@@ -411,7 +411,7 @@ export default function HOASoftwareGuide() {
             <div className="rd-bg-purple rd-ink-white rd-stack" style={{ borderRadius: 10, padding: 22, gap: 12, marginTop: 6 }}>
               <div className="rd-title-16">Want this done for your firm?</div>
               <p className="rd-tiny rd-muted-80">Thirty minutes with a CAM operator. Written 90-day plan, yours to keep.</p>
-              <Btn href="/get-started" size="xs">Claim your market</Btn>
+              <Btn href="/contact" size="xs">Claim your market</Btn>
             </div>
           </aside>
 
@@ -547,7 +547,7 @@ export default function HOASoftwareGuide() {
                   ))}
                 </ol>
               </div>
-              <p>Want help running this evaluation? <a className="rd-a" href="/get-started">Talk to Alloy</a> — we sit on the buyer side of the table.</p>
+              <p>Want help running this evaluation? <a className="rd-a" href="/contact">Talk to Alloy</a> — we sit on the buyer side of the table.</p>
             </Section>
 
             <Section id="rollout" label="The rollout playbook" title="26 weeks. Four phases. Don’t skip Phase 1.">
@@ -590,7 +590,7 @@ export default function HOASoftwareGuide() {
                   </div>
                 ))}
               </div>
-              <HeroCtas primary={{ label: 'See BoardSuite™', href: '/boardsuite' }} secondary={{ label: 'Run your eval with us', href: '/get-started' }} />
+              <HeroCtas primary={{ label: 'See BoardSuite™', href: '/boardsuite' }} secondary={{ label: 'Run your eval with us', href: '/contact' }} />
             </Section>
 
             <Section id="faq" label="FAQ" title="The questions CAM operators ask every week.">

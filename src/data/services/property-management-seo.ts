@@ -10,7 +10,7 @@ const data: ServicePageData = {
   h1Accent: 'Google, the map, and the AI answer.',
   h1Size: 'lg',
   intro: 'Property management SEO built for community association management. Local search, the map pack, and AI citations across ChatGPT, Perplexity, Gemini, and Google AI Overviews — one program, one metro, one firm.',
-  secondaryCta: { label: 'Talk SEO strategy', href: '/get-started' },
+  secondaryCta: { label: 'Talk SEO strategy', href: '/contact' },
   heroAside: 'seo-map',
   stats: [
     { value: 3, label: 'firms on the map', note: 'The local pack shows three results above every organic listing. Fourth place is page two.' },

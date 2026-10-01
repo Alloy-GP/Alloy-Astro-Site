@@ -115,8 +115,8 @@ const {
 } = Astro.props;
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? SITE.url).toString();
-// Mobile sticky "Claim your market" bar (mobile-spec.md frame 1b): every chrome page except the two form pages.
-const showStickyCta = !hideHeader && !hideFooter && !/^\/(get-started|contact)\/?$/.test(Astro.url.pathname);
+// Mobile sticky "Claim your market" bar (mobile-spec.md frame 1b): every chrome page except the form page (/contact).
+const showStickyCta = !hideHeader && !hideFooter && !/^\/contact\/?$/.test(Astro.url.pathname);
 
 // Staging / preview safety net: every non-production deployment (Vercel sets VERCEL_ENV to
 // "preview" for branch deploys such as stg.alloygp.co) is noindex,nofollow so Google never
@@ -262,7 +262,7 @@ const orgLd = {
     </main>
     {!hideFooter && <SiteFooter animatedBar={animatedBar} />}
     {showStickyCta && (
-      <a href="/get-started" class="rd-sticky-cta" aria-hidden="true">
+      <a href="/contact" class="rd-sticky-cta" aria-hidden="true">
         <span class="rd-sticky-cta-text">
           <span class="rd-sticky-cta-label">Claim your market</span>
           <span class="rd-sticky-cta-sub">One CAM firm per metro</span>

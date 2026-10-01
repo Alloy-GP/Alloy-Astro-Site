@@ -103,7 +103,7 @@ export function TextLink({ href, children, tone = 'purple', size = 13, arrow = t
 }
 
 export function HeroCtas({ primary, secondary }: { primary?: Cta; secondary?: Cta }) {
-  const p = primary ?? { label: 'Claim your market', href: '/get-started' };
+  const p = primary ?? { label: 'Claim your market', href: '/contact' };
   return (
     <div className="rd-row rd-row--wrap">
       <Btn href={p.href} className="rd-btn--inline">{p.label}</Btn>
@@ -148,27 +148,30 @@ export function ChipRow({ label, chips, all }: { label: string; chips: Array<{ l
 }
 
 /* ── Content blocks ────────────────────────────────────────────────────── */
-export function StatNumber({ stat, size = 48 }: { stat: StatItem; size?: 40 | 48 | 52 }) {
+export function StatNumber({ stat, size = 48, unit = false }: { stat: StatItem; size?: 40 | 48 | 52; unit?: boolean }) {
   const display = stat.display ?? stat.value.toLocaleString('en-US');
+  // `unit`: the suffix is a word set at full size in yellow ("35+ years", "1 firm per metro") instead of a half-size mark.
+  const trail = display.replace(String(stat.value), ''); // e.g. "+" in "35+" — kept through the count-up
   return (
-    <div className={`rd-stat-num${size !== 48 ? ` rd-stat-num--${size}` : ''}`}>
-      <span data-count={stat.value} data-prefix={stat.prefix ?? ''} data-suffix="">
+    <div className={`rd-stat-num${size !== 48 ? ` rd-stat-num--${size}` : ''}${unit ? ' rd-stat-num--unit' : ''}`}>
+      <span data-count={stat.value} data-prefix={stat.prefix ?? ''} data-suffix={unit ? trail : ''}>
         {(stat.prefix ?? '') + display}
       </span>
-      {stat.suffix ? <span className="rd-stat-suffix">{stat.suffix}</span> : null}
+      {stat.suffix ? <span className={unit ? 'rd-stat-unit rd-accent--yellow' : 'rd-stat-suffix'}>{unit ? ` ${stat.suffix}` : stat.suffix}</span> : null}
     </div>
   );
 }
 
 /** Purple full-width stat band (3 or 4 up). Wrap in a `.rd-section--band.rd-bg-purple`. */
-export function StatBand({ stats, columns, compact = false }: { stats: StatItem[]; columns?: 3 | 4; compact?: boolean }) {
+export function StatBand({ stats, columns, compact = false, unit = false }: { stats: StatItem[]; columns?: 3 | 4; compact?: boolean; unit?: boolean }) {
   const cols = columns ?? (stats.length >= 4 ? 4 : 3);
   // `compact`: short stats that stay 3-up on phones (mobile-spec.md §6) instead of 2-col + spanning third.
+  // `unit`: yellow full-size unit words (About band, client 2026-10-01).
   return (
     <div data-reveal data-rise className={`rd-statband${cols === 4 ? ' rd-statband--4' : ''}${compact ? ' rd-statband--compact' : ''}`}>
       {stats.map((s, i) => (
         <div key={i} className="rd-stat">
-          <StatNumber stat={s} />
+          <StatNumber stat={s} size={unit ? 52 : 48} unit={unit} />
           {s.label ? <div className="rd-stat-label">{s.label}</div> : null}
           <div className="rd-stat-note">{s.note}</div>
         </div>
@@ -237,7 +240,7 @@ export function FaqList({ items, group = 'faq', defaultOpen = 0 }: { items: FaqI
   );
 }
 
-export function CtaBar({ text, label = 'Claim your market', href = '/get-started' }: { text: ReactNode; label?: string; href?: string }) {
+export function CtaBar({ text, label = 'Claim your market', href = '/contact' }: { text: ReactNode; label?: string; href?: string }) {
   return (
     <div className="rd-cta-bar">
       <div className="rd-cta-bar-text">{text}</div>

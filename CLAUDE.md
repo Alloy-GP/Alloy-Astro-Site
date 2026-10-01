@@ -81,7 +81,6 @@ src/
 │   │   ├── HomePage.tsx             # /  (below the hero; the chart island arrives as named slot `chart`)
 │   │   ├── BoardSuitePage.tsx       # /boardsuite            ServicesPage.tsx   # /services
 │   │   ├── PricingPage.tsx          # /pricing (exports PRICING_FAQ)   ResultsPage.tsx  # /results
-│   │   ├── GetStartedPage.tsx       # /get-started (default = static shell; named export GetStartedForm = island → /api/lead)
 │   │   ├── ResourceHubPage.tsx      # /resources (recent issues via `issues` prop)   CoursesPage.tsx  # /resources/courses
 │   │   ├── NewsletterArchivePage.tsx # /resources/newsletter — every sent issue, by year, 24/page (?page=N)
 │   │   ├── CourseTrustBuildingPage.tsx  # /resources/courses/trust-building (11 anchored sections + quiz)
@@ -90,7 +89,7 @@ src/
 │   │   ├── HOASoftwareGuide.tsx     # /resources/hoa-management-software-guide
 │   │   ├── RiseDeepCaseStudy.tsx    # /results/apex-cmg
 │   │   ├── AboutPage.tsx, TestimonialsPage.tsx, PartnersPage.tsx, CareersPage.tsx, FAQPage.tsx
-│   │   ├── ContactPage.tsx          # /contact (form island → /api/contact)
+│   │   ├── ContactPage.tsx          # /contact — THE "Claim your market" destination (form island → /api/contact; prefills ?metro= & ?intent=claim|waitlist)
 │   │   ├── GrowthModeledPage.tsx    # /growth-modeled (mounts ROICalculator)
 │   │   ├── LegalPages.tsx           # /privacy-policy, /terms-conditions (copy verbatim)
 │   │   ├── FindYourPathPage.tsx, GrowthPortalPage.tsx   # standalone landing pages (outside the redesign)
@@ -99,7 +98,7 @@ src/
 │
 └── pages/                           # Astro routes — thin shells
     ├── index.astro                  → HeroStatic › HeroCard › MetroCheck island; HomePage + NetworkLeadsChart slot
-    ├── boardsuite.astro, services.astro, pricing.astro, results.astro, get-started.astro
+    ├── boardsuite.astro, services.astro, pricing.astro, results.astro
     ├── about.astro, about/testimonials.astro, partners.astro, careers.astro, faq.astro, contact.astro, growth-modeled.astro
     ├── privacy-policy.astro, terms-conditions.astro, 404.astro
     ├── property-management-seo.astro            → ServicePage (data: property-management-seo)
@@ -116,7 +115,7 @@ src/
     └── api/ {lead,contact,subscribe,metro,newsletters,ping,thinktank}.ts # endpoints (metro: ?q= ZIP | "City, ST" | city via Zippopotam/Nominatim; newsletters: issues JSON; ?raw=1 diagnostics)
 ```
 
-**Retired in the redesign (now 301s in `astro.config.mjs`):** `/our-approach*`, `/we-know-cam`, `/about/we-know-cam`, `/resource-hub*`, `/courses*` (10 lessons + quiz), `/services/social-media-marketing-for-hoa-management-companies`, `/services/hoa-newsletter-production`, `/hoa-cam-marketing-services`, `/groundwork`, `/hoa-board-education-programs`, `/strategic-review-request`, `/boardreach/local-pack-optimization`, `/boardreach/google-ads-ppc`, `/results/rise-amg`.
+**Retired in the redesign (now 301s in `astro.config.mjs`):** `/our-approach*`, `/we-know-cam`, `/about/we-know-cam`, `/resource-hub*`, `/courses*` (10 lessons + quiz), `/services/social-media-marketing-for-hoa-management-companies`, `/services/hoa-newsletter-production`, `/hoa-cam-marketing-services`, `/groundwork`, `/hoa-board-education-programs`, `/strategic-review-request`, `/boardreach/local-pack-optimization`, `/results/rise-amg`, and (2026-10-01) **`/get-started` → `/contact`** — every "Claim your market" CTA now points at `/contact`.
 
 ---
 
@@ -127,7 +126,7 @@ src/
 | 1 | Homepage | `HeroStatic.astro` + `modules/HeroCard.tsx` (+ `MetroCheck` island) + `HomePage.tsx` |
 | 2 | Engine hub | `rd/HubPage.tsx` + `data/hubs/*.ts` |
 | 3 | Service page | `rd/ServicePage.tsx` + `data/services/*.ts` |
-| 4 | Index pages | `BoardSuitePage`, `ServicesPage`, `PricingPage`, `ResultsPage`, `GetStartedPage` |
+| 4 | Index pages | `BoardSuitePage`, `ServicesPage`, `PricingPage`, `ResultsPage` |
 | 5 | Article / guide | `ResourceHubPage`, `MarketingStrategyArticle`, `AISearchArticle`, `HOASoftwareGuide`, `CoursesPage`, `CourseTrustBuildingPage`, `RiseDeepCaseStudy` |
 | 6 | Editorial | `AboutPage`, `TestimonialsPage`, `PartnersPage`, `CareersPage`, `FAQPage`, `ContactPage`, `GrowthModeledPage`, `LegalPages` |
 
@@ -150,9 +149,9 @@ import YourPage from '~/components/pages/YourPage';
 </BaseLayout>
 ```
 
-Islands inside a static page component are passed as `children` from the route (`<YourPage><Form client:load /></YourPage>`).
+Islands inside a static page component are passed as `children` from the route (`<YourPage><Form client:load /></YourPage>`, e.g. `<HeroCard><MetroCheck client:load /></HeroCard>`).
 
-**`pageId`** values: `home` · `system` (services, hubs, boardsuite, get-started) · `results` · `pricing` · `resources` · omit for About/Contact/FAQ/legal. (Legacy values `services`/`boardsuite`/`approach` still map to `system`.)
+**`pageId`** values: `home` · `system` (services, hubs, boardsuite) · `results` · `pricing` · `resources` · omit for About/Contact/FAQ/legal. (Legacy values `services`/`boardsuite`/`approach` still map to `system`.)
 
 ---
 
@@ -257,6 +256,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **/get-started retired** (client): page + `GetStartedPage.tsx` deleted, 301 → `/contact`, five legacy rules re-pointed (no chains), out of the sitemap; all CTAs/`nav.ts` CTA/sticky bar/hero links → `/contact`; Contact form gains a "Claim my market" topic (default) and prefills from `?metro=`/`?intent=`. **About**: stat band uses the yellow-unit treatment (`StatBand unit` / `StatNumber unit` → `.rd-stat-num--unit`), founders video section added (Vimeo 1230353437 — returned 403/404 from the sandbox, check its privacy settings). |
 | 2026-10-01 | **Homepage SEO + hero polish**: H1 is now the hero question with "HOA management company" (eyebrow is a plain pink label); title → `Marketing for HOA Management Companies | Alloy Growth Partners` + new description (deliberate); purple-band H2 says "HOA management company". Whole guarantee card is the terms button (lifts on hover). `lib/hero-story.ts`: staged, subtle animation of the three moments (BaseLayout adds `html.js` + a 3s un-hide safety net). Statistics audit applied (§29). |
 | 2026-10-01 | **Hero = the card.** Banner copy (keyword eyebrow, "Attract the right boards…", intro, CTAs) removed at the client's request; the card's eyebrow now carries the page H1 "Marketing for HOA Management Companies" (keyword unchanged), the card question stays the h2. Sticky mobile CTA keys off the card's button. |
 | 2026-10-01 | **Guarantee terms modal** (`lib/dialog.ts`, `.rd-dialog*`): the hero card's "See guarantee terms" opens a native `<dialog>` with the condition (the firm runs the programs Alloy puts in place); `/faq#guarantee` stays as the no-JS fallback and matches. Exclusivity radius 30 → **15 miles** around partner office addresses (list owed by client). Mock card content approved by client. |

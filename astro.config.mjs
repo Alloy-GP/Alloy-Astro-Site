@@ -11,7 +11,7 @@ const SITEMAP_ROUTES = new Set([
   '/boardreach/hoa-website-design', '/boardreach/print-production', '/boardreach/property-management-lead-generation', '/boardreach/google-ads-ppc',
   '/boardretain', '/boardretain/annual-report-production', '/boardretain/board-education', '/boardretain/newsletter-production',
   '/boardretain/reputation-management', '/boardretain/thought-leadership',
-  '/boardsuite', '/careers', '/contact', '/faq', '/get-started', '/growth-modeled', '/partners', '/pricing', '/privacy-policy',
+  '/boardsuite', '/careers', '/contact', '/faq', '/growth-modeled', '/partners', '/pricing', '/privacy-policy',
   '/property-management-seo', '/resources', '/resources/ai-search-for-cam', '/resources/newsletter', '/resources/cam-marketing-strategy', '/resources/courses', '/resources/courses/trust-building',
   '/resources/hoa-management-software-guide', '/results', '/results/apex-cmg', '/services', '/terms-conditions',
   // Campaign landing pages (indexable today; not part of the redesign)
@@ -40,7 +40,7 @@ export default defineConfig({
       },
       // Emit a per-page changefreq + priority that roughly mirrors the
       // hand-maintained public/sitemap.xml we used to keep:
-      //   - homepage / get-started: highest priority
+      //   - homepage / contact (claim your market): highest priority
       //   - service & approach pages: 0.85
       //   - results, about, resources: 0.75
       //   - course lessons + legal: lower
@@ -51,7 +51,7 @@ export default defineConfig({
         if (url === '' || url === '/') {
           item.changefreq = 'weekly';
           item.priority = 1.0;
-        } else if (url === '/get-started') {
+        } else if (url === '/contact') {   // the Claim-your-market destination (was /get-started)
           item.changefreq = 'monthly';
           item.priority = 0.95;
         } else if (url === '/pricing' || url.startsWith('/boardsuite')) {
@@ -103,7 +103,7 @@ export default defineConfig({
     '/about/testimonials.html': '/about/testimonials',
     '/we-know-cam.html': '/about',
     '/contact.html': '/contact',
-    '/strategic-review-request.html': '/get-started',
+    '/strategic-review-request.html': '/contact',
     '/services.html': '/services',
     '/hoa-cam-marketing-services.html': '/boardreach',
     '/services/newsletter-production-for-hoa-management': '/boardretain/newsletter-production',
@@ -151,7 +151,8 @@ export default defineConfig({
     '/hoa-cam-marketing-services': '/boardreach',
     '/groundwork': '/boardmatch/groundwork',
     '/hoa-board-education-programs': '/boardretain/board-education',
-    '/strategic-review-request': '/get-started',
+    '/strategic-review-request': '/contact',
+    '/get-started': '/contact',   // page retired 2026-10-01 — /contact is the Claim-your-market destination
     '/resource-hub': '/resources',
     '/resource-hub/cam-marketing-strategy': '/resources/cam-marketing-strategy',
     '/resource-hub/ai-search-for-cam': '/resources/ai-search-for-cam',
@@ -194,13 +195,13 @@ export default defineConfig({
     '/about-alloy': '/about',
         '/academy': '/resources/courses',
     '/austin-texas': '/about',
-    '/boardappeal-audit-client-intake': '/get-started',
-    '/boardappeal-audit': '/get-started',
+    '/boardappeal-audit-client-intake': '/contact',
+    '/boardappeal-audit': '/contact',
     '/boardretain-hoa-client-retention': '/boardretain',
     '/boardsuite-service': '/boardsuite',
     '/boardsuite-vs-a-la-carte': '/boardsuite',
     '/directory/d49c9008': '/',
-    '/growth-audit': '/get-started',
+    '/growth-audit': '/contact',
     '/services-hub': '/services',
     '/solution/leads': '/boardreach/property-management-lead-generation',
     '/when-to-choose-a-la-carte-services': '/services',

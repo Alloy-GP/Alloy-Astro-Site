@@ -1,6 +1,6 @@
 // src/components/modules/MetroCheck.tsx — "Is your metro still open?" (client:load island inside HeroCard).
 // Free-text metro or ZIP → /api/metro?q= → Open / Claimed. The result replaces the form in place
-// (the 2b design has no map); "Claim it" / "Join the waitlist" carry the metro to /get-started.
+// (the 2b design has no map); "Claim it" / "Join the waitlist" carry the metro to /contact.
 import { useEffect, useRef, useState } from 'react';
 import { Glyph } from './HeroCard';
 
@@ -43,7 +43,7 @@ export default function MetroCheck() {
     : phase === 'loading' ? 'Checking live availability…'
     : r ? (r.claimed ? `A CAM firm already holds ${r.near ?? r.name}. Join the waitlist and we’ll tell you if it opens.` : `${r.name} is open. Thirty minutes locks it for your firm.`)
     : IDLE_COPY;
-  const to = (intent?: string) => `/get-started?metro=${encodeURIComponent(r?.name ?? q.trim())}${intent ? `&intent=${intent}` : ''}`;
+  const to = (intent?: string) => `/contact?metro=${encodeURIComponent(r?.name ?? q.trim())}${intent ? `&intent=${intent}` : ''}`;
 
   return (
     <div className="rd-hc-avail">

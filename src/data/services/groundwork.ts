@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'Senior business development',
   h1Accent: 'without the senior salary.',
   intro: 'Groundwork is fractional business development for property management companies: a CAM-experienced BD lead who prospects, qualifies, and books the meetings — then hands your principal a board that’s ready to talk. Forty conversations a month, one metro, one firm.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 40, suffix: 'conversations / mo', note: 'Live conversations with boards and managers in your metro' },
     { value: 40, display: '40–60', suffix: '%', note: 'Qualified-to-closed on meetings Groundwork books' },

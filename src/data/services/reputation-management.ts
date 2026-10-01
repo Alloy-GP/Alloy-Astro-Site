@@ -10,7 +10,7 @@ const data: ServicePageData = {
   h1Accent: 'angry homeowners.',
   h1Tail: 'Fix that.',
   intro: 'Management companies get reviewed by the owner who got the violation letter, not the board that renewed for the fifth year. Reputation Management for CAM firms builds a system that gets the happy ones to speak, responds to the rest with grace, and keeps the rating that the next board checks.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 10, suffix: '+ reviews / qtr', note: 'Our velocity target — recent, real, and from the right people' },
     { value: 4.5, suffix: '★ +', note: 'Where a CAM firm needs to sit to make the shortlist' },

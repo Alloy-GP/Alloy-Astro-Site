@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'Educated boards',
   h1Accent: 'renew.',
   intro: 'Boards leave when they don’t understand what you do. Board Education Programs for HOA management companies are branded micro-courses, workshops, and guides that teach volunteers their job — with your firm as the teacher. It is the most underused retention tool in the category.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 4, suffix: 'micro-courses', note: 'In the BoardSuite Growth library, branded to your firm' },
     { value: 20, suffix: 'min', note: 'Typical course length — built for volunteers with day jobs' },

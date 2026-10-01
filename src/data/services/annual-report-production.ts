@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'One document that proves',
   h1Accent: 'the year.',
   intro: 'At the annual meeting, the board has to justify your contract to a room of owners. Annual Report Production gives them the document: what was done, what it cost, what was saved, what’s next — designed to be forwarded, printed, and remembered when the contract comes up.',
-  secondaryCta: { label: 'Talk to a CAM operator', href: '/get-started' },
+  secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 1, suffix: 'document', note: 'Per association or firm-wide — the year, in owners’ hands' },
     { value: 12, suffix: 'months', note: 'Of work made visible in one place' },
