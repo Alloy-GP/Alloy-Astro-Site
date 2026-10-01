@@ -116,6 +116,13 @@ const {
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? SITE.url).toString();
 
+// Staging / preview safety net: every non-production deployment (Vercel sets VERCEL_ENV to
+// "preview" for branch deploys such as stg.alloygp.co) is noindex,nofollow so Google never
+// indexes a duplicate of the site. Production (VERCEL_ENV=production) keeps per-page `robots`.
+const vercelEnv = import.meta.env.VERCEL_ENV ?? process.env.VERCEL_ENV;
+const isPreviewDeploy = !!vercelEnv && vercelEnv !== 'production';
+const robotsContent = isPreviewDeploy ? 'noindex,nofollow' : robots;
+
 // Resolve OG image to absolute URL — use page override if provided, else default
 const resolvedOgImage = new URL(
   ogImageProp ?? SITE.defaultOgImage,
@@ -159,7 +166,7 @@ const orgLd = {
     <link rel="icon" type="image/svg+xml" href="/assets/alloy-logomark.svg" />
 
     <!-- Robots (only emitted when explicitly set — absence = index,follow) -->
-    {robots && <meta name="robots" content={robots} />}
+    {robotsContent && <meta name="robots" content={robotsContent} />}
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />

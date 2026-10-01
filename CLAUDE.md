@@ -245,6 +245,7 @@ interface Props {
 - Landing pages (`/boardstart`, `/cam-growth-portal`, `/find-your-path`) are self-contained; leave them alone.
 - Don't run `pkill -f` patterns that appear in your own shell command (it kills the shell). Kill Chrome with `killall chrome`.
 - Screenshots: `node .context/shot.mjs <url> <out.png> [w] [h] [full 0|1]` (CDP; needs the dev server on :4321).
+- **Staging:** `stg.alloygp.co` is bound to the `staging` branch; `dev.alloygp.co` to `skyleralloygp/site-redesign`. After every push to the redesign branch also run `git push origin skyleralloygp/site-redesign:staging` (fast-forward; `staging` was merged into the redesign with `-s ours` on 2026-10-01). Non-production deploys are `noindex,nofollow` automatically via `VERCEL_ENV` in `BaseLayout.astro`.
 - Update this file's tree + changelog when routes or shared pieces change; log client decisions in `docs/redesign-handoff/OPEN-QUESTIONS.md`.
 
 ---
