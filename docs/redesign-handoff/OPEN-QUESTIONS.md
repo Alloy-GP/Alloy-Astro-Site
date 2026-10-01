@@ -182,3 +182,7 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 - **Guarantee card** is the button (whole card opens the terms modal, lifts 2px on hover).
 - **Story animation** (`lib/hero-story.ts`): one moment at a time — Google types the query then the #1 result pops; AI types the question, thinks, the answer slides in; Referral shows the request, a pink "Searching for a match…" sweep, then the match pops and the check draws. Plays once when the card is in view; static under reduced motion or without JS.
 
+## 31. Social media scope (resolved 2026-10-01)
+
+**Decision:** Alloy runs social for CAM firms only — never per-association / HOA board feeds. The old site's community-feed offer is gone for good; `/boardreach/hoa-social-media-marketing` (firm channels + founder-led LinkedIn) already matches and was left as is.
+
