@@ -5,7 +5,7 @@
 //
 // Below the catalog: "How the courses work", "Why this course" + objectives, and the
 // curriculum — restored from the pre-redesign page and the course's own lesson data.
-import { Eyebrow, Label, TextLink, ArrowIcon, Btn, Checklist } from '~/components/rd/atoms';
+import { Eyebrow, Label, LinkLabel, ArrowIcon, Btn, Checklist } from '~/components/rd/atoms';
 
 const COURSE_URL = '/resources/courses/trust-building';
 
@@ -82,12 +82,12 @@ export default function CoursesPage() {
                 <div className="rd-h4">New board member orientation</div>
                 <p className="rd-small rd-small--14" style={{ lineHeight: 1.65 }}>The first 90 days on an HOA board — for the volunteers you manage.</p>
               </div>
-              <div className="rd-card rd-card--off rd-stack rd-stack--10" style={{ padding: 26 }}>
+              <a href="/boardretain/board-education" className="rd-card rd-card--off rd-card-link rd-stack--10" style={{ padding: 26 }}>
                 <Label size={12}>For your firm</Label>
                 <div className="rd-h4">Branded board education</div>
                 <p className="rd-small rd-small--14" style={{ lineHeight: 1.65 }}>Courses like these, in your name, for the boards you manage.</p>
-                <div><TextLink href="/boardretain/board-education" size={12}>Board Education Programs</TextLink></div>
-              </div>
+                <div><LinkLabel>Board Education Programs</LinkLabel></div>
+              </a>
             </div>
           </div>
 

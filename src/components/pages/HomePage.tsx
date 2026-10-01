@@ -3,7 +3,7 @@
 // The network-leads chart island arrives as the named slot `chart` from index.astro.
 import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
-import { Eyebrow, TextLink, CtaBar, Label, Btn } from '~/components/rd/atoms';
+import { Eyebrow, TextLink, LinkLabel, CtaBar, Label, Btn } from '~/components/rd/atoms';
 
 // Trust-bar partner logo — mono version, softened via .rd-trustbar-items img (see redesign.css).
 // '/assets/innovia-coop.png' is the full-color alternative.
@@ -110,26 +110,26 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
             <p className="rd-body" style={{ lineHeight: 1.55 }}>Search is moving to AI answers, boards are shopping locally first, and most CAM sites weren’t built for either. Three pieces from the resource hub on what to do about it.</p>
           </div>
           <div className="rd-news-grid">
-            <article className="rd-news-card rd-news-card--lead">
+            <a href="/resources/ai-search-for-cam" className="rd-news-card rd-news-card--lead rd-card-link">
               <div className="rd-row rd-row--between"><Label tone="pink" size={12}>AI search</Label><span className="rd-tiny rd-tiny--12">3 min read</span></div>
               <h3 className="rd-h3">How CAM firms win in AI search.</h3>
               <p className="rd-small" style={{ lineHeight: 1.55 }}>ChatGPT, Perplexity, Gemini, and Google AI Overviews now answer board questions before your website does. The firms cited are winning meetings competitors don’t even know happened.</p>
-              <div className="rd-mt-auto"><TextLink href="/resources/ai-search-for-cam" size={12}>Read the article</TextLink></div>
-            </article>
+              <div className="rd-mt-auto"><LinkLabel>Read the article</LinkLabel></div>
+            </a>
             {/* ≤720: the two secondary cards scroll in a 280px snap rail; desktop: display: contents */}
             <div className="rd-news-rail">
-            <article className="rd-news-card rd-news-card--blue">
+            <a href="/resources/cam-marketing-strategy" className="rd-news-card rd-news-card--blue rd-card-link">
               <div className="rd-row rd-row--between"><span className="rd-label rd-label--12" style={{ color: '#4a86ad' }}>Strategy</span><span className="rd-tiny rd-tiny--12">12 min</span></div>
               <h3 className="rd-title-22">CAM marketing strategy: the plan before the tactics.</h3>
               <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Why “do more marketing” fails, and what an engineered, system-first growth plan looks like over 18 months.</p>
-              <div className="rd-mt-auto"><TextLink href="/resources/cam-marketing-strategy" size={12}>Read</TextLink></div>
-            </article>
-            <article className="rd-news-card rd-news-card--yellow">
+              <div className="rd-mt-auto"><LinkLabel>Read</LinkLabel></div>
+            </a>
+            <a href="/resources/hoa-management-software-guide" className="rd-news-card rd-news-card--yellow rd-card-link">
               <div className="rd-row rd-row--between"><Label tone="match" size={12}>Guide</Label><span className="rd-tiny rd-tiny--12">Long read</span></div>
               <h3 className="rd-title-22">The HOA management software guide.</h3>
               <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Platforms, pricing tiers, the nine features that decide renewal, and a 14-question RFP you can send to every vendor.</p>
-              <div className="rd-mt-auto"><TextLink href="/resources/hoa-management-software-guide" size={12}>Read the guide</TextLink></div>
-            </article>
+              <div className="rd-mt-auto"><LinkLabel>Read the guide</LinkLabel></div>
+            </a>
             </div>
           </div>
         </div>

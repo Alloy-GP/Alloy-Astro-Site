@@ -3,7 +3,7 @@
 // Motion: headline stats rise + count; each case card is its own reveal root
 // (line chart draws, bars grow, mini stats rise + count).
 import type { CSSProperties, ReactNode } from 'react';
-import { Eyebrow, H1, TextLink, StatNumber, CtaBar } from '~/components/rd/atoms';
+import { Eyebrow, H1, LinkLabel, StatNumber, CtaBar } from '~/components/rd/atoms';
 
 const HEADLINE_STATS: Array<{ value: number; prefix?: string; suffix: string; note: string; rule: 'pink' | 'yellow' | 'blue' | 'green' }> = [
   { value: 535, suffix: '%', note: 'Lead intake increase · 3-year partner', rule: 'pink' },
@@ -118,7 +118,7 @@ function CaseCard({ num, numTone, tag, tagClass, title, body, chart, stats, quot
   link: { label: string; href: string };
 }) {
   return (
-    <div data-reveal className="rd-card rd-stack" style={{ padding: 32, gap: 22 }}>
+    <a href={link.href} data-reveal className="rd-card rd-card-link" style={{ padding: 32, gap: 22 }}>
       <div className="rd-row rd-row--between">
         <span className={`rd-numeral${numTone ? ` rd-numeral--${numTone}` : ''}`}>{num}</span>
         <span className={tagClass}>{tag}</span>
@@ -135,8 +135,8 @@ function CaseCard({ num, numTone, tag, tagClass, title, body, chart, stats, quot
         {quote}
         <div className="rd-tiny rd-tiny--12" style={{ marginTop: 6 }}>{by}</div>
       </blockquote>
-      <div><TextLink href={link.href} size={12}>{link.label}</TextLink></div>
-    </div>
+      <div><LinkLabel>{link.label}</LinkLabel></div>
+    </a>
   );
 }
 

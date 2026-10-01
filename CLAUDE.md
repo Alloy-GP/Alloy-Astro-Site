@@ -173,6 +173,7 @@ The handoff specifies Gotham **900**. This site maps 800 → Gotham-Black and 90
 - **Actions:** `.rd-btn` (+ `--dark --outline --white --yellow --sm --xs --block --inline`) · `.rd-link` (+ `--pink --white --12 --11 --pad`) · `.rd-a` (inline link) · `.rd-chip(s)`
 - **Surfaces:** `.rd-card` (+ `--pad --pad-lg --pad-sm --off --purple --hover`) · `.rd-panel-dark` · `.rd-inset` · `.rd-tile` · `.rd-tag` · `.rd-dot` · rules `.rd-rule-top/-bottom/-right`, `.rd-divider`
 - **Blocks:** `.rd-breadcrumb` · `.rd-statband(--4)` + `.rd-stat` · `.rd-prose-row` · `.rd-outcome` · `.rd-service-cards/.rd-builds` · `.rd-checklist` + `.rd-check` · `.rd-steps(--3)` + `.rd-step` · `.rd-threeup(--dark)` · `.rd-faq` (static list or `<details>` accordion) · `.rd-cta-bar` · `.rd-table(-wrap)` · `.rd-field(-label/-group)` · `.rd-article`, `.rd-toc` · `.rd-aside-card`, `.rd-system-card`, `.rd-proof`, `.rd-engine-tile`, `.rd-pill-link`, `.rd-tiers`, `.rd-bullets`, `.rd-services-grid`, homepage pieces (`.rd-metro`, `.rd-map*`, `.rd-ledger*`, `.rd-news-*`, `.rd-webinar`)
+- **Card links:** a card that navigates is the `<a>` itself — `.rd-card-link` (lift −2px, shadow-md, inner `.rd-link` label turns pink) with `LinkLabel` for the "Read →" text. Never nest an `<a>` inside a card link.
 - **Hover states (site-wide):** pink btn → `#c12a60`, press `#a82451` + 1px down · dark btn → purple-90 · outline → fills purple · text links → pink + underline offset 4px (yellow on purple) · cards → translateY(-2px) + shadow-md + border-strong · chips → purple border, pink text · footer links → yellow.
 
 **Light sections:** every off-white `<section class="rd-bg-off">` (alias `.section-light`) carries the textured treatment — grain, 2px five-color rule, purple wash — from layered `background-image`s; an off-white block directly following another keeps only the grain. Don't stack an off-white spacer above an off-white section unless you want that behavior.
@@ -259,6 +260,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Full-card links**: `.rd-card-link` (lift + inner label reacts) + `LinkLabel` atom (span twin of TextLink). Resources cards + featured guide, homepage news cards, results case cards, the courses "Branded board education" card and the linked partner card are now whole-card links — no nested anchors. |
 | 2026-10-01 | **Sticky fix**: `body { overflow-x: hidden }` (site.css) removed — it broke `position: sticky` site-wide, so the article/course TOC sidebar never stuck on desktop and the mobile TOC bar never stuck either. `html` keeps the horizontal clip. |
 | 2026-10-01 | **Hub FAQs**: 5 Q&As per engine hub in `data/hubs/*.ts` (`faq`), FAQPage schema added to the three hub routes. |
 | 2026-10-01 | **Landing pages** `/boardstart` + `/cam-growth-portal` → `robots="noindex,follow"` and removed from `SITEMAP_ROUTES` (client: keep live, don't index, don't put in nav). |

@@ -243,6 +243,14 @@
 .rd-card--pad-sm  { padding: 20px; }
 .rd-card--hover:hover, a.rd-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
 .rd-card--off     { background: var(--alloy-off-white); }
+/* Whole card is the link (client, 2026-10-01: every card lifts and the full card is clickable) */
+.rd-card-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; cursor: pointer; transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard); }
+.rd-card-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); color: inherit; }
+.rd-card-link:active { transform: translateY(0); }
+.rd-card-link:focus-visible { outline: 2px solid var(--alloy-pink); outline-offset: 3px; }
+.rd-card-link:hover .rd-link { color: var(--alloy-pink); text-decoration: underline; text-underline-offset: 4px; }
+.rd-card-link:hover .rd-link--white { color: var(--alloy-yellow); }
+.rd-card-link:hover .rd-btn { background: var(--alloy-pink-hover); }
 .rd-card--purple  { background: var(--alloy-purple); color: #fff; border-color: var(--alloy-purple); box-shadow: 0 16px 40px rgba(56,28,79,.18); }
 .rd-card--purple:hover { border-color: var(--alloy-purple); }
 .rd-card--shadow  { box-shadow: var(--shadow-md); border-color: transparent; }

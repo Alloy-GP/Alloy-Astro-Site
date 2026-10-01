@@ -147,22 +147,29 @@ export default function PartnersPage() {
             <h2 className="rd-h2 rd-h2--sm">Specialist firms we hand off to.</h2>
           </div>
           <div className="rd-grid rd-grid--2" style={{ gap: 16 }}>
-            {REFERRALS.map((a) => (
-              <div
+            {REFERRALS.map((a) => a.href ? (
+              /* has a destination → the whole card is the link (lifts on hover) */
+              <a
                 key={a.name}
-                className="rd-card rd-card--pad rd-stack"
-                style={{ gap: 10, ...(a.href ? { gridColumn: '1 / -1', borderLeft: '5px solid var(--alloy-pink)' } : {}) }}
+                href={a.href}
+                target="_blank"
+                rel="noopener"
+                className="rd-card rd-card--pad rd-card-link"
+                style={{ gap: 10, gridColumn: '1 / -1', borderLeft: '5px solid var(--alloy-pink)' }}
               >
                 <h3 className="rd-title-18">{a.name}</h3>
                 <p className="rd-small rd-small--14">{a.desc}</p>
-                {a.href ? (
-                  <div style={{ marginTop: 8 }}>
-                    <a href={a.href} target="_blank" rel="noopener" className="rd-btn rd-btn--outline rd-btn--sm rd-btn--inline" style={{ gap: 8 }}>
-                      {a.cta}
-                      <ArrowIcon />
-                    </a>
-                  </div>
-                ) : null}
+                <div style={{ marginTop: 8 }}>
+                  <span className="rd-btn rd-btn--outline rd-btn--sm rd-btn--inline" style={{ gap: 8 }}>
+                    {a.cta}
+                    <ArrowIcon />
+                  </span>
+                </div>
+              </a>
+            ) : (
+              <div key={a.name} className="rd-card rd-card--pad rd-stack" style={{ gap: 10 }}>
+                <h3 className="rd-title-18">{a.name}</h3>
+                <p className="rd-small rd-small--14">{a.desc}</p>
               </div>
             ))}
           </div>

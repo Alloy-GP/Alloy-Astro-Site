@@ -102,6 +102,12 @@ export function TextLink({ href, children, tone = 'purple', size = 13, arrow = t
   );
 }
 
+/** Non-interactive twin of TextLink for cards that are themselves the link (`.rd-card-link`) — avoids nested anchors. */
+export function LinkLabel({ children, tone = 'purple', size = 12, className = '' }: { children: ReactNode; tone?: 'purple' | 'pink' | 'white'; size?: 11 | 12 | 13; className?: string }) {
+  const cls = `rd-link${tone !== 'purple' ? ` rd-link--${tone}` : ''}${size !== 13 ? ` rd-link--${size}` : ''} ${className}`.trim();
+  return <span className={cls}>{children}<ArrowIcon size={size === 11 ? 11 : 12} /></span>;
+}
+
 export function HeroCtas({ primary, secondary }: { primary?: Cta; secondary?: Cta }) {
   const p = primary ?? { label: 'Claim your market', href: '/contact' };
   return (

@@ -5,7 +5,7 @@
 // route so only the form hydrates.
 import type { ReactNode } from 'react';
 import { formatIssueDate, type NewsletterIssue } from '~/lib/newsletter-issue';
-import { Eyebrow, Label, Btn, TextLink, ArrowIcon } from '~/components/rd/atoms';
+import { Eyebrow, Label, TextLink, LinkLabel, ArrowIcon } from '~/components/rd/atoms';
 import { PINK, YELLOW, BLUE, GREEN, REACH_INK, MATCH_INK, RETAIN_INK } from '~/lib/tokens';
 
 // Label ink for blue-accented cards (the prototype's #4a86ad). Not yet a token.
@@ -37,8 +37,9 @@ const LATEST: Resource[] = [
 
 function ResourceCard({ r }: { r: Resource }) {
   return (
-    <div
-      className="rd-stack"
+    <a
+      href={r.href}
+      className="rd-card-link"
       style={{ background: '#fff', borderRadius: 10, borderLeft: `5px solid ${r.accent}`, padding: '26px 26px 22px 28px', boxShadow: 'var(--shadow-sm)', gap: 12 }}
     >
       <div className="rd-row rd-row--between">
@@ -46,8 +47,8 @@ function ResourceCard({ r }: { r: Resource }) {
         <span className="rd-tiny rd-tiny--12">{r.meta}</span>
       </div>
       <div className="rd-title-22 rd-ink" style={{ fontSize: 21 }}>{r.title}</div>
-      <div style={{ marginTop: 'auto' }}><TextLink href={r.href} size={12}>Read</TextLink></div>
-    </div>
+      <div style={{ marginTop: 'auto' }}><LinkLabel>Read</LinkLabel></div>
+    </a>
   );
 }
 
@@ -69,12 +70,12 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
       <section className="rd-section" style={{ paddingTop: 0 }}>
         <div className="rd-wrap">
           <div className="rd-grid rd-grid--hero-wide rd-gap-20 rd-rule-top" style={{ paddingTop: 48 }}>
-            <div className="rd-bg-purple rd-ink-white rd-stack rd-stack--18" style={{ borderRadius: 10, padding: 40, minHeight: 340 }}>
+            <a href="/resources/hoa-management-software-guide" className="rd-card-link rd-bg-purple rd-ink-white rd-stack--18" style={{ borderRadius: 10, padding: 40, minHeight: 340 }}>
               <Label tone="yellow" size={12}>Featured guide</Label>
               <div className="rd-h2 rd-h2--sm">The HOA management software guide.</div>
               <p className="rd-body rd-body--16 rd-muted-85" style={{ maxWidth: 520 }}>Vantaca, AppFolio, Buildium, CINC and the rest — compared the way an operator compares them, with what each one means for boards, owners, and your marketing stack.</p>
-              <Btn href="/resources/hoa-management-software-guide" size="sm" style={{ padding: '14px 22px', marginTop: 'auto', alignSelf: 'flex-start' }}>Read the guide</Btn>
-            </div>
+              <span className="rd-btn rd-btn--sm" style={{ padding: '14px 22px', marginTop: 'auto', alignSelf: 'flex-start' }}>Read the guide</span>
+            </a>
             <div className="rd-stack rd-gap-20">
               {SIDE.map((r) => <ResourceCard key={r.title} r={r} />)}
             </div>
