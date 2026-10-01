@@ -218,14 +218,19 @@ export function Steps({ steps, tone }: { steps: Step[]; tone?: EngineKey }) {
   );
 }
 
-export function FaqList({ items }: { items: FaqItem[] }) {
+/**
+ * FAQ accordion (native <details>, no JS). First item open by default; items in the same
+ * `group` close each other where the browser supports exclusive accordions (`name` attr).
+ * Answers stay in the DOM for crawlers / FAQPage schema.
+ */
+export function FaqList({ items, group = 'faq', defaultOpen = 0 }: { items: FaqItem[]; group?: string; defaultOpen?: number | null }) {
   return (
-    <div className="rd-faq">
+    <div className="rd-faq rd-faq--accordion">
       {items.map((f, i) => (
-        <div key={i} className="rd-faq-item">
-          <div className="rd-faq-q">{f.q}</div>
+        <details key={i} className="rd-faq-item" {...({ name: group } as Record<string, string>)} {...(i === defaultOpen ? { open: true } : {})}>
+          <summary className="rd-faq-q"><span>{f.q}</span><PlusIcon /></summary>
           <p className="rd-faq-a">{f.a}</p>
-        </div>
+        </details>
       ))}
     </div>
   );

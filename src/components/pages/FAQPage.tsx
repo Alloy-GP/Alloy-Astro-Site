@@ -5,7 +5,7 @@
 // already cover are added. Rendered as a static list, so every answer is in the server HTML.
 // FAQ_ITEMS (plain-text answers) feeds the FAQPage JSON-LD in src/pages/faq.astro.
 import type { CSSProperties, ReactNode } from 'react';
-import { Eyebrow, CtaBar } from '~/components/rd/atoms';
+import { Eyebrow, CtaBar, PlusIcon } from '~/components/rd/atoms';
 import type { FaqItem } from '~/lib/schema';
 
 const LH: CSSProperties = { lineHeight: 1.65 };
@@ -81,12 +81,12 @@ export default function FAQPage() {
             {FAQ_GROUPS.map((g) => (
               <div key={g.label} className="rd-grid rd-grid--prose">
                 <div><h2 className="rd-h3 rd-h3--sm" style={{ lineHeight: 1.2 }}>{g.label}</h2></div>
-                <div className="rd-faq">
-                  {g.items.map((it) => (
-                    <div key={it.q} className="rd-faq-item">
-                      <h3 className="rd-faq-q" style={{ margin: 0 }}>{it.q}</h3>
+                <div className="rd-faq rd-faq--accordion">
+                  {g.items.map((it, i) => (
+                    <details key={it.q} className="rd-faq-item" {...({ name: `faq-${g.label}` } as Record<string, string>)} {...(i === 0 ? { open: true } : {})}>
+                      <summary><h3 className="rd-faq-q" style={{ margin: 0, fontSize: 18 }}>{it.q}</h3><PlusIcon /></summary>
                       <p className="rd-faq-a" style={LH}>{it.node ?? it.a}</p>
-                    </div>
+                    </details>
                   ))}
                 </div>
               </div>

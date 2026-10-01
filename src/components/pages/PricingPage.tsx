@@ -4,7 +4,7 @@
 // shows the accordion closed). PRICING_FAQ also feeds the FAQPage schema in the route.
 import type { CSSProperties } from 'react';
 import type { FaqItem } from '~/lib/schema';
-import { Eyebrow, H1, TextLink, Btn, Steps, CtaBar } from '~/components/rd/atoms';
+import { Eyebrow, H1, TextLink, Btn, Steps, CtaBar, FaqList } from '~/components/rd/atoms';
 
 export const PRICING_FAQ: FaqItem[] = [
   {
@@ -176,20 +176,7 @@ export default function PricingPage() {
             <p className="rd-body">Not ready for the full system? We also take selective project work — an RFP response sprint, a brand and website refresh — when there’s a strategic event in motion.</p>
             <div><TextLink href="/contact" size={12}>See one-off engagements</TextLink></div>
           </div>
-          <div className="rd-faq">
-            {PRICING_FAQ.map((f) => (
-              <details key={f.q}>
-                <summary>
-                  <span>{f.q}</span>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-                    <line x1="12" y1="5" x2="12" y2="19" />
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                  </svg>
-                </summary>
-                <p className="rd-faq-a">{f.a}</p>
-              </details>
-            ))}
-          </div>
+          <FaqList items={PRICING_FAQ} group="pricing" />
         </div>
       </section>
 
