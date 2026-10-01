@@ -205,3 +205,7 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Decision:** keep `/boardstart`, `/cam-growth-portal` and `/find-your-path` live for campaigns, `noindex,follow` on all three, none in the sitemap, none in the nav. (`/find-your-path` was already `noindex,nofollow`.)
 
+## 36. Hub FAQs (resolved 2026-10-01)
+
+**Decision:** add FAQs to the three engine hubs. Five questions each in `data/hubs/*.ts` (`faq`), rendered by `HubPage` as the standard accordion with FAQPage schema from the routes. Copy uses only facts already published elsewhere on the site (timelines from the FAQ page, proof stats from the hub bands, exclusivity + guarantee wording as decided) — no new numbers.
+

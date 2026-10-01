@@ -52,6 +52,18 @@ const data: HubPageData = {
     h2Accent: 'lost on trust first.',
     body: 'Boards say it was the fee. It almost never is. It was the transition plan they couldn’t picture, the manager they never met, the proposal that read like everyone else’s. Fix the trust and the price conversation changes.',
   },
+  // Hub FAQ (client, 2026-10-01): answers reuse only facts already published on the site; rendered as an accordion + FAQPage schema.
+  faq: {
+    eyebrow: 'Questions',
+    h2: 'Questions about BoardMatch',
+    items: [
+      { q: 'Boards keep telling us we lost on price. Is that really why?', a: 'Almost never. Boards read a proposal for risk: the transition plan they couldn’t picture, the manager they never met, the answer to “what happens when a manager leaves.” Lose that and the fee is the polite reason you’re given. BoardMatch fixes the trust problem so the price conversation changes.' },
+      { q: 'What’s the difference between Proposal Optimization, the RFP Response System, and Groundwork?', a: 'Proposal Optimization rebuilds the standing proposal you send to every board. The RFP Response System answers a live RFP for you on a deadline. Groundwork is fractional business development — about forty qualified conversations a month and meetings booked for your closer. Sales Messaging sits underneath all three so every room hears the same true thing.' },
+      { q: 'What close rate should a CAM firm expect?', a: 'The industry sits around one in four. The target we build toward is one in two. On Groundwork-sourced meetings — boards already qualified against your criteria — partners have closed 40–60% of qualified opportunities, because the board was in motion before the first meeting.' },
+      { q: 'How soon do sales changes show up?', a: 'In the next pursuit. Messaging and proposal work are in your hands within weeks, and an RFP response runs on the RFP’s clock — even a short one. Groundwork fills the calendar over its first quarter, since booked meetings have to come from real conversations, not a list.' },
+      { q: 'Who on our team needs to be involved?', a: 'The principal, whoever runs business development, and the manager who shows up to the site visit — the three people a board actually meets. We align their talk tracks, rebuild what they hand over, and coach the presenter before the selection meeting. Your team still closes; we make sure they walk in with the safest story in the room.' },
+    ],
+  },
   cta: { text: 'Thirty minutes tells you where your pursuits are leaking — proposal, pipeline, or the room.' },
 };
 

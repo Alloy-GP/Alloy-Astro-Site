@@ -258,6 +258,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Hub FAQs**: 5 Q&As per engine hub in `data/hubs/*.ts` (`faq`), FAQPage schema added to the three hub routes. |
 | 2026-10-01 | **Landing pages** `/boardstart` + `/cam-growth-portal` → `robots="noindex,follow"` and removed from `SITEMAP_ROUTES` (client: keep live, don't index, don't put in nav). |
 | 2026-10-01 | **Header search + Log in restored** (`SiteSearch.tsx`, `lib/search-index.ts`, `LOGIN` in nav.ts) — client wanted both back with a login that doesn't clip. Second video ("Jeff Harman – CMGT Testimonial", 5:05, Vimeo 1230353437 with its privacy hash) added to **/about/testimonials** beside the CEO video — the client meant that page, not About. |
 | 2026-10-01 | **/get-started retired** (client): page + `GetStartedPage.tsx` deleted, 301 → `/contact`, five legacy rules re-pointed (no chains), out of the sitemap; all CTAs/`nav.ts` CTA/sticky bar/hero links → `/contact`; Contact form gains a "Claim my market" topic (default) and prefills from `?metro=`/`?intent=`. **About**: stat band uses the yellow-unit treatment (`StatBand unit` / `StatNumber unit` → `.rd-stat-num--unit`), (video first landed here by mistake; it lives on /about/testimonials). |
