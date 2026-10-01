@@ -1,12 +1,14 @@
 // src/components/chrome/SiteHeader.tsx
-// Fixed header: logo · The System ▾ · Results · Pricing · Resources · [Claim your market].
+// Fixed header: logo · The System ▾ · Results · Pricing · Resources · 🔍 · Log in ↗ · [Claim your market].
+// Search + partner-portal login restored 2026-10-01 (client); login is an icon + text link that can't clip.
 // "The System" opens a two-level, full-width panel (engines left, services right).
 // ≤980px (mobile-spec.md, frame 1a): 60px bar with a compact "Claim" CTA + 44px burger; the panel
 // sits under the header and holds a two-level "The System" accordion (System + BoardReach open by
 // default), the other top-level rows, About · Contact · FAQ, and a pinned full-width CTA.
 // Component styles live in chrome.css; breakpoints in mobile.css.
 import { useEffect, useRef, useState } from 'react';
-import { PRIMARY, CTA, ENGINES, BOARDSUITE_TILE, DROPDOWN_FOOTER, MOBILE_SECONDARY, MOBILE_FOOT_CAPTION, getEngine, type EngineKey } from '~/lib/nav';
+import { PRIMARY, CTA, LOGIN, ENGINES, BOARDSUITE_TILE, DROPDOWN_FOOTER, MOBILE_SECONDARY, MOBILE_FOOT_CAPTION, getEngine, type EngineKey } from '~/lib/nav';
+import SiteSearch from './SiteSearch';
 
 /** Legacy pageId values still passed by some routes → new nav ids. */
 const ACTIVE_MAP: Record<string, string> = {
@@ -34,6 +36,17 @@ function Chevron({ dir = 'down', size = 12, stroke = 2.5, className }: { dir?: '
   return (
     <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <polyline points={points} />
+    </svg>
+  );
+}
+
+/** Lucide log-in: explicit box + flex:none in CSS so it never clips (the old header's logomark did). */
+function LoginIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+      <polyline points="10 17 15 12 10 7" />
+      <line x1="15" y1="12" x2="3" y2="12" />
     </svg>
   );
 }
@@ -147,6 +160,13 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
               </a>
             ),
           )}
+          <div className="site-tools" onMouseEnter={closeNow}>
+            <SiteSearch />
+            <a href={LOGIN.href} className="site-login" target="_blank" rel="noopener noreferrer" aria-label={`${LOGIN.label} to the partner portal (opens in a new tab)`}>
+              <LoginIcon />
+              <span>{LOGIN.label}</span>
+            </a>
+          </div>
           <a href={CTA.href} className="site-cta site-cta--desktop" onMouseEnter={closeNow}>{CTA.label}</a>
         </nav>
 
@@ -228,6 +248,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
           <div className="site-menu-bar" aria-hidden="true"><span /><span /><span /><span /><span /></div>
 
           <div className="site-mobile-body">
+            <SiteSearch variant="row" />
             {/* The System — two-level accordion */}
             <button
               type="button"
@@ -288,6 +309,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
               {MOBILE_SECONDARY.map(([label, href]) => (
                 <a key={href} href={href}>{label}</a>
               ))}
+              <a href={LOGIN.href} target="_blank" rel="noopener noreferrer" className="site-mobile-login"><LoginIcon size={14} />{LOGIN.label}</a>
             </div>
           </div>
 

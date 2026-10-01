@@ -191,3 +191,9 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 - **About:** keep the new page (old "Why we exist / Our discipline" stay retired). Stat band switched to the yellow-unit treatment ("35+ years" — numeral white, unit word yellow, hairline dividers), same data. New founders video section (Vimeo 1230353437) before "How we work" — heading/caption are placeholders until the client says what the cut is; the video returned 403/404 from the build sandbox, so its Vimeo privacy/embed-domain settings need checking.
 - **Get Started:** page removed. `/get-started` 301s to `/contact`, which is now the "Claim your market" destination: the form defaults to a "Claim my market" topic and prefills metro/intent from the hero check. The Strategic Review FAQ and the 30·90·1 strip went with the page.
 
+## 33. Header login + search (resolved 2026-10-01)
+
+**Decision:** bring both back (the design had dropped them, §3). Search = icon button → native dialog over a nav-derived index (⌘K / Ctrl+K, ↑↓↵); on phones it's the first row of the menu panel. Log in → growth.alloygp.co in a new tab, as an icon + text link sized explicitly so the icon can't clip like it did on the old header; on phones it sits in the About · Contact · FAQ row.
+
+**About video:** the client sent the unlisted link with its hash (`vimeo.com/1230353437/22399014d8`); the embed uses `?h=`. Vimeo titles it "Jeff Harman – CMGT Testimonial" (5:05), so the section is a named partner story — flagged in case it should be anonymous like the case study.
+

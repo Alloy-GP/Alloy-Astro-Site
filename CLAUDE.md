@@ -30,7 +30,8 @@ src/
 │   └── growth-portal.css            # /cam-growth-portal landing page only
 │
 ├── lib/
-│   ├── nav.ts                       # NAV DATA: PRIMARY, CTA, ENGINES (3 engines × services), BOARDSUITE_TILE, DROPDOWN_FOOTER, FOOTER + helpers
+│   ├── nav.ts                       # NAV DATA: PRIMARY, CTA, LOGIN (growth.alloygp.co), ENGINES (3 engines × services), BOARDSUITE_TILE, DROPDOWN_FOOTER, MOBILE_*, FOOTER + helpers
+│   ├── search-index.ts              # SEARCH_INDEX (services/hubs from nav.ts + static pages) + searchIndex(query) scorer
 │   ├── tokens.ts                    # JS color constants (PURPLE, PINK, YELLOW, BLUE, GREEN, BLUE_DEEP, REACH_INK, MATCH_INK, RETAIN_INK, ENGINE_INK)
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
 │   ├── mobile.ts                    # ≤720 enhancements (footer accordions, sticky CTA bar observers, article TOC bar + progress) — mounted from BaseLayout
@@ -55,7 +56,8 @@ src/
 │
 ├── components/
 │   ├── chrome/
-│   │   ├── SiteHeader.tsx           # Fixed header: logo · The System ▾ · Results · Pricing · Resources · [Claim your market]; two-level dropdown; mobile nav
+│   │   ├── SiteHeader.tsx           # Fixed header: logo · The System ▾ · Results · Pricing · Resources · search · Log in ↗ · [Claim your market]; two-level dropdown; mobile panel
+│   │   ├── SiteSearch.tsx           # Header search: icon button (desktop) / row (mobile panel) + native <dialog>; ⌘K, ↑↓↵; index from lib/search-index.ts
 │   │   └── SiteFooter.tsx           # Purple footer: brand col + BoardReach / BoardMatch+BoardRetain / Company / Resources + legal bar
 │   │
 │   ├── rd/                          # REDESIGN BUILDING BLOCKS — use these first
@@ -192,7 +194,7 @@ States are CSS classes (`.am-prep`, `.am-in`) so React hydration can't wipe them
 
 ## Chrome
 
-**Header (`SiteHeader.tsx`, island `client:load`):** fixed, white 92% + blur, 67px tall (`body.has-fixed-header` pads for it). Nav from `nav.ts` `PRIMARY` + `CTA`. "The System" opens on hover/focus, resets to BoardReach on open, closes 120ms after mouse-leave or on Escape; right pane is keyed on engine for the cross-fade. ≤980px: burger → full-screen `.site-mobile-nav` with per-engine accordions. No search, no login (dropped per design; see OPEN-QUESTIONS §3).
+**Header (`SiteHeader.tsx`, island `client:load`):** fixed, white 92% + blur, 67px tall (`body.has-fixed-header` pads for it). Nav from `nav.ts` `PRIMARY` + `CTA`. "The System" opens on hover/focus, resets to BoardReach on open, closes 120ms after mouse-leave or on Escape; right pane is keyed on engine for the cross-fade. ≤980px: burger → full-screen `.site-mobile-nav` with per-engine accordions. Search (icon → `<dialog>`, ⌘K) and the partner-portal **Log in** link (growth.alloygp.co, new tab, icon + text with `flex: none` so it never clips) were restored 2026-10-01 at the client's request; ≤980 both live in the panel (search row on top, Log in in the secondary row).
 **Footer (`SiteFooter.tsx`, static):** columns from `nav.ts` (`ENGINES` + `FOOTER`). Uses `alloy-logomark.svg` (not the 215 KB PNG).
 
 ---
@@ -256,6 +258,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Header search + Log in restored** (`SiteSearch.tsx`, `lib/search-index.ts`, `LOGIN` in nav.ts) — client wanted both back with a login that doesn't clip. About video now embeds Vimeo 1230353437 with its privacy hash ("Jeff Harman – CMGT Testimonial", 5:05). |
 | 2026-10-01 | **/get-started retired** (client): page + `GetStartedPage.tsx` deleted, 301 → `/contact`, five legacy rules re-pointed (no chains), out of the sitemap; all CTAs/`nav.ts` CTA/sticky bar/hero links → `/contact`; Contact form gains a "Claim my market" topic (default) and prefills from `?metro=`/`?intent=`. **About**: stat band uses the yellow-unit treatment (`StatBand unit` / `StatNumber unit` → `.rd-stat-num--unit`), founders video section added (Vimeo 1230353437 — returned 403/404 from the sandbox, check its privacy settings). |
 | 2026-10-01 | **Homepage SEO + hero polish**: H1 is now the hero question with "HOA management company" (eyebrow is a plain pink label); title → `Marketing for HOA Management Companies | Alloy Growth Partners` + new description (deliberate); purple-band H2 says "HOA management company". Whole guarantee card is the terms button (lifts on hover). `lib/hero-story.ts`: staged, subtle animation of the three moments (BaseLayout adds `html.js` + a 3s un-hide safety net). Statistics audit applied (§29). |
 | 2026-10-01 | **Hero = the card.** Banner copy (keyword eyebrow, "Attract the right boards…", intro, CTAs) removed at the client's request; the card's eyebrow now carries the page H1 "Marketing for HOA Management Companies" (keyword unchanged), the card question stays the h2. Sticky mobile CTA keys off the card's button. |

@@ -17,6 +17,7 @@
 /* ── 980px: Navigation collapses to the mobile panel (mobile-spec.md frame 1a) ──── */
 @media (max-width: 980px) {
   .site-nav-desktop   { display: none; }
+  .site-tools         { display: none; }   /* search + login move into the panel */
   .site-header-right  { display: flex; }
   .site-cta--mobile   { display: inline-flex; }
   .site-burger        { display: inline-flex; }
@@ -344,6 +345,10 @@
   .rd-hc-result { padding: 12px; }
   .rd-hc-result-actions { width: 100%; justify-content: space-between; }
   .rd-dialog-panel { padding: 28px 22px 24px; }
+  .site-search { margin-top: 8px; max-width: calc(100vw - 16px); }
+  .site-search-input { font-size: 16px; }
+  .site-search-hit-meta { display: none; }
+  .site-search-foot { display: none; }
   .rd-dialog-title { font-size: 24px; }
   .rd-dialog-actions { flex-direction: column; align-items: stretch; }
   .rd-dialog-actions .rd-hc-btn { width: 100%; }
