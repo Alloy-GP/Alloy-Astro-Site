@@ -1,0 +1,10 @@
+/* Add to src/styles/mobile.css (existing breakpoints: 980 / 720 / 480) */
+@media (max-width: 720px) {
+  .hero-card { padding: 22px !important; border-radius: 20px !important; gap: 18px !important; }
+  .hero-card-top { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .hero-card-aside { display: none !important; }        /* context line is redundant when stacked */
+  .hero-card h2 { font-size: 26px !important; }
+  .hero-card-avail { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .hero-card-form { flex-direction: column !important; }
+  .hero-card-form button { width: 100%; }
+}
