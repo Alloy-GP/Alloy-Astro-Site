@@ -595,11 +595,6 @@ textarea.rd-field { resize: vertical; min-height: 120px; }
 .rd-news-card--yellow { border-left-color: var(--alloy-yellow); }
 .rd-news-rail { display: contents; }               /* ≤720: becomes a 280px snap rail (mobile.css) */
 .rd-news-card .rd-title-22 { color: var(--alloy-purple); }
-.rd-webinar { display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; background: #fff; border: 1px solid var(--border-subtle); border-radius: 10px; padding: 28px 32px; }
-.rd-date-tile { flex: none; background: var(--alloy-purple); color: #fff; border-radius: 10px; padding: 14px 16px; text-align: center; min-width: 64px; }
-.rd-date-tile-day { font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1; }
-.rd-webinar-form { display: flex; gap: 10px; }
-.rd-webinar-form .rd-field { min-width: 220px; padding: 13px 16px; font-size: 14px; background: var(--alloy-off-white); }
 
 /* =============================================================================
    Homepage update (docs/redesign-handoff-homepage) — hero outcomes card, network

@@ -353,11 +353,6 @@
   .rd-news-grid { display: flex; flex-direction: column; gap: 16px; }
   .rd-news-rail > * { flex: 0 0 280px; scroll-snap-align: start; }
   .rd-news-card, .rd-news-card--lead { padding: 22px 20px 20px 22px; }
-  .rd-webinar { grid-template-columns: 1fr; gap: 20px; padding: 22px 20px; }
-  .rd-webinar > .rd-row { flex-direction: column; align-items: flex-start; gap: 14px; }
-  .rd-webinar-form { flex-direction: column; }
-  .rd-webinar-form .rd-field { min-width: 0; font-size: 16px; padding: 14px 16px; }
-  .rd-webinar-form .rd-btn { width: 100%; }
 
   /* ── Index pages (frame 1e) ────────────────────────────────────────────── */
   .rd-tiers { grid-template-columns: 1fr; gap: 16px; }

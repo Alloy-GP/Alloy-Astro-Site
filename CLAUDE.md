@@ -71,14 +71,13 @@ src/
 │   ├── modules/                     # Interactive islands + self-contained modules
 │   │   ├── HeroCard.tsx             # Homepage hero card (client:load): outcome-tile carousel + metro check (ZIP → /api/metro) over a vector US map
 │   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
-│   │   ├── WebinarSignup.tsx        # Homepage "Save my seat" email capture (client:visible) → /api/subscribe
 │   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe
 │   │   ├── TrustBuildingQuiz.tsx    # Knowledge check at the end of the trust-building guide (client:visible)
 │   │   ├── ROICalculator.tsx        # Growth Modeled tool (unchanged)
 │   │   └── GrowthPortal / BoardStart pieces live inside their landing-page components
 │   │
 │   ├── pages/                       # ONE component per non-templated page — content only, no layout
-│   │   ├── HomePage.tsx             # /  (below the hero; islands arrive as named slots `chart` + `webinar`)
+│   │   ├── HomePage.tsx             # /  (below the hero; the chart island arrives as named slot `chart`)
 │   │   ├── BoardSuitePage.tsx       # /boardsuite            ServicesPage.tsx   # /services
 │   │   ├── PricingPage.tsx          # /pricing (exports PRICING_FAQ)   ResultsPage.tsx  # /results
 │   │   ├── GetStartedPage.tsx       # /get-started (default = static shell; named export GetStartedForm = island → /api/lead)
@@ -86,6 +85,7 @@ src/
 │   │   ├── NewsletterArchivePage.tsx # /resources/newsletter — every sent issue, by year, 24/page (?page=N)
 │   │   ├── CourseTrustBuildingPage.tsx  # /resources/courses/trust-building (11 anchored sections + quiz)
 │   │   ├── MarketingStrategyArticle.tsx # /resources/cam-marketing-strategy
+│   │   ├── AISearchArticle.tsx      # /resources/ai-search-for-cam (restored live article, copy verbatim)
 │   │   ├── HOASoftwareGuide.tsx     # /resources/hoa-management-software-guide
 │   │   ├── RiseDeepCaseStudy.tsx    # /results/apex-cmg
 │   │   ├── AboutPage.tsx, TestimonialsPage.tsx, PartnersPage.tsx, CareersPage.tsx, FAQPage.tsx
@@ -97,7 +97,7 @@ src/
 │   ├── AccentBar.tsx, AnimatedNumber.tsx, Button.tsx, EngineLoop.tsx, Eyebrow.tsx, Icon.tsx, PillarMark.tsx, Tag.tsx  # legacy atoms (Icon still used)
 │
 └── pages/                           # Astro routes — thin shells
-    ├── index.astro                  → HeroStatic + HeroCard island, HomePage + NetworkLeadsChart/WebinarSignup slots
+    ├── index.astro                  → HeroStatic + HeroCard island, HomePage + NetworkLeadsChart slot
     ├── boardsuite.astro, services.astro, pricing.astro, results.astro, get-started.astro
     ├── about.astro, about/testimonials.astro, partners.astro, careers.astro, faq.astro, contact.astro, growth-modeled.astro
     ├── privacy-policy.astro, terms-conditions.astro, 404.astro
@@ -108,7 +108,7 @@ src/
     ├── boardmatch/{groundwork,proposal-optimization,rfp-response-system,sales-messaging}.astro
     ├── boardretain/index.astro                  → HubPage (hubs/boardretain)
     ├── boardretain/{board-education,newsletter-production,reputation-management,thought-leadership,annual-report-production}.astro
-    ├── resources/index.astro (fetches getRecentIssues), resources/newsletter.astro (getAllIssues, paginated), resources/cam-marketing-strategy.astro, resources/hoa-management-software-guide.astro
+    ├── resources/index.astro (fetches getRecentIssues), resources/newsletter.astro (getAllIssues, paginated), resources/cam-marketing-strategy.astro, resources/ai-search-for-cam.astro, resources/hoa-management-software-guide.astro
     ├── resources/courses/index.astro, resources/courses/trust-building.astro
     ├── results/apex-cmg.astro
     ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter), untouched by the redesign
@@ -127,7 +127,7 @@ src/
 | 2 | Engine hub | `rd/HubPage.tsx` + `data/hubs/*.ts` |
 | 3 | Service page | `rd/ServicePage.tsx` + `data/services/*.ts` |
 | 4 | Index pages | `BoardSuitePage`, `ServicesPage`, `PricingPage`, `ResultsPage`, `GetStartedPage` |
-| 5 | Article / guide | `ResourceHubPage`, `MarketingStrategyArticle`, `HOASoftwareGuide`, `CoursesPage`, `CourseTrustBuildingPage`, `RiseDeepCaseStudy` |
+| 5 | Article / guide | `ResourceHubPage`, `MarketingStrategyArticle`, `AISearchArticle`, `HOASoftwareGuide`, `CoursesPage`, `CourseTrustBuildingPage`, `RiseDeepCaseStudy` |
 | 6 | Editorial | `AboutPage`, `TestimonialsPage`, `PartnersPage`, `CareersPage`, `FAQPage`, `ContactPage`, `GrowthModeledPage`, `LegalPages` |
 
 ### Adding a service page
@@ -256,6 +256,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-01 | **Real content only**: webinar block + `WebinarSignup` removed (no event scheduled); homepage news cards and `/resources` Latest now link only to real pieces; live article *How CAM Firms Win in AI Search* restored at `/resources/ai-search-for-cam` (`AISearchArticle.tsx`, original title/description, `/resource-hub/ai-search-for-cam` → there). |
 | 2026-10-01 | **Mobile build** per `docs/redesign-handoff/docs/mobile-spec.md`: header panel rewrite (`SiteHeader`), footer accordion blocks (`SiteFooter`), `lib/mobile.ts` (footer toggles, sticky CTA, TOC bar), `mobile.css` rd-* section rewritten, class hooks on Home/Results/GetStarted/Contact/About/Pricing, `Breadcrumb` marks the parent crumb, `StatBand` gains `compact`, soft hyphen in hub system-row titles. QA tooling `.context/mobile-qa.mjs`, `.context/eval.mjs`. |
 | 2026-10-01 | **Launch Q&A**: tiers Steady/Accelerate/Ascend; Google Ads & PPC page restored; FAQs are `<details>` accordions site-wide (`FaqList`); case-study client and video kept anonymous; testimonials reduced to the two client-confirmed quotes. **Favicons**: `public/favicon.ico` + `favicon-48/96.png` + `apple-touch-icon.png` + `icon-192/512.png` + `site.webmanifest` (generated by `.context/gen-favicons.mjs` from `assets/alloy-icon-1500.png`), linked from BaseLayout alongside the SVG. |
 | 2026-09-30 | **Newsletter**: `/resources` gets an Alloy Briefing section (recent issues from Mailchimp + first-name/email signup, subscribers tagged `newsletter` + source); new `/resources/newsletter` archive page (all sent issues incl. A/B sends, grouped by year, 24/page, `?page=N` noindexed); `/api/newsletters`; footer Resources column links Newsletter. Trust bar under the hero (BBB · CAI · Innovia logo · 35+ yrs). About: Skyler headshot. |

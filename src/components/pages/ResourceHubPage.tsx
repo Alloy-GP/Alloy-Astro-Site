@@ -25,13 +25,14 @@ const SIDE: Resource[] = [
   { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'CAM marketing strategy: the plan before the tactics', href: '/resources/cam-marketing-strategy' },
 ];
 
+// Real pieces only (client, 2026-10-01: no placeholder articles). Add new articles here as they publish.
 const LATEST: Resource[] = [
-  { kind: 'AI search', ink: REACH_INK, accent: PINK, meta: '7 min read', title: 'Boards are asking ChatGPT who manages HOAs in their city. Is your firm the answer?', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Local', ink: BLUE_INK, accent: BLUE, meta: '5 min read', title: 'Why the map pack now decides your shortlist before the RFP does.', href: '/property-management-seo' },
-  { kind: 'Tips', ink: MATCH_INK, accent: YELLOW, meta: 'Checklist', title: 'Five things a CAM firm can fix this quarter without an agency.', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Sales', ink: MATCH_INK, accent: YELLOW, meta: '8 min read', title: 'Closing one in four? Here’s what the firms at one in two do differently.', href: '/boardmatch/proposal-optimization' },
-  { kind: 'Retention', ink: RETAIN_INK, accent: GREEN, meta: '6 min read', title: 'The renewal conversation starts eleven months early.', href: '/boardretain/newsletter-production' },
+  { kind: 'AI search', ink: REACH_INK, accent: PINK, meta: '3 min read', title: 'How CAM firms win in AI search.', href: '/resources/ai-search-for-cam' },
+  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'CAM marketing strategy: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Guide', ink: MATCH_INK, accent: YELLOW, meta: 'Long read', title: 'The HOA management software guide: platforms, pricing, and the RFP.', href: '/resources/hoa-management-software-guide' },
+  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies.', href: '/resources/courses/trust-building' },
   { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
+  { kind: 'Briefing', ink: BLUE_INK, accent: BLUE, meta: 'Newsletter archive', title: 'Every issue of the Alloy Briefing, by year.', href: '/resources/newsletter' },
 ];
 
 function ResourceCard({ r }: { r: Resource }) {
@@ -91,7 +92,6 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
           <div className="rd-grid rd-grid--3 rd-gap-20">
             {LATEST.map((r) => <ResourceCard key={r.title} r={r} />)}
           </div>
-          <div><TextLink href="/resources" size={12}>All articles</TextLink></div>
         </div>
       </section>
 

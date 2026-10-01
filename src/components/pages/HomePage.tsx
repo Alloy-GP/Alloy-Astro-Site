@@ -1,6 +1,6 @@
 // src/components/pages/HomePage.tsx — everything on "/" below the hero.
 // Static (no client directive). Copy from docs/redesign-handoff/site/index.dc.html.
-// Islands are passed in as named slots from index.astro: `chart` (NetworkLeadsChart) and `webinar` (WebinarSignup).
+// The network-leads chart island arrives as the named slot `chart` from index.astro.
 import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
 import { Eyebrow, TextLink, CtaBar, Label, Btn } from '~/components/rd/atoms';
@@ -16,7 +16,7 @@ const ENGINE_BLURB: Record<string, string> = {
 };
 
 
-export default function HomePage({ chart, webinar }: { chart?: ReactNode; webinar?: ReactNode }) {
+export default function HomePage({ chart }: { chart?: ReactNode }) {
   return (
     <div className="rd-page">
       {/* Trust bar */}
@@ -102,49 +102,35 @@ export default function HomePage({ chart, webinar }: { chart?: ReactNode; webina
         </div>
       </section>
 
-      {/* News + webinar */}
+      {/* From the resource hub — real pieces only (client, 2026-10-01: no placeholder articles, no event block) */}
       <section className="rd-section rd-bg-off">
         <div className="rd-wrap rd-stack rd-stack--40">
           <div className="rd-grid rd-grid--2 rd-grid--end">
             <h2 className="rd-h2">What’s changing in CAM growth right now.</h2>
-            <p className="rd-body" style={{ lineHeight: 1.55 }}>Search is moving to AI answers, boards are shopping locally first, and most CAM sites weren’t built for either. Here’s what we’re seeing and what to do about it.</p>
+            <p className="rd-body" style={{ lineHeight: 1.55 }}>Search is moving to AI answers, boards are shopping locally first, and most CAM sites weren’t built for either. Three pieces from the resource hub on what to do about it.</p>
           </div>
           <div className="rd-news-grid">
             <article className="rd-news-card rd-news-card--lead">
-              <div className="rd-row rd-row--between"><Label tone="pink" size={12}>AI search</Label><span className="rd-tiny rd-tiny--12">7 min read</span></div>
-              <h3 className="rd-h3">Boards are asking ChatGPT who manages HOAs in their city. Is your firm the answer?</h3>
-              <p className="rd-small" style={{ lineHeight: 1.55 }}>AI answers pull from a handful of sources — reviews, local citations, and pages that actually explain what you do. Most CAM sites give them nothing to quote. Three fixes you can make this month.</p>
-              <div className="rd-mt-auto"><TextLink href="/property-management-seo" size={12}>Read the field note</TextLink></div>
+              <div className="rd-row rd-row--between"><Label tone="pink" size={12}>AI search</Label><span className="rd-tiny rd-tiny--12">3 min read</span></div>
+              <h3 className="rd-h3">How CAM firms win in AI search.</h3>
+              <p className="rd-small" style={{ lineHeight: 1.55 }}>ChatGPT, Perplexity, Gemini, and Google AI Overviews now answer board questions before your website does. The firms cited are winning meetings competitors don’t even know happened.</p>
+              <div className="rd-mt-auto"><TextLink href="/resources/ai-search-for-cam" size={12}>Read the article</TextLink></div>
             </article>
             {/* ≤720: the two secondary cards scroll in a 280px snap rail; desktop: display: contents */}
             <div className="rd-news-rail">
             <article className="rd-news-card rd-news-card--blue">
-              <div className="rd-row rd-row--between"><span className="rd-label rd-label--12" style={{ color: '#4a86ad' }}>Local</span><span className="rd-tiny rd-tiny--12">5 min</span></div>
-              <h3 className="rd-title-22">Why the map pack now decides your shortlist before the RFP does.</h3>
-              <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Boards check Google Maps first. If you’re not in the top three for your metro, you’re not in the conversation.</p>
-              <div className="rd-mt-auto"><TextLink href="/property-management-seo" size={12}>Read</TextLink></div>
+              <div className="rd-row rd-row--between"><span className="rd-label rd-label--12" style={{ color: '#4a86ad' }}>Strategy</span><span className="rd-tiny rd-tiny--12">12 min</span></div>
+              <h3 className="rd-title-22">CAM marketing strategy: the plan before the tactics.</h3>
+              <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Why “do more marketing” fails, and what an engineered, system-first growth plan looks like over 18 months.</p>
+              <div className="rd-mt-auto"><TextLink href="/resources/cam-marketing-strategy" size={12}>Read</TextLink></div>
             </article>
             <article className="rd-news-card rd-news-card--yellow">
-              <div className="rd-row rd-row--between"><Label tone="match" size={12}>Tips</Label><span className="rd-tiny rd-tiny--12">Checklist</span></div>
-              <h3 className="rd-title-22">Five things a CAM firm can fix this quarter without an agency.</h3>
-              <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Review velocity, service-area pages, a proposal that answers the board’s real question. Small, unglamorous, effective.</p>
-              <div className="rd-mt-auto"><TextLink href="/resources/cam-marketing-strategy" size={12}>Get the list</TextLink></div>
+              <div className="rd-row rd-row--between"><Label tone="match" size={12}>Guide</Label><span className="rd-tiny rd-tiny--12">Long read</span></div>
+              <h3 className="rd-title-22">The HOA management software guide.</h3>
+              <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Platforms, pricing tiers, the nine features that decide renewal, and a 14-question RFP you can send to every vendor.</p>
+              <div className="rd-mt-auto"><TextLink href="/resources/hoa-management-software-guide" size={12}>Read the guide</TextLink></div>
             </article>
             </div>
-          </div>
-          <div className="rd-webinar">
-            <div className="rd-row" style={{ gap: 24 }}>
-              <div className="rd-date-tile">
-                <div className="rd-label rd-label--yellow">Oct</div>
-                <div className="rd-date-tile-day">14</div>
-              </div>
-              <div className="rd-stack rd-stack--6">
-                <Label tone="pink" size={12}>Live webinar · 45 min</Label>
-                <div className="rd-title-22 rd-ink">AI search for CAM: how boards find management companies in 2026</div>
-                <div className="rd-small rd-small--14">For owners and BD leads. Recording sent to everyone who registers.</div>
-              </div>
-            </div>
-            {webinar}
           </div>
         </div>
       </section>

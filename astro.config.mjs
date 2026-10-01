@@ -12,7 +12,7 @@ const SITEMAP_ROUTES = new Set([
   '/boardretain', '/boardretain/annual-report-production', '/boardretain/board-education', '/boardretain/newsletter-production',
   '/boardretain/reputation-management', '/boardretain/thought-leadership',
   '/boardsuite', '/careers', '/contact', '/faq', '/get-started', '/growth-modeled', '/partners', '/pricing', '/privacy-policy',
-  '/property-management-seo', '/resources', '/resources/newsletter', '/resources/cam-marketing-strategy', '/resources/courses', '/resources/courses/trust-building',
+  '/property-management-seo', '/resources', '/resources/ai-search-for-cam', '/resources/newsletter', '/resources/cam-marketing-strategy', '/resources/courses', '/resources/courses/trust-building',
   '/resources/hoa-management-software-guide', '/results', '/results/apex-cmg', '/services', '/terms-conditions',
   // Campaign landing pages (indexable today; not part of the redesign)
   '/boardstart', '/cam-growth-portal',
@@ -118,7 +118,7 @@ export default defineConfig({
     '/our-approach/boardmatch.html': '/boardmatch',
     '/our-approach/boardretain.html': '/boardretain',
     '/resource-hub.html': '/resources',
-    '/resource-hub/ai-search-for-cam.html': '/property-management-seo',
+    '/resource-hub/ai-search-for-cam.html': '/resources/ai-search-for-cam',
     '/resource-hub/cam-marketing-strategy.html': '/resources/cam-marketing-strategy',
     '/courses.html': '/resources/courses',
     // Legacy lesson route → new lesson system
@@ -154,7 +154,7 @@ export default defineConfig({
     '/strategic-review-request': '/get-started',
     '/resource-hub': '/resources',
     '/resource-hub/cam-marketing-strategy': '/resources/cam-marketing-strategy',
-    '/resource-hub/ai-search-for-cam': '/property-management-seo',
+    '/resource-hub/ai-search-for-cam': '/resources/ai-search-for-cam',
     '/courses': '/resources/courses',
     '/courses/trust-building': '/resources/courses/trust-building',
     '/courses/trust-building/lessons/intro': '/resources/courses/trust-building#intro',
