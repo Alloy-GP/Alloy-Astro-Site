@@ -807,15 +807,18 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-logo-link img { height: 44px; width: auto; display: block; }
 
 /* ---------- Homepage trust bar (below the hero) ---------- */
-.rd-trustbar { background: #fff; border-top: 1px solid var(--border-subtle); padding: 36px 0; }
-.rd-trustbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: nowrap; }
+.rd-trustbar { background: #fff; border-top: 1px solid var(--border-subtle); padding: 32px 0 36px; }
+.rd-trustbar-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }   /* label above the row — six marks no longer fit beside it */
 .rd-trustbar-label { flex: none; white-space: nowrap; font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-purple); }
-.rd-trustbar-items { display: flex; align-items: center; flex-wrap: nowrap; gap: 14px 40px; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--alloy-purple); white-space: nowrap; }
+.rd-trustbar-items { width: 100%; display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 14px 32px; margin: 0; padding: 0; list-style: none; }
 .rd-trustbar-items li { display: flex; align-items: center; }
-.rd-trustbar-items img { height: 40px; width: auto; display: block; opacity: .55; transition: opacity var(--dur-fast) var(--ease-standard); }   /* mono logos, softened to sit with the gray text */
-.rd-trustbar-items .rd-trustbar-logo--peak { height: 32px; }                 /* two-line lockup, footprint matched to the Think Tank wordmark (client) */
-.rd-trustbar-items .rd-trustbar-logo--thinktank { height: 28px; }                              /* heavy single-line wordmark reads larger than it is */
-.rd-trustbar-items .rd-trustbar-logo--innovia { height: 50px; margin: -12px -14px; }           /* PNG has ~40% transparent padding */
+.rd-trustbar-items img { width: auto; display: block; opacity: .55; transition: opacity var(--dur-fast) var(--ease-standard); }   /* mono logos, softened */
+.rd-trustbar-items .rd-trustbar-logo--peak { height: 31px; }
+.rd-trustbar-items .rd-trustbar-logo--cai { height: 42px; }
+.rd-trustbar-items .rd-trustbar-logo--innovia { height: 45px; }
+.rd-trustbar-items .rd-trustbar-logo--thinktank { height: 28px; }
+.rd-trustbar-items .rd-trustbar-logo--vantaca { height: 35px; }
+.rd-trustbar-items .rd-trustbar-logo--cinc { height: 39px; }
 .rd-trustbar-items li:hover img { opacity: .8; }
 
 /* ---------- Newsletter section (/resources) ---------- */

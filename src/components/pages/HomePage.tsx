@@ -5,12 +5,18 @@ import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
 import { Eyebrow, TextLink, LinkLabel, CtaBar, Label, Btn } from '~/components/rd/atoms';
 
-// Trust-bar partner logos — mono versions, softened via .rd-trustbar-items img (see redesign.css).
-// Full-color originals: '/assets/innovia-coop.png', '/assets/peak-executive-academy-color.png'; white Think Tank: '/assets/think-tank-hoa-white.svg'.
-// Client 2026-10-02: Peak Executive Academy replaces "BBB Accredited", Think Tank HOA replaces "35+ years CAM ops".
-const INNOVIA_LOGO = '/assets/innovia-coop-black.png';
-const PEAK_LOGO = '/assets/peak-executive-academy.png';
-const THINKTANK_LOGO = '/assets/think-tank-hoa.svg';
+// Trust-bar partner logos — mono (black-on-transparent) versions in public/assets/trust/, softened via .rd-trustbar-items img.
+// Color/white originals sit beside them (*-color.png, think-tank-white.svg). Client 2026-10-02: Peak replaces "BBB Accredited",
+// Think Tank HOA replaces "35+ years CAM ops", the CAI member logo replaces the "CAI Member" text, Innovia gets its better logo,
+// Vantaca + CINC added. Footprints are matched (Think Tank at 28px tall is the reference) via .rd-trustbar-logo--* heights.
+const TRUST_LOGOS = [
+  { key: 'peak', src: '/assets/trust/peak.png', alt: 'Peak Executive Academy', w: 747, h: 169 },
+  { key: 'cai', src: '/assets/trust/cai.png', alt: 'Member of Community Associations Institute', w: 469, h: 196 },
+  { key: 'innovia', src: '/assets/trust/innovia.png', alt: 'Innovia Co-op', w: 352, h: 169 },
+  { key: 'thinktank', src: '/assets/trust/think-tank.svg', alt: 'Think Tank HOA', w: 712, h: 134 },
+  { key: 'vantaca', src: '/assets/trust/vantaca.png', alt: 'Vantaca', w: 1200, h: 347 },
+  { key: 'cinc', src: '/assets/trust/cinc.png', alt: 'CINC Systems', w: 1200, h: 448 },
+] as const;
 
 const ENGINE_BLURB: Record<string, string> = {
   reach: 'Boards find you before they start shopping. Local SEO, AI search, content, ads.',
@@ -27,10 +33,9 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
         <div className="rd-wrap rd-trustbar-inner">
           <div className="rd-trustbar-label">Trusted by CAM operators across</div>
           <ul className="rd-trustbar-items">
-            <li><img className="rd-trustbar-logo rd-trustbar-logo--peak" src={PEAK_LOGO} alt="Peak Executive Academy" width={747} height={169} loading="lazy" /></li>
-            <li>CAI Member</li>
-            <li><img className="rd-trustbar-logo rd-trustbar-logo--innovia" src={INNOVIA_LOGO} alt="Innovia Co-op" width={1950} height={950} loading="lazy" /></li>
-            <li><img className="rd-trustbar-logo rd-trustbar-logo--thinktank" src={THINKTANK_LOGO} alt="Think Tank HOA" width={712} height={134} loading="lazy" /></li>
+            {TRUST_LOGOS.map((l) => (
+              <li key={l.key}><img className={`rd-trustbar-logo rd-trustbar-logo--${l.key}`} src={l.src} alt={l.alt} width={l.w} height={l.h} loading="lazy" /></li>
+            ))}
           </ul>
         </div>
       </section>
