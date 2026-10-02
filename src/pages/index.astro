@@ -5,6 +5,7 @@ import HomePage from '~/components/pages/HomePage';
 import HeroMap from '~/components/modules/HeroMap';
 import MetroCheck from '~/components/modules/MetroCheck';
 import NetworkLeadsChart from '~/components/modules/NetworkLeadsChart';
+import NewsletterSignup from '~/components/modules/NewsletterSignup';
 // Title + description changed DELIBERATELY (client, 2026-10-01) to target "marketing for HOA management companies";
 // previously "Alloy — One growth partner. Three engines. Exclusively CAM." (see CLAUDE.md › SEO rules).
 ---
@@ -21,5 +22,6 @@ import NetworkLeadsChart from '~/components/modules/NetworkLeadsChart';
   <HeroStatic><HeroMap><MetroCheck client:load /></HeroMap></HeroStatic>
   <HomePage>
     <NetworkLeadsChart slot="chart" client:visible />
+    <NewsletterSignup slot="newsletter" source="home-page" client:idle />
   </HomePage>
 </BaseLayout>

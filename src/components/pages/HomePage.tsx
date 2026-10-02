@@ -1,6 +1,6 @@
 // src/components/pages/HomePage.tsx — everything on "/" below the hero.
 // Static (no client directive). Copy from docs/redesign-handoff/site/index.dc.html.
-// The network-leads chart island arrives as the named slot `chart` from index.astro.
+// The network-leads chart island arrives as the named slot `chart` from index.astro; the newsletter form island as `newsletter`.
 import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
 import { Eyebrow, TextLink, LinkLabel, CtaBar, Label, Btn } from '~/components/rd/atoms';
@@ -25,7 +25,7 @@ const ENGINE_BLURB: Record<string, string> = {
 };
 
 
-export default function HomePage({ chart }: { chart?: ReactNode }) {
+export default function HomePage({ chart, newsletter }: { chart?: ReactNode; newsletter?: ReactNode }) {
   return (
     <div className="rd-page">
       {/* Trust bar */}
@@ -139,6 +139,23 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
               <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Platforms, pricing tiers, the nine features that decide renewal, and a 14-question RFP you can send to every vendor.</p>
               <div className="rd-mt-auto"><LinkLabel>Read the guide</LinkLabel></div>
             </a>
+            </div>
+          </div>
+
+          {/* Newsletter — The Alloy Briefing (client, 2026-10-02). Same form island as /resources (`newsletter` slot, source "home-page"). */}
+          <div className="rd-home-nl rd-bg-purple" data-reveal data-rise>
+            <div className="rd-stack rd-stack--14">
+              <Eyebrow tone="yellow">The Alloy Briefing</Eyebrow>
+              <h3 className="rd-h3 rd-h3--lg" style={{ color: '#fff' }}>Our newsletter for CAM operators.</h3>
+              <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Attract, close, keep — in your inbox. What’s changing in how boards find, choose and keep a management company, and what to do about it.</p>
+              <div><TextLink href="/resources/newsletter" tone="white" size={12}>Browse past issues</TextLink></div>
+            </div>
+            <div className="rd-card rd-card--pad-lg rd-nl-card">
+              <div className="rd-stack rd-stack--6" style={{ marginBottom: 20 }}>
+                <Label tone="pink" size={12}>Subscribe</Label>
+                <div className="rd-title-22 rd-ink" style={{ fontSize: 24 }}>Get the next issue.</div>
+              </div>
+              {newsletter}
             </div>
           </div>
         </div>

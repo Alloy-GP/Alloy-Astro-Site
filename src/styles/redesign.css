@@ -830,6 +830,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-nl-points .rd-small { color: #fff; }
 .rd-nl-point-num { flex: none; font-family: var(--font-display); font-weight: 800; font-size: 18px; line-height: 1.2; color: var(--alloy-yellow); min-width: 28px; }
 .rd-nl-card { border-color: transparent; box-shadow: var(--shadow-lg); }
+.rd-home-nl { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; border-radius: 10px; padding: 48px 56px; }   /* homepage Alloy Briefing band under the news cards */
 .rd-nl-card:hover { transform: none; }
 .rd-nl-success { display: flex; gap: 14px; align-items: flex-start; padding: 8px 0; }
 .rd-nl-success-icon { flex: none; width: 34px; height: 34px; border-radius: 50%; background: var(--success); display: inline-flex; align-items: center; justify-content: center; }

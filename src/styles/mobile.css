@@ -205,6 +205,7 @@
   /* source-order swaps */
   .rd-network .rd-nc { order: 2; }                      /* homepage purple band: copy first, chart second */
   .rd-hm { grid-template-columns: 1fr; gap: 28px; }
+  .rd-home-nl { grid-template-columns: 1fr; gap: 32px; padding: 36px; }
   .rd-hm-left { gap: 24px; }
   .rd-hm-map { min-height: 520px; height: 520px; }
   .rd-hm-referral { right: 16px; }
@@ -396,6 +397,7 @@
   .rd-threeup--engines .rd-numeral { grid-row: 1 / 4; font-size: 32px; line-height: 1; }
   .rd-threeup--engines .rd-small { font-size: 14px; }
   .rd-news-grid { display: flex; flex-direction: column; gap: 16px; }
+  .rd-home-nl { padding: 28px 22px; gap: 24px; }
   .rd-news-rail > * { flex: 0 0 280px; scroll-snap-align: start; }
   .rd-news-card, .rd-news-card--lead { padding: 22px 20px 20px 22px; }
   .rd-news-img { width: calc(100% + 42px); margin: -22px -20px 4px -22px; aspect-ratio: 16 / 9; }

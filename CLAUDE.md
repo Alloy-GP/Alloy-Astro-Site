@@ -75,7 +75,7 @@ src/
 │   │   ├── HeroMap.tsx              # Homepage hero 7a v2 (STATIC): copy + metro card (MetroCheck slot + guarantee row) | cream street map (`.rd-hm-map-layer` zooms/re-centres via lib/hero-map.ts) with Google / ChatGPT / referral callouts pointing at the #1 pin; guarantee-terms <dialog>; exports Glyph + GuaranteeBadge
 │   │   ├── MetroCheck.tsx           # Metro card header band + one fixed 58px row (client:load island inside HeroMap): Idle field → Checking (spinner, pill CHECKING) → Result Open (Get my report → /contact?metro&intent=report) / Claimed (Join waitlist) + reset; unknown input = Open; dispatches `alloy:metro`
 │   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
-│   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe
+│   │   ├── NewsletterSignup.tsx     # Alloy Briefing form (client:idle) → /api/subscribe; on /resources (source resources-page) and the homepage (`newsletter` slot, source home-page)
 │   │   ├── TrustBuildingQuiz.tsx    # Knowledge check at the end of the trust-building guide (client:visible)
 │   │   ├── ROICalculator.tsx        # Growth Modeled tool (unchanged)
 │   │   └── GrowthPortal / BoardStart pieces live inside their landing-page components
@@ -100,7 +100,7 @@ src/
 │   ├── AccentBar.tsx, AnimatedNumber.tsx, Button.tsx, EngineLoop.tsx, Eyebrow.tsx, Icon.tsx, PillarMark.tsx, Tag.tsx  # legacy atoms (Icon still used)
 │
 └── pages/                           # Astro routes — thin shells
-    ├── index.astro                  → HeroStatic › HeroMap › MetroCheck island; HomePage + NetworkLeadsChart slot
+    ├── index.astro                  → HeroStatic › HeroMap › MetroCheck island; HomePage + NetworkLeadsChart (`chart`) + NewsletterSignup (`newsletter`) slots
     ├── boardsuite.astro, services.astro, pricing.astro, results.astro
     ├── about.astro, about/testimonials.astro, partners.astro, careers.astro, faq.astro, contact.astro, growth-modeled.astro
     ├── privacy-policy.astro, terms-conditions.astro, 404.astro
@@ -262,6 +262,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Homepage newsletter band** (client): `.rd-home-nl` purple band under the "What's changing" news cards — Alloy Briefing copy + "Browse past issues" and the same `NewsletterSignup` island as /resources (slot `newsletter`, source `home-page`). |
 | 2026-10-02 | **"What you get in your metro"** intro names the three engines of growth (BoardReach attracts, BoardMatch closes, BoardRetain keeps) so the "which engine is leaking?" CTA reads in context (client). |
 | 2026-10-02 | **AI-search article featured image** (client-supplied illustration → `public/assets/resources/ai-search-for-cam{,-card,-og}.jpg`, 1600 / 800 / 1200×630): `.rd-article-cover` between the article hero and body, `og:image` + Article schema `image` on the route, and the homepage lead news card shows it (`.rd-news-img`, bleeds to the card edge). Ledger "Qualified leads that closed" → **45% avg** (client; Results, case study, Groundwork and RFP pages still state the 40–60% target range). |
 | 2026-10-02 | **Homepage ledger section** (client: "The partner ledger" was weak): H2 → "Become the authority in your market. Growth follows." with a body that argues own the results/AI answers/referrals → stand out → boards call; the ledger stats are the proof (labels clarified: "Inbound board leads vs. the year before", "Qualified leads that closed"; chart caption "Inbound board leads, indexed"). Numbers unchanged (illustrative, client decision §29). |
