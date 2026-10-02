@@ -124,6 +124,8 @@ const showStickyCta = !hideHeader && !hideFooter && !/^\/contact\/?$/.test(Astro
 const vercelEnv = import.meta.env.VERCEL_ENV ?? process.env.VERCEL_ENV;
 const isPreviewDeploy = !!vercelEnv && vercelEnv !== 'production';
 const robotsContent = isPreviewDeploy ? 'noindex,nofollow' : robots;
+// WebSite entity (site name + alternate name for Google's site-name display; emitted with the org on every page)
+const websiteLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, alternateName: 'Alloy', url: SITE.url + '/', inLanguage: 'en-US', publisher: { '@type': SITE.org.type, name: SITE.name, url: SITE.url } };
 
 // Resolve OG image to absolute URL — use page override if provided, else default
 const resolvedOgImage = new URL(
@@ -182,7 +184,7 @@ const orgLd = {
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content={SITE.locale} />
     <meta property="og:image" content={resolvedOgImage} />
-    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:type" content={/\.jpe?g$/i.test(resolvedOgImage) ? 'image/jpeg' : /\.webp$/i.test(resolvedOgImage) ? 'image/webp' : 'image/png'} />
     <meta property="og:image:width" content={SITE.ogImageWidth} />
     <meta property="og:image:height" content={SITE.ogImageHeight} />
     <meta property="og:image:alt" content={`${SITE.name} — The growth system for CAM companies`} />
@@ -216,7 +218,7 @@ const orgLd = {
     <link rel="dns-prefetch" href="//s.ksrndkehqnwntyxlhgto.com" />
 
     <!-- JSON-LD: Organization (every page) -->
-    <script type="application/ld+json" set:html={JSON.stringify(orgLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify([orgLd, websiteLd])} />
     <!-- JSON-LD: Page-specific schema (optional) -->
     {pageSchema && (
       <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />

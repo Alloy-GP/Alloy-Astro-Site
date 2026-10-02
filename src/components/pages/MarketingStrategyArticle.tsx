@@ -57,7 +57,7 @@ export default function MarketingStrategyArticle() {
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
             <p className="rd-intro" style={{ lineHeight: 1.65 }}>How community association management companies should think about growth before they buy a single channel.</p>
-            <div className="rd-tiny rd-w-500">{TOC.length} sections · 12 min read</div>
+            <div className="rd-tiny rd-w-500">By Skyler Nelson, Managing Partner · Published <time dateTime="2026-05-04">May 4, 2026</time> · Updated <time dateTime="2026-09-23">Sep 23, 2026</time> · {TOC.length} sections · 12 min read</div>
           </div>
         </div>
       </section>

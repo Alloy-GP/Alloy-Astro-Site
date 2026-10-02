@@ -48,6 +48,10 @@ export default defineConfig({
       // keeps continuity with the old static sitemap for any tools that read them.
       serialize: (item) => {
         const url = item.url.replace('https://alloygp.co', '');
+        // lastmod only where we know a real content date (articles, guide, course, and pages changed at launch) —
+        // a build timestamp on every URL would be noise Google learns to ignore.
+        const LASTMOD = { '': '2026-10-02', '/': '2026-10-02', '/pricing': '2026-10-01', '/results': '2026-10-02', '/results/apex-cmg': '2026-10-02', '/about/testimonials': '2026-10-01', '/resources/ai-search-for-cam': '2026-10-02', '/resources/cam-marketing-strategy': '2026-09-23', '/resources/hoa-management-software-guide': '2026-09-23', '/resources/courses/trust-building': '2026-09-23', '/faq': '2026-10-02', '/contact': '2026-10-02' };
+        if (LASTMOD[url]) item.lastmod = LASTMOD[url];
         if (url === '' || url === '/') {
           item.changefreq = 'weekly';
           item.priority = 1.0;

@@ -177,6 +177,7 @@ export default function PricingPage() {
             <div><TextLink href="/contact" size={12}>See one-off engagements</TextLink></div>
           </div>
           <FaqList items={PRICING_FAQ} group="pricing" />
+          <div className="rd-row rd-row--wrap" style={{ gap: 18 }}><TextLink href="/faq" size={12}>More questions? Read the full FAQ</TextLink><TextLink href="/growth-modeled" size={12}>Model your growth</TextLink></div>
         </div>
       </section>
 
