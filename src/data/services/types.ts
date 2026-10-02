@@ -12,7 +12,7 @@ export interface StatItem {
   suffix?: string;
   /** Rendered before the number (e.g. "+", "$"). */
   prefix?: string;
-  /** Exact final text for the number when locale formatting isn't right (e.g. "40–60"). */
+  /** Exact final text for the number when locale formatting isn't right (e.g. "1 in 2"). */
   display?: string;
   /** Bold 16px line under the number (optional — some bands only carry a note). */
   label?: string;

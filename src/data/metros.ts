@@ -1,25 +1,36 @@
 // src/data/metros.ts
-// Partner-metro data for the homepage availability check (/api/metro).
-// CLAIMED = partner office locations (one CAM firm per metro); anything within LOCK_RADIUS_MI of one
-// is "claimed". The client decided 2026-10-01: 15 miles around each partner office address — the
-// city list below is the pre-redesign placeholder until the client's office-address list arrives
-// (launch checklist #5). OPEN = larger metros, now only used as a last-resort name match in /api/metro.
+// Partner-office data for the homepage availability check (/api/metro).
+// CLAIMED = every partner office address the client supplied on 2026-10-02 (geocoded to the street where the
+// geocoder resolved it, otherwise the ZIP centroid); anything within LOCK_RADIUS_MI of one is "claimed".
+// Keep this list in step with the client roster — add a row per new office. Firm names stay in comments only;
+// /api/metro returns the city label (`near`), never the firm.
+// OPEN = larger metros, only used as a last-resort name match in /api/metro.
 
 export interface Metro { label: string; lat: number; lng: number }
 
 export const LOCK_RADIUS_MI = 15; // client decision 2026-10-01 (was 30)
 
 export const CLAIMED_METROS: Metro[] = [
-  { label: 'Denham Springs, LA', lat: 30.4863, lng: -90.9559 },
-  { label: 'Branford, CT', lat: 41.2793, lng: -72.8151 },
-  { label: 'Orlando, FL', lat: 28.5383, lng: -81.3792 },
-  { label: 'Manchester, NH', lat: 42.9956, lng: -71.4548 },
-  { label: 'Venice, FL', lat: 27.0998, lng: -82.4543 },
-  { label: 'Fredericksburg, VA', lat: 38.3032, lng: -77.4605 },
-  { label: 'Houston, TX', lat: 29.7604, lng: -95.3698 },
-  { label: 'Austin, TX', lat: 30.2672, lng: -97.7431 },
-  { label: 'San Antonio, TX', lat: 29.4241, lng: -98.4936 },
-  { label: 'Owings Mills, MD', lat: 39.4193, lng: -76.7802 },
+  { label: 'Ocean City, MD', lat: 38.3811, lng: -75.1138 },   // Tidewater Property Management — 8101 Coastal Hwy Suite 5, Ocean City, MD 21842
+  { label: 'Owings Mills, MD', lat: 39.4360, lng: -76.7735 },   // Tidewater Property Management — 3600 Crondall Lane, Owings Mills, MD 21117
+  { label: 'Lewes, DE', lat: 38.7381, lng: -75.1747 },   // Tidewater Property Management — 20375 John J Williams Highway, Lewes, DE 19958
+  { label: 'San Antonio, TX', lat: 29.6168, lng: -98.4874 },   // RISE Association Management Group — 401 E Sonterra Blvd, San Antonio, TX 78258
+  { label: 'League City, TX', lat: 29.5428, lng: -95.0652 },   // RISE Association Management Group — 2600 South Shore Blvd, League City, TX 77573
+  { label: 'Houston, TX', lat: 29.7373, lng: -95.4245 },   // RISE Association Management Group — 3131 Eastside St, Houston, TX 77098
+  { label: 'Austin, TX', lat: 30.2668, lng: -97.7502 },   // RISE Association Management Group — 500 W 2nd St, Austin, TX 78701
+  { label: 'The Woodlands, TX', lat: 30.1585, lng: -95.4507 },   // RISE Association Management Group — 2001 Timberloch Place, The Woodlands, TX 77380
+  { label: 'Fredericksburg, VA', lat: 38.2481, lng: -77.4681 },   // Landmarc Real Estate — 3715 Latimers Knoll Court, Fredericksburg, VA 22408
+  { label: 'Venice, FL', lat: 27.0606, lng: -82.3520 },   // Keys-Caldwell — 1162 Indian Hills Boulevard, Venice, FL 34293
+  { label: 'Carencro, LA', lat: 30.3027, lng: -92.0280 },   // CMGT — 3419 NW Evangeline Thruway, Carencro, LA 70520
+  { label: 'Baton Rouge, LA', lat: 30.4494, lng: -91.1870 },   // CMGT Rentals — Baton Rouge, LA
+  { label: 'Shreveport, LA', lat: 32.5092, lng: -93.7503 },   // CMGT — 717 Crockett St, Shreveport, LA 71101
+  { label: 'Biloxi, MS', lat: 30.3949, lng: -88.8880 },   // CMGT — 770 Water St, Biloxi, MS 39530
+  { label: 'Denham Springs, LA', lat: 30.4603, lng: -90.9554 },   // CMGT — 140 Aspen Square, Denham Springs, LA 70726
+  { label: 'Daphne, AL', lat: 30.6051, lng: -87.8725 },   // CMGT — 26241 Equity Dr, Daphne, AL 36526
+  { label: 'Richardson, TX', lat: 32.9814, lng: -96.7113 },   // Insight Association Management — 2400 Lakeside Blvd, Richardson, TX 75082
+  { label: 'Manchester, NH', lat: 42.9978, lng: -71.4687 },   // Innovia Co-op — 670 North Commercial Street, Manchester, NH 03101
+  { label: 'Orlando, FL', lat: 28.5533, lng: -81.3702 },   // Edison Association Management — 619 E Colonial Drive, Orlando, FL 32803
+  { label: 'New Haven, CT', lat: 41.3154, lng: -72.9049 },   // CPE Property Management Solutions — 470 James Street, New Haven, CT 06513
 ];
 
 export const OPEN_METROS: Metro[] = [

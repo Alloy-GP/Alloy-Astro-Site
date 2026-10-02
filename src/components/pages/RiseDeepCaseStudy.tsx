@@ -91,7 +91,7 @@ const STATS: Array<{ value: number; suffix: string; note: string; rule: string; 
   { value: 535, suffix: '%', note: 'lead intake vs. baseline', rule: 'rd-proof-item--pink' },
   { value: 3, suffix: '×', note: 'proposal requests', rule: 'rd-proof-item--yellow' },
   { value: 1580, suffix: '%', note: 'YoY opportunities', rule: 'rd-proof-item--purple', ruleColor: 'var(--alloy-blue)' },
-  { value: 40, suffix: '–60%', note: 'qualified to closed', rule: 'rd-proof-item--green' },
+  { value: 45, suffix: '% avg', note: 'qualified to closed', rule: 'rd-proof-item--green' },
 ];
 
 // Readable-on-white ink for the phase accent colors. #4a86ad = the prototype's

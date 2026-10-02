@@ -9,7 +9,7 @@ const HEADLINE_STATS: Array<{ value: number; prefix?: string; suffix: string; no
   { value: 535, suffix: '%', note: 'Lead intake increase · 3-year partner', rule: 'pink' },
   { value: 3, suffix: '×', note: 'Proposal request growth · 3-year partner', rule: 'yellow' },
   { value: 405, prefix: '+', suffix: '%', note: 'Monthly inquiries · 7-month partner', rule: 'blue' },
-  { value: 40, suffix: '–60%', note: 'Groundwork qualified-to-close', rule: 'green' },
+  { value: 45, suffix: '% avg', note: 'Groundwork qualified-to-close', rule: 'green' },
 ];
 
 // No rd-proof-item--blue variant exists yet; mirror the other 4px variants inline.

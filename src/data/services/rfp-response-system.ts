@@ -13,7 +13,7 @@ const data: ServicePageData = {
   stats: [
     { value: 10, suffix: '-day', note: 'Turnaround from kickoff to submission-ready' },
     { value: 1, suffix: 'pursuit', note: 'Full attention on one RFP, not a template' },
-    { value: 40, display: '40–60', suffix: '%', note: 'Qualified-to-closed on pursuits we support end to end' },
+    { value: 45, suffix: '% avg', note: 'Qualified-to-closed on pursuits we support end to end' },
   ],
   sections: [
     {

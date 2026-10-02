@@ -50,7 +50,7 @@ src/
 │   │   ├── property-management-seo.ts, email-marketing.ts, hoa-website-design.ts, … (15 services)
 │   ├── hubs/                        # ONE file per engine hub (HubPageData): boardreach.ts, boardmatch.ts, boardretain.ts (+ types.ts)
 │   ├── courseTrustBuilding.ts       # Lesson + quiz content for /resources/courses/trust-building
-│   └── metros.ts                    # Partner office metros (claimed, 15-mi radius — office list owed by client) + open metros, claimStatus() — used by /api/metro
+│   └── metros.ts                    # Partner offices (20 addresses from the client, 2026-10-02; claimed = within 15 mi) + open metros, claimStatus() — used by /api/metro
 │
 ├── layouts/
 │   └── BaseLayout.astro             # <html>, <head> (SEO, fonts, analytics), SiteHeader (island), <main>, SiteFooter (static), motion <script>
@@ -262,6 +262,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Client roster into the metro checker**: `CLAIMED_METROS` is now the 20 partner office addresses the client supplied (geocoded; firm names in comments only) — placeholder cities gone. **45% avg close rate everywhere** (Results stat, case study, Groundwork + RFP service stats and prose, BoardMatch FAQ, Groundwork meta description — deliberate) replacing the 40–60% range. Guarantee wording approved by the client; BBB mentions stay. ChatGPT logo requested (not in any handoff zip). |
 | 2026-10-02 | **Map "Emerging PE firm" signal** (`docs/redesign-handoff-hero-7a/ADDENDUM-pe-signal.md`): yellow halo + slower 2.4s pulse ring + purple core with a trending-up glyph and a yellow tag at left max(12%, 90px) / top 46% of the map (`.rd-hm-pe*`, z 2, static across checks, reduced-motion stops the ring). Phones show the marker only. Label wording is a placeholder per the addendum. |
 | 2026-10-02 | **Homepage newsletter band** (client): `.rd-home-nl` purple band under the "What's changing" news cards — Alloy Briefing copy + "Browse past issues" and the same `NewsletterSignup` island as /resources (slot `newsletter`, source `home-page`). |
 | 2026-10-02 | **"What you get in your metro"** intro names the three engines of growth (BoardReach attracts, BoardMatch closes, BoardRetain keeps) so the "which engine is leaking?" CTA reads in context (client). |

@@ -12,7 +12,7 @@ const data: ServicePageData = {
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 40, suffix: 'conversations / mo', note: 'Live conversations with boards and managers in your metro' },
-    { value: 40, display: '40–60', suffix: '%', note: 'Qualified-to-closed on meetings Groundwork books' },
+    { value: 45, suffix: '% avg', note: 'Qualified-to-closed on meetings Groundwork books' },
     { value: 1, suffix: 'firm per metro', note: 'Your Groundwork lead never prospects for a competitor' },
   ],
   sections: [
@@ -33,7 +33,7 @@ const data: ServicePageData = {
       h: 'Qualification that respects your time.',
       p: [
         'Doors, budget, contract date, decision process, and why they’re looking. If a board doesn’t clear the bar, you never hear about it. If it does, you get a brief before the meeting and a debrief after.',
-        'The bar is set with you and written down before outreach starts. Holding to it is what the 40–60% qualified-to-closed target depends on. Loosen it and you get more meetings and a worse close rate.',
+        'The bar is set with you and written down before outreach starts. Holding to it is what the 45% average qualified-to-closed rate depends on. Loosen it and you get more meetings and a worse close rate.',
       ],
     },
     {
