@@ -209,3 +209,9 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Decision:** add FAQs to the three engine hubs. Five questions each in `data/hubs/*.ts` (`faq`), rendered by `HubPage` as the standard accordion with FAQPage schema from the routes. Copy uses only facts already published elsewhere on the site (timelines from the FAQ page, proof stats from the hub bands, exclusivity + guarantee wording as decided) — no new numbers.
 
+## 37. Guarantee = the 1× floor (client, 2026-10-02)
+
+**Decision:** replace the handoff's "pays for itself / 24-month refund" with the client's plan language — **The floor · 1×: Your growth covers our fees. Guaranteed. We're confident enough to back it with our money, not just yours.** Applied to the hero guarantee card, the terms modal (condition unchanged: the firm runs the programs Alloy puts in place; measurement, timeframe and make-good live in the agreement) and both FAQ answers. The 2× plan / 6×+ experience tiles from the same graphic are not on the site.
+
+**Mobile menu:** the panel didn't open on iPhones because the header's `backdrop-filter` makes it the containing block for fixed descendants in Safari (panel height collapsed). The panel is now portaled to `<body>`.
+

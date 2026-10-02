@@ -6,7 +6,10 @@
 // sits under the header and holds a two-level "The System" accordion (System + BoardReach open by
 // default), the other top-level rows, About · Contact · FAQ, and a pinned full-width CTA.
 // Component styles live in chrome.css; breakpoints in mobile.css.
+// The panel is portaled to <body>: the header's backdrop-filter makes it a containing block for fixed
+// descendants in Safari, which collapsed the panel to zero height on iPhones (menu "didn't open").
 import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { PRIMARY, CTA, LOGIN, ENGINES, BOARDSUITE_TILE, DROPDOWN_FOOTER, MOBILE_SECONDARY, MOBILE_FOOT_CAPTION, getEngine, type EngineKey } from '~/lib/nav';
 import SiteSearch from './SiteSearch';
 
@@ -238,7 +241,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
         </div>
       )}
 
-      {(mobileOpen || mobileClosing) && (
+      {(mobileOpen || mobileClosing) && createPortal(
         <nav
           id="site-mobile-nav"
           className={`site-mobile-nav${mobileOpen ? ' is-open' : ''}${mobileClosing ? ' is-closing' : ''}`}
@@ -317,7 +320,8 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
             <a href={CTA.href} className="rd-btn rd-btn--block">{CTA.label}</a>
             <div className="site-mobile-foot-caption">{MOBILE_FOOT_CAPTION}</div>
           </div>
-        </nav>
+        </nav>,
+        document.body,
       )}
     </header>
   );

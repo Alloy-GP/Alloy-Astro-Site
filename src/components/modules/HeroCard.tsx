@@ -104,15 +104,16 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
       {/* Availability check (island) + guarantee */}
       <div className="rd-hc-bottom">
         {children}
-        {/* The whole guarantee card opens the terms modal (client, 2026-10-01); /faq#guarantee is the no-JS fallback */}
+        {/* The whole guarantee card opens the terms modal (client, 2026-10-01); /faq#guarantee is the no-JS fallback.
+            Copy = "The floor · 1×" from the client's three-year-plan graphic (2026-10-02). */}
         <a href="/faq#guarantee" className="rd-hc-guarantee" data-dialog="guarantee-terms" aria-haspopup="dialog">
           <span className="rd-hc-guarantee-side">
-            <Glyph name="check" size={26} stroke={3} />
-            <span className="rd-hc-guarantee-mo">24 MO</span>
+            <span className="rd-hc-guarantee-mo">The floor</span>
+            <span className="rd-hc-guarantee-x">1×</span>
           </span>
           <span className="rd-hc-guarantee-body">
-            <span className="rd-hc-guarantee-title">Pays for itself. Guaranteed.</span>
-            <span className="rd-hc-guarantee-text">If new business doesn’t cover our fee within 24 months, we refund the difference.</span>
+            <span className="rd-hc-guarantee-title">Your growth covers our fees. Guaranteed.</span>
+            <span className="rd-hc-guarantee-text">We’re confident enough to back it with our money, not just yours.</span>
             <span className="rd-hc-guarantee-link">See guarantee terms</span>
           </span>
         </a>
@@ -124,13 +125,13 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
           <button type="button" className="rd-dialog-close" data-dialog-close aria-label="Close">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18" /><line x1="18" y1="6" x2="6" y2="18" /></svg>
           </button>
-          <div className="rd-dialog-eyebrow">The guarantee</div>
-          <h3 id="guarantee-terms-title" className="rd-dialog-title">Pays for itself. Guaranteed.</h3>
-          <p className="rd-dialog-lead">If the new business Alloy brings in doesn’t cover our fee within 24 months of starting, we refund the difference.</p>
+          <div className="rd-dialog-eyebrow">The floor · 1×</div>
+          <h3 id="guarantee-terms-title" className="rd-dialog-title">Your growth covers our fees. Guaranteed.</h3>
+          <p className="rd-dialog-lead">1× is the floor: the new business Alloy brings in covers what you pay us. We’re confident enough to back it with our money, not just yours.</p>
           <div className="rd-dialog-terms">
             <div className="rd-dialog-terms-head">The one condition</div>
             <p>The guarantee holds when your firm runs the programs we put in place — the review requests, proposals, follow-ups, and board touchpoints that make the system work. We build it; you run it with us. That’s how we can make the promise.</p>
-            <p>How new business and the fee are measured is spelled out in your engagement agreement before you sign, so there’s nothing to interpret later.</p>
+            <p>How growth is measured, the timeframe, and what happens if we miss are spelled out in your engagement agreement before you sign, so there’s nothing to interpret later.</p>
           </div>
           <div className="rd-dialog-actions">
             <a href="/contact" className="rd-hc-btn">Claim your market</a>

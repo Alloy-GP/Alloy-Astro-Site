@@ -44,14 +44,14 @@ export const FAQ_GROUPS: Group[] = [
     },
   ] },
   { label: 'Pricing', items: [
-    { id: 'guarantee', q: 'What does “pays for itself, guaranteed” mean?', a: 'If the new business Alloy brings in doesn’t cover our fee within 24 months of starting, we refund the difference. The one condition: your firm runs the programs we put in place — the review requests, proposals, follow-ups, and board touchpoints that make the system work. How new business and the fee are measured is spelled out in your engagement agreement before you sign.' },
+    { id: 'guarantee', q: 'What does “your growth covers our fees, guaranteed” mean?', a: '1× is the floor: the new business Alloy brings in covers what you pay us, and we back that with our money, not just yours. The one condition: your firm runs the programs we put in place — the review requests, proposals, follow-ups, and board touchpoints that make the system work. How growth is measured, the timeframe, and what happens if we miss are spelled out in your engagement agreement before you sign.' },
     { q: 'What does an engagement cost?', a: 'Pricing is custom and engagement-dependent across all three BoardSuite tiers (Steady, Accelerate, Ascend). We scope to your portfolio, market, and execution pace. The diagnostic call gets you a real number.' },
     { q: "What's the minimum commitment?", a: "12 months. Engineered growth doesn't happen in 90 days. The first 90 days are diagnostic + foundation; results compound from month 6 onward." },
     { q: 'What does “all-in” mean?', a: 'The retainer covers every listed deliverable. No per-project line items, no surprise scope fees.' },
     { q: 'Can we buy one service?', a: 'Yes — most services are available standalone, and we take project work when there’s a strategic event in motion.' },
   ] },
   { label: 'Results', items: [
-    { q: 'Do you guarantee results?', a: 'We don’t guarantee rankings, lead counts, or a close rate — nobody honest can. We do guarantee the economics: if the new business Alloy brings in doesn’t cover our fee within 24 months, we refund the difference, provided your firm runs the programs we put in place. Everything else we publish is a disclosed, contracted client outcome measured against a pre-engagement baseline, with the timeframe attached.' },
+    { q: 'Do you guarantee results?', a: 'We don’t guarantee rankings, lead counts, or a close rate — nobody honest can. We do guarantee the floor: the new business Alloy brings in covers our fees, backed with our money, provided your firm runs the programs we put in place. Everything else we publish is a disclosed, contracted client outcome measured against a pre-engagement baseline, with the timeframe attached.' },
     { q: 'How fast will we see something?', a: 'Map pack in about ninety days; organic and AI search over six to twelve months; proposal and sales changes show up in the next pursuit.' },
   ] },
 ];
