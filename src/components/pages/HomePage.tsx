@@ -5,9 +5,12 @@ import type { ReactNode } from 'react';
 import { ENGINES } from '~/lib/nav';
 import { Eyebrow, TextLink, LinkLabel, CtaBar, Label, Btn } from '~/components/rd/atoms';
 
-// Trust-bar partner logo — mono version, softened via .rd-trustbar-items img (see redesign.css).
-// '/assets/innovia-coop.png' is the full-color alternative.
+// Trust-bar partner logos — mono versions, softened via .rd-trustbar-items img (see redesign.css).
+// Full-color originals: '/assets/innovia-coop.png', '/assets/peak-executive-academy-color.png'; white Think Tank: '/assets/think-tank-hoa-white.svg'.
+// Client 2026-10-02: Peak Executive Academy replaces "BBB Accredited", Think Tank HOA replaces "35+ years CAM ops".
 const INNOVIA_LOGO = '/assets/innovia-coop-black.png';
+const PEAK_LOGO = '/assets/peak-executive-academy.png';
+const THINKTANK_LOGO = '/assets/think-tank-hoa.svg';
 
 const ENGINE_BLURB: Record<string, string> = {
   reach: 'Boards find you before they start shopping. Local SEO, AI search, content, ads.',
@@ -24,10 +27,10 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
         <div className="rd-wrap rd-trustbar-inner">
           <div className="rd-trustbar-label">Trusted by CAM operators across</div>
           <ul className="rd-trustbar-items">
-            <li>BBB Accredited</li>
+            <li><img className="rd-trustbar-logo rd-trustbar-logo--peak" src={PEAK_LOGO} alt="Peak Executive Academy" width={747} height={169} loading="lazy" /></li>
             <li>CAI Member</li>
-            <li><img src={INNOVIA_LOGO} alt="Innovia Co-op" width={1950} height={950} loading="lazy" /></li>
-            <li>35+ years CAM ops</li>
+            <li><img className="rd-trustbar-logo rd-trustbar-logo--innovia" src={INNOVIA_LOGO} alt="Innovia Co-op" width={1950} height={950} loading="lazy" /></li>
+            <li><img className="rd-trustbar-logo rd-trustbar-logo--thinktank" src={THINKTANK_LOGO} alt="Think Tank HOA" width={712} height={134} loading="lazy" /></li>
           </ul>
         </div>
       </section>

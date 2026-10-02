@@ -812,7 +812,10 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-trustbar-label { flex: none; white-space: nowrap; font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-purple); }
 .rd-trustbar-items { display: flex; align-items: center; flex-wrap: nowrap; gap: 14px 40px; margin: 0; padding: 0; list-style: none; font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--alloy-purple); white-space: nowrap; }
 .rd-trustbar-items li { display: flex; align-items: center; }
-.rd-trustbar-items img { height: 50px; width: auto; display: block; margin: -12px -14px; opacity: .55; transition: opacity var(--dur-fast) var(--ease-standard); } /* PNG has ~40% transparent padding; visible mark ≈ 30px. Mono logo softened so it supports rather than leads. */
+.rd-trustbar-items img { height: 40px; width: auto; display: block; opacity: .55; transition: opacity var(--dur-fast) var(--ease-standard); }   /* mono logos, softened to sit with the gray text */
+.rd-trustbar-items .rd-trustbar-logo--peak { height: 44px; }                                   /* two-line lockup */
+.rd-trustbar-items .rd-trustbar-logo--thinktank { height: 28px; }                              /* heavy single-line wordmark reads larger than it is */
+.rd-trustbar-items .rd-trustbar-logo--innovia { height: 50px; margin: -12px -14px; }           /* PNG has ~40% transparent padding */
 .rd-trustbar-items li:hover img { opacity: .8; }
 
 /* ---------- Newsletter section (/resources) ---------- */
