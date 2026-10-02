@@ -3,6 +3,17 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "alloy-astro-site.vercel.app"
+        }
+      ],
+      "destination": "https://alloygp.co/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [
         {
