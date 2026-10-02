@@ -61,13 +61,7 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 10px;
 }
-.eyebrow::before {
-  content: "";
-  width: 24px;
-  height: 2px;
-  background: currentColor;
-  display: inline-block;
-}
+.eyebrow::before { display: none; }   /* leading line removed site-wide (client, 2026-10-02) */
 .eyebrow.no-line::before { display: none; }
 .eyebrow.on-dark { color: var(--alloy-yellow); }
 

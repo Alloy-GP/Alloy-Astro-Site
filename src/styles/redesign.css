@@ -132,7 +132,8 @@
   font-weight: 700; font-size: 14px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--alloy-pink);
 }
-.rd-eyebrow::before { content: ""; width: 28px; height: 3px; border-radius: 2px; background: currentColor; flex: none; }
+/* The 28×3 leading line was removed site-wide (client, 2026-10-02: "no dashes on eyebrows"); `--noline` kept as a no-op for callers. */
+.rd-eyebrow::before { display: none; }
 .rd-eyebrow--noline::before { display: none; }
 .rd-eyebrow--purple { color: var(--alloy-purple); }
 .rd-eyebrow--yellow { color: var(--alloy-yellow); }

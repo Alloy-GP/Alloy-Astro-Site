@@ -249,7 +249,6 @@
   .rd-intro, .rd-intro--lg, .rd-intro--19 { font-size: 17px; line-height: 1.55; }
   .rd-body { font-size: 16px; }
   .rd-eyebrow { font-size: 12px; }
-  .rd-eyebrow::before { width: 24px; }
   .rd-numeral { font-size: 30px; }
   .rd-numeral--56 { font-size: 40px; }
   .rd-numeral--36 { font-size: 30px; }
