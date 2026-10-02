@@ -18,7 +18,8 @@ const article = {
     description,
     url: path,
     datePublished: '2026-05-04',
-    dateModified: '2026-10-01',
+    dateModified: '2026-10-02',
+    image: '/assets/resources/ai-search-for-cam-og.jpg',
   }),
   url: new URL(path, SITE.url).toString(),
   // Named author carried over from the original schema.
@@ -37,6 +38,7 @@ const crumbs = breadcrumbSchema([
 ]);
 ---
 <BaseLayout
+  ogImage="/assets/resources/ai-search-for-cam-og.jpg"
   title={title}
   description={description}
   pageId="resources"

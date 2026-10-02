@@ -69,7 +69,7 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
             <div data-reveal data-stagger className="rd-ledger">
               <div className="rd-ledger-row"><span className="rd-ledger-label">Inbound board leads vs. the year before</span><span className="rd-ledger-num"><span data-count="535" data-prefix="+">+535</span><span className="rd-stat-suffix">%</span></span></div>
               <div className="rd-ledger-row"><span className="rd-ledger-label">Proposal requests</span><span className="rd-ledger-num"><span data-count="3">3</span><span className="rd-stat-suffix">×</span></span></div>
-              <div className="rd-ledger-row"><span className="rd-ledger-label">Qualified leads that closed</span><span className="rd-ledger-num"><span data-count="40">40</span><span className="rd-stat-suffix">–60%</span></span></div>
+              <div className="rd-ledger-row"><span className="rd-ledger-label">Qualified leads that closed</span><span className="rd-ledger-num"><span data-count="45">45</span><span className="rd-stat-suffix">% avg</span></span></div>
               <div className="rd-ledger-quote">“We went from chasing RFPs to having boards reach out directly.” <span className="rd-ink-body" style={{ fontWeight: 400 }}>— CEO, Alloy CAM partner</span></div>
             </div>
             <div data-reveal className="rd-card rd-card--pad rd-stack rd-stack--14">
@@ -119,6 +119,7 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
           </div>
           <div className="rd-news-grid">
             <a href="/resources/ai-search-for-cam" className="rd-news-card rd-news-card--lead rd-card-link">
+              <img className="rd-news-img" src="/assets/resources/ai-search-for-cam-card.jpg" alt="" width={800} height={447} loading="lazy" decoding="async" />
               <div className="rd-row rd-row--between"><Label tone="pink" size={12}>AI search</Label><span className="rd-tiny rd-tiny--12">3 min read</span></div>
               <h3 className="rd-h3">How CAM firms win in AI search.</h3>
               <p className="rd-small" style={{ lineHeight: 1.55 }}>ChatGPT, Perplexity, Gemini, and Google AI Overviews now answer board questions before your website does. The firms cited are winning meetings competitors don’t even know happened.</p>

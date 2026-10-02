@@ -398,6 +398,8 @@
   .rd-news-grid { display: flex; flex-direction: column; gap: 16px; }
   .rd-news-rail > * { flex: 0 0 280px; scroll-snap-align: start; }
   .rd-news-card, .rd-news-card--lead { padding: 22px 20px 20px 22px; }
+  .rd-news-img { width: calc(100% + 42px); margin: -22px -20px 4px -22px; aspect-ratio: 16 / 9; }
+  .rd-article-cover { aspect-ratio: 16 / 10; }
 
   /* ── Index pages (frame 1e) ────────────────────────────────────────────── */
   .rd-tiers { grid-template-columns: 1fr; gap: 16px; }

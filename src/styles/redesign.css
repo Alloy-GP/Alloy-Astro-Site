@@ -606,6 +606,8 @@ textarea.rd-field { resize: vertical; min-height: 120px; }
 .rd-news-card--yellow { border-left-color: var(--alloy-yellow); }
 .rd-news-rail { display: contents; }               /* ≤720: becomes a 280px snap rail (mobile.css) */
 .rd-news-card .rd-title-22 { color: var(--alloy-purple); }
+.rd-news-img { display: block; height: auto; width: calc(100% + 62px); margin: -30px -30px 6px -32px; aspect-ratio: 2 / 1; object-fit: cover; object-position: 50% 60%; border-radius: 5px 10px 0 0; }   /* lead card: bleeds to the padding edge (30 / 30 / 32) */
+.rd-article-cover { display: block; height: auto; width: 100%; aspect-ratio: 12 / 5; object-fit: cover; object-position: 50% 62%; border-radius: 10px; border: 1px solid var(--border-subtle); background: var(--alloy-lavender); }
 
 /* =============================================================================
    Homepage update (docs/redesign-handoff-homepage) — hero outcomes card, network

@@ -43,7 +43,7 @@ export default function AISearchArticle() {
       </section>
 
       {/* Hero */}
-      <section className="rd-section" style={{ padding: '56px 0 72px' }}>
+      <section className="rd-section" style={{ padding: '56px 0 44px' }}>
         <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
           <div className="rd-stack" style={{ gap: 28 }}>
             <Eyebrow>AI search</Eyebrow>
@@ -53,6 +53,13 @@ export default function AISearchArticle() {
             <p className="rd-intro" style={{ lineHeight: 1.65 }}>ChatGPT, Perplexity, Gemini, and Google AI Overviews now answer board questions before your website does. The firms cited are winning meetings competitors don’t even know happened.</p>
             <div className="rd-tiny rd-w-500">{TOC.length} sections · 3 min read</div>
           </div>
+        </div>
+      </section>
+
+      {/* Featured image (client, 2026-10-02) — also the card image on the homepage and the og:image */}
+      <section className="rd-section" style={{ padding: '0 0 56px' }}>
+        <div className="rd-wrap">
+          <img className="rd-article-cover" src="/assets/resources/ai-search-for-cam.jpg" alt="A CAM team at a desk reviewing how their firm shows up in AI search results, with map pins and checklists on screen" width={1600} height={894} fetchPriority="high" decoding="async" />
         </div>
       </section>
 
