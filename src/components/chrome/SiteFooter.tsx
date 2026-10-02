@@ -81,6 +81,9 @@ export default function SiteFooter({ animatedBar = true }: SiteFooterProps) {
       <div className="site-footer-bottom">
         <span>© {year} Alloy Growth Partners · Exclusively growing CAM companies</span>
         <span className="site-footer-bottom-links">
+          {FOOTER.social.map(([label, href]) => (
+            <a key={label} href={href} target="_blank" rel="me noopener">{label}</a>
+          ))}
           {FOOTER.legal.map(([label, href]) => (
             <a key={href} href={href}>{label}</a>
           ))}
