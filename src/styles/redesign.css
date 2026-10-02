@@ -701,17 +701,16 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-hc-result .rd-hc-btn { height: 40px; padding: 0 16px; font-size: 11px; box-shadow: none; }
 .rd-hc-again { background: none; border: 0; font: inherit; font-size: 12px; font-weight: 700; color: var(--alloy-body-gray); cursor: pointer; padding: 10px 8px; }
 .rd-hc-again:hover { color: var(--alloy-pink); }
-.rd-hc-guarantee { display: flex; border-radius: 10px; overflow: hidden; background: var(--alloy-purple); color: #fff; text-decoration: none; cursor: pointer; transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard); }
-.rd-hc-guarantee:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); color: #fff; }
+.rd-hc-guarantee { display: flex; align-items: center; gap: 18px; border-radius: 10px; padding: 16px 20px 16px 16px; background: #fff; color: var(--alloy-purple); text-decoration: none; cursor: pointer; box-shadow: 0 2px 6px rgba(56,28,79,.08), 0 0 0 1px var(--border-subtle); transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard); }
+.rd-hc-guarantee:hover { transform: translateY(-2px); box-shadow: var(--shadow-md), 0 0 0 1px var(--border-strong); color: var(--alloy-purple); }
 .rd-hc-guarantee:active { transform: translateY(0); }
-.rd-hc-guarantee:hover .rd-hc-guarantee-link { color: #fff; }
-.rd-hc-guarantee-side { flex: none; width: 72px; background: var(--alloy-gold); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; color: var(--alloy-purple); }
-.rd-hc-guarantee-mo { font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; text-align: center; line-height: 1.1; }
-.rd-hc-guarantee-x { font-size: 28px; font-weight: 800; line-height: 1; letter-spacing: -.02em; }
-.rd-hc-guarantee-body { display: flex; flex-direction: column; gap: 5px; padding: 16px 18px; min-width: 0; }
-.rd-hc-guarantee-title { font-size: 15px; font-weight: 700; line-height: 1.2; color: #fff; }
-.rd-hc-guarantee-text { font-size: 12px; font-weight: 500; line-height: 1.45; color: var(--alloy-on-purple); }
-.rd-hc-guarantee-link { margin-top: 2px; font-size: 12px; font-weight: 700; color: var(--alloy-gold); text-decoration: underline; text-underline-offset: 3px; align-self: flex-start; transition: color var(--dur-fast) var(--ease-standard); }
+.rd-hc-guarantee:hover .rd-hc-guarantee-link { color: var(--alloy-pink-hover); }
+.rd-hc-guarantee-side { flex: none; display: flex; align-items: center; justify-content: center; }
+.rd-hc-seal { display: block; width: 88px; height: 88px; }
+.rd-hc-guarantee-body { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.rd-hc-guarantee-title { font-size: 15px; font-weight: 700; line-height: 1.2; color: var(--alloy-purple); }
+.rd-hc-guarantee-text { font-size: 12px; font-weight: 500; line-height: 1.45; color: var(--alloy-body-gray); }
+.rd-hc-guarantee-link { margin-top: 2px; font-size: 12px; font-weight: 700; color: var(--alloy-pink); text-decoration: underline; text-underline-offset: 3px; align-self: flex-start; transition: color var(--dur-fast) var(--ease-standard); }
 .rd-hc :is(input, button, a):focus-visible { outline: 2px solid var(--alloy-pink); outline-offset: 2px; }
 .rd-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 

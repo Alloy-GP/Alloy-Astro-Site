@@ -336,7 +336,8 @@
   .rd-hc-form { flex-direction: column; }
   .rd-hc-input { flex: none; width: 100%; height: 52px; font-size: 16px; }   /* flex:1 in a column would collapse the height */
   .rd-hc-form .rd-hc-btn { width: 100%; height: 52px; }
-  .rd-hc-guarantee-side { width: 64px; }
+  .rd-hc-guarantee { gap: 14px; padding: 14px 16px 14px 12px; }
+  .rd-hc-seal { width: 72px; height: 72px; }
   .rd-hc-story { padding: 14px; }
   .rd-hc-moment { padding: 16px; }
   .rd-hc-answer { gap: 8px; }

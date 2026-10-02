@@ -55,6 +55,33 @@ function Skeleton({ width }: { width: string }) {
   );
 }
 
+/** Guarantee seal (client graphic, 2026-10-02): five-color outer arcs, purple disc, "RESULTS · GUARANTEED" ring text, gold check. */
+function GuaranteeSeal() {
+  // Arc segments on r=46 (gaps between them), drawn as stroked paths with round caps.
+  const arc = (a0: number, a1: number, color: string) => {
+    const r = 46, cx = 50, cy = 50;
+    const p = (a: number): [number, number] => [cx + r * Math.cos((a * Math.PI) / 180), cy + r * Math.sin((a * Math.PI) / 180)];
+    const [x0, y0] = p(a0), [x1, y1] = p(a1);
+    return <path key={a0} d={`M ${x0.toFixed(2)} ${y0.toFixed(2)} A ${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`} stroke={color} strokeWidth={5} strokeLinecap="round" fill="none" />;
+  };
+  return (
+    <svg className="rd-hc-seal" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      {arc(200, 262, 'var(--alloy-purple)')}
+      {arc(276, 338, 'var(--alloy-pink)')}
+      {arc(352, 414, 'var(--alloy-gold)')}
+      {arc(428, 490, 'var(--alloy-blue)')}
+      {arc(504, 546, 'var(--alloy-green)')}
+      <circle cx="50" cy="50" r="35" fill="var(--alloy-purple)" />
+      <circle cx="50" cy="50" r="21" fill="none" stroke="rgba(255,255,255,.14)" strokeWidth={1} />
+      <defs><path id="rd-hc-seal-ring" d="M 50 50 m -28 0 a 28 28 0 1 1 56 0 a 28 28 0 1 1 -56 0" /></defs>
+      <text fill="#fff" fontSize="5.4" fontWeight={700} letterSpacing="1.15" style={{ fontFamily: 'var(--font-display)' }}>
+        <textPath href="#rd-hc-seal-ring" startOffset="0">GUARANTEED · RESULTS · GUARANTEED ·</textPath>
+      </text>
+      <path d="M 39 50 L 47 58 L 62 42" fill="none" stroke="var(--alloy-gold)" strokeWidth={5.5} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function HeroCard({ children }: { children?: ReactNode }) {
   return (
     <div className="rd-hc">
@@ -105,12 +132,9 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
       <div className="rd-hc-bottom">
         {children}
         {/* The whole guarantee card opens the terms modal (client, 2026-10-01); /faq#guarantee is the no-JS fallback.
-            Copy = "The floor · 1×" from the client's three-year-plan graphic (2026-10-02). */}
+            Copy = the client's "1× floor" line; the seal replaces the gold "THE FLOOR · 1×" box (client, 2026-10-02). */}
         <a href="/faq#guarantee" className="rd-hc-guarantee" data-dialog="guarantee-terms" aria-haspopup="dialog">
-          <span className="rd-hc-guarantee-side">
-            <span className="rd-hc-guarantee-mo">The floor</span>
-            <span className="rd-hc-guarantee-x">1×</span>
-          </span>
+          <span className="rd-hc-guarantee-side"><GuaranteeSeal /></span>
           <span className="rd-hc-guarantee-body">
             <span className="rd-hc-guarantee-title">Your growth covers our fees. Guaranteed.</span>
             <span className="rd-hc-guarantee-text">We’re confident enough to back it with our money, not just yours.</span>
