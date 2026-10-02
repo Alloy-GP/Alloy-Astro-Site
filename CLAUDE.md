@@ -2,7 +2,7 @@
 
 This file is the authoritative reference for anyone (human or AI) working on this codebase. Read it before touching any file. Update it whenever the architecture changes.
 
-> **Redesign branch (2026-09).** This branch (`skyleralloygp/site-redesign`) carries the full alloygp.co rebuild from the design handoff in `docs/redesign-handoff/` (README = build spec, `docs/alloygp-sitemap.md` = URL/redirect spec, `site/*.dc.html` = clickable prototypes, `OPEN-QUESTIONS.md` = decisions still owed by the client). Every indexed page has been rebuilt on the `rd-*` system described below. Nothing here has merged to `main` yet.
+> **Redesign launched 2026-10-02.** The full alloygp.co rebuild from the design handoff in `docs/redesign-handoff/` (README = build spec, `docs/alloygp-sitemap.md` = URL/redirect spec, `site/*.dc.html` = clickable prototypes, `OPEN-QUESTIONS.md` = client decisions) merged to `main` via PR #3 (merge commit `a7310c9`) and is live. `main` is production (locked by the "Lock main (production)" ruleset + classic branch protection; both must be disabled to merge). Work continues on `skyleralloygp/site-redesign` (dev.alloygp.co) → `staging` (stg.alloygp.co) → PR to `main`.
 
 ---
 
@@ -262,6 +262,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **LAUNCH.** PR #3 merged to `main` (`a7310c9`, 65 commits); alloygp.co now serves the redesign. Final staging audit clean (59 live URLs → 200/one-hop 301, 146 redirects, schema, links, images, 390px). Post-launch owed by the client: submit `sitemap-index.xml` in Google Search Console and remove the old `sitemap.xml` entry; re-enable both `main` locks; watch homepage queries/CTR for 4 weeks (deliberate title change). |
 | 2026-10-02 | **Client roster into the metro checker**: `CLAIMED_METROS` is now the 20 partner office addresses the client supplied (geocoded; firm names in comments only) — placeholder cities gone. **45% avg close rate everywhere** (Results stat, case study, Groundwork + RFP service stats and prose, BoardMatch FAQ, Groundwork meta description — deliberate) replacing the 40–60% range. Guarantee wording approved by the client; BBB mentions stay. ChatGPT mark supplied and placed (`public/assets/chatgpt-mark.png`, avatar + answer label). |
 | 2026-10-02 | **Map "Emerging PE firm" signal** (`docs/redesign-handoff-hero-7a/ADDENDUM-pe-signal.md`): yellow halo + slower 2.4s pulse ring + purple core with a trending-up glyph and a yellow tag at left max(12%, 90px) / top 46% of the map (`.rd-hm-pe*`, z 2, static across checks, reduced-motion stops the ring). Phones show the marker only. Label wording is a placeholder per the addendum. |
 | 2026-10-02 | **Homepage newsletter band** (client): `.rd-home-nl` purple band under the "What's changing" news cards — Alloy Briefing copy + "Browse past issues" and the same `NewsletterSignup` island as /resources (slot `newsletter`, source `home-page`). |
