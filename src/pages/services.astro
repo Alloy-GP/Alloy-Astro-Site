@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import ServicesPage from '~/components/pages/ServicesPage';
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
 ---
 <BaseLayout
   title="Services — One Growth Partner. Three Engines. — Alloy"
   description="Marketing, sales, and retention services engineered for CAM companies. Every service ladders into BoardSuite — one integrated system, one firm per metro."
-  pageId="services"
+  pageId="system"
 >
-  <ServicesPage client:idle />
+  <ServicesPage />
 </BaseLayout>

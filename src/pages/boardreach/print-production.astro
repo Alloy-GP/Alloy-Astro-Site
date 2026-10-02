@@ -1,44 +1,22 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServicePrintProductionPage from '~/components/pages/ServicePrintProductionPage';
+import ServicePage from '~/components/rd/ServicePage';
+import data from '~/data/services/print-production';
+import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Do you handle printing or just the design?',
-      acceptedAnswer: { '@type': 'Answer', text: "Both — and that's the point. Print procurement is where most CAM firms leak the most money: ad-hoc local printers, no volume leverage, no QC. Alloy manages the full chain: design, vendor RFP, proofs, QC, mail-house coordination, delivery. You get one invoice, one accountable team, and a 31% median markup savings vs. running it yourself." },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can we use our existing printer for CAM print production?',
-      acceptedAnswer: { '@type': 'Answer', text: "Yes — about a third of clients have a printer relationship they want to keep. We design to their specs, hand off print-ready files, and stay out of the procurement chain. Pricing adjusts accordingly." },
-    },
-    {
-      '@type': 'Question',
-      name: "What's the minimum engagement for print production?",
-      acceptedAnswer: { '@type': 'Answer', text: "We'll do single-piece projects — a one-off RFP response, a special-assessment mailer, a signage refresh. But the math really works when there's a system: $4K–$8K/mo retainer covers ongoing template maintenance, rush jobs, reorders, and quarterly print audits across a portfolio." },
-    },
-    {
-      '@type': 'Question',
-      name: 'How fast can you turn around a rush print job?',
-      acceptedAnswer: { '@type': 'Answer', text: "Standard rush is 48 hours from approved file to delivered piece for digital print and small-format signage. Mail-house and large-format runs 5–7 business days. We've shipped 200+ rush jobs across the network without a missed deadline." },
-    },
-    {
-      '@type': 'Question',
-      name: 'How does print production fit with BoardSuite?',
-      acceptedAnswer: { '@type': 'Answer', text: "Print is the BoardMatch (Win) and BoardRetain (Keep) workhorse. Proposals win RFPs; mailers, signage, and annual reports keep boards happy with what they bought. Brand identity sets the system; print production keeps it executing across 24 surfaces, every day, without your team having to think about it." },
-    },
-  ],
-};
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+const description = 'Complete print and signage system for CAM firms. Proposals, decks, mailers, stationery, vehicle wraps — designed, procured, and delivered on a 48-hour SLA.';
+const schema = [
+  faqSchema(data.faq.items),
+  serviceSchema({ name: 'Print & Marketing Materials', description, url: data.href }),
+  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }, { name: data.name, href: data.href }]),
+];
 ---
 <BaseLayout
   title="Print & Signage Production for CAM Companies | Alloy GP"
-  description="Complete print and signage system for CAM firms. Proposals, decks, mailers, stationery, vehicle wraps — designed, procured, and delivered on a 48-hour SLA."
-  pageId="services"
-  pageSchema={faqSchema}
+  description={description}
+  pageId="system"
+  pageSchema={schema}
 >
-  <ServicePrintProductionPage client:idle />
+  <ServicePage data={data} />
 </BaseLayout>

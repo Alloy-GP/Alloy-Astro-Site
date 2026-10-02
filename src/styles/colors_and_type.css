@@ -71,6 +71,23 @@
   --alloy-blue:          #a1c8e7; /* Trust, calm, secondary info */
   --alloy-green:         #aed7d0; /* Growth, retention, success */
 
+  /* Engine ink colors — engine labels/numerals readable on white (redesign) */
+  --engine-reach:        #d9356e;
+  --engine-match:        #b8942a;
+  --engine-retain:       #3f8f83;
+
+  /* Semantic success (metro "open" state, Claim-it button) + map base (redesign homepage) */
+  --success:             #16a34a;
+  /* Hero card 2b (docs/redesign-handoff-hero-2b): gold is deliberately warmer than --alloy-yellow */
+  --alloy-gold: #f2d98a;
+  --alloy-gold-ink: #b8902a;      /* gold for text on white (the fill gold fails contrast) */
+  --alloy-lavender: #f3f0f8;
+  --alloy-muted-ink: #8c7a9e;
+  --alloy-on-purple: #d9cce6;
+  --live: #2f9e85;
+  --success-hover:       #15803d;
+  --map-base:            #2a1440;
+
   /* Neutrals */
   --alloy-white:         #ffffff;
   --alloy-off-white:     #f8f7fc; /* Soft page backgrounds */

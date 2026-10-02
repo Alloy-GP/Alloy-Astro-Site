@@ -1,70 +1,49 @@
 ---
+// /resources/courses/trust-building — the single-page trust-building guide
+// (absorbs the 10 lessons + quiz; each section id = the old lesson slug).
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+// Static page; only the knowledge check hydrates (client:visible).
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import CourseTrustBuildingPage from '~/components/pages/CourseTrustBuildingPage';
-import '~/styles/courses.css';
+import TrustBuildingQuiz from '~/components/modules/TrustBuildingQuiz';
+import { courseSchema, breadcrumbSchema } from '~/lib/schema';
+import { SITE } from '~/config/site';
 
-const courseSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Course',
+const path = '/resources/courses/trust-building';
+const description = 'Learn how reviews, testimonials, and case studies help CAM companies win more boards. Free micro-course from Alloy Growth Partners.';
+
+const baseCourse = courseSchema({
   name: 'Trust Building for CAM Firms: Reviews, Testimonials & Case Studies',
-  description: 'Learn how reviews, testimonials, and case studies help CAM companies win more boards. Free micro-course from Alloy Growth Partners.',
-  url: 'https://alloygp.co/resources/courses/trust-building',
-  provider: {
-    '@type': 'Organization',
-    name: 'Alloy Growth Partners',
-    url: 'https://alloygp.co',
-  },
+  description,
+  url: path,
+});
+
+// Extra Course fields carried over from the pre-redesign schema.
+const course = {
+  ...baseCourse,
   educationalLevel: 'Beginner',
   inLanguage: 'en',
-  isAccessibleForFree: true,
   courseMode: 'online',
   hasCourseInstance: {
-    '@type': 'CourseInstance',
-    courseMode: 'online',
-    instructor: {
-      '@type': 'Organization',
-      name: 'Alloy Growth Partners',
-      url: 'https://alloygp.co',
-    },
+    ...baseCourse.hasCourseInstance,
+    instructor: { '@type': 'Organization', name: SITE.name, url: SITE.url },
   },
 };
 
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Home',
-      item: 'https://alloygp.co',
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: 'Resources',
-      item: 'https://alloygp.co/resources',
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      name: 'Courses',
-      item: 'https://alloygp.co/resources/courses',
-    },
-    {
-      '@type': 'ListItem',
-      position: 4,
-      name: 'Trust Building for CAM Firms',
-      item: 'https://alloygp.co/resources/courses/trust-building',
-    },
-  ],
-};
+const crumbs = breadcrumbSchema([
+  { name: 'Home', href: '/' },
+  { name: 'Resources', href: '/resources' },
+  { name: 'Courses', href: '/resources/courses' },
+  { name: 'Trust Building for CAM Firms', href: path },
+]);
 ---
 <BaseLayout
   title="Trust Building for CAM Firms | Alloy Courses"
-  description="Learn how reviews, testimonials, and case studies help CAM companies win more boards. Free micro-course from Alloy Growth Partners."
+  description={description}
   pageId="resources"
-  pageSchema={[courseSchema, breadcrumbSchema]}
+  pageSchema={[course, crumbs]}
 >
-  <CourseTrustBuildingPage client:idle />
+  <CourseTrustBuildingPage>
+    <TrustBuildingQuiz client:visible />
+  </CourseTrustBuildingPage>
 </BaseLayout>

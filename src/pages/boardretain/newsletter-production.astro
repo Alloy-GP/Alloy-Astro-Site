@@ -1,49 +1,22 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServiceNewsletterPage from '~/components/pages/ServiceNewsletterPage';
+import ServicePage from '~/components/rd/ServicePage';
+import data from '~/data/services/newsletter-production';
+import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'We have 80 associations. Do you produce 80 different HOA newsletters?',
-      acceptedAnswer: { '@type': 'Answer', text: "Yes — but with one editorial backbone. Each issue follows your firm's voice and calendar. Per-association content (dates, financials, names, notices) is merged in automatically. One production run, dozens of customized editions, no extra manager time." },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can we edit HOA newsletter issues before they go out?',
-      acceptedAnswer: { '@type': 'Answer', text: "Every issue gets a 24-hour manager-review window before distribution. You can approve as-is, request copy edits, or replace per-association blocks. Beyond 24 hours, we publish on schedule — boards complain when newsletters slip." },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you handle compliance language for state-specific HOA notices?',
-      acceptedAnswer: { '@type': 'Answer', text: "Optionally. We offer a pre-publish legal pass that checks reserve-disclosure language, election communications, and state-specific notice requirements. Most clients add this at portfolio scale — it's cheaper than one missed notice." },
-    },
-    {
-      '@type': 'Question',
-      name: 'Do you produce HOA newsletters in print, email, or both?',
-      acceptedAnswer: { '@type': 'Answer', text: "Both, by default. We deliver a print-ready PDF for portal hosting and bulletin-board posting, plus a responsive HTML email distributed via your existing list (or Alloy's, if you don't have one)." },
-    },
-    {
-      '@type': 'Question',
-      name: 'How does newsletter production fit with BoardSuite?',
-      acceptedAnswer: { '@type': 'Answer', text: "Newsletter Production lives inside BoardRetain (Keep). It's the highest-frequency retention touchpoint — the thing every board sees every month, branded as your firm. Engagement data feeds back into BoardRetain so you can see which associations are tuning out before churn shows up in the renewal call." },
-    },
-    {
-      '@type': 'Question',
-      name: 'We already have a newsletter. Can you take it over?',
-      acceptedAnswer: { '@type': 'Answer', text: "Yes, and we usually find quick wins inside the first 60 days — open rates climbing, manager hours dropping. The audit covers what's working before we touch anything." },
-    },
-  ],
-};
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+const description = 'Done-for-you HOA newsletter production for CAM companies. Alloy ghost-writes, designs, and delivers branded association newsletters every month.';
+const schema = [
+  faqSchema(data.faq.items),
+  serviceSchema({ name: data.name, description, url: data.href }),
+  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardRetain™', href: '/boardretain' }, { name: data.name, href: data.href }]),
+];
 ---
 <BaseLayout
   title="HOA Newsletter Production for CAM Companies | Alloy"
-  description="Done-for-you HOA newsletter production for CAM companies. Alloy ghost-writes, designs, and delivers branded association newsletters every month."
-  pageId="services"
-  pageSchema={faqSchema}
+  description={description}
+  pageId="system"
+  pageSchema={schema}
 >
-  <ServiceNewsletterPage client:idle />
+  <ServicePage data={data} />
 </BaseLayout>

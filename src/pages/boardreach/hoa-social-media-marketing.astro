@@ -1,0 +1,23 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ServicePage from '~/components/rd/ServicePage';
+import data from '~/data/services/hoa-social-media-marketing';
+import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
+
+// Title + description unchanged from the pre-redesign page at
+// src/pages/services/social-media-marketing-for-hoa-management-companies.astro (zero SEO regression).
+const description = 'Compliance-cleared social media marketing for HOA management companies. Alloy manages Facebook, Instagram, Nextdoor, and LinkedIn across your full portfolio.';
+const schema = [
+  faqSchema(data.faq.items),
+  serviceSchema({ name: 'Social Media Marketing', description, url: data.href }),
+  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }, { name: data.name, href: data.href }]),
+];
+---
+<BaseLayout
+  title="Social Media Marketing for HOA Management Companies | Alloy"
+  description={description}
+  pageId="system"
+  pageSchema={schema}
+>
+  <ServicePage data={data} />
+</BaseLayout>

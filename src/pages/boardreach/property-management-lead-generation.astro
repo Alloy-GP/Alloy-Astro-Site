@@ -1,49 +1,22 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import ServiceLeadGenerationPage from '~/components/pages/ServiceLeadGenerationPage';
+import ServicePage from '~/components/rd/ServicePage';
+import data from '~/data/services/property-management-lead-generation';
+import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How is lead generation different from Groundwork?',
-      acceptedAnswer: { '@type': 'Answer', text: "Lead Generation is the system: the channel mix, scoring, routing, and reporting that turns inbound and outbound activity into qualified board conversations. Groundwork is one channel inside that system — fractional outbound BD that Alloy executes for you. Most CAM firms need the full system. Some only need Groundwork (you've got SEO and content covered, you just need an outbound team). We can scope either way." },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long until we see qualified property management leads?',
-      acceptedAnswer: { '@type': 'Answer', text: "Outbound (Groundwork) produces qualified board conversations in 30 days. Inbound channels (SEO, content, AI search) compound over 3–6 months — but they keep paying after the spend stops. Most CAM firms run both: outbound for revenue this quarter, inbound for the runway 18 months from now." },
-    },
-    {
-      '@type': 'Question',
-      name: 'We already have a CRM and contact form. Why do we need lead generation?',
-      acceptedAnswer: { '@type': 'Answer', text: "Most CAM firms have a contact form and a CRM and almost no system between them. Leads come in, they sit, the right person doesn't see them in time, and warm boards go cold. The Lead Generation engagement is everything between 'we have a website' and 'the right salesperson is on the phone with the right board, briefed.' If your conversion from inbound to first meeting is below 30%, that gap is the problem." },
-    },
-    {
-      '@type': 'Question',
-      name: 'What if our market is too small for SEO-driven leads?',
-      acceptedAnswer: { '@type': 'Answer', text: "Then we lean outbound. Smaller markets favor named, targeted prospecting over broad keyword plays — there are only so many boards in your metro and we know who they are. Lead mix is sized to your market, not the agency template." },
-    },
-    {
-      '@type': 'Question',
-      name: 'Is lead generation exclusive to one CAM firm per metro?',
-      acceptedAnswer: { '@type': 'Answer', text: "Yes. Alloy works with one CAM company per metro — for everything, not just lead gen. If your market is taken, we'll tell you on the diagnostic call." },
-    },
-    {
-      '@type': 'Question',
-      name: 'Where does lead generation fit inside BoardSuite?',
-      acceptedAnswer: { '@type': 'Answer', text: "Lead Generation is the BoardReach (Attract) engine. It feeds BoardMatch (Close), which protects BoardRetain (Keep). When all three engines are connected, lead-to-close is one continuous motion instead of three handoffs that drop leads in the seams." },
-    },
-  ],
-};
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+const description = "The lead-generation system built for CAM firms — not 'more marketing.' Five named channels, scored leads, briefed handoffs, and a CFO-readable pipeline. Live in 60 days.";
+const schema = [
+  faqSchema(data.faq.items),
+  serviceSchema({ name: 'Lead Generation', description, url: data.href }),
+  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardReach™', href: '/boardreach' }, { name: data.name, href: data.href }]),
+];
 ---
 <BaseLayout
   title="Property Management Lead Generation | Alloy GP"
-  description="The lead-generation system built for CAM firms — not 'more marketing.' Five named channels, scored leads, briefed handoffs, and a CFO-readable pipeline. Live in 60 days."
-  pageId="services"
-  pageSchema={faqSchema}
+  description={description}
+  pageId="system"
+  pageSchema={schema}
 >
-  <ServiceLeadGenerationPage client:idle />
+  <ServicePage data={data} />
 </BaseLayout>

@@ -14,6 +14,7 @@ export const POST: APIRoute = async ({ request }) => {
     const data = await request.formData();
     const email = data.get("email")?.toString().trim();
     const firstName = data.get("firstName")?.toString().trim() ?? "";
+    const source = (data.get("source")?.toString().trim() ?? "").replace(/[^a-z0-9-]/gi, "").slice(0, 40);
 
     if (!email) {
       return new Response(JSON.stringify({ error: "Email is required." }), { status: 400 });
@@ -24,6 +25,7 @@ export const POST: APIRoute = async ({ request }) => {
         email_address: email,
         status: "subscribed",
         merge_fields: { FNAME: firstName },
+        tags: ["newsletter", ...(source ? [source] : [])],
       });
     } catch (err: any) {
       const alreadyExists = err?.response?.body?.title === "Member Exists";

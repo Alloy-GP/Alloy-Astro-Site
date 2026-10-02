@@ -1,11 +1,22 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
-import BoardEdPage from '~/components/pages/BoardEdPage';
+import ServicePage from '~/components/rd/ServicePage';
+import data from '~/data/services/board-education';
+import { faqSchema, breadcrumbSchema, serviceSchema } from '~/lib/schema';
+
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+const description = 'Branded education libraries, micro-courses, and learning systems that turn CAM companies into the trusted authority for boards and homeowners.';
+const schema = [
+  faqSchema(data.faq.items),
+  serviceSchema({ name: data.name, description, url: data.href }),
+  breadcrumbSchema([{ name: 'The System', href: '/services' }, { name: 'BoardRetain™', href: '/boardretain' }, { name: data.name, href: data.href }]),
+];
 ---
 <BaseLayout
   title="Board Education Programs for CAM Companies | Alloy"
-  description="Branded education libraries, micro-courses, and learning systems that turn CAM companies into the trusted authority for boards and homeowners."
-  pageId="services"
+  description={description}
+  pageId="system"
+  pageSchema={schema}
 >
-  <BoardEdPage client:idle />
+  <ServicePage data={data} />
 </BaseLayout>

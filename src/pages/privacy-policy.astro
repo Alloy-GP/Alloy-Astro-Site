@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import { PrivacyPage } from '~/components/pages/LegalPages';
+// Title + description unchanged from the pre-redesign page (zero SEO regression).
+// Static page — no client directive.
 ---
 <BaseLayout
   title="Privacy Policy — Alloy Growth Partners"
   description="How Alloy Growth Partners collects, uses, and protects information on alloygp.co."
 >
-  <PrivacyPage client:idle />
+  <PrivacyPage />
 </BaseLayout>

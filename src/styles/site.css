@@ -7,9 +7,8 @@ body {
   color: var(--fg-3);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
-html { overflow-x: hidden; }
+html { overflow-x: hidden; }   /* <html> only — overflow on <body> makes it a scroll container and kills position: sticky (article TOCs) */
 * { box-sizing: border-box; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; }
