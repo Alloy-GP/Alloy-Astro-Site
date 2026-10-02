@@ -670,7 +670,8 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-mc-row { height: 58px; box-sizing: border-box; }   /* idle, checking and result all fill the same 58px slot */
 .rd-mc-field { display: flex; gap: 8px; background: #fff; border: 1px solid var(--border-subtle); border-radius: 10px; padding: 6px; }
 .rd-mc-field:has(.rd-mc-input:disabled) .rd-mc-input { opacity: .6; }
-.rd-mc-field:focus-within { border-color: var(--border-strong); }
+.rd-mc-field:focus-within { border-color: var(--alloy-pink); box-shadow: 0 0 0 3px rgba(217,53,110,.12); }   /* the field's own outline is the focus cue */
+.rd-mc-field { transition: border-color var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard); }
 .rd-mc-input { flex: 1; min-width: 0; height: 44px; border: 0; background: transparent; padding: 0 12px; font-family: inherit; font-weight: 500; font-size: 15px; color: var(--alloy-purple); outline: none; }
 .rd-mc-input::placeholder { color: var(--alloy-muted-ink); }
 .rd-mc-check { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 92px; height: 44px; padding: 0 20px; border-radius: 8px; border: 0; background: var(--alloy-pink); color: #fff; font-family: inherit; font-weight: 700; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; transition: background var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
@@ -707,7 +708,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-mc-guarantee-link { font-size: 12.5px; font-weight: 700; color: var(--alloy-purple); text-decoration: underline; text-underline-offset: 3px; align-self: flex-start; transition: color var(--dur-fast) var(--ease-standard); }
 .rd-mc-guarantee:hover .rd-mc-guarantee-link, .rd-mc-guarantee:hover .rd-mc-guarantee-title { color: var(--alloy-pink); }
 .rd-mc :is(input, button, a):focus-visible, .rd-hm-left :is(button, a):focus-visible { outline: 2px solid var(--alloy-pink); outline-offset: 2px; }
-.rd-mc-input:focus-visible { outline: none; }
+.rd-mc .rd-mc-input:focus, .rd-mc .rd-mc-input:focus-visible { outline: none; box-shadow: none; }   /* out-ranks the card-wide focus ring above */
 
 /* Map (decorative) */
 .rd-hm-map { --hm-shadow: 0 24px 48px -12px rgba(56,28,79,.28), 0 2px 6px rgba(56,28,79,.08), 0 0 0 1px var(--border-subtle); position: relative; min-height: 560px; border-radius: 10px; pointer-events: none; user-select: none; }
