@@ -723,6 +723,13 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-hm-pulse, .rd-hm-pin { position: absolute; left: 70%; top: 22%; }
 .rd-hm-pulse { width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; border: 2px solid var(--alloy-pink); animation: rdHeroPulse 1.8s ease-out infinite; }
 @keyframes rdHeroPulse { 0% { transform: scale(.6); opacity: .8; } 100% { transform: scale(2.6); opacity: 0; } }
+/* "Emerging PE firm" signal — ADDENDUM-pe-signal.md. left is max(12%, 90px) so the centred tag never spills off the map's left edge. */
+.rd-hm-pe { position: absolute; left: max(12%, 90px); top: 46%; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 7px; transform: translateX(-20px); pointer-events: none; }
+.rd-hm-pe-marker { position: relative; width: 40px; height: 40px; }
+.rd-hm-pe-halo { position: absolute; inset: 0; border-radius: 50%; background: var(--alloy-yellow); opacity: .6; }
+.rd-hm-pe-ring { position: absolute; inset: 6px; border-radius: 50%; border: 2px solid #d9a62a; animation: rdHeroPulse 2.4s ease-out infinite; }   /* slower than the pin's 1.8s so they never sync */
+.rd-hm-pe-core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border-radius: 50%; background: var(--alloy-purple); border: 3px solid #fff; box-shadow: 0 4px 10px rgba(56,28,79,.3); display: flex; align-items: center; justify-content: center; }
+.rd-hm-pe-tag { background: var(--alloy-yellow); color: var(--alloy-purple); border-radius: 999px; padding: 6px 12px; box-shadow: 0 6px 16px rgba(56,28,79,.18); white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; line-height: 1.2; }
 .rd-hm-pin { transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 6px; z-index: 1; }
 .rd-hm-pin-num { width: 34px; height: 34px; border-radius: 50%; background: var(--alloy-purple); border: 3px solid #fff; box-shadow: 0 6px 16px rgba(56,28,79,.35); display: flex; align-items: center; justify-content: center; color: var(--alloy-yellow); font-size: 14px; font-weight: 800; }
 .rd-hm-pin-label { background: var(--alloy-purple); color: #fff; font-size: 12px; font-weight: 700; padding: 5px 10px; border-radius: 8px; white-space: nowrap; box-shadow: 0 4px 12px rgba(56,28,79,.25); }
@@ -754,7 +761,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-hm-referral-label { font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--alloy-yellow); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rd-hm-referral-title { font-size: 13px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rd-hm-attrib { position: absolute; right: 8px; bottom: 6px; font-size: 9px; font-weight: 500; color: var(--alloy-muted-ink); background: rgba(255,255,255,.75); padding: 2px 6px; border-radius: 4px; z-index: 1; }
-@media (prefers-reduced-motion: reduce) { .rd-hm-pulse { animation: none; opacity: 0; } .rd-hm-map-layer { transition: none; } .rd-hm-map-layer.is-checking { transform: none; } .rd-mc-result { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .rd-hm-pulse { animation: none; opacity: 0; } .rd-hm-pe-ring { animation: none; opacity: .5; } .rd-hm-map-layer { transition: none; } .rd-hm-map-layer.is-checking { transform: none; } .rd-mc-result { animation: none; } }
 
 .rd-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 

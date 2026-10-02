@@ -183,6 +183,7 @@
 
 @media (max-width: 1100px) {
   .rd-hm { grid-template-columns: minmax(0, 1fr) 440px; }
+  .rd-hm-pe { left: 12px; transform: none; align-items: flex-start; }   /* 440px map: left-anchored so the tag stays clear of the referral pill */
   .rd-hm-title { font-size: 38px; }
   .rd-h1, .rd-h1--xl, .rd-h1--lg, .rd-h1--md { font-size: 64px; }
   .rd-h2 { font-size: 48px; }
@@ -209,6 +210,7 @@
   .rd-hm-left { gap: 24px; }
   .rd-hm-map { min-height: 520px; height: 520px; }
   .rd-hm-referral { right: 16px; }
+  .rd-hm-pe { left: 49%; top: 50%; transform: none; }   /* stacked layout: the column between the thread (ends ~440px) and the referral pill (starts ~636px) */
   .rd-statband, .rd-statband--4 { grid-template-columns: 1fr 1fr; gap: 32px; }
   .rd-tiers { grid-template-columns: 1fr; }
   .rd-engine-row { grid-template-columns: 1fr; gap: 28px; }
@@ -364,6 +366,8 @@
   /* 350px-wide map: Google card top-left → referral pill under it (right) → pin bottom-left → ChatGPT thread bottom-right */
   .rd-hm-map { min-height: 560px; height: 560px; }   /* room for the chat bubbles to grow when a long city name is searched */
   .rd-hm-dot { display: none; }
+  .rd-hm-pe { left: 12px; top: auto; bottom: 56px; transform: none; align-items: flex-start; }   /* phones: bottom-left pocket under the pin label, beside the thread's avatar */
+  .rd-hm-pe-tag { font-size: 10px; letter-spacing: .06em; padding: 5px 9px; }
   .rd-hm-google { left: 16px; top: 16px; width: min(248px, calc(100% - 32px)); padding: 14px; }
   .rd-hm-referral { right: 12px; top: 214px; width: min(248px, calc(100% - 24px)); }
   .rd-hm-pulse, .rd-hm-pin { left: 20%; top: 58%; }

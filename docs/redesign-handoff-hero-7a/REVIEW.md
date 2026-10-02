@@ -23,6 +23,10 @@ v2 as built:
   The committed Austin default uses the same recipe: `node --experimental-strip-types .context/gen-map.mjs`.
 - Reduced motion: no pulse, no zoom, no row entrance. Status row `role="status" aria-live="polite"`.
 
+PE signal (ADDENDUM-pe-signal.md, 2026-10-02): built as specified; `left` is max(12%, 90px) with a −20px nudge so the centred tag
+stays inside the map at 440–560px widths; phones keep the marker and hide the tag (no clear room next to the pin, the referral pill
+and the thread). "Emerging PE firm" is the addendum's placeholder wording — confirm with the team.
+
 Marks: Google "G" is the brand SVG from the handoff (nominative use). The ChatGPT avatar is a neutral sparkle glyph,
 not the OpenAI mark — swap in the official asset after brand/legal review (see launch checklist #17).
 Attribution "© OpenStreetMap contributors" stays on the hero because every map image derives from OSM tiles.

@@ -87,6 +87,17 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
           <div className="rd-hm-map-cream" />
         </div>
 
+        {/* "Emerging PE firm" signal (ADDENDUM-pe-signal.md): slower second pulse = consolidation threat near the #1 pin. Static, decorative, under the callouts. Label is a placeholder pending the team's wording. */}
+        <div className="rd-hm-pe" aria-hidden="true">
+          <div className="rd-hm-pe-marker">
+            <span className="rd-hm-pe-halo" />
+            <span className="rd-hm-pe-ring" />
+            <span className="rd-hm-pe-core">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#f5d880" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round"><path d="M3 17l6-6 4 4 8-8" /><path d="M14 7h7v7" /></svg>
+            </span>
+          </div>
+          <div className="rd-hm-pe-tag">Emerging PE firm</div>
+        </div>
         <span className="rd-hm-dot" style={{ left: '86%', top: '12%' }} />
         <span className="rd-hm-dot" style={{ left: '58%', top: '46%' }} />
         <span className="rd-hm-pulse" />
