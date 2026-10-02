@@ -58,23 +58,23 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
         </div>
       </section>
 
-      {/* Partner ledger */}
-      <section className="rd-section rd-bg-off">
+      {/* Partner ledger — client 2026-10-02: the section argues authority → stand out → growth; the ledger is the proof */}
+      <section className="rd-section rd-bg-off rd-ledger-section">
         <div className="rd-wrap rd-stack rd-stack--48">
           <div className="rd-grid rd-grid--2 rd-grid--end">
-            <h2 className="rd-h2">The partner ledger.</h2>
-            <p className="rd-body" style={{ lineHeight: 1.55 }}>One CAM company, one metro, three years in. This is what the exclusivity bought them.</p>
+            <h2 className="rd-h2">Become the authority in your market. <span className="rd-accent">Growth follows.</span></h2>
+            <p className="rd-body" style={{ lineHeight: 1.55 }}>Own the search results, the AI answers and the referral network in your metro, and you stop looking like one option among ten. Boards stop comparing and start calling. Here’s what that looked like for one CAM company, one metro, three years in.</p>
           </div>
           <div className="rd-grid rd-grid--2 rd-gap-20">
             <div data-reveal data-stagger className="rd-ledger">
-              <div className="rd-ledger-row"><span className="rd-ledger-label">Lead intake vs. prior baseline</span><span className="rd-ledger-num"><span data-count="535" data-prefix="+">+535</span><span className="rd-stat-suffix">%</span></span></div>
+              <div className="rd-ledger-row"><span className="rd-ledger-label">Inbound board leads vs. the year before</span><span className="rd-ledger-num"><span data-count="535" data-prefix="+">+535</span><span className="rd-stat-suffix">%</span></span></div>
               <div className="rd-ledger-row"><span className="rd-ledger-label">Proposal requests</span><span className="rd-ledger-num"><span data-count="3">3</span><span className="rd-stat-suffix">×</span></span></div>
-              <div className="rd-ledger-row"><span className="rd-ledger-label">Qualified → closed</span><span className="rd-ledger-num"><span data-count="40">40</span><span className="rd-stat-suffix">–60%</span></span></div>
+              <div className="rd-ledger-row"><span className="rd-ledger-label">Qualified leads that closed</span><span className="rd-ledger-num"><span data-count="40">40</span><span className="rd-stat-suffix">–60%</span></span></div>
               <div className="rd-ledger-quote">“We went from chasing RFPs to having boards reach out directly.” <span className="rd-ink-body" style={{ fontWeight: 400 }}>— CEO, Alloy CAM partner</span></div>
             </div>
             <div data-reveal className="rd-card rd-card--pad rd-stack rd-stack--14">
-              <div className="rd-row rd-row--between rd-tiny rd-tiny--12 rd-w-500"><span>Lead intake, indexed</span><span>Year 1 → Year 3</span></div>
-              <svg viewBox="0 0 500 260" width="100%" style={{ display: 'block', overflow: 'visible', flex: 1 }} role="img" aria-label="Lead intake trend, year one to year three, rising sharply after Alloy engagement">
+              <div className="rd-row rd-row--between rd-tiny rd-tiny--12 rd-w-500"><span>Inbound board leads, indexed</span><span>Year 1 → Year 3</span></div>
+              <svg viewBox="0 0 500 260" width="100%" style={{ display: 'block', overflow: 'visible', flex: 1 }} role="img" aria-label="Inbound board leads, year one to year three, rising sharply after the Alloy engagement">
                 <line x1="0" y1="220" x2="500" y2="220" stroke="#e8e4ef" /><line x1="0" y1="150" x2="500" y2="150" stroke="#e8e4ef" /><line x1="0" y1="80" x2="500" y2="80" stroke="#e8e4ef" /><line x1="0" y1="10" x2="500" y2="10" stroke="#e8e4ef" />
                 <rect x="70" y="0" width="430" height="220" fill="rgba(245,216,128,.18)" data-fade />
                 <text x="78" y="26" fontSize="11" fontWeight="700" fill="#381c4f" fontFamily="Gotham,sans-serif">WITH ALLOY</text>
