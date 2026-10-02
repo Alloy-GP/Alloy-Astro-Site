@@ -54,5 +54,14 @@ export const SITE = {
     areaServed: 'United States',
     priceRange: '$$$',
     logo: 'https://alloygp.co/assets/alloy-logo-full-color.svg',
+    /** Social profiles (client, 2026-10-02) → Organization `sameAs` + footer links */
+    sameAs: [
+      'https://www.linkedin.com/company/alloycreatives',
+      'https://www.facebook.com/alloygp/',
+      'https://www.instagram.com/alloygrowthpartners',
+    ],
   },
+
+  /** IndexNow key (Bing / Copilot / ChatGPT search index). Key file lives at /public/<key>.txt. */
+  indexNowKey: '64aa5ce7cd166c6a743f44b8e7463f9c',
 } as const;

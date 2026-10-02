@@ -141,6 +141,11 @@ export const FOOTER = {
     ['Growth Modeled', '/growth-modeled'],
     ['FAQ', '/faq'],
   ] as FooterLink[],
+  social: [
+    ['LinkedIn', 'https://www.linkedin.com/company/alloycreatives'],
+    ['Facebook', 'https://www.facebook.com/alloygp/'],
+    ['Instagram', 'https://www.instagram.com/alloygrowthpartners'],
+  ] as Array<[string, string]>,
   legal: [
     ['Terms', '/terms-conditions'],
     ['Privacy', '/privacy-policy'],
