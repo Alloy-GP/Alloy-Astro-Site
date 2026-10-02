@@ -746,10 +746,10 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-hm-bubble--a { border-radius: 4px 18px 18px 18px; padding: 10px 14px 12px; color: var(--alloy-body-gray); line-height: 1.5; }
 .rd-hm-bubble-label--ai { display: flex; align-items: center; gap: 6px; color: #2f7a6a; margin-bottom: 6px; }
 .rd-hm-chip { display: inline-block; background: #e1f0ec; color: var(--alloy-purple); font-weight: 700; padding: 2px 7px; border-radius: 6px; margin-right: 4px; }
-.rd-hm-referral { position: absolute; right: -28px; top: 300px; width: 272px; z-index: 4; box-sizing: border-box; background: var(--alloy-purple); border-radius: 999px; padding: 8px 18px 8px 8px; display: flex; align-items: center; gap: 12px; box-shadow: var(--hm-shadow); }
+.rd-hm-referral { position: absolute; right: -28px; top: 300px; width: auto; min-width: 272px; max-width: 340px; z-index: 4; box-sizing: border-box; background: var(--alloy-purple); border-radius: 999px; padding: 8px 18px 8px 8px; display: flex; align-items: center; gap: 12px; box-shadow: var(--hm-shadow); }
 .rd-hm-referral-icon { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--alloy-yellow); display: flex; align-items: center; justify-content: center; color: var(--alloy-purple); }
 .rd-hm-referral-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-.rd-hm-referral-label { font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--alloy-yellow); white-space: nowrap; }
+.rd-hm-referral-label { font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--alloy-yellow); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rd-hm-referral-title { font-size: 13px; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rd-hm-attrib { position: absolute; right: 8px; bottom: 6px; font-size: 9px; font-weight: 500; color: var(--alloy-muted-ink); background: rgba(255,255,255,.75); padding: 2px 6px; border-radius: 4px; z-index: 1; }
 @media (prefers-reduced-motion: reduce) { .rd-hm-pulse { animation: none; opacity: 0; } .rd-hm-map-layer { transition: none; } .rd-hm-map-layer.is-checking { transform: none; } .rd-mc-result { animation: none; } }

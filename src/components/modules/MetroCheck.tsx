@@ -1,5 +1,5 @@
 // src/components/modules/MetroCheck.tsx — the metro card's header band + 58px state row (client:load island inside HeroMap).
-// Hero 7a v2 §1: Idle (field + Check) → Checking (spinner, pill CHECKING) → Result Open (Get my report — client 2026-10-02, was "Reserve it"; no glyph so the metro name keeps its room) / Claimed (Join waitlist),
+// Hero 7a v2 §1: Idle (field + Check) → Checking (spinner, pill CHECKING) → Result Open (Get my report → /contact?intent=report; client 2026-10-02, was "Reserve it"; no glyph so the metro name keeps its room) / Claimed (Join waitlist → intent=waitlist),
 // each a 58px row so the card never changes height. Unknown input → Open with the typed string title-cased, map stays.
 // Dispatches `alloy:metro` for src/lib/hero-map.ts (map zoom/re-centre + pin label).
 import { useEffect, useRef, useState } from 'react';
@@ -44,7 +44,7 @@ export default function MetroCheck() {
   const r = phase === 'result' ? result : null;
   const pillState = phase === 'checking' ? 'checking' : r ? (r.claimed ? 'claimed' : 'open') : 'live';
   const pillText = { live: 'Live', checking: 'Checking', open: 'Open', claimed: 'Claimed' }[pillState];
-  const to = (intent: 'claim' | 'waitlist') => `/contact?metro=${encodeURIComponent(r?.name ?? q.trim())}&intent=${intent}`;
+  const to = (intent: 'report' | 'waitlist') => `/contact?metro=${encodeURIComponent(r?.name ?? q.trim())}&intent=${intent}`;
 
   return (
     <>
@@ -66,7 +66,7 @@ export default function MetroCheck() {
             {r.claimed ? (
               <a href={to('waitlist')} className="rd-mc-btn rd-mc-btn--dark">Join waitlist</a>
             ) : (
-              <a href={to('claim')} className="rd-mc-btn rd-mc-btn--go">Get my report</a>
+              <a href={to('report')} className="rd-mc-btn rd-mc-btn--go">Get my report</a>
             )}
             <button type="button" className="rd-mc-reset" onClick={reset} aria-label="Check another metro">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v5h5" /></svg>

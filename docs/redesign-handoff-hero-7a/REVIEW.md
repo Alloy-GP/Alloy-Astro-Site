@@ -13,6 +13,8 @@ Kept from earlier client decisions, where the handoff still shows an older treat
 v2 as built:
 - Idle → Checking (≥900ms beat, spinner, pill CHECKING) → Result. Open: green **Get my report** (client, 2026-10-02 — replaces the spec's "Reserve it"; the next step really is a market report; no check glyph so the metro name keeps its room; "Get a Market Report" measured too long at 1440 and on phones) · Claimed: purple **Join waitlist** · 44px reset.
   Name stack ellipsizes.
+- Callouts follow the search (client, 2026-10-02; the spec kept them static): the ChatGPT question + answer and the referral
+  eyebrow ("Referral · {City} board") name the searched city; idle shows the default metro. Only the Google query stays generic.
 - Payoff copy (client, 2026-10-02): pivots from "we make sure it's you" to how the firm stacks up against the competition in what boards find.
 - Map: `.rd-hm-map-layer` scales 1.1 / fades to .55 while checking; on result the image is swapped for the metro's own map from
   `/api/map?lat&lng` (`src/lib/map-tiles.ts`: 3×3 OSM z12 tiles → grayscale → cream multiply → 768px WebP, in-memory memo + 30-day CDN cache),

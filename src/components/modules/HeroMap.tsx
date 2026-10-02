@@ -6,7 +6,8 @@
 // .context/gen-map.mjs; Austin by default) with the three ways a board finds a management company layered on
 // top — Google local-pack card, ChatGPT thread, referral pill — all pointing at the same #1 pin: Your Company.
 // Map is decorative (aria-hidden, no pointer events). It reacts to the metro check via src/lib/hero-map.ts (v2 §2):
-// zoom/fade while checking, re-centre on the metro from /api/map, pin label "Your Company · City".
+// zoom/fade while checking, re-centre on the metro from /api/map, pin label "Your Company · City", and every
+// .rd-hm-city span (ChatGPT question + answer, referral pill) follows the searched metro (client, 2026-10-02).
 // Deviations from the handoff (earlier client calls): flush hero (no outer card/border/shadow), site radii (10),
 // pink keyword eyebrow + question as H1, whole guarantee row is the terms button, Open/Claimed result state.
 import type { ReactNode } from 'react';
@@ -105,12 +106,12 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
         </div>
 
         <div className="rd-hm-chat">
-          <div className="rd-hm-bubble rd-hm-bubble--q"><span className="rd-hm-bubble-label">Asked ChatGPT</span>Who’s the best HOA management company in {MAP.metro}?</div>
+          <div className="rd-hm-bubble rd-hm-bubble--q"><span className="rd-hm-bubble-label">Asked ChatGPT</span>Who’s the best HOA management company in <span className="rd-hm-city">{MAP.metro}</span>?</div>
           <div className="rd-hm-reply">
             <span className="rd-hm-avatar"><Glyph name="sparkle" size={16} stroke={2.5} /></span>
             <div className="rd-hm-bubble rd-hm-bubble--a">
               <div className="rd-hm-bubble-label rd-hm-bubble-label--ai"><Glyph name="sparkle" size={10} stroke={3} />ChatGPT · answer</div>
-              <span className="rd-hm-chip">Your Company</span>is the top choice in {MAP.metro} — strong board reviews and local experience.
+              <span className="rd-hm-chip">Your Company</span>is the top choice in <span className="rd-hm-city">{MAP.metro}</span> — strong board reviews and local experience.
             </div>
           </div>
         </div>
@@ -118,7 +119,7 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
         <div className="rd-hm-referral">
           <span className="rd-hm-referral-icon"><Glyph name="users" size={16} /></span>
           <span className="rd-hm-referral-text">
-            <span className="rd-hm-referral-label">Referral · Oak Hollow HOA</span>
+            <span className="rd-hm-referral-label">Referral · <span className="rd-hm-city">{MAP.metro}</span> board</span>
             <span className="rd-hm-referral-title">Matched with Your Company</span>
           </span>
         </div>

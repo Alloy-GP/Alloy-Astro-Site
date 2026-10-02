@@ -11,7 +11,7 @@ import { Eyebrow, Btn, CheckIcon } from '~/components/rd/atoms';
 const LH: CSSProperties = { lineHeight: 1.65 };
 
 // /contact is the "Claim your market" destination since /get-started was retired (client, 2026-10-01).
-const TOPICS = ['Claim my market', 'General question', 'Partnerships', 'Press', 'Careers'] as const;
+const TOPICS = ['Claim my market', 'Get my market report', 'General question', 'Partnerships', 'Press', 'Careers'] as const;
 
 interface ContactFormState {
   name: string;
@@ -52,15 +52,19 @@ export default function ContactPage() {
       utms ? `UTMs: ${utms}` : null,
     ].filter(Boolean) as string[];
     setSourceData(parts.join('\n'));
-    // Prefill from the homepage metro check: /contact?metro=Austin,%20TX&intent=claim|waitlist
+    // Prefill from the homepage metro check: /contact?metro=Austin,%20TX&intent=report|claim|waitlist
+    // report = open metro ("Get my report" button) · waitlist = claimed metro · claim = legacy links
     const metro = params.get('metro');
     const intent = params.get('intent');
     if (metro || intent) {
       const lines = [
         metro ? `Metro: ${metro.slice(0, 80)}` : null,
-        intent === 'waitlist' ? 'My metro is already claimed — add me to the waitlist.' : intent === 'claim' || metro ? 'I’d like to claim my market.' : null,
+        intent === 'report' ? 'I’d like a market report for my metro.'
+          : intent === 'waitlist' ? 'My metro is already claimed — add me to the waitlist.'
+          : intent === 'claim' || metro ? 'I’d like to claim my market.' : null,
       ].filter(Boolean) as string[];
-      setForm(f => ({ ...f, topic: 'Claim my market', message: f.message || lines.join('\n') }));
+      const topic = intent === 'report' ? 'Get my market report' : 'Claim my market';
+      setForm(f => ({ ...f, topic, message: f.message || lines.join('\n') }));
     }
   }, []);
 
