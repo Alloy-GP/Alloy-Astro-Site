@@ -346,16 +346,21 @@
   .rd-mc-title { font-size: 18px; }
   .rd-mc-body { padding: 16px 18px 0; }
   .rd-mc-input { font-size: 16px; }   /* no iOS zoom; the combined field stays a row */
-  .rd-mc-check { padding: 0 16px; }
+  .rd-mc-check { padding: 0 14px; min-width: 80px; }
   .rd-mc-guarantee { margin: 16px 18px 0; padding: 16px 0 18px; }
-  .rd-mc-result { padding: 10px; }
-  .rd-mc-result-actions { width: 100%; justify-content: space-between; }
+  .rd-mc-result { gap: 8px; padding: 6px 6px 6px 12px; }
+  .rd-mc-btn { padding: 0 12px; font-size: 11px; letter-spacing: .06em; }
+  .rd-mc-btn--go svg { display: none; }   /* give the metro name the room instead of the check glyph */
   /* 350px-wide map: Google card top-left → referral pill under it (right) → pin bottom-left → ChatGPT thread bottom-right */
   .rd-hm-map { min-height: 520px; height: 520px; }
   .rd-hm-dot { display: none; }
   .rd-hm-google { left: 16px; top: 16px; width: min(248px, calc(100% - 32px)); padding: 14px; }
   .rd-hm-referral { right: 12px; top: 214px; width: min(248px, calc(100% - 24px)); }
   .rd-hm-pulse, .rd-hm-pin { left: 20%; top: 58%; }
+  /* the pin sits in the map's narrow left column on phones: the city goes on its own line so the label stays clear of the ChatGPT bubble */
+  .rd-hm-pin-label { white-space: normal; text-align: center; max-width: 124px; line-height: 1.25; }
+  .rd-hm-pin-city { display: block; }
+  .rd-hm-pin-city:not(:empty)::before { content: none; }
   .rd-hm-chat { left: auto; right: 16px; bottom: 20px; width: min(228px, calc(100% - 32px)); }
   .rd-hm-bubble--q { max-width: 86%; }
   .rd-dialog-panel { padding: 28px 22px 24px; }

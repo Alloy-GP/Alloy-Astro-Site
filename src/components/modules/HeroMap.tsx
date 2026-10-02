@@ -5,7 +5,8 @@
 // opens the terms <dialog>). Right: a muted street map of the metro (static image generated from OSM tiles by
 // .context/gen-map.mjs; Austin by default) with the three ways a board finds a management company layered on
 // top — Google local-pack card, ChatGPT thread, referral pill — all pointing at the same #1 pin: Your Company.
-// Map is decorative (aria-hidden, no pointer events). The pin pulse is the only motion (reduced-motion: off).
+// Map is decorative (aria-hidden, no pointer events). It reacts to the metro check via src/lib/hero-map.ts (v2 §2):
+// zoom/fade while checking, re-centre on the metro from /api/map, pin label "Your Company · City".
 // Deviations from the handoff (earlier client calls): flush hero (no outer card/border/shadow), site radii (10),
 // pink keyword eyebrow + question as H1, whole guarantee row is the terms button, Open/Claimed result state.
 import type { ReactNode } from 'react';
@@ -79,9 +80,10 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
       {/* Right: the map + callouts (decorative) */}
       <div className="rd-hm-map" aria-hidden="true">
         <div className="rd-hm-map-clip">
-          <img src={MAP.src} alt="" width={1200} height={1200} fetchPriority="high" decoding="async" />
-          <div className="rd-hm-map-tint" />
-          <div className="rd-hm-map-vignette" />
+          <div className="rd-hm-map-layer">
+            <img src={MAP.src} alt="" width={1200} height={1200} fetchPriority="high" decoding="async" />
+          </div>
+          <div className="rd-hm-map-cream" />
         </div>
 
         <span className="rd-hm-dot" style={{ left: '86%', top: '12%' }} />
@@ -89,7 +91,7 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
         <span className="rd-hm-pulse" />
         <div className="rd-hm-pin">
           <span className="rd-hm-pin-num">1</span>
-          <span className="rd-hm-pin-label">Your Company</span>
+          <span className="rd-hm-pin-label">Your Company<span className="rd-hm-pin-city" /></span>
         </div>
 
         <div className="rd-hm-google">

@@ -35,7 +35,9 @@ src/
 │   ├── tokens.ts                    # JS color constants (PURPLE, PINK, YELLOW, BLUE, GREEN, BLUE_DEEP, REACH_INK, MATCH_INK, RETAIN_INK, ENGINE_INK)
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
 │   ├── mobile.ts                    # ≤720 enhancements (footer accordions, sticky CTA bar observers, article TOC bar + progress) — mounted from BaseLayout
+│   ├── hero-map.ts                  # homepage map reacts to the metro check: listens for `alloy:metro` (from MetroCheck) → zoom/fade while checking, swap in /api/map image for the metro, pin label "Your Company · City" — mounted from BaseLayout
 │   ├── dialog.ts                    # native <dialog> modals: [data-dialog=id] opens, [data-dialog-close]/backdrop/Esc close — mounted from BaseLayout
+│   ├── map-tiles.ts                 # SERVER: renderMetroMap(lat,lng) — stitches OSM z12 tiles → grayscale/lifted → cream (#fdfbf5) multiply WebP (sharp); used by /api/map and .context/gen-map.mjs
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
 │   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
@@ -70,8 +72,8 @@ src/
 │   │   ├── Shells.tsx               # LEGACY shells (PageHero, CtaBand, …) — still imported by landing-page code; do not use for new work
 │   │
 │   ├── modules/                     # Interactive islands + self-contained modules
-│   │   ├── HeroMap.tsx              # Homepage hero 7a (STATIC): copy + metro card (MetroCheck slot + guarantee row) | muted street map with Google card / ChatGPT thread / referral pill → #1 pin
-│   │   ├── MetroCheck.tsx           # Metro card header band + combined field (client:load island inside HeroMap): metro or ZIP → /api/metro?q= → Open/Claimed
+│   │   ├── HeroMap.tsx              # Homepage hero 7a v2 (STATIC): copy + metro card (MetroCheck slot + guarantee row) | cream street map (`.rd-hm-map-layer` zooms/re-centres via lib/hero-map.ts) with Google / ChatGPT / referral callouts pointing at the #1 pin; guarantee-terms <dialog>; exports Glyph + GuaranteeBadge
+│   │   ├── MetroCheck.tsx           # Metro card header band + one fixed 58px row (client:load island inside HeroMap): Idle field → Checking (spinner, pill CHECKING) → Result Open (Reserve it → /contact?metro&intent=claim) / Claimed (Join waitlist) + reset; unknown input = Open; dispatches `alloy:metro`
 │   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
 │   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe
 │   │   ├── TrustBuildingQuiz.tsx    # Knowledge check at the end of the trust-building guide (client:visible)
@@ -113,7 +115,7 @@ src/
     ├── resources/courses/index.astro, resources/courses/trust-building.astro
     ├── results/apex-cmg.astro
     ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter, noindex, not in sitemap/nav — client 2026-10-01), untouched by the redesign
-    └── api/ {lead,contact,subscribe,metro,newsletters,ping,thinktank}.ts # endpoints (metro: ?q= ZIP | "City, ST" | city via Zippopotam/Nominatim; newsletters: issues JSON; ?raw=1 diagnostics)
+    └── api/ {lead,contact,subscribe,metro,map,newsletters,ping,thinktank}.ts # endpoints (map: ?lat&lng → 768px muted street-map WebP, CDN-cached 30d; metro: ?q= ZIP | "City, ST" | city via Zippopotam/Nominatim; newsletters: issues JSON; ?raw=1 diagnostics)
 ```
 
 **Retired in the redesign (now 301s in `astro.config.mjs`):** `/our-approach*`, `/we-know-cam`, `/about/we-know-cam`, `/resource-hub*`, `/courses*` (10 lessons + quiz), `/services/social-media-marketing-for-hoa-management-companies`, `/services/hoa-newsletter-production`, `/hoa-cam-marketing-services`, `/groundwork`, `/hoa-board-education-programs`, `/strategic-review-request`, `/boardreach/local-pack-optimization`, `/results/rise-amg`, and (2026-10-01) **`/get-started` → `/contact`** — every "Claim your market" CTA now points at `/contact`.
@@ -260,6 +262,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Hero 7a v2** (`docs/redesign-handoff-hero-7a/` README = v2 delta, `README-v1-full-spec.md`): metro card is three states in one fixed 58px row — Idle field → Checking (button spinner, pill CHECKING yellow) → Result row (dot · name stack with ellipsis · **Reserve it** green / **Join waitlist** purple · reset) with `rdResultIn` entrance; helper text gone; pills LIVE/CHECKING/OPEN/CLAIMED. The map now responds: `lib/hero-map.ts` listens for `alloy:metro` from `MetroCheck` → layer scales 1.1 / fades while checking, then swaps in the metro's own map from new **`/api/map?lat&lng`** (`lib/map-tiles.ts`: OSM z12 tiles → grayscale → cream multiply, sharp, memo + 30-day CDN cache) and the pin label reads "Your Company · City". Map tint is now cream (`#fdfbf5` multiply, ring `#ece9e0`, dots `#b8ad99`, no veil/vignette); Austin default regenerated with the same recipe (`node --experimental-strip-types .context/gen-map.mjs`). Unknown input → Open with the typed string title-cased, map stays. Reduced motion: no zoom / entrance. |
 | 2026-10-02 | **Hero 7a — map hero** (`docs/redesign-handoff-hero-7a/`, supersedes card 2b): two columns — copy + metro card (purple header band with LIVE pill, combined field, guarantee badge row) and a muted street map (`public/assets/map/austin.webp`, generated from OSM tiles by `.context/gen-map.mjs`) with Google / ChatGPT / referral callouts pointing at the #1 pin (pulse is the only motion). `HeroMap.tsx` replaces `HeroCard.tsx`; `lib/hero-story.ts` + the `html.js` gate removed. Classes `rd-hm-*` / `rd-mc-*`. Open items: per-visitor metro needs a map key; ChatGPT avatar is a sparkle until the official mark is licensed. |
 | 2026-10-02 | **Hero card rev. (4a + 6a)** from the client's "home edit" handoff: tinted answer rows with YOU tags (referral chip yellow), one lavender bottom panel with a combined metro field (`.rd-hc-field` + `.rd-hc-check`) and the guarantee badge row (`GuaranteeBadge`, no text); divider + idle microcopy gone. |
 | 2026-10-02 | **Guarantee → "The floor · 1×"** copy (hero card, modal, FAQ); the card is now white with the client's seal (inline SVG `GuaranteeSeal` in HeroCard: five-color arcs, purple disc, ring text, gold check) instead of the gold "THE FLOOR · 1×" box. **iOS menu fix:** mobile panel portaled to `<body>` — Safari treats the header's `backdrop-filter` as a containing block for `position: fixed`, so the panel had no height on iPhones. |
