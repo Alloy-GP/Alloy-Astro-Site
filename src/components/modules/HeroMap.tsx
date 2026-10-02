@@ -54,6 +54,7 @@ export function GuaranteeBadge() {
 
 /** Default metro shown on the map. Swap per visitor once a map provider key exists (see OPEN-QUESTIONS §39). */
 const MAP = { src: '/assets/map/austin.webp', metro: 'Austin' };
+const CHATGPT_MARK = '/assets/chatgpt-mark.png';   // official mark supplied by the client 2026-10-02 (replaces the neutral sparkle)
 
 export default function HeroMap({ children }: { children?: ReactNode }) {
   return (
@@ -119,9 +120,9 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
         <div className="rd-hm-chat">
           <div className="rd-hm-bubble rd-hm-bubble--q"><span className="rd-hm-bubble-label">Asked ChatGPT</span>Who’s the best HOA management company in <span className="rd-hm-city">{MAP.metro}</span>?</div>
           <div className="rd-hm-reply">
-            <span className="rd-hm-avatar"><Glyph name="sparkle" size={16} stroke={2.5} /></span>
+            <span className="rd-hm-avatar"><img src={CHATGPT_MARK} alt="" width={16} height={16} decoding="async" /></span>
             <div className="rd-hm-bubble rd-hm-bubble--a">
-              <div className="rd-hm-bubble-label rd-hm-bubble-label--ai"><Glyph name="sparkle" size={10} stroke={3} />ChatGPT · answer</div>
+              <div className="rd-hm-bubble-label rd-hm-bubble-label--ai"><img src={CHATGPT_MARK} alt="" width={11} height={11} decoding="async" />ChatGPT · answer</div>
               <span className="rd-hm-chip">Your Company</span>is the top choice in <span className="rd-hm-city">{MAP.metro}</span> — strong board reviews and local experience.
             </div>
           </div>
