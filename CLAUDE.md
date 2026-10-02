@@ -264,6 +264,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Eyebrow lines removed** (client: "no dashes on eyebrows"): the 28×3 `.rd-eyebrow::before` bar and the legacy `.eyebrow::before` bar are `display: none`; eyebrows are now plain uppercase labels. `--noline` / `.no-line` stay as no-ops. |
 | 2026-10-02 | **Stat fix**: email-marketing FAQ dropped the "21% all-industry average HubSpot reports" comparison (HubSpot's current page says 42%, Mailchimp 36%; the 21% was stale) — keeps the real 38% median and explains why benchmarks aren't the yardstick. |
 | 2026-10-02 | **Entity + Bing**: Organization `sameAs` (LinkedIn, Facebook, Instagram from the client) via `SITE.org.sameAs`; same three as text links in the footer bottom bar (`FOOTER.social`). IndexNow key (`SITE.indexNowKey`, key file in `public/`) with the sitemap URLs submitted to api.indexnow.org for Bing/Copilot/ChatGPT search. |
 | 2026-10-02 | **Em dashes removed site-wide** (client): 695 replacements across 88 files via `.context/emdash.py` (paired asides → parentheses/commas, lists → colons, independent clauses → full stops, labels/eyebrows/nav → middots, titles → `:` / `\|`), compare-table "not included" cells → "No", a handful hand-tuned; CSS/HTML comments scrubbed too. |
