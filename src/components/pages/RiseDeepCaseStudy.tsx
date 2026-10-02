@@ -26,33 +26,33 @@ const BEFORE_AFTER = [
 
 const PHASES = [
   { label: 'Months 0–3', title: 'Diagnostic & foundation', color: PINK, headline: 'Tear it down to the studs.', bullets: [
-    'Full market and competitive audit — service area mapped, every competing CAM firm scored.',
+    'Full market and competitive audit, service area mapped, every competing CAM firm scored.',
     'Technical SEO rebuild: site architecture, page speed, schema markup, internal linking.',
     'Discovery process redesign: a real intake script, not a brochure.',
-    'Baseline analytics + attribution wired up — so every later metric has a real before-state.',
+    'Baseline analytics + attribution wired up, so every later metric has a real before-state.',
   ]},
   { label: 'Months 3–6', title: 'Authority & visibility', color: YELLOW, headline: 'Become findable. Become quotable.', bullets: [
     'Pillar content campaign: 14 cornerstone articles answering the questions boards search.',
     'Google Business Profile rebuild + 40+ targeted local citations.',
-    'GEO / AI-search optimization — Apex CMG began appearing inside ChatGPT and Perplexity answers.',
+    'GEO / AI-search optimization. Apex CMG began appearing inside ChatGPT and Perplexity answers.',
     'First trade press placements + chapter speaking slots booked.',
   ]},
   { label: 'Months 6–12', title: 'Compounding inbound', color: GREEN, headline: 'The flywheel turns.', bullets: [
     'Lead intake crossed 4× baseline. Inbound mix flipped: more boards searching, fewer cold approaches.',
-    'Proposal template overhaul — discovery → diagnosis → engineered plan, not a price sheet.',
+    'Proposal template overhaul, discovery → diagnosis → engineered plan, not a price sheet.',
     "Groundwork BD launched on qualified, exclusive territories the inbound wasn't reaching.",
-    'Quarterly business review cadence locked in — wins, losses, and what to rebuild next.',
+    'Quarterly business review cadence locked in: wins, losses, and what to rebuild next.',
   ]},
   { label: 'Months 12–18', title: 'Engineered, not lucky', color: BLUE, headline: 'Selectivity, not scarcity.', bullets: [
     'Lead intake landed at +535%. Proposal requests at 3×. Monthly opportunities at +1,580% YoY.',
-    'Onboarding + board education curriculum live — renewals stopped being a re-pitch.',
+    'Onboarding + board education curriculum live, renewals stopped being a re-pitch.',
     "Apex CMG began declining associations that weren't a portfolio fit.",
-    "Operating system documented and run by Apex CMG's team — Alloy moved into strategic-partner cadence.",
+    "Operating system documented and run by Apex CMG's team. Alloy moved into strategic-partner cadence.",
   ]},
 ];
 
 const ENGINE_BLOCKS = [
-  { name: 'Attract', color: PINK, tagline: 'Boards find Apex CMG before they start shopping.', summary: 'Local SEO, GEO/AI-search, content engine, and paid media — coordinated, not stacked.', tactics: [
+  { name: 'Attract', color: PINK, tagline: 'Boards find Apex CMG before they start shopping.', summary: 'Local SEO, GEO/AI-search, content engine, and paid media: coordinated, not stacked.', tactics: [
     { k: 'Technical SEO rebuild', v: 'Site architecture, schema, internal linking, page speed under 1.4s.' },
     { k: 'Local + GEO / AI search', v: 'Top-3 local visibility for primary metro; cited in AI search answers.' },
     { k: 'Pillar content engine', v: '14 cornerstone articles + 60+ supporting pieces across 18 months.' },
@@ -60,21 +60,21 @@ const ENGINE_BLOCKS = [
   ]},
   { name: 'Authority', color: YELLOW, tagline: 'Boards arrive pre-sold.', summary: 'Trade press, speaking, and earned media that turn a competent firm into the obvious choice.', tactics: [
     { k: 'Trade press placements', v: 'Quoted in industry publications across the engagement window.' },
-    { k: 'Chapter speaking', v: 'Local CAI chapter slots — board members hearing Apex CMG in the room before reading them online.' },
+    { k: 'Chapter speaking', v: 'Local CAI chapter slots, board members hearing Apex CMG in the room before reading them online.' },
     { k: 'Proprietary methodology framing', v: "Apex CMG's approach packaged into named frameworks boards can repeat." },
     { k: 'Owner thought-leadership cadence', v: 'Monthly LinkedIn + newsletter pieces from the CEO chair, not the marketing seat.' },
   ]},
-  { name: 'Close', color: GREEN, tagline: 'More leads, plus a higher hit rate.', summary: 'Proposal redesign, discovery process, and Groundwork BD — so what walks in actually walks across the line.', tactics: [
-    { k: 'Discovery script + diagnosis call', v: "Replaced 'send us your RFP' with a real intake — boards leave the call already engaged." },
+  { name: 'Close', color: GREEN, tagline: 'More leads, plus a higher hit rate.', summary: 'Proposal redesign, discovery process, and Groundwork BD, so what walks in actually walks across the line.', tactics: [
+    { k: 'Discovery script + diagnosis call', v: "Replaced 'send us your RFP' with a real intake. Boards leave the call already engaged." },
     { k: 'Proposal template rebuild', v: "Apex CMG's thinking, the engineered plan, the people. Not a rate card." },
-    { k: 'Groundwork BD outreach', v: "Targeted, market-exclusive territory outreach concurrent with inbound — net-new pipeline that wasn't searching yet." },
+    { k: 'Groundwork BD outreach', v: "Targeted, market-exclusive territory outreach concurrent with inbound, net-new pipeline that wasn't searching yet." },
     { k: 'Lost-deal post-mortems', v: "Every loss reviewed; pattern-matched into the next quarter's playbook." },
   ]},
   { name: 'Keep', color: BLUE, tagline: "Renewals that aren't re-pitches.", summary: 'Onboarding, board education, and feedback loops that turn a year-one client into a five-year reference.', tactics: [
-    { k: 'First-90-days onboarding system', v: "Documented sequence — boards know what's happening when, no surprises." },
-    { k: 'Board education curriculum', v: 'Quarterly sessions on governance, vendor management, reserves — boards get smarter; Apex CMG gets credit.' },
+    { k: 'First-90-days onboarding system', v: "Documented sequence. Boards know what's happening when, no surprises." },
+    { k: 'Board education curriculum', v: 'Quarterly sessions on governance, vendor management, reserves. Boards get smarter; Apex CMG gets credit.' },
     { k: 'Satisfaction + signal monitoring', v: 'Quarterly board pulse + early-warning indicators on accounts at risk.' },
-    { k: 'Reference & referral motion', v: 'Happy boards talk to other boards — engineered, not assumed.' },
+    { k: 'Reference & referral motion', v: 'Happy boards talk to other boards, engineered, not assumed.' },
   ]},
 ];
 
@@ -257,7 +257,7 @@ export default function RiseDeepCaseStudy() {
             </Section>
 
             <Section id="before-after" label="Before · after" title="Same team. Same market. Different operating system.">
-              <p>Nothing about Apex CMG’s people changed. What changed is the system underneath them — and what that system makes possible.</p>
+              <p>Nothing about Apex CMG’s people changed. What changed is the system underneath them, and what that system makes possible.</p>
               <div className="rd-table-wrap" style={{ border: '1px solid var(--border-subtle)', borderRadius: 10 }}>
                 <table className="rd-table" style={{ fontSize: 14 }}>
                   <colgroup><col style={{ width: '22%' }} /><col /><col /></colgroup>
@@ -313,7 +313,7 @@ export default function RiseDeepCaseStudy() {
             </Section>
 
             <Section id="by-engine" label="What we built, by engine" title="Four engines. One system. Connected on purpose.">
-              <p>Each engine has its own playbook. The point isn’t running them in parallel — it’s running them so they compound.</p>
+              <p>Each engine has its own playbook. The point isn’t running them in parallel. It’s running them so they compound.</p>
               <div className="rd-stack" style={{ gap: 16 }}>
                 {ENGINE_BLOCKS.map((e) => (
                   <div key={e.name} className="rd-card rd-card--pad rd-stack rd-stack--18">
@@ -360,7 +360,7 @@ export default function RiseDeepCaseStudy() {
             </Section>
 
             <Section id="what-changed" title="What changed">
-              <p>Lead intake up 535% against the pre-engagement baseline. Proposal requests tripled. Boards began contacting the firm directly, before an RFP — the firm’s words: “We went from chasing RFPs to having boards reach out directly.”</p>
+              <p>Lead intake up 535% against the pre-engagement baseline. Proposal requests tripled. Boards began contacting the firm directly, before an RFP. The firm’s words: “We went from chasing RFPs to having boards reach out directly.”</p>
               <Label>The mid-engagement quote</Label>
               <blockquote>“I stopped explaining what we do. The website does it. The articles do it. The boards arrive already convinced.”</blockquote>
               <Attribution name="Marcus G." role="CEO, Apex CMG* · month 9" />
@@ -387,7 +387,7 @@ export default function RiseDeepCaseStudy() {
 
       <section className="rd-section rd-bg-off">
         <div className="rd-wrap">
-          <CtaBar text="Thirty minutes tells you which engine to fix first — and whether your metro is still open." />
+          <CtaBar text="Thirty minutes tells you which engine to fix first, and whether your metro is still open." />
         </div>
       </section>
     </div>

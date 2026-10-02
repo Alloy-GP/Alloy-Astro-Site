@@ -1,7 +1,7 @@
 ---
 // src/layouts/BaseLayout.astro
 // Single layout for every Alloy page. All SEO defaults pulled from
-// src/config/site.ts — never hardcode site name, OG image path, or
+// src/config/site.ts - never hardcode site name, OG image path, or
 // twitter handle in page files.
 //
 // Usage (minimal):
@@ -127,7 +127,7 @@ const robotsContent = isPreviewDeploy ? 'noindex,nofollow' : robots;
 // WebSite entity (site name + alternate name for Google's site-name display; emitted with the org on every page)
 const websiteLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, alternateName: 'Alloy', url: SITE.url + '/', inLanguage: 'en-US', publisher: { '@type': SITE.org.type, name: SITE.name, url: SITE.url } };
 
-// Resolve OG image to absolute URL — use page override if provided, else default
+// Resolve OG image to absolute URL - use page override if provided, else default
 const resolvedOgImage = new URL(
   ogImageProp ?? SITE.defaultOgImage,
   Astro.site ?? SITE.url
@@ -173,7 +173,7 @@ const orgLd = {
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#381c4f" />
 
-    <!-- Robots (only emitted when explicitly set — absence = index,follow) -->
+    <!-- Robots (only emitted when explicitly set - absence = index,follow) -->
     {robotsContent && <meta name="robots" content={robotsContent} />}
 
     <!-- Open Graph -->
@@ -187,7 +187,7 @@ const orgLd = {
     <meta property="og:image:type" content={/\.jpe?g$/i.test(resolvedOgImage) ? 'image/jpeg' : /\.webp$/i.test(resolvedOgImage) ? 'image/webp' : 'image/png'} />
     <meta property="og:image:width" content={SITE.ogImageWidth} />
     <meta property="og:image:height" content={SITE.ogImageHeight} />
-    <meta property="og:image:alt" content={`${SITE.name} — The growth system for CAM companies`} />
+    <meta property="og:image:alt" content={`${SITE.name}. The growth system for CAM companies`} />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -195,9 +195,9 @@ const orgLd = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={resolvedOgImage} />
-    <meta name="twitter:image:alt" content={`${SITE.name} — The growth system for CAM companies`} />
+    <meta name="twitter:image:alt" content={`${SITE.name}. The growth system for CAM companies`} />
 
-    <!-- Fonts: preload Book (400) and Bold (700) — the two weights used for body copy and
+    <!-- Fonts: preload Book (400) and Bold (700) - the two weights used for body copy and
          UI elements above the fold. Gotham-Black (800) is intentionally NOT preloaded:
          display-xxl uses font-display:optional, and Chrome extends optional's block period
          to wait for any preloaded font. Without the preload, optional falls back at ~100ms
@@ -207,12 +207,12 @@ const orgLd = {
     <link rel="preload" href="/fonts/Gotham-Bold.woff2" as="font" type="font/woff2" crossorigin />
     <!-- No Google Fonts: Manrope/Sora unused in CSS; Gotham is self-hosted; system fonts cover the swap period -->
 
-    <!-- No manual critical CSS block needed — build.inlineStylesheets:'always' in astro.config.mjs
+    <!-- No manual critical CSS block needed - build.inlineStylesheets:'always' in astro.config.mjs
          causes Astro to embed all CSS as inline <style> tags, eliminating the render-blocking
          external stylesheet entirely. The font preloads below give WOFF2 downloads a head start
          before the inlined @font-face declarations are parsed. -->
 
-    <!-- Preconnect for conversion tracking domains — establishes connections early for post-load script -->
+    <!-- Preconnect for conversion tracking domains - establishes connections early for post-load script -->
     <link rel="preconnect" href="https://js.surebizpayments.com" />
     <link rel="preconnect" href="https://jssecure.ksrndkeh.com" />
     <link rel="dns-prefetch" href="//s.ksrndkehqnwntyxlhgto.com" />
@@ -224,7 +224,7 @@ const orgLd = {
       <script type="application/ld+json" set:html={JSON.stringify(pageSchema)} />
     )}
 
-    <!-- Google Analytics: deferred to after page paint — eliminates forced reflow from gtag.js.
+    <!-- Google Analytics: deferred to after page paint - eliminates forced reflow from gtag.js.
          dataLayer + gtag() are set up inline so any early gtag() calls on the page don't throw.
          The actual gtag/js script loads after the load event fires (same pattern as conversion tracking). -->
     <script is:inline>
@@ -241,7 +241,7 @@ const orgLd = {
 
     <!-- Conversion tracking: capture page data immediately, load external script after browser idle.
          Using requestIdleCallback (with setTimeout fallback) keeps the forced reflow from the
-         tracking script off the main thread during page load — removes it from TBT entirely. -->
+         tracking script off the main thread during page load, removes it from TBT entirely. -->
     <script is:inline>
       var $wc_load = function(a) { return JSON.parse(JSON.stringify(a)); };
       var $wc_leads = $wc_leads || { doc: { url: $wc_load(document.URL), ref: $wc_load(document.referrer), search: $wc_load(location.search), hash: $wc_load(location.hash) } };

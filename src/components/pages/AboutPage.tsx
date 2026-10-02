@@ -17,13 +17,13 @@ const LH: CSSProperties = { lineHeight: 1.65 };
 const STATS: StatItem[] = [
   { value: 35, display: '35+', suffix: 'years', note: 'Combined CAM operations experience across the partners' },
   { value: 1, suffix: 'industry', note: 'Community association management. Nothing else.' },
-  { value: 1, suffix: 'firm per metro', note: 'Locked by contract for the engagement — and it renews with you' },
+  { value: 1, suffix: 'firm per metro', note: 'Locked by contract for the engagement, and it renews with you' },
 ];
 
 
 // From WeKnowCamPage — "35+ yrs" is omitted here because the stat band directly below carries it.
 const PROOFS: Array<{ k: string; v: string; tone: 'pink' | 'yellow' | 'green' }> = [
-  { k: 'Inside ops', v: 'Marketing, learning, and executive functions — not from a brochure, from running them.', tone: 'pink' },
+  { k: 'Inside ops', v: 'Marketing, learning, and executive functions, not from a brochure, from running them.', tone: 'pink' },
   { k: 'CAI Member', v: "Engaged with the Community Associations Institute, the industry's governing body.", tone: 'yellow' },
   { k: 'Operator-built', v: 'Every framework forged inside a real CAM firm before it became a deliverable.', tone: 'green' },
 ];
@@ -34,7 +34,7 @@ const VERSUS = [
   { dim: 'Conflict of interest', us: 'One CAM firm per metro, by contract. Your strategy stays yours.', them: 'Same agency works with three competing firms in one city.' },
   { dim: 'Sales handoff', us: 'Groundwork prospects, qualifies, hands off with full context.', them: 'A web form lead. Good luck closing it.' },
   { dim: 'Retention strategy', us: 'BoardRetain protects existing portfolio with education, SOPs, comms.', them: "Retention isn't on the agency's roadmap." },
-  { dim: 'Time to results', us: 'Engineered ramp — first signals in 90 days, compound by month 12.', them: "Month-to-month volume metrics that don't tie to revenue." },
+  { dim: 'Time to results', us: 'Engineered ramp: first signals in 90 days, compound by month 12.', them: "Month-to-month volume metrics that don't tie to revenue." },
 ];
 
 // Real partners (carried from the pre-redesign AboutPage). A partner renders a headshot when `photo`
@@ -43,7 +43,7 @@ const VERSUS = [
 const PARTNERS: Array<{ name: string; role: string; color: string; icon: string; roleLabel: string; bio: string; photo?: string }> = [
   { name: 'Skyler Nelson', role: 'Managing Partner · Marketing', color: PINK, icon: 'target', roleLabel: 'Marketing',
     photo: '/assets/team/skyler-nelson',
-    bio: 'Spent years inside HOA management running marketing — knows what boards search for, what makes a proposal land, and what fails.' },
+    bio: 'Spent years inside HOA management running marketing: knows what boards search for, what makes a proposal land, and what fails.' },
   { name: 'Justin Guenther', role: 'Managing Partner · Learning & Development', color: YELLOW, icon: 'book', roleLabel: 'Learning & Development',
     bio: 'Built training and education programs inside a management company. Translates that capability into authority content no other agency can produce.' },
   { name: 'Cameron Lange', role: 'Managing Partner · Executive', color: GREEN, icon: 'compass', roleLabel: 'Executive',
@@ -54,7 +54,7 @@ const RULES = [
   { h: 'One CAM firm per market.', d: 'When you hire us, your competitor can’t. Ask your current agency if they’d agree to that.' },
   { h: 'All-in pricing.', d: 'The number you see is the number you pay. No rate cards, no scope surprises.' },
   { h: 'Twelve months minimum.', d: 'Growth compounds. We don’t take engagements too short to prove it.' },
-  { h: 'Outcomes, not deliverables.', d: 'Lead volume, win rate, retention — reported quarterly. Not blog-post counts.' },
+  { h: 'Outcomes, not deliverables.', d: 'Lead volume, win rate, retention: reported quarterly. Not blog-post counts.' },
 ];
 
 const roleStyle: CSSProperties = { fontSize: 13, color: 'var(--alloy-pink)', fontWeight: 700, letterSpacing: '.06em', textTransform: 'uppercase', marginTop: 2 };
@@ -140,7 +140,7 @@ export default function AboutPage() {
             </div>
             <div className="rd-stack rd-stack--18">
               <p className="rd-body" style={LH}>An agency that also does dentists and restaurants learns your industry on your retainer. We already know which queries boards type, which directories matter, what a transition plan has to say, and why the renewal decision is made eleven months early.</p>
-              <p className="rd-body" style={LH}>Every process we run — SEO, proposals, newsletters, board education — was built for CAM and nothing else. There is no template we adapt from another category. There is no other category.</p>
+              <p className="rd-body" style={LH}>Every process we run (SEO, proposals, newsletters, board education) was built for CAM and nothing else. There is no template we adapt from another category. There is no other category.</p>
               <p className="rd-body" style={LH}>It also means we can’t hide. If a firm in your metro is growing, boards know who’s behind it. That accountability is the point.</p>
               <div className="rd-grid rd-grid--3 rd-gap-24" style={{ paddingTop: 18 }}>
                 {PROOFS.map((p) => (

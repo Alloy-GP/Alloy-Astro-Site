@@ -138,7 +138,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
   return (
     <header className="site-header" onMouseLeave={scheduleClose}>
       <div className="site-header-inner">
-        <a href="/" className="site-logo" aria-label="Alloy Growth Partners — home">
+        <a href="/" className="site-logo" aria-label="Alloy Growth Partners: home">
           <img src="/assets/alloy-logo-full-color.svg" alt="Alloy Growth Partners" width={160} height={30} />
         </a>
 

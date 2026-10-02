@@ -5,7 +5,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const TIP_A = 'Average board leads a CAM firm gets running its own Google Ads with an active budget. Paid for, one click at a time.';
-const TIP_B = 'Boards we bring in through MatchHOA and hand to you at no cost — included as an Alloy partner. Nobody else in your market can buy them.';
+const TIP_B = 'Boards we bring in through MatchHOA and hand to you at no cost, included as an Alloy partner. Nobody else in your market can buy them.';
 
 function useCount(to: number, on: boolean, ms = 1100): number {
   const [v, setV] = useState(0);

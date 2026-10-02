@@ -1,4 +1,4 @@
-/* Alloy Website 2.0 — site-specific layer on top of colors_and_type.css */
+/* Alloy Website 2.0 - site-specific layer on top of colors_and_type.css */
 
 html, body { margin: 0; padding: 0; }
 body {
@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-html { overflow-x: hidden; }   /* <html> only — overflow on <body> makes it a scroll container and kills position: sticky (article TOCs) */
+html { overflow-x: hidden; }   /* <html> only - overflow on <body> makes it a scroll container and kills position: sticky (article TOCs) */
 * { box-sizing: border-box; }
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; }
@@ -17,7 +17,7 @@ img { max-width: 100%; display: block; }
 /* Selection */
 ::selection { background: var(--alloy-pink); color: #fff; }
 
-/* Scrollbar — subtle */
+/* Scrollbar - subtle */
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-thumb { background: #c9c1d6; border-radius: 999px; }
 ::-webkit-scrollbar-track { background: transparent; }
@@ -165,7 +165,7 @@ img { max-width: 100%; display: block; }
 .card-accent-purple { border-left: 5px solid var(--alloy-purple); }
 
 /* ----------------------------------------------------------------------------
-   Pillar cards & eyebrows — used on BoardReach / BoardMatch / BoardRetain
+   Pillar cards & eyebrows - used on BoardReach / BoardMatch / BoardRetain
    Service-card pattern from brand kit: thick left-accent bar in pillar color.
 ---------------------------------------------------------------------------- */
 .pillar-card {
@@ -207,7 +207,7 @@ img { max-width: 100%; display: block; }
 .accent-bar.thin { height: 4px; }
 .accent-bar.thick { height: 10px; }
 
-/* Animated accent bar — flows on slow loop */
+/* Animated accent bar - flows on slow loop */
 .accent-bar.animated > div { animation: accentPulse 6s var(--ease-standard) infinite; }
 .accent-bar.animated > div:nth-child(2) { animation-delay: 0.3s; }
 .accent-bar.animated > div:nth-child(3) { animation-delay: 0.6s; }
@@ -254,7 +254,7 @@ img { max-width: 100%; display: block; }
   transition: color 200ms;
   cursor: pointer;
 }
-/* Hover and .active share the exact same visual treatment — brand color, no underline */
+/* Hover and .active share the exact same visual treatment - brand color, no underline */
 .site-nav-link:hover,
 .site-nav-link.active { color: var(--alloy-pink); }
 .site-header.on-dark .site-nav-link { color: #fff; }
@@ -347,7 +347,7 @@ img { max-width: 100%; display: block; }
 }
 
 /* ----------------------------------------------------------------------------
-   Case study cards — interactive hover + chart bar/point hover
+   Case study cards - interactive hover + chart bar/point hover
 ---------------------------------------------------------------------------- */
 .case-study-card {
   transition: transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
@@ -434,7 +434,7 @@ img { max-width: 100%; display: block; }
 ---------------------------------------------------------------------------- */
 .site-footer { background: var(--alloy-purple-deep); color: #fff; }
 
-/* Legacy inner grid — overridden for v2 */
+/* Legacy inner grid - overridden for v2 */
 .site-footer-inner {
   max-width: 1240px;
   margin: 0 auto;
@@ -444,7 +444,7 @@ img { max-width: 100%; display: block; }
   gap: 64px;
 }
 
-/* v2 inner — block layout, each variant handles its own grid */
+/* v2 inner - block layout, each variant handles its own grid */
 .alloy-footer-inner-v2 {
   display: block;
   grid-template-columns: none;
@@ -452,7 +452,7 @@ img { max-width: 100%; display: block; }
   padding: 80px 32px 36px;
 }
 
-/* Newsletter — sits below the variant layout */
+/* Newsletter - sits below the variant layout */
 .site-footer-newsletter {
   grid-column: 1 / -1;
   display: grid;
@@ -793,7 +793,7 @@ img { max-width: 100%; display: block; }
   .alloy-footer-editorial,
   .alloy-footer-cols-5         { grid-template-columns: 1fr; gap: 28px; }
 
-  /* Content cards — single column on small phones */
+  /* Content cards - single column on small phones */
   .alloy-footer-stacked-cards .alloy-footer-cards,
   .alloy-footer-cards          { grid-template-columns: 1fr; }
 }
@@ -833,7 +833,7 @@ img { max-width: 100%; display: block; }
 }
 .divider-band hr { flex: 1; border: none; height: 1px; background: rgba(255,255,255,0.12); }
 
-/* Reveal animation utility — opacity stays at 1; only transform animates so throttled animations never hide content */
+/* Reveal animation utility - opacity stays at 1; only transform animates so throttled animations never hide content */
 @keyframes fadeUp { from { transform: translateY(24px); } to { transform: translateY(0); } }
 .reveal { opacity: 1; animation: fadeUp 600ms var(--ease-emphasis); }
 @media (prefers-reduced-motion: reduce) { .reveal { animation: none; } }
@@ -846,7 +846,7 @@ img { max-width: 100%; display: block; }
 .panel-swap { animation: panelSwap 320ms var(--ease-emphasis); }
 @media (prefers-reduced-motion: reduce) { .panel-swap { animation: none; } }
 
-/* SystemDiagram engine tabs — hover lift on inactive tabs */
+/* SystemDiagram engine tabs - hover lift on inactive tabs */
 .engine-tab:not(.is-active):hover {
   background: rgba(255,255,255,0.07) !important;
   border-color: rgba(255,255,255,0.18) !important;
@@ -860,6 +860,6 @@ img { max-width: 100%; display: block; }
 /* Tweaks-panel positioning override (for our site) */
 .tweaks-panel { font-family: var(--font-body) !important; }
 
-/* GetStartedPage hero grid — desktop default (mobile overrides in mobile.css) */
+/* GetStartedPage hero grid - desktop default (mobile overrides in mobile.css) */
 .gs-hero-grid { grid-template-columns: 1.15fr 1fr; gap: 72px; }
 .gs-hero-grid > * { min-width: 0; }

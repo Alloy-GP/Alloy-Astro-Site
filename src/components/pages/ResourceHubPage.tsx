@@ -62,7 +62,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
             <Eyebrow>Resources</Eyebrow>
             <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 7.25vw, 84px)' }}>Field notes for <span className="rd-accent">CAM operators.</span></h1>
           </div>
-          <p className="rd-intro">Guides, courses, and articles on how boards find, choose, and keep management companies — written by people who have run portfolios, not marketers guessing at the category.</p>
+          <p className="rd-intro">Guides, courses, and articles on how boards find, choose, and keep management companies. Written by people who have run portfolios, not marketers guessing at the category.</p>
         </div>
       </section>
 
@@ -73,7 +73,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
             <a href="/resources/hoa-management-software-guide" className="rd-card-link rd-bg-purple rd-ink-white rd-stack--18" style={{ borderRadius: 10, padding: 40, minHeight: 340 }}>
               <Label tone="yellow" size={12}>Featured guide</Label>
               <div className="rd-h2 rd-h2--sm">The HOA management software guide.</div>
-              <p className="rd-body rd-body--16 rd-muted-85" style={{ maxWidth: 520 }}>Vantaca, AppFolio, Buildium, CINC and the rest — compared the way an operator compares them, with what each one means for boards, owners, and your marketing stack.</p>
+              <p className="rd-body rd-body--16 rd-muted-85" style={{ maxWidth: 520 }}>Vantaca, AppFolio, Buildium, CINC and the rest: compared the way an operator compares them, with what each one means for boards, owners, and your marketing stack.</p>
               <span className="rd-btn rd-btn--sm" style={{ padding: '14px 22px', marginTop: 'auto', alignSelf: 'flex-start' }}>Read the guide</span>
             </a>
             <div className="rd-stack rd-gap-20">
@@ -88,7 +88,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
         <div className="rd-wrap rd-stack" style={{ gap: 36 }}>
           <div className="rd-grid rd-grid--2 rd-grid--end">
             <h2 className="rd-h2">Latest.</h2>
-            <p className="rd-body">What’s changing in how boards search, shop, and decide — and what to do about it this quarter.</p>
+            <p className="rd-body">What’s changing in how boards search, shop, and decide, and what to do about it this quarter.</p>
           </div>
           <div className="rd-grid rd-grid--3 rd-gap-20">
             {LATEST.map((r) => <ResourceCard key={r.title} r={r} />)}
@@ -102,7 +102,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
           <div className="rd-stack rd-stack--24">
             <Eyebrow tone="yellow">The Alloy Briefing</Eyebrow>
             <h2 className="rd-h2 rd-h2--44" style={{ color: '#fff' }}>Our newsletter for CAM operators.</h2>
-            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Attract, close, keep — in your inbox.</p>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Attract, close, keep, in your inbox.</p>
             {issues.length > 0 ? (
               <div className="rd-stack rd-stack--14" style={{ marginTop: 8 }}>
                 <Label tone="yellow">Recent issues</Label>

@@ -8,7 +8,7 @@ const data: ServicePageData = {
   eyebrow: 'BoardReach™ · Print',
   h1: 'The proposal on the table should look like',
   h1Accent: 'the winner.',
-  intro: 'Boards still decide in a room, with paper. Print & Marketing Materials for HOA management companies covers the proposal binder, the leave-behind, the community signage, the tradeshow booth — designed as one system and produced on time.',
+  intro: 'Boards still decide in a room, with paper. Print & Marketing Materials for HOA management companies covers the proposal binder, the leave-behind, the community signage, the tradeshow booth, designed as one system and produced on time.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 1, suffix: 'system', note: 'One set of templates across proposal, deck, mailer, signage' },
@@ -26,7 +26,7 @@ const data: ServicePageData = {
     {
       h: 'Signage that markets while it informs.',
       p: [
-        'Entrance signs, pool rules, notice boards — every community you manage is a billboard for the next one. Consistent, well-made signage tells the neighboring board who runs a tight operation.',
+        'Entrance signs, pool rules, notice boards. Every community you manage is a billboard for the next one. Consistent, well-made signage tells the neighboring board who runs a tight operation.',
         'The standard extends to gate codes, amenity hours, construction notices, wayfinding, and parking, so no manager is designing a sign on the fly the week the pool opens.',
       ],
     },
@@ -53,7 +53,7 @@ const data: ServicePageData = {
     {
       h: 'One print library, one reorder form.',
       p: [
-        'Every file lives in a central library with reorder triggers. When stationery runs low, a sign gets damaged, or a new community comes on, your team submits one form and the piece ships on a two-day turnaround — no out-of-stock scramble every quarter.',
+        'Every file lives in a central library with reorder triggers. When stationery runs low, a sign gets damaged, or a new community comes on, your team submits one form and the piece ships on a two-day turnaround, no out-of-stock scramble every quarter.',
         'Behind it is a vetted vendor network for digital, offset, large-format, and mail-house work. We bid each job, manage proofs and QC, and deliver. You sign off; we ship.',
       ],
     },
@@ -80,7 +80,7 @@ const data: ServicePageData = {
     h2: 'How it works.',
     intro: 'Four steps, one accountable team. Timelines are scoped at the Strategic Review.',
     steps: [
-      { title: 'System', body: 'Templates for everything you print, from the brand guidelines. We inventory every surface in use first — damaged, off-brand, missing.' },
+      { title: 'System', body: 'Templates for everything you print, from the brand guidelines. We inventory every surface in use first: damaged, off-brand, missing.' },
       { title: 'Queue', body: 'A production calendar around your proposal and event dates.' },
       { title: 'Produce', body: 'Design, print, and delivery. The first run reaches your office and communities on a phased schedule.' },
       { title: 'Maintain', body: 'Updates as services, people, and proof change. Reorder triggers run in the background, and the system gets an annual review.' },
@@ -89,12 +89,12 @@ const data: ServicePageData = {
   faq: {
     items: [
       { q: 'Do you handle printing or just design?', a: 'Both. We manage the vendors and the deadlines so your team gets a finished piece.' },
-      { q: 'Can our team use the templates?', a: 'Yes — they’re built for it, with guidelines and a short training.' },
+      { q: 'Can our team use the templates?', a: 'Yes. They’re built for it, with guidelines and a short training.' },
       { q: 'Can we keep our existing printer?', a: 'Yes. About a third of the firms we work with have a printer relationship they want to keep. We design to that printer’s specs, hand off print-ready files, and stay out of the procurement chain. Pricing adjusts accordingly.' },
-      { q: 'How fast can you turn around a rush job?', a: 'Board emergencies — a special-assessment notice, capital project signage, a crisis mailer to homeowners — run on a 48-hour turnaround from approved file for digital print and small-format signage. Mail-house and large-format runs take five to seven business days.' },
+      { q: 'How fast can you turn around a rush job?', a: 'Board emergencies (a special-assessment notice, capital project signage, a crisis mailer to homeowners) run on a 48-hour turnaround from approved file for digital print and small-format signage. Mail-house and large-format runs take five to seven business days.' },
     ],
   },
-  cta: { text: 'Is your metro still open? Thirty minutes tells you — and which engine to fix first.' },
+  cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },
 };
 
 export default data;

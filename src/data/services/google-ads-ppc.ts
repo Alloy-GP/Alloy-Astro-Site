@@ -10,7 +10,7 @@ const data: ServicePageData = {
   eyebrow: 'BoardReach™ · Paid search',
   h1: 'Paid acquisition built around boards,',
   h1Accent: 'not homeowners.',
-  intro: 'Google Ads for HOA management companies, run on the queries boards type when a contract is actually in play — RFP-active, contract-end window, replacement search. A purpose-built landing page for every campaign, reporting tied to pipeline, and a budget that scales only as conversions prove out.',
+  intro: 'Google Ads for HOA management companies, run on the queries boards type when a contract is actually in play. RFP-active, contract-end window, replacement search. A purpose-built landing page for every campaign, reporting tied to pipeline, and a budget that scales only as conversions prove out.',
   secondaryCta: { label: 'Talk paid strategy', href: '/contact' },
   stats: [
     { value: 30, suffix: 'days', label: 'to a stable account', note: 'Built, launched, and optimized through first conversion data. Most agencies take ninety or more to do less.' },
@@ -22,7 +22,7 @@ const data: ServicePageData = {
       h: 'Bidding on the queries boards run.',
       p: [
         'Most CAM accounts are built from an agency template: brand, non-brand, competitor. Broad match, no negatives, and a budget quietly spent on homeowners searching for pool hours and dues payments. The clicks are cheap because nobody with a contract to award is making them.',
-        'We structure campaigns around why a board is shopping — RFP-active, contract-end window, replacement search, expansion — and bid on the phrases directors type at each stage: “best community association management <metro>,” “replace HOA management company,” “HOA management RFP.” Phrase and exact match only, with negatives reviewed weekly so homeowner traffic never reaches the budget.',
+        'We structure campaigns around why a board is shopping (RFP-active, contract-end window, replacement search, expansion) and bid on the phrases directors type at each stage: “best community association management <metro>,” “replace HOA management company,” “HOA management RFP.” Phrase and exact match only, with negatives reviewed weekly so homeowner traffic never reaches the budget.',
       ],
     },
     {
@@ -35,7 +35,7 @@ const data: ServicePageData = {
     {
       h: 'A landing page per campaign, not your homepage.',
       p: [
-        'Each campaign lands on a page built for its intent — an RFP-track page, a market-expansion page, a replace-your-firm page — with the conversion path a director expects: what changes in the first ninety days, who they’ll talk to, how to request a proposal in two minutes. That alone lifts conversion three to five times over a homepage landing.',
+        'Each campaign lands on a page built for its intent (an RFP-track page, a market-expansion page, a replace-your-firm page) with the conversion path a director expects: what changes in the first ninety days, who they’ll talk to, how to request a proposal in two minutes. That alone lifts conversion three to five times over a homepage landing.',
         'Pages are built on your domain, in your brand system, and reused across email and print once they prove out.',
       ],
     },
@@ -62,7 +62,7 @@ const data: ServicePageData = {
   ],
   included: {
     h2: 'The full paid acquisition system.',
-    intro: 'Strategy, build, optimization, and reporting — wired to pipeline value, not vanity clicks.',
+    intro: 'Strategy, build, optimization, and reporting, wired to pipeline value, not vanity clicks.',
     items: [
       'Account audit: wasted spend, tracking gaps, landing-page fit',
       'Intent-based campaign structure (RFP, contract-end, replacement, expansion)',
@@ -81,7 +81,7 @@ const data: ServicePageData = {
     intro: 'Four phases. A stable account in thirty days, scaled spend by ninety. The audit tells you whether paid belongs in your plan yet.',
     steps: [
       { title: 'Audit', body: 'Existing campaigns, wasted spend, conversion tracking, and landing-page fit. If your map pack and SEO aren’t built, we say so and start there instead.' },
-      { title: 'Build', body: 'Campaign structure, keyword strategy, ad copy, landing-page brief, and tracking spec — approved by your leadership before any spend moves.' },
+      { title: 'Build', body: 'Campaign structure, keyword strategy, ad copy, landing-page brief, and tracking spec, approved by your leadership before any spend moves.' },
       { title: 'Launch', body: 'Live in thirty days. Tracking is wired first; the first two weeks run at conservative bids to gather data before budget scales.' },
       { title: 'Optimize', body: 'Weekly bid and budget management, monthly creative rotation, quarterly account audit. Dead keywords are killed and winners scaled, so the account gets better with age.' },
     ],

@@ -70,7 +70,7 @@ export default function HomePage({ chart, newsletter }: { chart?: ReactNode; new
               <div className="rd-ledger-row"><span className="rd-ledger-label">Inbound board leads vs. the year before</span><span className="rd-ledger-num"><span data-count="535" data-prefix="+">+535</span><span className="rd-stat-suffix">%</span></span></div>
               <div className="rd-ledger-row"><span className="rd-ledger-label">Proposal requests</span><span className="rd-ledger-num"><span data-count="3">3</span><span className="rd-stat-suffix">×</span></span></div>
               <div className="rd-ledger-row"><span className="rd-ledger-label">Qualified leads that closed</span><span className="rd-ledger-num"><span data-count="45">45</span><span className="rd-stat-suffix">% avg</span></span></div>
-              <div className="rd-ledger-quote">“We went from chasing RFPs to having boards reach out directly.” <span className="rd-ink-body" style={{ fontWeight: 400 }}>— CEO, Alloy CAM partner</span></div>
+              <div className="rd-ledger-quote">“We went from chasing RFPs to having boards reach out directly.” <span className="rd-ink-body" style={{ fontWeight: 400 }}>CEO, Alloy CAM partner</span></div>
             </div>
             <div data-reveal className="rd-card rd-card--pad rd-stack rd-stack--14">
               <div className="rd-row rd-row--between rd-tiny rd-tiny--12 rd-w-500"><span>Inbound board leads, indexed</span><span>Year 1 → Year 3</span></div>
@@ -147,7 +147,7 @@ export default function HomePage({ chart, newsletter }: { chart?: ReactNode; new
             <div className="rd-stack rd-stack--14">
               <Eyebrow tone="yellow">The Alloy Briefing</Eyebrow>
               <h3 className="rd-h3 rd-h3--lg" style={{ color: '#fff' }}>Our newsletter for CAM operators.</h3>
-              <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Attract, close, keep — in your inbox. What’s changing in how boards find, choose and keep a management company, and what to do about it.</p>
+              <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Attract, close, keep: in your inbox. What’s changing in how boards find, choose and keep a management company, and what to do about it.</p>
               <div><TextLink href="/resources/newsletter" tone="white" size={12}>Browse past issues</TextLink></div>
             </div>
             <div className="rd-card rd-card--pad-lg rd-nl-card">

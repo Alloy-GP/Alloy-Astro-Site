@@ -9,25 +9,25 @@ const data: ServicePageData = {
   h1: 'The LinkedIn presence',
   h1Accent: 'boards check',
   h1Tail: 'before they call.',
-  intro: 'Board members look you up. The owner, the executive team, the firm page — if the last post is from 2023, that’s the impression. Social Media Marketing for HOA management companies is founder-led thought leadership, ghostwritten and scheduled, repurposed from everything else you publish.',
+  intro: 'Board members look you up. The owner, the executive team, the firm page, if the last post is from 2023, that’s the impression. Social Media Marketing for HOA management companies is founder-led thought leadership, ghostwritten and scheduled, repurposed from everything else you publish.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 20, suffix: 'posts / mo', note: 'Across the founder and firm accounts, written for you' },
-    { value: 1, suffix: 'voice', note: 'Yours — we ghostwrite, you approve' },
+    { value: 1, suffix: 'voice', note: 'Yours. We ghostwrite, you approve' },
     { value: 5, suffix: '+ channels', note: 'LinkedIn first; Facebook, Instagram, YouTube, Nextdoor where boards are' },
   ],
   sections: [
     {
       h: 'Founder-led, because boards hire people.',
       p: [
-        'Firm pages get ignored. A managing principal with a point of view on reserve studies, insurance, or board burnout gets followed — by the exact board members who will be shopping next year. We write in your voice, from your calls and your notes, and you approve every post.',
-        'It works on the boards you already manage, too. Boards leave when they feel ignored, and a weekly post from their management company’s principal on the exact problem on their agenda — the reserve shortfall, the insurance renewal — is a steady reminder that someone is paying attention.',
+        'Firm pages get ignored. A managing principal with a point of view on reserve studies, insurance, or board burnout gets followed, by the exact board members who will be shopping next year. We write in your voice, from your calls and your notes, and you approve every post.',
+        'It works on the boards you already manage, too. Boards leave when they feel ignored, and a weekly post from their management company’s principal on the exact problem on their agenda (the reserve shortfall, the insurance renewal) is a steady reminder that someone is paying attention.',
       ],
     },
     {
       h: 'Each platform gets a job or gets dropped.',
       p: [
-        'LinkedIn carries the firm-level work — thought leadership that wins RFPs, draws board leads, and recruits managers. Facebook is where homeowner attention in your communities actually lives, so it’s where boards see if your firm shows up for the associations it already runs. Instagram handles the visual side: community spotlights, events, before-and-afters, and a way to reach the younger homeowners boards struggle to engage.',
+        'LinkedIn carries the firm-level work: thought leadership that wins RFPs, draws board leads, and recruits managers. Facebook is where homeowner attention in your communities actually lives, so it’s where boards see if your firm shows up for the associations it already runs. Instagram handles the visual side: community spotlights, events, before-and-afters, and a way to reach the younger homeowners boards struggle to engage.',
         'Nextdoor matters in suburban portfolios, where claiming the official voice early keeps a vocal homeowner from becoming it. YouTube carries the video we script and cut from your webinars. A platform without a defined audience and a defined business outcome doesn’t make the plan.',
       ],
     },
@@ -41,7 +41,7 @@ const data: ServicePageData = {
       h: 'A calendar built on the association year.',
       p: [
         'The calendar follows the CAM year, not a generic marketing one: budget season, annual meetings, reserve study cycles, dues notices, storm prep. Four pillars rotate through it. Governance posts explain what boards are deciding. Community posts spotlight the associations you run and the volunteers who keep them going. Seasonal posts land before the question does. Trust posts introduce the managers a board would actually work with.',
-        'Approval is built around that calendar. You get a 24-hour review window on every draft. Posts that name a specific association also go past its manager, and anything sensitive — elections, dues changes, legal notices — routes through the manager and the board chair on a 48-hour timeline.',
+        'Approval is built around that calendar. You get a 24-hour review window on every draft. Posts that name a specific association also go past its manager, and anything sensitive (elections, dues changes, legal notices) routes through the manager and the board chair on a 48-hour timeline.',
       ],
     },
     {
@@ -54,7 +54,7 @@ const data: ServicePageData = {
       h: 'Comments answered, the angry ones included.',
       p: [
         'An angry homeowner comments at 11 p.m. If nobody’s watching until Tuesday, it’s screenshotted, shared, and on the next agenda. We monitor comments and messages off-hours with an escalation playbook and pre-approved responses, and routine comments get answered the same day.',
-        'Anything operationally sensitive — a maintenance complaint, a governance dispute, a legal question — goes to the right manager with a recommended reply instead of a public answer from us. We never argue with homeowners on your firm’s behalf.',
+        'Anything operationally sensitive (a maintenance complaint, a governance dispute, a legal question) goes to the right manager with a recommended reply instead of a public answer from us. We never argue with homeowners on your firm’s behalf.',
       ],
     },
     {
@@ -101,13 +101,13 @@ const data: ServicePageData = {
   faq: {
     items: [
       { q: 'I don’t have time for social.', a: 'That’s the point. A thirty-minute call a month gives us enough to write from. You approve; we do the rest.' },
-      { q: 'Which platforms?', a: 'LinkedIn first — it’s where board members with day jobs are. We add others only where your boards actually spend time.' },
-      { q: 'We already have pages. Can you take them over?', a: 'Yes. Most engagements start with an audit: claiming dormant pages, retiring accounts run from someone’s personal login, consolidating duplicates, and moving the audiences to the pages that stay. Quick wins — admin cleanup, completed profiles, a posting cadence resumed — usually land in the first sixty days.' },
-      { q: 'How soon does the first post go live?', a: 'Thirty days from kickoff. Week one is the audit and admin cleanup. Week two, the voice guide and visual system. Week three, first drafts to you for review. Week four, live publishing — and from then on, drafts arrive on schedule every week.' },
-      { q: 'How does this fit with BoardSuite?', a: 'Social Media Marketing sits in BoardReach™ because the founder track is how boards you don’t manage yet form an opinion of your firm. Most of its raw material comes from elsewhere in BoardSuite™ — Thought Leadership articles, newsletters, webinars — so the engines feed each other instead of competing for your principal’s time.' },
+      { q: 'Which platforms?', a: 'LinkedIn first. It’s where board members with day jobs are. We add others only where your boards actually spend time.' },
+      { q: 'We already have pages. Can you take them over?', a: 'Yes. Most engagements start with an audit: claiming dormant pages, retiring accounts run from someone’s personal login, consolidating duplicates, and moving the audiences to the pages that stay. Quick wins (admin cleanup, completed profiles, a posting cadence resumed) usually land in the first sixty days.' },
+      { q: 'How soon does the first post go live?', a: 'Thirty days from kickoff. Week one is the audit and admin cleanup. Week two, the voice guide and visual system. Week three, first drafts to you for review. Week four, live publishing, and from then on, drafts arrive on schedule every week.' },
+      { q: 'How does this fit with BoardSuite?', a: 'Social Media Marketing sits in BoardReach™ because the founder track is how boards you don’t manage yet form an opinion of your firm. Most of its raw material comes from elsewhere in BoardSuite™ (Thought Leadership articles, newsletters, webinars) so the engines feed each other instead of competing for your principal’s time.' },
     ],
   },
-  cta: { text: 'Is your metro still open? Thirty minutes tells you — and which engine to fix first.' },
+  cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },
 };
 
 export default data;

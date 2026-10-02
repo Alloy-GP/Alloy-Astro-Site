@@ -4,8 +4,8 @@ import { ENGINES } from '~/lib/nav';
 import { Eyebrow, HeroCtas, TextLink, SectionHead, StatNumber, CtaBar, ChevronRightIcon, Label } from '~/components/rd/atoms';
 
 const ENGINE_COPY: Record<string, string> = {
-  reach: 'Boards find you before they start shopping — on the map, in Google, in the AI answer, and on LinkedIn. Every inquiry is attributed from day one.',
-  match: 'Closing one in four? You should be at one in two. The proposal, the RFP response, the sales language, and — when you need it — a fractional BD lead who has sat on the other side of the table.',
+  reach: 'Boards find you before they start shopping, on the map, in Google, in the AI answer, and on LinkedIn. Every inquiry is attributed from day one.',
+  match: 'Closing one in four? You should be at one in two. The proposal, the RFP response, the sales language, and, when you need it, a fractional BD lead who has sat on the other side of the table.',
   retain: 'Protect the portfolio you already built. Educated boards renew; informed owners complain less; a firm with a reputation gets referred. Retention is the cheapest growth you have.',
 };
 
@@ -24,7 +24,7 @@ export default function BoardSuitePage() {
           <div className="rd-stack rd-stack--32">
             <Eyebrow>BoardSuite™ · The full system</Eyebrow>
             <h1 className="rd-h1 rd-h1--lg" style={{ fontSize: 84 }}>Three engines. One playbook. <span className="rd-accent">Your market.</span></h1>
-            <p className="rd-intro rd-intro--19">Most agencies sell one lever. BoardSuite runs attract, close, and keep as a single connected system — one accountable team, one metro, one CAM company. Attract feeds Close. Close feeds Keep. Keep feeds the referrals that make Attract cheaper.</p>
+            <p className="rd-intro rd-intro--19">Most agencies sell one lever. BoardSuite runs attract, close, and keep as a single connected system: one accountable team, one metro, one CAM company. Attract feeds Close. Close feeds Keep. Keep feeds the referrals that make Attract cheaper.</p>
             <HeroCtas secondary={{ label: 'See pricing', href: '/pricing' }} />
           </div>
           <div className="rd-stack" style={{ gap: 12 }}>
@@ -97,12 +97,12 @@ export default function BoardSuitePage() {
             <h2 className="rd-h2" style={{ color: '#fff' }}>One CAM company per metro. Yours, or your competitor’s.</h2>
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
-            <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>When you partner with Alloy, no competing CAM firm in your service area can engage us — for the length of the engagement, and it renews with your contract unless something changes. Your strategy, your messaging, your competitive intel, protected by contract.</p>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>When you partner with Alloy, no competing CAM firm in your service area can engage us, for the length of the engagement, and it renews with your contract unless something changes. Your strategy, your messaging, your competitive intel, protected by contract.</p>
             <div className="rd-bullets">
               <div className="rd-bullet">No conflicts of interest, ever</div>
               <div className="rd-bullet">Competitive analysis in every quarterly review</div>
               <div className="rd-bullet">First access to new capabilities</div>
-              <div className="rd-bullet">Lost-deal post-mortems — we follow what happened</div>
+              <div className="rd-bullet">Lost-deal post-mortems. We follow what happened</div>
             </div>
             <div style={{ marginTop: 8 }}><TextLink href="/contact" tone="white" size={12}>Check if your metro is open</TextLink></div>
           </div>

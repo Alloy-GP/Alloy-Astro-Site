@@ -18,7 +18,7 @@ const ROLES = [
 const PRINCIPLES = [
   { title: 'Operators first, always', body: 'Everything we ship gets pressure-tested by someone who has run a CAM portfolio. If it doesn’t pass that test, it doesn’t ship.' },
   { title: 'Plain English is the standard', body: 'We turn reserve studies, ops data, and CC&R legalese into copy people read. If you can’t explain it to a board chair in two sentences, you don’t understand it yet.' },
-  { title: 'Ship the system, not the asset', body: 'No one-off deliverables. We build engines — templates, playbooks, vendor networks, reorder triggers — that keep running after we leave the room.' },
+  { title: 'Ship the system, not the asset', body: 'No one-off deliverables. We build engines (templates, playbooks, vendor networks, reorder triggers) that keep running after we leave the room.' },
   { title: 'Disagree, then commit', body: 'Before a decision, argue the case hard, with data, with everyone in the room. After it, row in the same direction. We don’t relitigate in Slack.' },
   { title: 'Quiet excellence', body: 'The work does the talking. No conference circuit unless we have something new to say.' },
 ];

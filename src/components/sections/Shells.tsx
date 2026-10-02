@@ -65,7 +65,7 @@ interface CtaBandProps {
 
 export function CtaBand({
   headline = 'Three engines. One playbook. Your market.',
-  sub = 'Attract, close, and keep — engineered as one connected system. 30 minutes tells you which engine to fix first.',
+  sub = 'Attract, close, and keep, engineered as one connected system. 30 minutes tells you which engine to fix first.',
   primary = 'Claim Your Market',
   primaryHref = '/contact',
 }: CtaBandProps) {

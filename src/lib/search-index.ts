@@ -6,7 +6,7 @@ export interface SearchItem { t: string; h: string; g: string; k: string }
 
 const STATIC: SearchItem[] = [
   { t: 'All services', h: '/services', g: 'The System', k: 'services engines boardreach boardmatch boardretain overview' },
-  { t: 'BoardSuite™ — all three engines', h: '/boardsuite', g: 'The System', k: 'boardsuite suite tiers steady accelerate ascend full system' },
+  { t: 'BoardSuite™: all three engines', h: '/boardsuite', g: 'The System', k: 'boardsuite suite tiers steady accelerate ascend full system' },
   { t: 'Pricing', h: '/pricing', g: 'The System', k: 'pricing cost retainer tiers steady accelerate ascend all-in' },
   { t: 'Results', h: '/results', g: 'Proof', k: 'results case studies outcomes proof numbers' },
   { t: 'Case study: from chasing RFPs to inbound boards', h: '/results/apex-cmg', g: 'Proof', k: 'case study apex partner three years rfp inbound' },
@@ -29,7 +29,7 @@ const STATIC: SearchItem[] = [
 
 export const SEARCH_INDEX: SearchItem[] = [
   ...ENGINES.flatMap((e) => [
-    { t: `${e.title} — ${e.stage}`, h: e.href, g: e.title, k: `${e.sub} engine hub overview` },
+    { t: `${e.title}: ${e.stage}`, h: e.href, g: e.title, k: `${e.sub} engine hub overview` },
     ...e.services.map((s) => ({ t: s.label, h: s.href, g: e.title, k: s.sub })),
   ]),
   ...STATIC,

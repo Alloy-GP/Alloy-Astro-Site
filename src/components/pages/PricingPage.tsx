@@ -9,23 +9,23 @@ import { Eyebrow, H1, TextLink, Btn, Steps, CtaBar, FaqList } from '~/components
 export const PRICING_FAQ: FaqItem[] = [
   {
     q: 'Why is there a 12-month minimum?',
-    a: 'Marketing systems compound. Months 1–3 are build. Months 4–6 are tuning. Months 7–12 are when the data actually starts answering questions. Anything shorter is paying for setup costs without seeing the return — and we’re not in the business of selling that.',
+    a: 'Marketing systems compound. Months 1–3 are build. Months 4–6 are tuning. Months 7–12 are when the data actually starts answering questions. Anything shorter is paying for setup costs without seeing the return, and we’re not in the business of selling that.',
   },
   {
     q: 'What does “all-in” actually mean?',
-    a: 'The retainer covers every deliverable in your tier — content production, paid spend management (not media spend itself), design, dev, strategy. There is no per-asset fee, no surcharge for revisions, no ‘agency hours’ meter. Media spend (Google Ads budget, mail-house print, etc.) is billed at cost, separately.',
+    a: 'The retainer covers every deliverable in your tier: content production, paid spend management (not media spend itself), design, dev, strategy. There is no per-asset fee, no surcharge for revisions, no ‘agency hours’ meter. Media spend (Google Ads budget, mail-house print, etc.) is billed at cost, separately.',
   },
   {
     q: 'Can we mix and match across tiers?',
-    a: 'Selectively, yes — usually as add-ons to Steady or Accelerate. Common requests: Steady + Newsletter Production, or Growth + Fractional BD. We’ll quote those at the Strategic Review based on scope. We don’t unbundle Scale because the integrations are what make it Scale.',
+    a: 'Selectively, yes: usually as add-ons to Steady or Accelerate. Common requests: Steady + Newsletter Production, or Growth + Fractional BD. We’ll quote those at the Strategic Review based on scope. We don’t unbundle Scale because the integrations are what make it Scale.',
   },
   {
     q: 'What’s the off-ramp if it isn’t working?',
-    a: 'At month 6 we run a formal joint review against the outcomes set in your engagement letter. If we’re materially behind, you can either renegotiate scope or terminate without penalty. Five years in, we’ve activated this clause twice — both times it was the right call.',
+    a: 'At month 6 we run a formal joint review against the outcomes set in your engagement letter. If we’re materially behind, you can either renegotiate scope or terminate without penalty. Five years in, we’ve activated this clause twice. Both times it was the right call.',
   },
   {
     q: 'Do you take equity or rev-share?',
-    a: 'No. Cash retainer only. We’ve turned down equity offers because alignment-via-incentives is a story we don’t believe — alignment-via-results is the only one that holds up. Our outcomes show up monthly; so does the invoice.',
+    a: 'No. Cash retainer only. We’ve turned down equity offers because alignment-via-incentives is a story we don’t believe. Alignment-via-results is the only one that holds up. Our outcomes show up monthly; so does the invoice.',
   },
 ];
 
@@ -51,22 +51,22 @@ const TIERS: Array<{ name: string; sub: string; items: string[]; popular?: boole
 const COMPARE: Array<{ dim: string; f: string; g: string; s: string }> = [
   { dim: 'Strategic review cadence', f: 'Quarterly', g: 'Monthly', s: 'Bi-weekly' },
   { dim: 'Local SEO', f: '1 metro', g: '1 metro', s: 'Up to 5 metros' },
-  { dim: 'AI search / GEO', f: '—', g: 'Full', s: 'Full + research' },
-  { dim: 'Content engine', f: '—', g: '4 articles / mo', s: '8 articles / mo' },
-  { dim: 'Paid acquisition', f: '—', g: 'Google + LinkedIn', s: 'Google + LinkedIn + Meta' },
-  { dim: 'Proposal optimization', f: '—', g: 'System', s: 'System + custom' },
-  { dim: 'Fractional BD prospecting', f: '—', g: '—', s: '40 conversations / mo' },
-  { dim: 'Newsletter production', f: '—', g: 'Monthly', s: 'Monthly + custom' },
-  { dim: 'Board education', f: '—', g: '4 micro-courses', s: 'Custom course production' },
-  { dim: 'CAM operator', f: '—', g: 'Shared', s: 'Dedicated' },
+  { dim: 'AI search / GEO', f: 'No', g: 'Full', s: 'Full + research' },
+  { dim: 'Content engine', f: 'No', g: '4 articles / mo', s: '8 articles / mo' },
+  { dim: 'Paid acquisition', f: 'No', g: 'Google + LinkedIn', s: 'Google + LinkedIn + Meta' },
+  { dim: 'Proposal optimization', f: 'No', g: 'System', s: 'System + custom' },
+  { dim: 'Fractional BD prospecting', f: 'No', g: 'No', s: '40 conversations / mo' },
+  { dim: 'Newsletter production', f: 'No', g: 'Monthly', s: 'Monthly + custom' },
+  { dim: 'Board education', f: 'No', g: '4 micro-courses', s: 'Custom course production' },
+  { dim: 'CAM operator', f: 'No', g: 'Shared', s: 'Dedicated' },
   { dim: 'Market exclusivity', f: 'ZIP', g: 'Metro', s: 'Multi-metro' },
 ];
 
 const RULES = [
   { title: 'One CAM firm per market.', body: 'We don’t run identical playbooks for two competing firms in the same metro. Period. When you hire us, your competitor can’t.' },
   { title: 'All-in pricing.', body: 'The retainer covers every listed deliverable. No per-project line items, no surprise scope fees. The number you see is the number you pay.' },
-  { title: '12-month commitment.', body: 'Marketing compounds. Real systems take twelve months to mature, so we don’t take month-to-month engagements — the math doesn’t work for either of us.' },
-  { title: 'Outcomes, not deliverables.', body: 'Every quarter we report against board-level outcomes — lead volume, win rate, retention — not how many blog posts we shipped.' },
+  { title: '12-month commitment.', body: 'Marketing compounds. Real systems take twelve months to mature, so we don’t take month-to-month engagements. The math doesn’t work for either of us.' },
+  { title: 'Outcomes, not deliverables.', body: 'Every quarter we report against board-level outcomes (lead volume, win rate, retention) not how many blog posts we shipped.' },
 ];
 
 // Comparison table — the prototype is a 1.4fr/1fr/1fr/1fr grid with a 2px purple header rule.
@@ -74,7 +74,7 @@ const TH: CSSProperties = { padding: '18px 16px 14px 0', borderBottom: '2px soli
 const TD: CSSProperties = { padding: '16px 16px 16px 0', fontSize: 14, verticalAlign: 'middle', borderBottom: '1px solid var(--border-subtle)' };
 const TD_ROW: CSSProperties = { ...TD, fontWeight: 700, color: 'var(--alloy-purple)', textTransform: 'none', letterSpacing: 0 };
 const TD_GROWTH: CSSProperties = { ...TD, fontWeight: 500, color: 'var(--alloy-purple)' };
-const tdMuted = (v: string): CSSProperties => ({ ...TD, fontWeight: 400, color: v === '—' ? '#bbb' : 'var(--alloy-body-gray)' });
+const tdMuted = (v: string): CSSProperties => ({ ...TD, fontWeight: 400, color: v === 'No' ? '#bbb' : 'var(--alloy-body-gray)' });
 
 export default function PricingPage() {
   return (
@@ -87,7 +87,7 @@ export default function PricingPage() {
             <H1 size="lg" accent="No rate cards.">Three plans.</H1>
           </div>
           <div className="rd-stack" style={{ gap: 20 }}>
-            <p className="rd-intro">No project minimums. No “starting at” pricing that lands at 4× when you sign. Every retainer is all-in for the listed deliverables, billed monthly, scoped to your portfolio — with one CAM firm per market.</p>
+            <p className="rd-intro">No project minimums. No “starting at” pricing that lands at 4× when you sign. Every retainer is all-in for the listed deliverables, billed monthly, scoped to your portfolio, with one CAM firm per market.</p>
             <div><TextLink href="/contact" size={12}>Get scoped pricing in your Strategic Review</TextLink></div>
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function PricingPage() {
           <div className="rd-stack rd-stack--18">
             <Eyebrow>Pricing questions</Eyebrow>
             <h2 className="rd-h2">Honest answers, plainly.</h2>
-            <p className="rd-body">Not ready for the full system? We also take selective project work — an RFP response sprint, a brand and website refresh — when there’s a strategic event in motion.</p>
+            <p className="rd-body">Not ready for the full system? We also take selective project work (an RFP response sprint, a brand and website refresh) when there’s a strategic event in motion.</p>
             <div><TextLink href="/contact" size={12}>See one-off engagements</TextLink></div>
           </div>
           <FaqList items={PRICING_FAQ} group="pricing" />

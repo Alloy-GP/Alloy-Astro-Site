@@ -8,7 +8,7 @@ const data: ServicePageData = {
   eyebrow: 'BoardMatch™ · Proposals',
   h1: 'Rebuild the proposal boards',
   h1Accent: 'compare you on.',
-  intro: 'Your standing proposal is the document every board reads before they pick. Proposal Optimization rebuilds it — structure, narrative, pricing presentation, design — so it answers the board’s real questions in the order they ask them. This is the template you reuse; for a single high-stakes RFP, see RFP Response System.',
+  intro: 'Your standing proposal is the document every board reads before they pick. Proposal Optimization rebuilds it (structure, narrative, pricing presentation, design) so it answers the board’s real questions in the order they ask them. This is the template you reuse; for a single high-stakes RFP, see RFP Response System.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 12, suffix: 'things', note: 'What boards actually evaluate in a proposal, per our audit' },
@@ -33,8 +33,8 @@ const data: ServicePageData = {
     {
       h: 'Pricing presented, not just listed.',
       p: [
-        'Per-door math, what’s included, what isn’t, and how it compares to the incumbent — laid out so the treasurer can defend it to the room.',
-        'The fee table gets rebuilt so a board can read it without calling you. The goal is to turn “expensive” into “priced for the work” — every line tied to what the association gets, and nothing a treasurer discovers later that wasn’t on the page.',
+        'Per-door math, what’s included, what isn’t, and how it compares to the incumbent. Laid out so the treasurer can defend it to the room.',
+        'The fee table gets rebuilt so a board can read it without calling you. The goal is to turn “expensive” into “priced for the work” · every line tied to what the association gets, and nothing a treasurer discovers later that wasn’t on the page.',
       ],
     },
     {
@@ -53,7 +53,7 @@ const data: ServicePageData = {
       h: 'Who this is built for.',
       p: [
         'It fits if you win fewer than 30% of the warm proposals you answer, your team writes from scratch or copies the last one, your last proposal ran past 30 pages, or you can name three competitors but can’t say how you differ.',
-        'Skip it if you only take referral business, or you already win 60% or more and the volume is fine. It’s also the wrong buy if you want each proposal ghostwritten — we build the system. And if leadership doesn’t agree on who the firm is, start with Sales Messaging & UVP.',
+        'Skip it if you only take referral business, or you already win 60% or more and the volume is fine. It’s also the wrong buy if you want each proposal ghostwritten: we build the system. And if leadership doesn’t agree on who the firm is, start with Sales Messaging & UVP.',
       ],
     },
   ],
@@ -87,13 +87,13 @@ const data: ServicePageData = {
   faq: {
     items: [
       { q: 'How is this different from RFP Response System?', a: 'Proposal Optimization rebuilds the standing template you use for every pursuit. RFP Response System is done-for-you production on one specific, high-stakes RFP.' },
-      { q: 'Can you help with an RFP that’s due next week?', a: 'That’s RFP Response System — ten-day turnaround.' },
+      { q: 'Can you help with an RFP that’s due next week?', a: 'That’s RFP Response System: ten-day turnaround.' },
       { q: 'How long until the new proposal is in use?', a: 'About 90 days: three weeks of audit and strategy, five weeks of rebuild, and two weeks of training and the first live proposal. Win-rate signal becomes meaningful around month five or six.' },
       { q: 'Our proposal already looks great.', a: 'Looks and wins are different things. Good-looking proposals lose all the time because the differentiation is wrong, the fee disclosure spooks the board, or the answers are in the wrong order. We audit win rate, not aesthetics.' },
-      { q: 'How is this different from hiring a designer?', a: 'A designer fixes layout. We fix what happens in the selection meeting. Strategy comes first — what your differentiators should be — then structure, the order boards want answers in, then design. Most CAM proposals fail before the designer opens the file.' },
+      { q: 'How is this different from hiring a designer?', a: 'A designer fixes layout. We fix what happens in the selection meeting. Strategy comes first, what your differentiators should be, then structure, the order boards want answers in, then design. Most CAM proposals fail before the designer opens the file.' },
     ],
   },
-  cta: { text: 'Is your metro still open? Thirty minutes tells you — and which engine to fix first.' },
+  cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },
 };
 
 export default data;

@@ -155,7 +155,7 @@ export default function ResultsPage() {
             <Eyebrow>Results</Eyebrow>
             <H1 size="lg" accent="No vanity metrics.">Real numbers.</H1>
           </div>
-          <p className="rd-intro rd-intro--19">Every result on this page is a contracted client outcome — measured against the pre-engagement baseline, verified, and disclosed in the spirit it was earned. Firms are anonymized; the numbers are not.</p>
+          <p className="rd-intro rd-intro--19">Every result on this page is a contracted client outcome: measured against the pre-engagement baseline, verified, and disclosed in the spirit it was earned. Firms are anonymized; the numbers are not.</p>
         </div>
       </section>
 
@@ -213,7 +213,7 @@ export default function ResultsPage() {
                 { value: 5, suffix: '+', label: 'attributed channels' },
                 { value: 7, suffix: '/7', label: 'months of growth' },
               ]}
-              quote="“We finally stopped guessing where leads came from — and watched the system compound.”"
+              quote="“We finally stopped guessing where leads came from, and watched the system compound.”"
               by="Principal · Alloy CAM partner"
               link={{ label: 'Request a diagnostic', href: '/contact' }}
             />
@@ -228,14 +228,14 @@ export default function ResultsPage() {
             <Eyebrow tone="yellow">The disclosure</Eyebrow>
             <h2 className="rd-h2" style={{ color: '#fff', fontSize: 'clamp(28px, 4.4vw, 44px)' }}>We don’t promise results. We disclose them.</h2>
           </div>
-          <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>The numbers above are what engineered systems produced for specific CAM firms over specific timeframes. Your starting point, market, and execution discipline all matter. We choose depth over volume — new engagements get the same rigor and earn the same disclosure. We’ll be honest about what’s realistic in your diagnostic call.</p>
+          <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>The numbers above are what engineered systems produced for specific CAM firms over specific timeframes. Your starting point, market, and execution discipline all matter. We choose depth over volume. New engagements get the same rigor and earn the same disclosure. We’ll be honest about what’s realistic in your diagnostic call.</p>
         </div>
       </section>
 
       <div className="rd-spacer-96 rd-bg-off" />
       <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
         <div className="rd-wrap">
-          <CtaBar text="Thirty minutes tells you which engine to fix first — and whether your metro is still open." />
+          <CtaBar text="Thirty minutes tells you which engine to fix first, and whether your metro is still open." />
         </div>
       </section>
     </div>

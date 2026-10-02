@@ -34,7 +34,7 @@ export default function NewsletterArchivePage({ issues, page, pages, total, chil
           <div className="rd-stack" style={{ gap: 28 }}>
             <Eyebrow>Resources · Newsletter</Eyebrow>
             <h1 className="rd-h1">The Alloy <span className="rd-accent">Briefing.</span></h1>
-            <p className="rd-intro rd-max-560">Attract, close, keep — in your inbox. Every issue we’ve sent, newest first.</p>
+            <p className="rd-intro rd-max-560">Attract, close, keep, in your inbox. Every issue we’ve sent, newest first.</p>
           </div>
           <div className="rd-card rd-card--pad-lg rd-nl-card" style={{ boxShadow: 'var(--shadow-md)' }}>
             <div className="rd-stack rd-stack--6" style={{ marginBottom: 20 }}>

@@ -20,7 +20,7 @@ const DIRECTORY: Array<{ h: string; d: string; items: string[] }> = [
 const TECH: Array<{ cat: string; items: Array<{ name: string; desc: string }> }> = [
   { cat: 'Portfolio mgmt', items: [
     { name: 'Vantaca', desc: 'Direct integration: financials, reserve, work orders, owner data feeding annual reports and dashboards.' },
-    { name: 'AppFolio', desc: 'Owner portal SSO, work order data, payment records — pulled into reporting and homeowner comms.' },
+    { name: 'AppFolio', desc: 'Owner portal SSO, work order data, payment records, pulled into reporting and homeowner comms.' },
     { name: 'Buildium', desc: 'Reporting + owner data integration. Synced into newsletter audiences and annual reports.' },
     { name: 'CINC Systems', desc: 'Financial + reserve study integration for board reporting and annual report production.' },
   ] },
@@ -46,15 +46,15 @@ const REFERRALS: Array<{ name: string; desc: string; href?: string; cta?: string
   { name: 'Reserve study referral network', desc: 'Three reserve-study firms we recommend by region. We manage handoff; they keep the technical work; you get a coordinated client experience.' },
   { name: 'Legal counsel network', desc: 'Vetted CC&R, transition, and HOA-litigation counsel in 12 metros. We coordinate; they handle the legal work; you get one project manager.' },
   { name: 'Accounting + audit firms', desc: 'Five CAM-specialized accounting firms in our network. Joint engagements for portfolio-wide audit, transition, and financial review.' },
-  { name: 'PR + crisis comms', desc: 'When a story breaks beyond marketing — local news, regulatory, litigation — we hand off cleanly to specialist crisis firms we trust.' },
-  { name: 'Board matchmaking', desc: "Boards find Alloy looking for a manager, not a marketer. We send them to Match HOA — a free concierge service that screens management companies against the community's needs and delivers a shortlist of two or three vetted matches. Boards get a clean process; the firms on the shortlist get a warm, qualified introduction.", href: 'https://matchhoa.com', cta: 'Visit Match HOA' },
+  { name: 'PR + crisis comms', desc: 'When a story breaks beyond marketing (local news, regulatory, litigation) we hand off cleanly to specialist crisis firms we trust.' },
+  { name: 'Board matchmaking', desc: "Boards find Alloy looking for a manager, not a marketer. We send them to Match HOA. A free concierge service that screens management companies against the community's needs and delivers a shortlist of two or three vetted matches. Boards get a clean process; the firms on the shortlist get a warm, qualified introduction.", href: 'https://matchhoa.com', cta: 'Visit Match HOA' },
 ];
 
 const PRINCIPLES = [
   { h: "We don't resell software", d: 'No reseller margins, no kickbacks, no incentives that bend our recommendation. We tell you what fits your portfolio. Period.' },
   { h: 'We integrate where it matters', d: 'Direct API integrations with the major CAM platforms means data flows from your operations into your marketing without manual lift. No double entry.' },
   { h: 'You own the relationships', d: 'Every vendor we bring in works for you, not Alloy. You get the contracts, the access, the data. We manage the project; you keep the assets.' },
-  { h: 'Honest handoffs', d: 'When the right answer is a specialist outside our scope — reserve study, legal, audit, PR — we hand off cleanly with full context. No throwing files over the wall.' },
+  { h: 'Honest handoffs', d: 'When the right answer is a specialist outside our scope (reserve study, legal, audit, PR) we hand off cleanly with full context. No throwing files over the wall.' },
 ];
 
 const PARTNER_TYPES = [
@@ -119,7 +119,7 @@ export default function PartnersPage() {
               <Eyebrow tone="purple">Technology partners</Eyebrow>
               <h2 className="rd-h2 rd-h2--sm">The CAM stack we plug into.</h2>
             </div>
-            <p className="rd-body" style={LH}>Alloy works inside the CAM stack you already run. Direct integrations with the major portfolio-management, owner-portal, and reserve-study platforms. Vetted referral networks for legal, accounting, and crisis. We don&apos;t resell software — we make sure the marketing engine plugs into your operations cleanly.</p>
+            <p className="rd-body" style={LH}>Alloy works inside the CAM stack you already run. Direct integrations with the major portfolio-management, owner-portal, and reserve-study platforms. Vetted referral networks for legal, accounting, and crisis. We don&apos;t resell software. We make sure the marketing engine plugs into your operations cleanly.</p>
           </div>
           <div className="rd-stack rd-rule-top">
             {TECH.map((group) => (

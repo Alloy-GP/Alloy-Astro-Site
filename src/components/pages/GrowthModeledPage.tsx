@@ -17,7 +17,7 @@ const LH: CSSProperties = { lineHeight: 1.65 };
 // (3.2× lift on a 5%-of-associations baseline, 30% off 12% churn, doors × $/door × 12).
 const ASSUMPTIONS = [
   { title: 'The lift assumption', body: '3.2× new contracts is modeled on Apex CMG*’s 535% lead intake increase, normalized to a typical CAM close rate. Conservative against our top quartile. “Today” assumes you win new contracts equal to 5% of the associations you manage.' },
-  { title: 'The retention assumption', body: 'A 30% reduction on a 12% baseline churn rate. Engineered through BoardRetain — board education, satisfaction systems, reputation, communications cadence.' },
+  { title: 'The retention assumption', body: 'A 30% reduction on a 12% baseline churn rate. Engineered through BoardRetain: board education, satisfaction systems, reputation, communications cadence.' },
   { title: 'The fee assumption', body: 'Annual fee = doors × cost-per-door × 12. Most CAM firms run between $14–$28 per door per month. Year-one impact is new contracts plus associations retained, times that fee.' },
 ];
 
@@ -32,7 +32,7 @@ export default function GrowthModeledPage({ children }: { children?: ReactNode }
             <h1 className="rd-h1">What does year one look like <span className="rd-accent">for your portfolio?</span></h1>
           </div>
           <div className="rd-stack" style={{ gap: 20 }}>
-            <p className="rd-intro" style={LH}>Three sliders — associations, doors, cost per door. New contracts, churn prevented, and year-one revenue, modeled on Alloy partner benchmarks.</p>
+            <p className="rd-intro" style={LH}>Three sliders: associations, doors, cost per door. New contracts, churn prevented, and year-one revenue, modeled on Alloy partner benchmarks.</p>
           </div>
         </div>
       </section>

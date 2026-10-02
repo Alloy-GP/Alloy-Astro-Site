@@ -15,43 +15,43 @@ interface Entry { q: string; a: string; node?: ReactNode; id?: string }
 interface Group { label: string; items: Entry[] }
 
 const MATCH_HOA_TEXT =
-  "Not directly — Alloy works for management companies, not for boards. If you're a board shopping for a manager, the place we send you is Match HOA — a free concierge service that screens management companies against your community's needs and hands you a shortlist of two or three vetted matches, usually within a week. No cost to the board, no obligation.";
+  "Not directly. Alloy works for management companies, not for boards. If you're a board shopping for a manager, the place we send you is Match HOA. A free concierge service that screens management companies against your community's needs and hands you a shortlist of two or three vetted matches, usually within a week. No cost to the board, no obligation.";
 
 export const FAQ_GROUPS: Group[] = [
   { label: 'Working with Alloy', items: [
-    { q: 'How does market exclusivity actually work?', a: "When you sign with Alloy, your service area becomes locked. We can't engage another CAM firm in your defined metro for the length of the engagement, and the exclusivity renews with your contract unless something changes. It's contractual — not a marketing promise." },
+    { q: 'How does market exclusivity actually work?', a: "When you sign with Alloy, your service area becomes locked. We can't engage another CAM firm in your defined metro for the length of the engagement, and the exclusivity renews with your contract unless something changes. It's contractual, not a marketing promise." },
     { q: 'Where are you based, and does it matter?', a: 'Austin, Texas. Our partners are across the country; the work is remote with on-site visits for kickoffs and annual planning.' },
-    { q: 'Do you replace our internal marketing?', a: "Sometimes yes, often no. Alloy frequently runs alongside an internal marketing manager — we're the strategy and execution muscle, they're the day-to-day program runner. We'll figure out the right line during scoping." },
+    { q: 'Do you replace our internal marketing?', a: "Sometimes yes, often no. Alloy frequently runs alongside an internal marketing manager. We're the strategy and execution muscle, they're the day-to-day program runner. We'll figure out the right line during scoping." },
   ] },
   { label: 'Capabilities', items: [
     { q: 'Will you build us a website?', a: "If yours isn't doing the job, yes. Conversion-engineered, board-stage SEO architecture, AI-search ready. It's part of the BoardReach engine, not a separate engagement." },
-    { q: 'Do you do paid ads?', a: "Yes — Google Ads, retargeting, and conversion-rate optimization, run on board-stage queries rather than homeowner traffic. Paid is one channel inside the BoardReach engine, not the whole strategy, and we won't sell you ads as a primary growth lever. See Google Ads & PPC under BoardReach for how it's run." },
+    { q: 'Do you do paid ads?', a: "Yes. Google Ads, retargeting, and conversion-rate optimization, run on board-stage queries rather than homeowner traffic. Paid is one channel inside the BoardReach engine, not the whole strategy, and we won't sell you ads as a primary growth lever. See Google Ads & PPC under BoardReach for how it's run." },
   ] },
   { label: 'Industry fit', items: [
-    { q: 'Do you work with anyone other than CAM?', a: "No. Exclusively community association management companies. The whole point of Alloy is depth — we'd dilute that the moment we said yes to adjacent industries." },
-    { q: 'Do you serve commercial property management?', a: 'No. Strictly community associations — HOAs, condos, master-planned, mixed-use boards.' },
-    { q: 'What size firms do you work with?', a: "From single-location boutiques (Steady tier) to multi-state regionals (Ascend tier). The constant is that growth isn't accidental — it's intentional." },
+    { q: 'Do you work with anyone other than CAM?', a: "No. Exclusively community association management companies. The whole point of Alloy is depth, we'd dilute that the moment we said yes to adjacent industries." },
+    { q: 'Do you serve commercial property management?', a: 'No. Strictly community associations. HOAs, condos, master-planned, mixed-use boards.' },
+    { q: 'What size firms do you work with?', a: "From single-location boutiques (Steady tier) to multi-state regionals (Ascend tier). The constant is that growth isn't accidental: it's intentional." },
     {
       q: "I'm on an HOA board looking for a management company. Can Alloy help?",
       a: MATCH_HOA_TEXT,
       node: (
         <>
-          Not directly — Alloy works for management companies, not for boards. If you're a board shopping for a manager, the place we send you is{' '}
+          Not directly. Alloy works for management companies, not for boards. If you're a board shopping for a manager, the place we send you is{' '}
           <a href="https://matchhoa.com" target="_blank" rel="noopener" style={{ color: 'var(--alloy-pink)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>Match HOA</a>
-          {' '}— a free concierge service that screens management companies against your community's needs and hands you a shortlist of two or three vetted matches, usually within a week. No cost to the board, no obligation.
+          {' '}a free concierge service that screens management companies against your community's needs and hands you a shortlist of two or three vetted matches, usually within a week. No cost to the board, no obligation.
         </>
       ),
     },
   ] },
   { label: 'Pricing', items: [
-    { id: 'guarantee', q: 'What does “your growth covers our fees, guaranteed” mean?', a: '1× is the floor: the new business Alloy brings in covers what you pay us, and we back that with our money, not just yours. The one condition: your firm runs the programs we put in place — the review requests, proposals, follow-ups, and board touchpoints that make the system work. How growth is measured, the timeframe, and what happens if we miss are spelled out in your engagement agreement before you sign.' },
+    { id: 'guarantee', q: 'What does “your growth covers our fees, guaranteed” mean?', a: '1× is the floor: the new business Alloy brings in covers what you pay us, and we back that with our money, not just yours. The one condition: your firm runs the programs we put in place: the review requests, proposals, follow-ups, and board touchpoints that make the system work. How growth is measured, the timeframe, and what happens if we miss are spelled out in your engagement agreement before you sign.' },
     { q: 'What does an engagement cost?', a: 'Pricing is custom and engagement-dependent across all three BoardSuite tiers (Steady, Accelerate, Ascend). We scope to your portfolio, market, and execution pace. The diagnostic call gets you a real number.' },
     { q: "What's the minimum commitment?", a: "12 months. Engineered growth doesn't happen in 90 days. The first 90 days are diagnostic + foundation; results compound from month 6 onward." },
     { q: 'What does “all-in” mean?', a: 'The retainer covers every listed deliverable. No per-project line items, no surprise scope fees.' },
-    { q: 'Can we buy one service?', a: 'Yes — most services are available standalone, and we take project work when there’s a strategic event in motion.' },
+    { q: 'Can we buy one service?', a: 'Yes. Most services are available standalone, and we take project work when there’s a strategic event in motion.' },
   ] },
   { label: 'Results', items: [
-    { q: 'Do you guarantee results?', a: 'We don’t guarantee rankings, lead counts, or a close rate — nobody honest can. We do guarantee the floor: the new business Alloy brings in covers our fees, backed with our money, provided your firm runs the programs we put in place. Everything else we publish is a disclosed, contracted client outcome measured against a pre-engagement baseline, with the timeframe attached.' },
+    { q: 'Do you guarantee results?', a: 'We don’t guarantee rankings, lead counts, or a close rate: nobody honest can. We do guarantee the floor: the new business Alloy brings in covers our fees, backed with our money, provided your firm runs the programs we put in place. Everything else we publish is a disclosed, contracted client outcome measured against a pre-engagement baseline, with the timeframe attached.' },
     { q: 'How fast will we see something?', a: 'Map pack in about ninety days; organic and AI search over six to twelve months; proposal and sales changes show up in the next pursuit.' },
   ] },
 ];

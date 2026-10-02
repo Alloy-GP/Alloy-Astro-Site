@@ -1,5 +1,5 @@
 /* =============================================================================
-   redesign.css — page-level design system for the alloygp.co rebuild.
+   redesign.css - page-level design system for the alloygp.co rebuild.
    Classes are prefixed `rd-`. Tokens come from colors_and_type.css.
    Desktop-first; all responsive overrides live in mobile.css (rd- block).
    Heavy display weight: the design specifies Gotham 900 = Black. This site maps
@@ -59,7 +59,7 @@
   color: var(--alloy-purple);
   text-wrap: pretty;
 }
-.rd-h1--xl   { font-size: 76px; } /* homepage hero — 90px in the prototype, reduced 15% for a shorter hero */
+.rd-h1--xl   { font-size: 76px; } /* homepage hero - 90px in the prototype, reduced 15% for a shorter hero */
 .rd-h1--lg   { font-size: 80px; }
 .rd-h1--md   { font-size: 72px; }
 .rd-h1--sm   { font-size: 56px; line-height: 1; letter-spacing: -.025em; }
@@ -366,10 +366,10 @@ a.rd-card:not(.rd-card-link) { display: block; }   /* .rd-card-link cards stay f
 .rd-threeup > *:last-child  { padding-right: 0; border-right: 0; }
 .rd-threeup--dark { border-top-color: rgba(255,255,255,.14); }
 .rd-threeup--dark > * { border-right-color: rgba(255,255,255,.14); }
-.rd-engine-item { text-decoration: none; color: inherit; }   /* homepage "What you get" — whole block links to the hub */
+.rd-engine-item { text-decoration: none; color: inherit; }   /* homepage "What you get" - whole block links to the hub */
 .rd-engine-item:hover .rd-title-26 { color: var(--alloy-pink); }
 
-/* FAQ — accordion (native <details>); first item open by default */
+/* FAQ - accordion (native <details>); first item open by default */
 .rd-faq { display: flex; flex-direction: column; border-top: 1px solid var(--border-subtle); }
 .rd-faq-item { border-bottom: 1px solid var(--border-subtle); }
 .rd-faq-q { font-weight: 700; font-size: 18px; color: var(--alloy-purple); }
@@ -610,7 +610,7 @@ textarea.rd-field { resize: vertical; min-height: 120px; }
 .rd-article-cover { display: block; height: auto; width: 100%; aspect-ratio: 12 / 5; object-fit: cover; object-position: 50% 62%; border-radius: 10px; border: 1px solid var(--border-subtle); background: var(--alloy-lavender); }
 
 /* =============================================================================
-   Homepage update (docs/redesign-handoff-homepage) — hero outcomes card, network
+   Homepage update (docs/redesign-handoff-homepage) - hero outcomes card, network
    leads chart, textured light sections.
    ============================================================================= */
 
@@ -645,7 +645,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 @keyframes rdPop    { 0% { opacity: 0; transform: scale(0); } 100% { opacity: 1; transform: scale(1); } }
 @keyframes rdPillOn { 0% { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.15); color: rgba(255,255,255,.4); } 100% { background: rgba(245,216,128,.18); border-color: var(--alloy-yellow); color: var(--alloy-yellow); } }
 
-/* ---------- Hero 7a: map hero (homepage) — docs/redesign-handoff-hero-7a ----------
+/* ---------- Hero 7a: map hero (homepage) - docs/redesign-handoff-hero-7a ----------
    Left: copy + metro card (purple header band, combined field = MetroCheck island, guarantee row).
    Right: muted street map (static image) with the Google card / ChatGPT thread / referral pill pointing at the #1 pin.
    Flush in .rd-wrap (client: no outer card); radii follow the site (10). Mobile rules in mobile.css. */
@@ -723,7 +723,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-hm-pulse, .rd-hm-pin { position: absolute; left: 70%; top: 22%; }
 .rd-hm-pulse { width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; border: 2px solid var(--alloy-pink); animation: rdHeroPulse 1.8s ease-out infinite; }
 @keyframes rdHeroPulse { 0% { transform: scale(.6); opacity: .8; } 100% { transform: scale(2.6); opacity: 0; } }
-/* "Emerging PE firm" signal — ADDENDUM-pe-signal.md. left is max(12%, 90px) so the centred tag never spills off the map's left edge. */
+/* "Emerging PE firm" signal - ADDENDUM-pe-signal.md. left is max(12%, 90px) so the centred tag never spills off the map's left edge. */
 .rd-hm-pe { position: absolute; left: max(12%, 90px); top: 46%; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 7px; transform: translateX(-20px); pointer-events: none; }
 .rd-hm-pe-marker { position: relative; width: 40px; height: 40px; }
 .rd-hm-pe-halo { position: absolute; inset: 0; border-radius: 50%; background: var(--alloy-yellow); opacity: .6; }
@@ -817,7 +817,7 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 
 /* ---------- Homepage trust bar (below the hero) ---------- */
 .rd-trustbar { background: #fff; border-top: 1px solid var(--border-subtle); padding: 32px 0 36px; }
-.rd-trustbar-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }   /* label above the row — six marks no longer fit beside it */
+.rd-trustbar-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }   /* label above the row - six marks no longer fit beside it */
 .rd-trustbar-label { flex: none; white-space: nowrap; font-family: var(--font-display); font-weight: 700; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--alloy-purple); }
 .rd-trustbar-items { width: 100%; display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap; gap: 14px 32px; margin: 0; padding: 0; list-style: none; }
 .rd-trustbar-items li { display: flex; align-items: center; }
@@ -859,5 +859,5 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 .rd-arch-arrow { padding-top: 4px; opacity: .5; transition: opacity var(--dur-fast) var(--ease-standard), transform var(--dur-fast) var(--ease-standard); }
 .rd-arch-row:hover .rd-arch-arrow { opacity: 1; transform: translateX(3px); }
 
-/* Mobile sticky CTA bar — hidden on desktop; layout + motion in mobile.css */
+/* Mobile sticky CTA bar - hidden on desktop; layout + motion in mobile.css */
 .rd-sticky-cta { display: none; }
