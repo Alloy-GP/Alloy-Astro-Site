@@ -18,3 +18,5 @@ branch they map to `HeroStatic.astro`, `HeroCard.tsx`, `/api/metro`, `/get-start
 
 **Surface deviation (client, 2026-10-01):** the outer 1px border is gone and the card follows the site system — radius 10 on the card, story panel, moment cards, guarantee and dialog (fields 8), `--shadow-lg` for lift — instead of the handoff's 24/18/14 radii.
 
+**Rev. 2026-10-02 ("home edit" zip):** bottom section → option 4a (one lavender panel: combined metro field + guarantee badge row, no divider/microcopy), answer rows → option 6a (channel tints, purple text, YOU tag; referral chip moved to yellow so pink is CTA-only). Built as specified except: outer card stays flush/borderless and radii follow the site (10), the eyebrow stays the pink keyword label with the question as H1, the guarantee row is still the whole-row terms button, and the metro field keeps our Open/Claimed result state.
+

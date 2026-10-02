@@ -215,3 +215,7 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Mobile menu:** the panel didn't open on iPhones because the header's `backdrop-filter` makes it the containing block for fixed descendants in Safari (panel height collapsed). The panel is now portaled to `<body>`.
 
+## 38. Hero card revision — 4a bottom + 6a rows (client, 2026-10-02)
+
+**Applied from the "home edit" handoff:** answer rows are now light rows in each channel's tint with purple text and a small YOU tag (referral chip yellow, pink reserved for the Check button); the bottom of the card is one lavender panel with a combined metro field (input + Check) on the left and the guarantee badge row on the right (five-color arcs, purple disc, gold check — no text). Divider and microcopy removed. Kept from earlier client decisions: flush card, radius 10, pink keyword eyebrow + question H1, whole guarantee row opens the terms modal, Open/Claimed result state in place of the field.
+

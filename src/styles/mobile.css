@@ -327,23 +327,17 @@
   .rd-trustbar-items img { height: 42px; margin: -10px -8px; }
   .rd-tip-btn { position: relative; }
   .rd-tip-btn::after { content: ""; position: absolute; inset: -14px -8px; }   /* ≥44px hit area */
-  /* Hero card 2b (docs/redesign-handoff-hero-2b/mobile.css.snippet) */
+  /* Hero card 2b (docs/redesign-handoff-hero-2b/mobile.css.snippet, rev. 2026-10-02) */
   .rd-hc { gap: 18px; }
   .rd-hc-title { font-size: 26px; }
   .rd-hc-payoff { font-size: 20px; }
-  .rd-hc-bottom { grid-template-columns: 1fr; gap: 14px; }   /* guarantee lands directly under the CTA */
+  .rd-hc-panel { grid-template-columns: 1fr; gap: 20px; padding: 20px; }   /* guarantee lands under the field */
   .rd-hc-avail-h { font-size: 20px; }
-  .rd-hc-form { flex-direction: column; }
-  .rd-hc-input { flex: none; width: 100%; height: 52px; font-size: 16px; }   /* flex:1 in a column would collapse the height */
-  .rd-hc-form .rd-hc-btn { width: 100%; height: 52px; }
-  .rd-hc-guarantee { gap: 14px; padding: 14px 16px 14px 12px; }
-  .rd-hc-seal { width: 72px; height: 72px; }
-  .rd-hc-story { padding: 14px; }
-  .rd-hc-moment { padding: 16px; }
-  .rd-hc-answer { gap: 8px; }
-  .rd-hc-answer-name, .rd-hc-answer-trail { white-space: nowrap; }
-  .rd-hc-answer-trail { flex: none; }
-  .rd-hc-result { padding: 12px; }
+  .rd-hc-input { font-size: 16px; }   /* no iOS zoom; the combined field stays a row */
+  .rd-hc-check { padding: 0 16px; }
+  .rd-hc-guarantee { border-left: 0; padding-left: 0; border-top: 1px solid #ddd6e6; padding-top: 20px; }
+  .rd-hc-badge { width: 52px; height: 52px; }
+  .rd-hc-result { padding: 10px; }
   .rd-hc-result-actions { width: 100%; justify-content: space-between; }
   .rd-dialog-panel { padding: 28px 22px 24px; }
   .site-search { margin-top: 8px; max-width: calc(100vw - 16px); }
@@ -458,6 +452,8 @@
   .rd-steps, .rd-steps--3 { gap: 0 16px; }
   .rd-hc-answer-name { font-size: 13px; }
   .rd-hc-answer-trail { font-size: 11px; }
+  .rd-hc-story { padding: 14px; }
+  .rd-hc-moment { padding: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

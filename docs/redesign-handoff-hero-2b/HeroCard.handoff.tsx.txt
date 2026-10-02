@@ -5,13 +5,11 @@
 import { useState } from 'react';
 import { PURPLE, PINK } from '~/lib/tokens';
 
-const GOLD = '#F2D98A';
 const GOLD_TEXT = '#b8902a';   // dark gold for text on white (brand gold fails contrast)
 const PANEL = '#f3f0f8';
 const BORDER = '#e8e4ef';
 const BODY = '#555555';
 const MUTED = '#8C7A9E';
-const ON_PURPLE = '#D9CCE6';
 const LIVE = '#2f9e85';
 const FONT = 'var(--font-display)';
 
@@ -41,7 +39,7 @@ export default function HeroCard({ onCheck, hideHeadline = false }: HeroCardProp
           <Moment icon="search" iconBg="#e3eef8" iconColor="#3f6f9e" label="Google search">
             <div style={{ background: PANEL, borderRadius: 999, padding: '9px 14px', color: BODY, fontSize: 12.5, fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>hoa management company near me</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <Answer rank icon="pin" trailing="4.9" />
+              <Answer tint="#e3eef8" rank trailing="4.9" />
               <Skeleton width="62%" />
               <Skeleton width="48%" />
             </div>
@@ -49,16 +47,16 @@ export default function HeroCard({ onCheck, hideHeadline = false }: HeroCardProp
           <Moment icon="sparkle" iconBg="#e1f0ec" iconColor="#2f7a6a" label="AI assistant">
             <div style={{ alignSelf: 'flex-end', maxWidth: '92%', background: PANEL, borderRadius: '14px 14px 4px 14px', padding: '9px 14px', color: BODY, fontSize: 12.5, fontWeight: 500, lineHeight: 1.45 }}>Who's the best HOA management company in Austin?</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <Answer icon="sparkle" trailing="Top choice" />
+              <Answer tint="#e1f0ec" icon="sparkle" trailing="Top choice" />
               <div style={{ color: BODY, fontSize: 12.5, fontWeight: 500, lineHeight: 1.55, padding: '0 2px' }}>A top choice, known for local experience and strong reviews.</div>
             </div>
           </Moment>
-          <Moment icon="users" iconBg="#f9e1ea" iconColor={PINK} label="Referral network">
+          <Moment icon="users" iconBg="#faf0d2" iconColor="#8a6a10" label="Referral network">
             <div style={{ background: PANEL, borderRadius: 10, padding: '11px 14px', display: 'flex', flexDirection: 'column', gap: 2 }}>
               <span style={{ fontSize: 13, fontWeight: 700, color: PURPLE }}>Oak Hollow HOA</span>
               <span style={{ fontSize: 11.5, fontWeight: 500, color: MUTED }}>212 homes · Seeking new management</span>
             </div>
-            <Answer icon="check" trailing="Matched" />
+            <Answer tint="#faf0d2" icon="check" trailing="Matched" />
           </Moment>
         </div>
       </div>
@@ -67,29 +65,25 @@ export default function HeroCard({ onCheck, hideHeadline = false }: HeroCardProp
         We make sure it's you, and only you, in your market.
       </p>
 
-      <div style={{ height: 1, background: BORDER }} />
-
-      {/* Availability check + guarantee */}
-      <div className="hero-card-avail" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1.3fr) minmax(0,1fr)', gap: 56, alignItems: 'start' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+      {/* Availability check + guarantee — one soft panel (option 4a) */}
+      <div className="hero-card-avail" style={{ background: PANEL, borderRadius: 18, padding: '26px 28px', display: 'grid', gridTemplateColumns: 'minmax(0,1.25fr) minmax(0,1fr)', gap: 40, alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 12 }}>
-            <div className="hero-card-avail-h" style={{ fontSize: 26, lineHeight: 1.15, fontWeight: 700, color: PURPLE }}>Is your metro still open?</div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, fontWeight: 500, color: BODY, whiteSpace: 'nowrap' }}>
+            <div className="hero-card-avail-h" style={{ fontSize: 22, lineHeight: 1.15, fontWeight: 700, color: PURPLE }}>Is your metro still open?</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12.5, fontWeight: 500, color: BODY, whiteSpace: 'nowrap' }}>
               <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: '50%', background: LIVE, display: 'inline-block', boxShadow: '0 0 0 4px rgba(47,158,133,0.18)' }} />
-              Live availability
+              Live
             </div>
           </div>
-          <form className="hero-card-form" style={{ display: 'flex', gap: 10 }} onSubmit={(e) => { e.preventDefault(); if (metro.trim()) onCheck?.(metro.trim()); }}>
+          <form className="hero-card-form" style={{ display: 'flex', gap: 8, background: '#fff', border: `1px solid ${BORDER}`, borderRadius: 12, padding: 6 }} onSubmit={(e) => { e.preventDefault(); if (metro.trim()) onCheck?.(metro.trim()); }}>
             <label htmlFor="hero-metro" style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clip: 'rect(0 0 0 0)' }}>Your metro</label>
             <input id="hero-metro" value={metro} onChange={(e) => setMetro(e.target.value)} placeholder="Enter your metro" autoComplete="address-level2"
-              style={{ flex: 1, minWidth: 0, height: 56, borderRadius: 10, border: '1px solid #c9c1d6', background: '#fff', padding: '0 18px', fontFamily: 'inherit', fontWeight: 500, fontSize: 15, color: PURPLE, outline: 'none' }} />
-            <button type="submit" style={{ flex: 'none', height: 56, padding: '0 26px', borderRadius: 10, border: 'none', background: PINK, color: '#fff', fontFamily: 'inherit', fontWeight: 700, fontSize: 13, letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer', boxShadow: '0 8px 24px rgba(217,53,110,0.25)' }}>
-              Check availability
+              style={{ flex: 1, minWidth: 0, height: 44, border: 'none', background: 'transparent', padding: '0 12px', fontFamily: 'inherit', fontWeight: 500, fontSize: 15, color: PURPLE, outline: 'none' }} />
+            <button type="submit" className="hero-card-check" style={{ flex: 'none', height: 44, padding: '0 20px', borderRadius: 8, border: 'none', background: PINK, color: '#fff', fontFamily: 'inherit', fontWeight: 700, fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer' }}>
+              Check
             </button>
           </form>
-          <div style={{ fontSize: 13, fontWeight: 500, color: MUTED, lineHeight: 1.5 }}>See if your metro is open and who boards find there today.</div>
         </div>
-
         <Guarantee />
       </div>
     </div>
@@ -98,17 +92,27 @@ export default function HeroCard({ onCheck, hideHeadline = false }: HeroCardProp
 
 function Guarantee() {
   return (
-    <div className="hero-card-guarantee" style={{ display: 'flex', borderRadius: 14, overflow: 'hidden', background: PURPLE }}>
-      <div className="hero-card-guarantee-side" style={{ flex: 'none', width: 72, background: GOLD, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 6 }}>
-        <Glyph name="check" color={PURPLE} size={26} strokeWidth={3} />
-        <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: '0.08em', color: PURPLE }}>24 MO</span>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 5, padding: '16px 18px', minWidth: 0 }}>
-        <span style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.2, color: '#fff' }}>Pays for itself. Guaranteed.</span>
-        <span style={{ fontSize: 12, fontWeight: 500, lineHeight: 1.45, color: ON_PURPLE }}>If new business doesn't cover our fee within 24 months, we refund the difference.</span>
-        <a href="/guarantee" style={{ marginTop: 2, fontSize: 12, fontWeight: 700, color: GOLD, textDecoration: 'underline', textUnderlineOffset: 3 }}>See guarantee terms</a>
+    <div className="hero-card-guarantee" style={{ display: 'flex', alignItems: 'center', gap: 16, minWidth: 0, borderLeft: '1px solid #ddd6e6', paddingLeft: 32 }}>
+      <GuaranteeBadge size={64} />
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 4, minWidth: 0 }}>
+        <span style={{ fontSize: 15, fontWeight: 700, lineHeight: 1.25, color: PURPLE }}>Your growth covers our fees. Guaranteed.</span>
+        <a href="/guarantee" style={{ fontSize: 12.5, fontWeight: 700, color: PURPLE, textDecoration: 'underline', textUnderlineOffset: 3 }}>See guarantee terms</a>
       </div>
     </div>
+  );
+}
+
+// Five-color ring + purple disc + gold check. Ring order is the brand accent order (purple, pink, yellow, blue, green).
+function GuaranteeBadge({ size }: { size: number }) {
+  const ring = ['#381c4f', '#d9356e', '#f5d880', '#a1c8e7', '#aed7d0'];
+  return (
+    <svg className="hero-card-badge" width={size} height={size} viewBox="0 0 100 100" aria-hidden="true" style={{ flex: 'none' }}>
+      <g fill="none" strokeWidth={5} strokeLinecap="round" strokeDasharray="48 241" transform="rotate(-142 50 50)">
+        {ring.map((c, i) => <circle key={c} cx={50} cy={50} r={46} stroke={c} transform={`rotate(${i * 72} 50 50)`} />)}
+      </g>
+      <circle cx={50} cy={50} r={35} fill={PURPLE} />
+      <path d="M36 51l9 9 19-20" fill="none" stroke="#f5d880" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 
@@ -126,14 +130,15 @@ function Moment({ icon, iconBg, iconColor, label, children }: { icon: 'search' |
   );
 }
 
-// The repeated focal element: purple block, 3px gold left edge, gold mark, "Your Company".
-function Answer({ icon, trailing, rank }: { icon: 'pin' | 'check' | 'sparkle'; trailing: string; rank?: boolean }) {
+// The repeated focal element (option 6a): the channel's tint, purple text, small YOU tag. Pink stays reserved for the CTA.
+function Answer({ tint, icon, trailing, rank }: { tint: string; icon?: 'check' | 'sparkle'; trailing: string; rank?: boolean }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10, background: PURPLE, borderLeft: `3px solid ${GOLD}`, borderRadius: 10, padding: '12px 14px 12px 12px' }}>
-      {rank && <span style={{ flex: 'none', width: 22, height: 22, borderRadius: '50%', background: GOLD, color: PURPLE, fontSize: 12, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>1</span>}
-      <Glyph name={icon} color={GOLD} size={rank ? 14 : 16} strokeWidth={icon === 'pin' ? 2 : 2.5} style={rank ? { marginLeft: -4 } : undefined} />
-      <span style={{ fontSize: 14, fontWeight: 700, color: '#fff' }}>Your Company</span>
-      <span style={{ marginLeft: 'auto', fontSize: 11.5, fontWeight: 700, color: GOLD }}>{trailing}</span>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: tint, borderRadius: 10, padding: '12px 10px 12px 12px' }}>
+      {rank && <span style={{ flex: 'none', width: 22, height: 22, borderRadius: '50%', background: PURPLE, color: '#fff', fontSize: 12, fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>1</span>}
+      {icon && <Glyph name={icon} color={PURPLE} size={16} strokeWidth={2.5} />}
+      <span style={{ fontSize: 14, fontWeight: 700, color: PURPLE, whiteSpace: 'nowrap', flex: 'none' }}>Your Company</span>
+      <span style={{ fontSize: 11.5, fontWeight: 700, color: PURPLE, opacity: 0.7, whiteSpace: 'nowrap', minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis' }}>{trailing}</span>
+      <span style={{ marginLeft: 'auto', flex: 'none', fontSize: 9.5, fontWeight: 800, letterSpacing: '0.1em', background: PURPLE, color: '#fff', padding: '4px 7px', borderRadius: 6 }}>YOU</span>
     </div>
   );
 }
@@ -152,7 +157,6 @@ const PATHS: Record<string, string> = {
   search: 'M11 4a7 7 0 1 0 0 14 7 7 0 1 0 0-14Zm9 16-3.5-3.5',
   sparkle: 'M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.2 2.2M16.2 16.2l2.2 2.2M5.6 18.4l2.2-2.2M16.2 7.8l2.2-2.2',
   users: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 3a4 4 0 1 0 0 8 4 4 0 1 0 0-8ZM22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8',
-  pin: 'M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0ZM12 7a3 3 0 1 0 0 6 3 3 0 1 0 0-6Z',
   check: 'M20 6 9 17l-5-5',
 };
 function Glyph({ name, color, size, strokeWidth, style }: { name: string; color: string; size: number; strokeWidth: number; style?: React.CSSProperties }) {

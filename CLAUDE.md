@@ -71,7 +71,7 @@ src/
 │   │   ├── Shells.tsx               # LEGACY shells (PageHero, CtaBand, …) — still imported by landing-page code; do not use for new work
 │   │
 │   ├── modules/                     # Interactive islands + self-contained modules
-│   │   ├── HeroCard.tsx             # Homepage hero card 2b (STATIC): three search moments → "Your Company" → payoff → availability slot + guarantee
+│   │   ├── HeroCard.tsx             # Homepage hero card 2b (STATIC): three search moments → tinted "Your Company · YOU" rows → payoff → lavender panel (metro slot + guarantee badge row)
 │   │   ├── MetroCheck.tsx           # "Is your metro still open?" island inside HeroCard (client:load): metro or ZIP → /api/metro?q= → Open/Claimed
 │   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
 │   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe
@@ -261,6 +261,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Hero card rev. (4a + 6a)** from the client's "home edit" handoff: tinted answer rows with YOU tags (referral chip yellow), one lavender bottom panel with a combined metro field (`.rd-hc-field` + `.rd-hc-check`) and the guarantee badge row (`GuaranteeBadge`, no text); divider + idle microcopy gone. |
 | 2026-10-02 | **Guarantee → "The floor · 1×"** copy (hero card, modal, FAQ); the card is now white with the client's seal (inline SVG `GuaranteeSeal` in HeroCard: five-color arcs, purple disc, ring text, gold check) instead of the gold "THE FLOOR · 1×" box. **iOS menu fix:** mobile panel portaled to `<body>` — Safari treats the header's `backdrop-filter` as a containing block for `position: fixed`, so the panel had no height on iPhones. |
 | 2026-10-02 | **Launch sweep** (`.context/launch-audit.mjs`): 59 live URLs → all 200 or one-hop 301 on stg; 146 redirects clean (only legacy `.html` sources take 2 hops because Vercel `cleanUrls` strips `.html` first); no broken links/images; valid schema; 42/42 routes clean at 390px; production build passes; generated sitemap = 42 routes. Fixes: stale `public/sitemap.xml` deleted + robots.txt line dropped, `/sitemap.xml` → `/sitemap-index.xml` redirect in vercel.json (GSC's old submission keeps resolving); results case cards regain their "what we built" lists. |
 | 2026-10-01 | **Full-card links**: `.rd-card-link` (lift + inner label reacts) + `LinkLabel` atom (span twin of TextLink). Resources cards + featured guide, homepage news cards, results case cards, the courses "Branded board education" card and the linked partner card are now whole-card links — no nested anchors. |

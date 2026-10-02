@@ -7,7 +7,6 @@ import { Glyph } from './HeroCard';
 type Phase = 'idle' | 'loading' | 'result' | 'error';
 interface Result { name: string; claimed: boolean; near?: string; zip?: string }
 
-const IDLE_COPY = 'See if your metro is open and who boards find there today.';
 
 export default function MetroCheck() {
   const [q, setQ] = useState('');
@@ -37,12 +36,12 @@ export default function MetroCheck() {
   const reset = () => { setPhase('idle'); setResult(null); setError(''); setQ(''); window.setTimeout(() => inputRef.current?.focus(), 0); };
 
   const r = phase === 'result' ? result : null;
-  const live = phase === 'loading' ? 'Checking…' : r ? (r.claimed ? 'Claimed' : 'Open') : 'Live availability';
+  const live = phase === 'loading' ? 'Checking…' : r ? (r.claimed ? 'Claimed' : 'Open') : 'Live';
   const liveColor = r ? (r.claimed ? 'var(--alloy-pink)' : 'var(--live)') : 'var(--live)';
   const micro = phase === 'error' ? error
     : phase === 'loading' ? 'Checking live availability…'
     : r ? (r.claimed ? `A CAM firm already holds ${r.near ?? r.name}. Join the waitlist and we’ll tell you if it opens.` : `${r.name} is open. Thirty minutes locks it for your firm.`)
-    : IDLE_COPY;
+    : '';
   const to = (intent?: string) => `/contact?metro=${encodeURIComponent(r?.name ?? q.trim())}${intent ? `&intent=${intent}` : ''}`;
 
   return (
@@ -72,7 +71,7 @@ export default function MetroCheck() {
           </div>
         </div>
       ) : (
-        <form className="rd-hc-form" onSubmit={(e) => { e.preventDefault(); void check(); }}>
+        <form className="rd-hc-field" onSubmit={(e) => { e.preventDefault(); void check(); }}>
           <label htmlFor="hero-metro" className="rd-sr-only">Your metro or ZIP code</label>
           <input
             id="hero-metro"
@@ -85,11 +84,11 @@ export default function MetroCheck() {
             maxLength={80}
             aria-invalid={phase === 'error' || undefined}
           />
-          <button type="submit" className="rd-hc-btn" disabled={phase === 'loading'}>{phase === 'loading' ? 'Checking…' : 'Check availability'}</button>
+          <button type="submit" className="rd-hc-check" disabled={phase === 'loading'}>{phase === 'loading' ? 'Checking…' : 'Check'}</button>
         </form>
       )}
 
-      <div className={`rd-hc-micro${phase === 'error' ? ' rd-hc-micro--error' : ''}`} aria-live="polite">{micro}</div>
+      {micro ? <div className={`rd-hc-micro${phase === 'error' ? ' rd-hc-micro--error' : ''}`} aria-live="polite">{micro}</div> : <div className="rd-sr-only" aria-live="polite" />}
     </div>
   );
 }

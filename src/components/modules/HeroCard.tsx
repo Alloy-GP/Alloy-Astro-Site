@@ -1,5 +1,5 @@
 // src/components/modules/HeroCard.tsx
-// Homepage hero card — design option 2b (final), docs/redesign-handoff-hero-2b/README.md.
+// Homepage hero card — design option 2b, bottom section 4a + answer rows 6a (handoff rev. 2026-10-02), docs/redesign-handoff-hero-2b/README.md.
 // One story from the board's point of view: a board searches three ways (Google, an AI assistant,
 // the referral network) and finds the same company every time → payoff line → "Is your metro still
 // open?" + the pays-for-itself guarantee. STATIC (no client directive): only the availability check
@@ -37,14 +37,15 @@ function Moment({ icon, chipBg, chipColor, label, children }: { icon: GlyphName;
   );
 }
 
-/** The repeated focal element: purple block, 3px gold edge, gold mark, "Your Company". */
-function Answer({ icon, trailing, rank = false, anim, draw = false }: { icon: GlyphName; trailing: string; rank?: boolean; anim?: 'pop' | 'slide'; draw?: boolean }) {
+/** The repeated focal element (option 6a, 2026-10-02): the channel's tint, purple text, small YOU tag. Pink stays CTA-only. */
+function Answer({ icon, trailing, tint, rank = false, anim, draw = false }: { icon?: GlyphName; trailing: string; tint: string; rank?: boolean; anim?: 'pop' | 'slide'; draw?: boolean }) {
   return (
-    <div className="rd-hc-answer" {...(anim ? { 'data-anim': anim } : {})}>
+    <div className="rd-hc-answer" style={{ background: tint }} {...(anim ? { 'data-anim': anim } : {})}>
       {rank ? <span className="rd-hc-rank" aria-hidden="true">1</span> : null}
-      <Glyph name={icon} size={rank ? 14 : 16} stroke={icon === 'pin' ? 2 : 2.5} color="var(--alloy-gold)" draw={draw} />
+      {icon ? <Glyph name={icon} size={16} stroke={2.5} color="var(--alloy-purple)" draw={draw} /> : null}
       <span className="rd-hc-answer-name">Your Company</span>
       <span className="rd-hc-answer-trail">{trailing}</span>
+      <span className="rd-hc-you" aria-label="This is you">YOU</span>
     </div>
   );
 }
@@ -55,29 +56,16 @@ function Skeleton({ width }: { width: string }) {
   );
 }
 
-/** Guarantee seal (client graphic, 2026-10-02): five-color outer arcs, purple disc, "RESULTS · GUARANTEED" ring text, gold check. */
-function GuaranteeSeal() {
-  // Arc segments on r=46 (gaps between them), drawn as stroked paths with round caps.
-  const arc = (a0: number, a1: number, color: string) => {
-    const r = 46, cx = 50, cy = 50;
-    const p = (a: number): [number, number] => [cx + r * Math.cos((a * Math.PI) / 180), cy + r * Math.sin((a * Math.PI) / 180)];
-    const [x0, y0] = p(a0), [x1, y1] = p(a1);
-    return <path key={a0} d={`M ${x0.toFixed(2)} ${y0.toFixed(2)} A ${r} ${r} 0 ${a1 - a0 > 180 ? 1 : 0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`} stroke={color} strokeWidth={5} strokeLinecap="round" fill="none" />;
-  };
+/** Guarantee badge (handoff rev. 2026-10-02): five 5px arcs on r46 in brand order, purple disc, gold check. No text. */
+function GuaranteeBadge() {
+  const ring = ['var(--alloy-purple)', 'var(--alloy-pink)', 'var(--alloy-yellow)', 'var(--alloy-blue)', 'var(--alloy-green)'];
   return (
-    <svg className="rd-hc-seal" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-      {arc(200, 262, 'var(--alloy-purple)')}
-      {arc(276, 338, 'var(--alloy-pink)')}
-      {arc(352, 414, 'var(--alloy-gold)')}
-      {arc(428, 490, 'var(--alloy-blue)')}
-      {arc(504, 546, 'var(--alloy-green)')}
-      <circle cx="50" cy="50" r="35" fill="var(--alloy-purple)" />
-      <circle cx="50" cy="50" r="21" fill="none" stroke="rgba(255,255,255,.14)" strokeWidth={1} />
-      <defs><path id="rd-hc-seal-ring" d="M 50 50 m -28 0 a 28 28 0 1 1 56 0 a 28 28 0 1 1 -56 0" /></defs>
-      <text fill="#fff" fontSize="5.4" fontWeight={700} letterSpacing="1.15" style={{ fontFamily: 'var(--font-display)' }}>
-        <textPath href="#rd-hc-seal-ring" startOffset="0">GUARANTEED · RESULTS · GUARANTEED ·</textPath>
-      </text>
-      <path d="M 39 50 L 47 58 L 62 42" fill="none" stroke="var(--alloy-gold)" strokeWidth={5.5} strokeLinecap="round" strokeLinejoin="round" />
+    <svg className="rd-hc-badge" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <g fill="none" strokeWidth={5} strokeLinecap="round" strokeDasharray="48 241" transform="rotate(-142 50 50)">
+        {ring.map((c, i) => <circle key={c} cx={50} cy={50} r={46} stroke={c} transform={`rotate(${i * 72} 50 50)`} />)}
+      </g>
+      <circle cx={50} cy={50} r={35} fill="var(--alloy-purple)" />
+      <path d="M36 51l9 9 19-20" fill="none" stroke="var(--alloy-yellow)" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -100,7 +88,7 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
           <Moment icon="search" chipBg="#e3eef8" chipColor="#3f6f9e" label="Google search">
             <div className="rd-hc-pill" data-type>hoa management company near me</div>
             <div className="rd-hc-stack">
-              <Answer icon="pin" trailing="4.9" rank anim="pop" />
+              <Answer trailing="4.9" tint="#e3eef8" rank anim="pop" />
               <Skeleton width="62%" />
               <Skeleton width="48%" />
             </div>
@@ -109,35 +97,31 @@ export default function HeroCard({ children }: { children?: ReactNode }) {
             <div className="rd-hc-bubble" data-type>Who’s the best HOA management company in Austin?</div>
             <div className="rd-hc-stack">
               <div className="rd-hc-thinking" hidden aria-hidden="true"><span /><span /><span /></div>
-              <Answer icon="sparkle" trailing="Top choice" anim="slide" />
+              <Answer icon="sparkle" trailing="Top choice" tint="#e1f0ec" anim="slide" />
               <div className="rd-hc-sentence" data-anim="fade">A top choice, known for local experience and strong reviews.</div>
             </div>
           </Moment>
-          <Moment icon="users" chipBg="#f9e1ea" chipColor="var(--alloy-pink)" label="Referral network">
+          <Moment icon="users" chipBg="#faf0d2" chipColor="#8a6a10" label="Referral network">
             <div className="rd-hc-request" data-anim="fade">
               <span className="rd-hc-request-title">Oak Hollow HOA</span>
               <span className="rd-hc-request-meta">212 homes · Seeking new management</span>
             </div>
             <div className="rd-hc-searching" hidden aria-hidden="true"><span className="rd-hc-searching-bar" /><span>Searching for a match…</span></div>
-            <Answer icon="check" trailing="Matched" anim="pop" draw />
+            <Answer icon="check" trailing="Matched" tint="#faf0d2" anim="pop" draw />
           </Moment>
         </div>
       </div>
 
       <p className="rd-hc-payoff">We make sure it’s you, and only you, in your market.</p>
 
-      <div className="rd-hc-rule" />
-
-      {/* Availability check (island) + guarantee */}
-      <div className="rd-hc-bottom">
+      {/* Bottom panel (option 4a, 2026-10-02): metro check island left, guarantee row right, one lavender panel.
+          The guarantee row is the terms button (client); /faq#guarantee is the no-JS fallback. */}
+      <div className="rd-hc-panel">
         {children}
-        {/* The whole guarantee card opens the terms modal (client, 2026-10-01); /faq#guarantee is the no-JS fallback.
-            Copy = the client's "1× floor" line; the seal replaces the gold "THE FLOOR · 1×" box (client, 2026-10-02). */}
         <a href="/faq#guarantee" className="rd-hc-guarantee" data-dialog="guarantee-terms" aria-haspopup="dialog">
-          <span className="rd-hc-guarantee-side"><GuaranteeSeal /></span>
+          <GuaranteeBadge />
           <span className="rd-hc-guarantee-body">
             <span className="rd-hc-guarantee-title">Your growth covers our fees. Guaranteed.</span>
-            <span className="rd-hc-guarantee-text">We’re confident enough to back it with our money, not just yours.</span>
             <span className="rd-hc-guarantee-link">See guarantee terms</span>
           </span>
         </a>
