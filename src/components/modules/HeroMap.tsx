@@ -62,7 +62,7 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
         <div className="rd-hm-copy">
           <div className="rd-hm-eyebrow">Marketing for HOA Management Companies</div>
           <h1 className="rd-hm-title">When a board in your city looks for a new HOA management company, <span className="rd-accent">who do they find?</span></h1>
-          <p className="rd-hm-payoff">Google, AI assistants, referral networks — boards check all three. We make sure it’s you, and only you, in your market.</p>
+          <p className="rd-hm-payoff">Google, AI assistants, referral networks — boards check all three. The bigger question is how you stack up when they do: does what they find outshine your competition, or blend in?</p>
         </div>
 
         <div className="rd-mc">

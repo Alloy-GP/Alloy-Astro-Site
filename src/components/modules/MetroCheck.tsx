@@ -1,9 +1,8 @@
 // src/components/modules/MetroCheck.tsx — the metro card's header band + 58px state row (client:load island inside HeroMap).
-// Hero 7a v2 §1: Idle (field + Check) → Checking (spinner, pill CHECKING) → Result Open (Reserve it) / Claimed (Join waitlist),
+// Hero 7a v2 §1: Idle (field + Check) → Checking (spinner, pill CHECKING) → Result Open (Get my report — client 2026-10-02, was "Reserve it"; no glyph so the metro name keeps its room) / Claimed (Join waitlist),
 // each a 58px row so the card never changes height. Unknown input → Open with the typed string title-cased, map stays.
 // Dispatches `alloy:metro` for src/lib/hero-map.ts (map zoom/re-centre + pin label).
 import { useEffect, useRef, useState } from 'react';
-import { Glyph } from './HeroMap';
 
 type Phase = 'idle' | 'checking' | 'result';
 interface Result { name: string; claimed: boolean; lat?: number; lng?: number; near?: string }
@@ -67,7 +66,7 @@ export default function MetroCheck() {
             {r.claimed ? (
               <a href={to('waitlist')} className="rd-mc-btn rd-mc-btn--dark">Join waitlist</a>
             ) : (
-              <a href={to('claim')} className="rd-mc-btn rd-mc-btn--go"><Glyph name="check" size={13} stroke={3} />Reserve it</a>
+              <a href={to('claim')} className="rd-mc-btn rd-mc-btn--go">Get my report</a>
             )}
             <button type="button" className="rd-mc-reset" onClick={reset} aria-label="Check another metro">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7" /><path d="M3 4v5h5" /></svg>
