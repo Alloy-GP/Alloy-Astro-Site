@@ -89,7 +89,7 @@ const data: ServicePageData = {
     items: [
       { q: 'We use Mailchimp / Constant Contact / HubSpot. Do we switch?', a: 'No. We work in the tool you have unless it genuinely can’t do the job.' },
       { q: 'Isn’t this just a newsletter?', a: 'Newsletter Production is the retention piece for boards you already manage. Email Marketing is the demand piece. The boards you don’t have yet.' },
-      { q: 'Will boards actually open these?', a: 'When the cadence is right and the content is operator-grade. The median open rate on Alloy CAM email programs is 38%, against the roughly 21% all-industry average HubSpot reports, because boards already know your firm and the content is useful. The wrong cadence burns that goodwill fast. That’s why we audit first.' },
+      { q: 'Will boards actually open these?', a: 'When the cadence is right and the content is operator-grade. The median open rate on Alloy CAM email programs is 38%, because boards already know your firm and the content is useful. We don’t lean on industry open-rate benchmarks (Apple Mail privacy inflates them); we judge programs on replies and meetings booked. The wrong cadence burns goodwill fast, which is why we audit first.' },
       { q: 'Do you write the homeowner emails too?', a: 'Yes: homeowners are one of the four segments: maintenance announcements, project updates, special-assessment communications, annual meeting notices. It’s writing your managers know matters and rarely have time to do well.' },
     ],
   },
