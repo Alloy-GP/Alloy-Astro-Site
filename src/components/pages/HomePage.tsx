@@ -82,7 +82,7 @@ export default function HomePage({ chart, newsletter }: { chart?: ReactNode; new
                 <circle cx="500" cy="20" r="6" fill="#d9356e" data-pop />
                 <text x="0" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">Year 1</text><text x="228" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">Year 2</text><text x="462" y="248" fontSize="11" fill="#555" fontFamily="Gotham,sans-serif">Year 3</text>
               </svg>
-              <div><TextLink href="/results/apex-cmg" size={12}>Read the full case study</TextLink></div>
+              <div className="rd-row rd-row--wrap" style={{ gap: 18 }}><TextLink href="/results/apex-cmg" size={12}>Read the full case study</TextLink><TextLink href="/growth-modeled" size={12}>Model your own numbers</TextLink></div>
             </div>
           </div>
         </div>

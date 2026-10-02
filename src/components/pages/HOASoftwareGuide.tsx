@@ -393,7 +393,7 @@ export default function HOASoftwareGuide() {
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
             <p className="rd-intro" style={{ lineHeight: 1.65 }}>Vantaca, AppFolio, Buildium, CINC — compared the way an operator compares them, and what each one means for boards, owners, and your marketing.</p>
-            <div className="rd-tiny rd-w-500">{TOC.length} sections · 18 min read · Updated quarterly</div>
+            <div className="rd-tiny rd-w-500">By Alloy Growth Partners · Published <time dateTime="2026-05-13">May 13, 2026</time> · Updated <time dateTime="2026-09-23">Sep 23, 2026</time> · {TOC.length} sections · 18 min read</div>
           </div>
         </div>
       </section>

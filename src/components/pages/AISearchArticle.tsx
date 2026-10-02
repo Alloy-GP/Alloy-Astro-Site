@@ -51,7 +51,7 @@ export default function AISearchArticle() {
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
             <p className="rd-intro" style={{ lineHeight: 1.65 }}>ChatGPT, Perplexity, Gemini, and Google AI Overviews now answer board questions before your website does. The firms cited are winning meetings competitors don’t even know happened.</p>
-            <div className="rd-tiny rd-w-500">{TOC.length} sections · 3 min read</div>
+            <div className="rd-tiny rd-w-500">By Skyler Nelson, Managing Partner · Published <time dateTime="2026-05-04">May 4, 2026</time> · Updated <time dateTime="2026-10-02">Oct 2, 2026</time> · {TOC.length} sections · 3 min read</div>
           </div>
         </div>
       </section>
