@@ -48,7 +48,7 @@ const TOOLKIT = [
 const BUDGET_LEVELS = [
   { n: 1, sym: '$', name: 'Foundation', scope: 'Essentials, built right' },
   { n: 2, sym: '$$', name: 'Steady', scope: 'Essentials plus momentum' },
-  { n: 3, sym: '$$$', name: 'Accelerate', scope: 'The full engine — most CAMs' },
+  { n: 3, sym: '$$$', name: 'Accelerate', scope: 'The full engine: most CAMs' },
   { n: 4, sym: '$$$$', name: 'Ascend', scope: 'Everything, at full tempo' },
 ];
 
@@ -66,15 +66,15 @@ interface Profile {
 const PROFILES: Record<'starting' | 'established' | 'multi', Profile> = {
   starting: {
     label: 'Just getting started', color: '#a1c8e7',
-    tagline: 'Start at Foundation — climb to Dominance',
+    tagline: 'Start at Foundation: climb to Dominance',
     diagHeadline: 'Your roadmap starts here.',
-    diagBody: "You begin at phase one and climb a proven five-phase journey — five milestones each — the same path our most dominant CAMs walked. Here's exactly what that climb looks like.",
+    diagBody: "You begin at phase one and climb a proven five-phase journey, five milestones each, the same path our most dominant CAMs walked. Here's exactly what that climb looks like.",
     getHeadline: 'From invisible to in-demand.',
     rmCount: '1', rmLabel: 'your market', rmNote: 'building from the ground up',
     markets: [{ name: 'Your market', sub: 'just getting started', curPhase: 0, curHit: 1 }],
     defaultBudget: 2,
     q1Headline: 'Your first quarter, mostly foundational.',
-    q1Body: "With no presence yet, Quarter 1 leans hard into the basics — a real website, findability, and the first high-value content that makes boards take you seriously. Slide the budget to see how much of it we complete in the first 90 days.",
+    q1Body: "With no presence yet, Quarter 1 leans hard into the basics: a real website, findability, and the first high-value content that makes boards take you seriously. Slide the budget to see how much of it we complete in the first 90 days.",
     plays: [
       { label: 'New 5-page website build', level: 1, engine: 'reach' },
       { label: 'Google Business Profile setup & verification', level: 1, engine: 'reach' },
@@ -99,13 +99,13 @@ const PROFILES: Record<'starting' | 'established' | 'multi', Profile> = {
     label: 'Established · one location', color: '#d9356e',
     tagline: 'Your market, built out end to end',
     diagHeadline: 'One market. The whole roadmap.',
-    diagBody: "Your location runs the complete five-phase journey — Foundation to Dominance, five milestones a phase, nothing skipped. The same rigor a multi-market CAM gets, focused entirely on you.",
+    diagBody: "Your location runs the complete five-phase journey. Foundation to Dominance, five milestones a phase, nothing skipped. The same rigor a multi-market CAM gets, focused entirely on you.",
     getHeadline: 'Turn conversations into contracts.',
     rmCount: '1', rmLabel: 'your market', rmNote: 'built out end to end',
     markets: [{ name: 'Your market', sub: 'one location · 5 months in', curPhase: 1, curHit: 3 }],
     defaultBudget: 2,
     q1Headline: 'Your first quarter, pointed at demand.',
-    q1Body: "You already have the fundamentals — so Quarter 1 turns on the recurring engine, ships a revenue-focused conversion page, and starts capturing commercial demand you can finally measure. Slide the budget to see how much lands in the first 90 days.",
+    q1Body: "You already have the fundamentals, so Quarter 1 turns on the recurring engine, ships a revenue-focused conversion page, and starts capturing commercial demand you can finally measure. Slide the budget to see how much lands in the first 90 days.",
     plays: [
       { label: 'Quarterly growth audit & strategy report', level: 1, engine: 'reach' },
       { label: 'Local pack management (GBP posts, photos, reviews)', level: 1, engine: 'reach' },
@@ -131,7 +131,7 @@ const PROFILES: Record<'starting' | 'established' | 'multi', Profile> = {
     label: 'Multi-location CAM', color: '#aed7d0',
     tagline: 'We build each market out individually',
     diagHeadline: 'Every market gets its own roadmap.',
-    diagBody: "We don't spread one thin plan across your offices. Each market runs the full five-phase journey — Foundation to Dominance, five milestones a phase — and we grow them in parallel, giving each the individual attention it needs.",
+    diagBody: "We don't spread one thin plan across your offices. Each market runs the full five-phase journey (Foundation to Dominance, five milestones a phase) and we grow them in parallel, giving each the individual attention it needs.",
     getHeadline: 'One engine. Every market.',
     rmCount: '5', rmLabel: 'active markets', rmNote: 'growing in parallel',
     markets: [
@@ -143,15 +143,15 @@ const PROFILES: Record<'starting' | 'established' | 'multi', Profile> = {
     ],
     defaultBudget: 3,
     q1Headline: 'Your first quarter, market by market.',
-    q1Body: "Multi-market growth is a content multiplier — each market needs its own city pages, GBP, and local presence, not a copy-paste. Quarter 1 launches the site and builds markets out in parallel. Slide the budget to see how many we activate at once.",
+    q1Body: "Multi-market growth is a content multiplier: each market needs its own city pages, GBP, and local presence, not a copy-paste. Quarter 1 launches the site and builds markets out in parallel. Slide the budget to see how many we activate at once.",
     plays: [
       { label: 'Quarterly growth audit & strategy', level: 1, engine: 'reach' },
       { label: 'Site cutover + 301 redirect map', level: 1, engine: 'reach' },
       { label: 'Post-launch technical verification', level: 1, engine: 'reach' },
-      { label: 'GBP optimization + local pack — primary market', level: 1, engine: 'reach' },
-      { label: 'City / location page — primary market', level: 1, engine: 'reach' },
-      { label: 'GBP + local pack — added markets', level: 2, engine: 'reach' },
-      { label: 'City / location pages — added markets', level: 2, engine: 'reach' },
+      { label: 'GBP optimization + local pack · primary market', level: 1, engine: 'reach' },
+      { label: 'City / location page · primary market', level: 1, engine: 'reach' },
+      { label: 'GBP + local pack · added markets', level: 2, engine: 'reach' },
+      { label: 'City / location pages · added markets', level: 2, engine: 'reach' },
       { label: 'Local directory submissions + NAP cleanup', level: 2, engine: 'reach' },
       { label: 'State HOA-law pages per market', level: 3, engine: 'reach' },
       { label: 'GEO / AIO + ongoing SEO monitoring', level: 3, engine: 'reach' },
@@ -413,7 +413,7 @@ function Step1({ pick }: { pick: (p: 'starting' | 'established' | 'multi') => vo
     {
       key: 'established' as const, cls: 'fyp-choice-pink', accent: '#d9356e', eyebrowColor: '#f3a6c2', iconStroke: '#fff',
       eyebrow: 'Established', title: 'One location, solid reputation',
-      body: 'You manage a real portfolio and have a name locally — but growth is inconsistent.',
+      body: 'You manage a real portfolio and have a name locally, but growth is inconsistent.',
       delay: '.32s',
       icon: <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M3 21h18M6 21V8l6-4 6 4v13M10 21v-5h4v5" /></svg>,
     },
@@ -432,7 +432,7 @@ function Step1({ pick }: { pick: (p: 'starting' | 'established' | 'multi') => vo
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: 1280, margin: '0 auto', width: '100%' }}>
         <div style={{ animation: `fypRise .6s ${EASE} both`, fontSize: 14, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: '#f5d880', marginBottom: 26 }}>Find your path · 60 seconds</div>
         <h1 style={{ animation: `fypRise .6s ${EASE} .08s both`, fontSize: 'clamp(38px,6vw,86px)', fontWeight: 800, lineHeight: 1.03, letterSpacing: '-0.02em', margin: 0, maxWidth: 1050 }}>Where is your CAM<br />right now?</h1>
-        <p style={{ animation: `fypRise .6s ${EASE} .16s both`, fontSize: 'clamp(18px,2vw,25px)', lineHeight: 1.5, color: 'rgba(255,255,255,.82)', margin: '30px 0 0', maxWidth: 760 }}>Pick the one that sounds like you. We'll show you exactly what Alloy does for a CAM in your position — and what your first quarter would look like.</p>
+        <p style={{ animation: `fypRise .6s ${EASE} .16s both`, fontSize: 'clamp(18px,2vw,25px)', lineHeight: 1.5, color: 'rgba(255,255,255,.82)', margin: '30px 0 0', maxWidth: 760 }}>Pick the one that sounds like you. We'll show you exactly what Alloy does for a CAM in your position, and what your first quarter would look like.</p>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 22, marginTop: 56 }}>
           {choices.map((c) => (
@@ -446,7 +446,7 @@ function Step1({ pick }: { pick: (p: 'starting' | 'established' | 'multi') => vo
           ))}
         </div>
       </div>
-      <div style={{ maxWidth: 1280, margin: '0 auto', width: '100%', fontSize: 13, color: 'rgba(255,255,255,.45)', fontWeight: 500 }}>One partner per market. Answer honestly — the plan changes with the answer.</div>
+      <div style={{ maxWidth: 1280, margin: '0 auto', width: '100%', fontSize: 13, color: 'rgba(255,255,255,.45)', fontWeight: 500 }}>One partner per market. Answer honestly. The plan changes with the answer.</div>
     </section>
   );
 }
@@ -581,7 +581,7 @@ function Step2({ prof, expandedMarket, setExpandedMarket, viewPhase, setViewPhas
           <div style={{ flex: 'none', width: 48, height: 48, borderRadius: 12, background: 'rgba(245,216,128,.16)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><ShieldCheck /></div>
           <div>
             <div style={{ fontSize: 22, fontWeight: 800, color: '#fff' }}>Dominance isn't a finish line.</div>
-            <p style={{ fontSize: 16, lineHeight: 1.55, color: 'rgba(255,255,255,.8)', margin: '8px 0 0', fontWeight: 500, maxWidth: 900 }}>Reach the top and the work doesn't stop. Ease off and you slide back — competitors move, rankings decay, boards get courted. We keep feeding the engine so the lead you built is the lead you keep.</p>
+            <p style={{ fontSize: 16, lineHeight: 1.55, color: 'rgba(255,255,255,.8)', margin: '8px 0 0', fontWeight: 500, maxWidth: 900 }}>Reach the top and the work doesn't stop. Ease off and you slide back: competitors move, rankings decay, boards get courted. We keep feeding the engine so the lead you built is the lead you keep.</p>
           </div>
         </div>
 
@@ -667,7 +667,7 @@ function Step3({ prof, B, lvl, setBudget, go, enterPortal }: {
 
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, background: 'rgba(255,255,255,.06)', borderRadius: 12, padding: '18px 20px', marginTop: 28 }}>
             <InfoCircle />
-            <p style={{ fontSize: 15, lineHeight: 1.55, color: 'rgba(255,255,255,.82)', margin: 0, fontWeight: 500 }}>Same playbook at any budget — a higher budget just means more of it lands in Quarter 1. A lighter budget spreads the same work across more quarters. We don't sell faster leads (too many variables). We sell how much gets done, and how soon.</p>
+            <p style={{ fontSize: 15, lineHeight: 1.55, color: 'rgba(255,255,255,.82)', margin: 0, fontWeight: 500 }}>Same playbook at any budget. A higher budget just means more of it lands in Quarter 1. A lighter budget spreads the same work across more quarters. We don't sell faster leads (too many variables). We sell how much gets done, and how soon.</p>
           </div>
         </div>
 
@@ -724,7 +724,7 @@ function Step3({ prof, B, lvl, setBudget, go, enterPortal }: {
 
         <div style={{ animation: `fypRiseIn .5s ${EASE} .3s both`, display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 20, marginTop: 36 }}>
           <div className="fyp-cta" onClick={enterPortal} style={CTA_BTN}>What this looks like <ArrowRight /></div>
-          <span style={{ fontSize: 15, color: '#8a8296', fontWeight: 600 }}>This is an example quarter — yours is built around your actual CAM.</span>
+          <span style={{ fontSize: 15, color: '#8a8296', fontWeight: 600 }}>This is an example quarter. Yours is built around your actual CAM.</span>
         </div>
       </div>
     </section>
@@ -766,7 +766,7 @@ function Step4({ prof, showAllInit, setShowAllInit, openLead, setOpenLead, porta
 
         <div style={{ animation: `fypRiseIn .5s ${EASE} .06s both`, fontSize: 14, fontWeight: 700, letterSpacing: '.16em', textTransform: 'uppercase', color: '#d9356e', marginTop: 34 }}>Your portal · same for every partner</div>
         <h2 style={{ animation: `fypRiseIn .5s ${EASE} .1s both`, fontSize: 'clamp(32px,4.6vw,64px)', fontWeight: 800, lineHeight: 1.04, letterSpacing: '-0.02em', color: '#381c4f', margin: '14px 0 0', maxWidth: 1050 }}>{prof.getHeadline}</h2>
-        <p style={{ animation: `fypRiseIn .5s ${EASE} .14s both`, fontSize: 18, lineHeight: 1.55, color: '#555', margin: '18px 0 0', maxWidth: 820, fontWeight: 500 }}>Your whole playbook runs here — what needs you, everything we're doing this quarter, and the dollar value we're creating. One screen, updated in real time.</p>
+        <p style={{ animation: `fypRiseIn .5s ${EASE} .14s both`, fontSize: 18, lineHeight: 1.55, color: '#555', margin: '18px 0 0', maxWidth: 820, fontWeight: 500 }}>Your whole playbook runs here: what needs you, everything we're doing this quarter, and the dollar value we're creating. One screen, updated in real time.</p>
 
         {/* welcome band */}
         <div style={{ animation: `fypPop .5s ${EASE} .16s both`, position: 'relative', background: '#2e1642', borderRadius: 20, padding: '34px 38px', overflow: 'hidden', boxShadow: '0 16px 40px rgba(56,28,79,.18)', marginTop: 44 }}>
@@ -788,7 +788,7 @@ function Step4({ prof, showAllInit, setShowAllInit, openLead, setOpenLead, porta
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,minmax(0,1fr))', gap: 24, marginTop: 24, alignItems: 'start' }}>
           {/* Slot 1 · Action Queue (always shown) */}
           <div style={{ position: 'relative' }}>
-          {tip === 'aq' && <TipCallout text="Action Queue — what needs your attention, synced to your inbox so nothing slips." onClose={closeTip} />}
+          {tip === 'aq' && <TipCallout text="Action Queue. What needs your attention, synced to your inbox so nothing slips." onClose={closeTip} />}
           <div style={{ animation: `fypPop .5s ${EASE} .2s both`, background: '#fff', borderRadius: 20, padding: 26, boxShadow: '0 10px 30px rgba(56,28,79,.10)', border: '1px solid #efeaf5' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
@@ -813,7 +813,7 @@ function Step4({ prof, showAllInit, setShowAllInit, openLead, setOpenLead, porta
               </div>
             ))}
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 14, fontSize: 13, color: '#8a8296', fontWeight: 600 }}>
-              <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="#8a8296" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 5L2 7" /></svg>Syncs to your inbox — reply anywhere.
+              <svg width={15} height={15} viewBox="0 0 24 24" fill="none" stroke="#8a8296" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-10 5L2 7" /></svg>Syncs to your inbox: reply anywhere.
             </div>
           </div>
           </div>
@@ -822,7 +822,7 @@ function Step4({ prof, showAllInit, setShowAllInit, openLead, setOpenLead, porta
           <div style={{ position: 'relative' }}>
           {btnPB && <RevealCard name="Quarterly Playbook" onClick={revealNext} />}
           {showPB && (<>
-          {tip === 'pb' && <TipCallout text="Quarterly Playbook — every project and growth play we're running, tracked in the open." onClose={closeTip} />}
+          {tip === 'pb' && <TipCallout text="Quarterly Playbook. Every project and growth play we're running, tracked in the open." onClose={closeTip} />}
           <div style={{ animation: `fypPop .45s ${EASE} both`, background: '#fff', borderRadius: 20, padding: 26, boxShadow: '0 10px 30px rgba(56,28,79,.10)', border: '1px solid #efeaf5' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
               <div style={{ width: 42, height: 42, borderRadius: 12, background: '#fbe1ec', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><svg width={21} height={21} viewBox="0 0 24 24" fill="none" stroke="#d9356e" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v18H6a2 2 0 0 1-2-2z" /><path d="M9 3v16" /></svg></div>
@@ -877,7 +877,7 @@ function Step4({ prof, showAllInit, setShowAllInit, openLead, setOpenLead, porta
           {btnPV && <RevealCard name="Partnership Value" onClick={revealNext} />}
           {lockPV && <UpNextLock />}
           {showPV && (<>
-          {tip === 'pv' && <TipCallout text="Partnership Value — the real dollar value we've built together, updated live." onClose={closeTip} />}
+          {tip === 'pv' && <TipCallout text="Partnership Value. The real dollar value we've built together, updated live." onClose={closeTip} />}
           <div style={{ animation: `fypPop .45s ${EASE} both`, background: '#fff', borderRadius: 20, padding: 26, boxShadow: '0 10px 30px rgba(56,28,79,.10)', border: '1px solid #efeaf5' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
               <div style={{ width: 42, height: 42, borderRadius: 12, background: '#fdf4d6', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><TrendingUp size={21} stroke="#381c4f" /></div>
@@ -914,7 +914,7 @@ function Step4({ prof, showAllInit, setShowAllInit, openLead, setOpenLead, porta
           </div>
         )}
         {showLeads && (<>
-        {tip === 'leads' && <TipCallout text="Leads waiting on you — every inbound lead, traced from first click to signed contract." onClose={closeTip} />}
+        {tip === 'leads' && <TipCallout text="Leads waiting on you. Every inbound lead, traced from first click to signed contract." onClose={closeTip} />}
         <div style={{ animation: `fypPop .45s ${EASE} both`, background: '#fff', borderRadius: 20, padding: '26px 28px', boxShadow: '0 10px 30px rgba(56,28,79,.10)', border: '1px solid #efeaf5' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
             <div style={{ fontSize: 20, fontWeight: 800, color: '#381c4f' }}>Leads waiting on you</div>
@@ -925,9 +925,9 @@ function Step4({ prof, showAllInit, setShowAllInit, openLead, setOpenLead, porta
             {
               id: 'a' as const, name: 'David Miller · Conroy Commons', srcDot: '#d9356e', meta: 'google · Proposal Request · Jul 21', mt: 18,
               trail: [
-                { dot: '#d9356e', bold: false, text: 'Clicked Google ad — "HOA management near me"' },
+                { dot: '#d9356e', bold: false, text: 'Clicked Google ad, "HOA management near me"' },
                 { dot: '#d9356e', bold: false, text: 'Viewed Services, then Pricing' },
-                { dot: '#0f7a52', bold: true, text: 'Requested a proposal — awaiting your review' },
+                { dot: '#0f7a52', bold: true, text: 'Requested a proposal: awaiting your review' },
               ],
             },
             {
@@ -989,7 +989,7 @@ function Step5({ prof, B, lvl, go }: {
   const steps = [
     { n: '1', bg: '#f5d880', title: 'Claim your market', body: 'We confirm your market is still open and reserve it for your CAM.', delay: '.24s' },
     { n: '2', bg: '#a1c8e7', title: 'We build your playbook', body: 'A quarter built around your actual CAM, live in your portal from day one.', delay: '.3s' },
-    { n: '3', bg: '#aed7d0', title: 'Watch the work compound', body: 'Every objective, decision, and dollar of impact — visible as it happens.', delay: '.36s' },
+    { n: '3', bg: '#aed7d0', title: 'Watch the work compound', body: 'Every objective, decision, and dollar of impact. Visible as it happens.', delay: '.36s' },
   ];
 
   return (
@@ -1028,7 +1028,7 @@ function Step5({ prof, B, lvl, go }: {
         {/* transparency note */}
         <div style={{ animation: `fypRiseIn .5s ${EASE} .2s both`, display: 'flex', alignItems: 'flex-start', gap: 14, background: 'rgba(245,216,128,.1)', border: '1px solid rgba(245,216,128,.25)', borderRadius: 14, padding: '20px 24px', marginTop: 20 }}>
           <InfoCircle size={22} />
-          <p style={{ fontSize: 16, lineHeight: 1.55, color: 'rgba(255,255,255,.85)', margin: 0, fontWeight: 500, maxWidth: 960 }}>Your budget sets how fast we accomplish the objectives that drive growth — not how fast leads arrive (too many variables to promise that). Invest more and more gets done each quarter; invest less and the same work simply takes longer to complete.</p>
+          <p style={{ fontSize: 16, lineHeight: 1.55, color: 'rgba(255,255,255,.85)', margin: 0, fontWeight: 500, maxWidth: 960 }}>Your budget sets how fast we accomplish the objectives that drive growth, not how fast leads arrive (too many variables to promise that). Invest more and more gets done each quarter; invest less and the same work simply takes longer to complete.</p>
         </div>
 
         {/* three steps */}

@@ -21,11 +21,11 @@ const BLUE_INK = '#4a86ad';
 const TITLES: Record<string, string> = {
   'intro': 'Intro to trust-building',
   'why-trust-signals-matter': 'Why trust signals matter to HOA boards',
-  'what-reviews-are': 'What reviews are — and why they carry weight',
+  'what-reviews-are': 'What reviews are, and why they carry weight',
   'reviews-extra-factors': 'Reviews: extra factors that influence impact',
-  'what-testimonials-are': 'What testimonials are — and why they stand out',
+  'what-testimonials-are': 'What testimonials are, and why they stand out',
   'testimonials-extra-factors': 'Testimonials: extra factors that influence impact',
-  'what-case-studies-are': 'What case studies are — and why they convince',
+  'what-case-studies-are': 'What case studies are, and why they convince',
   'case-studies-extra-factors': 'Case studies: extra factors that influence impact',
   'recapping-trust-signals': 'Recapping the three trust signals',
   'from-proof-to-persuasion': 'From proof to persuasion: using trust signals effectively',
@@ -101,7 +101,7 @@ export default function CourseTrustBuildingPage({ children }: { children?: React
             <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 5.9vw, 68px)' }}>Trust building for CAM firms: <span className="rd-accent">reviews, testimonials, case studies.</span></h1>
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
-            <p className="rd-intro" style={{ lineHeight: 1.65 }}>The complete guide — ten sections, one page. How HOA boards weigh the three proof signals, and how to build a system that keeps them current.</p>
+            <p className="rd-intro" style={{ lineHeight: 1.65 }}>The complete guide: ten sections, one page. How HOA boards weigh the three proof signals, and how to build a system that keeps them current.</p>
             <div className="rd-tiny rd-w-500">10 sections · ~45 min</div>
           </div>
         </div>
@@ -132,7 +132,7 @@ export default function CourseTrustBuildingPage({ children }: { children?: React
                   <div className="rd-card rd-card--off rd-stack" style={{ padding: '22px 24px', gap: 8 }}>
                     <Label tone="pink" size={12}>Related service</Label>
                     <div className="rd-title-18" style={{ fontSize: 17 }}>Reputation Management</div>
-                    <div className="rd-small rd-small--14" style={{ lineHeight: 1.65 }}>The review system, the responses, and the monitoring — built into your managers’ workflow.</div>
+                    <div className="rd-small rd-small--14" style={{ lineHeight: 1.65 }}>The review system, the responses, and the monitoring, built into your managers’ workflow.</div>
                     <div><TextLink href="/boardretain/reputation-management" size={12}>See the service</TextLink></div>
                   </div>
                 ) : null}
@@ -140,7 +140,7 @@ export default function CourseTrustBuildingPage({ children }: { children?: React
             ))}
 
             <Section id="knowledge-check" title="Knowledge check">
-              <p>Five quick questions on what you just read. No login, no email — score yourself.</p>
+              <p>Five quick questions on what you just read. No login, no email: score yourself.</p>
               {children}
             </Section>
           </article>
@@ -168,7 +168,7 @@ export default function CourseTrustBuildingPage({ children }: { children?: React
 
       <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
         <div className="rd-wrap">
-          <CtaBar text="Thirty minutes tells you which engine to fix first — and whether your metro is open." />
+          <CtaBar text="Thirty minutes tells you which engine to fix first, and whether your metro is open." />
         </div>
       </section>
     </div>

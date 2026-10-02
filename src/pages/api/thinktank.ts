@@ -15,7 +15,7 @@ export const POST: APIRoute = async ({ request }) => {
       await resend.emails.send({
         from: "Alloy Growth Partners <notifications@alloygp.co>",
         to: ["admin@alloygp.co"],
-        subject: `Think Tank request — ${name} (${drink})`,
+        subject: `Think Tank request: ${name} (${drink})`,
         html: `
           <h2>New Think Tank Drink Request</h2>
           <p><strong>Drink:</strong> ${drink}</p>
@@ -33,11 +33,11 @@ export const POST: APIRoute = async ({ request }) => {
       await resend.emails.send({
         from: "Alloy Growth Partners <hello@alloygp.co>",
         to: email,
-        subject: "Your drink request from Alloy — Think Tank HOA",
+        subject: "Your drink request from Alloy. Think Tank HOA",
         html: `
           <p>Hi ${name.split(" ")[0]},</p>
-          <p>We've got your request for <strong>${drink}</strong> — Cheers!</p>
-          <p>— The Alloy Team</p>
+          <p>We've got your request for <strong>${drink}</strong>. Cheers!</p>
+          <p>The Alloy Team</p>
         `,
       });
     } catch (err) {

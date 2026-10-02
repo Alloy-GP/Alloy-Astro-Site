@@ -22,15 +22,15 @@ export const SITE = {
   locale: 'en_US',
 
   /** Fallback title when no page-specific title is passed */
-  defaultTitle: 'Alloy — One growth partner. Three engines. Exclusively CAM.',
+  defaultTitle: 'Alloy: One growth partner. Three engines. Exclusively CAM.',
 
   /**
    * Fallback description. In practice every page should declare its own.
    * This is the last-resort safety net.
    */
   defaultDescription:
-    'Alloy engineers growth for CAM firms through three connected engines — ' +
-    'BoardReach, BoardMatch, BoardRetain — run as one playbook with market exclusivity.',
+    'Alloy engineers growth for CAM firms through three connected engines: ' +
+    'BoardReach, BoardMatch, BoardRetain. Run as one playbook with market exclusivity.',
 
   /**
    * Default OG image — absolute path from /public.

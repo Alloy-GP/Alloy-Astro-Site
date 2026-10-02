@@ -39,8 +39,8 @@ export const POST: APIRoute = async ({ request }) => {
       await resend.emails.send({
         from: "Alloy Growth Partners <hello@alloygp.co>",
         to: email,
-        subject: "We got your info — Alloy Growth Partners",
-        html: `<p>Hi ${name},</p><p>Thanks for your interest in working with Alloy. We have received your information and someone from our team will be in touch shortly to discuss what growth looks like for ${company || "your company"}.</p><p>— The Alloy Team</p>`,
+        subject: "We got your info. Alloy Growth Partners",
+        html: `<p>Hi ${name},</p><p>Thanks for your interest in working with Alloy. We have received your information and someone from our team will be in touch shortly to discuss what growth looks like for ${company || "your company"}.</p><p>The Alloy Team</p>`,
       });
     } catch (err) {
       console.error("Resend confirm error:", err);

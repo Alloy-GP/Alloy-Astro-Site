@@ -9,8 +9,8 @@ import { Eyebrow, TextLink, Btn, ChevronRightIcon, Label } from '~/components/rd
 // and the "Not sure where to start?" band below.
 const ENGINE_BLURB: Record<EngineKey, string> = {
   reach: 'Get found before boards start shopping. Boards check Google, the map pack, AI answers, and review sites before they call anyone. BoardReach puts your firm in those results, in your metro, with a site and brand that turn the visit into an inquiry. Start here when referrals slow and inbound is thin.',
-  match: 'Turn conversations into signed contracts. You get the meetings and RFPs. Boards still pick someone else. BoardMatch rebuilds what they judge you on — proposal, RFP response, sales language — and adds a fractional BD lead when you need one. Start here when you lose at the proposal stage.',
-  retain: 'Protect the portfolio you have. Retention is your cheapest growth, and the least managed. BoardRetain covers board education, newsletters, annual reports, and reputation — the work that keeps you visible between meetings. Start here when boards leave at renewal or take it out to bid.',
+  match: 'Turn conversations into signed contracts. You get the meetings and RFPs. Boards still pick someone else. BoardMatch rebuilds what they judge you on (proposal, RFP response, sales language) and adds a fractional BD lead when you need one. Start here when you lose at the proposal stage.',
+  retain: 'Protect the portfolio you have. Retention is your cheapest growth, and the least managed. BoardRetain covers board education, newsletters, annual reports, and reputation. The work that keeps you visible between meetings. Start here when boards leave at renewal or take it out to bid.',
 };
 
 export default function ServicesPage() {
@@ -61,7 +61,7 @@ export default function ServicesPage() {
             <h2 className="rd-h2" style={{ color: '#fff' }}>Most firms are leaking in one engine, not three.</h2>
           </div>
           <div className="rd-stack rd-stack--18">
-            <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>Referrals slowing means Attract. Losing at the proposal stage means Close. Boards leaving at renewal means Keep. Thirty minutes with a CAM operator tells you which — and what to fix first.</p>
+            <p className="rd-body" style={{ color: '#fff', opacity: .85 }}>Referrals slowing means Attract. Losing at the proposal stage means Close. Boards leaving at renewal means Keep. Thirty minutes with a CAM operator tells you which, and what to fix first.</p>
             <div><Btn href="/contact" className="rd-btn--inline">Claim your market</Btn></div>
           </div>
         </div>

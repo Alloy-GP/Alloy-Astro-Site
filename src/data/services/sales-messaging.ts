@@ -9,26 +9,26 @@ const data: ServicePageData = {
   h1: 'Say what only',
   h1Accent: 'you',
   h1Tail: 'can say.',
-  intro: 'Every management company says “responsive,” “transparent,” and “experienced.” Sales Messaging & UVP development gives your firm a position boards can repeat back — and the language for every conversation, from first call to final vote.',
+  intro: 'Every management company says “responsive,” “transparent,” and “experienced.” Sales Messaging & UVP development gives your firm a position boards can repeat back, and the language for every conversation, from first call to final vote.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 1, suffix: 'sentence', note: 'The position a board member can repeat to the rest of the board' },
-    { value: 5, suffix: 'moments', note: 'First call, site visit, proposal, finalist meeting, follow-up — each scripted' },
+    { value: 5, suffix: 'moments', note: 'First call, site visit, proposal, finalist meeting, follow-up: each scripted' },
     { value: 3, suffix: 'firms', note: 'On the shortlist. Yours needs a reason to be the pick.' },
   ],
   sections: [
     {
       h: 'The problem with “responsive.”',
       p: [
-        'If everyone claims it, it’s not a differentiator, it’s a minimum. We find what’s actually true and different about how you operate — the manager ratio, the transition process, the specialty, the founder story — and build the position on that.',
-        'The rewrite swaps a claim for a fact. “Our people are our biggest differentiator” becomes “Every community gets two named operators — a manager and a backup — and both know your reserve study before the first meeting.” Any firm can say the first sentence. A board can check the second.',
+        'If everyone claims it, it’s not a differentiator, it’s a minimum. We find what’s actually true and different about how you operate (the manager ratio, the transition process, the specialty, the founder story) and build the position on that.',
+        'The rewrite swaps a claim for a fact. “Our people are our biggest differentiator” becomes “Every community gets two named operators, a manager and a backup, and both know your reserve study before the first meeting.” Any firm can say the first sentence. A board can check the second.',
       ],
     },
     {
       h: 'Four questions every pitch has to answer.',
       p: [
         'Most CAM messaging breaks in the same four places: who you are in thirty seconds, why a board should pick you over the firm it has now, what proves it, and why you cost what you cost. We write a pillar for each.',
-        'The fee pillar is the one most firms skip. “You get what you pay for” sounds like a defense. A firm that knows where its fee sits against the regional average — and what switching saves a board by year two — puts that math on the table at the intro meeting, before anyone asks.',
+        'The fee pillar is the one most firms skip. “You get what you pay for” sounds like a defense. A firm that knows where its fee sits against the regional average, and what switching saves a board by year two, puts that math on the table at the intro meeting, before anyone asks.',
       ],
     },
     {
@@ -87,13 +87,13 @@ const data: ServicePageData = {
   },
   faq: {
     items: [
-      { q: 'We already have a mission statement.', a: 'Good — that’s for your team. A UVP is for a board deciding between you and two others. Different job.' },
+      { q: 'We already have a mission statement.', a: 'Good: that’s for your team. A UVP is for a board deciding between you and two others. Different job.' },
       { q: 'How long does this take?', a: 'Four to six weeks to the workshop; revisions over the following quarter.' },
       { q: 'Is this just website copywriting?', a: 'No. Website copy is one downstream surface. We write the words your team says on cold calls, at first appointments, in selection meetings, and when a board pushes back. The website inherits that language. It’s the smallest part of the system.' },
       { q: 'How is this different from a brand strategist?', a: 'Brand strategists work in adjectives like “premium” and “trusted.” We work in the sentences your team will say at 11 a.m. on a Tuesday in front of a board. If a director can’t repeat it to the rest of the board, it isn’t finished.' },
     ],
   },
-  cta: { text: 'Is your metro still open? Thirty minutes tells you — and which engine to fix first.' },
+  cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },
 };
 
 export default data;

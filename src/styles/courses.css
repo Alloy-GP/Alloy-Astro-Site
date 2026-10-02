@@ -1,5 +1,5 @@
 /* ============================================================
- * COURSES — styles for /courses/trust-building (cover, lesson, quiz)
+ * COURSES - styles for /courses/trust-building (cover, lesson, quiz)
  * Scoped under .course-page so we don't collide with global site styles.
  * ============================================================ */
 
@@ -572,7 +572,7 @@
 }
 
 /* ============================================================
- * LESSON + QUIZ — sidebar shell shared layout
+ * LESSON + QUIZ - sidebar shell shared layout
  * ============================================================ */
 
 .course-page .shell {

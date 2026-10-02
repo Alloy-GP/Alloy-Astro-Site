@@ -7,26 +7,26 @@ import type { CSSProperties } from 'react';
 const heroCopyMap: Record<string, { t: string; l: string }> = {
   'wid-pv': {
     t: 'Finally,<br>growth you can<br><span style="color:var(--alloy-yellow);">actually see.</span>',
-    l: 'Revenue created, leads qualified, and ROI you can watch climb — the live numbers that prove the partnership pays for itself.',
+    l: 'Revenue created, leads qualified, and ROI you can watch climb. The live numbers that prove the partnership pays for itself.',
   },
   'wid-aq': {
     t: 'Act on every<br>lead while it\'s<br>still <span style="color:var(--alloy-pink);">warm.</span>',
-    l: 'Leads to qualify and anything we need from you, surfaced in one place — so you can act fast and never wonder whether you\'re holding a project up.',
+    l: 'Leads to qualify and anything we need from you, surfaced in one place, so you can act fast and never wonder whether you\'re holding a project up.',
   },
   'wid-pb': {
     t: 'Watch the plan<br>turn into<br><span style="color:var(--alloy-yellow);">progress.</span>',
-    l: 'Every project we\'re driving this quarter, tracked live — what\'s done, what\'s next, and exactly how far along we are.',
+    l: 'Every project we\'re driving this quarter, tracked live: what\'s done, what\'s next, and exactly how far along we are.',
   },
 };
 const WIDGET_KEYS = ['wid-pv', 'wid-aq', 'wid-pb'];
 
 // "Inside the portal" tab metadata — title + intro swap per tab.
 const gpMeta = [
-  { t: 'Five screens. Our whole partnership.', d: 'Everything we do for your firm, organized into one calm, always-current view — built for board members and owners, not analysts.' },
-  { t: 'Every lead. Every dollar. Live.', d: 'The screen that ends the “is it working?” conversation — qualified-lead pace, real-dollar value, and exactly where every lead came from.' },
-  { t: 'The plan — and the proof you’re on it.', d: 'Growth isn’t one campaign — it’s a journey across every market you serve. The roadmap shows where each market sits.' },
-  { t: 'Watch the work get done.', d: 'The engine room — every project we’re driving this quarter, what’s waiting on you, and how far along each one is.' },
-  { t: 'Every message and request, in one thread.', d: 'No more lost emails or “did you get my note?” — a full ticket and messaging system, every conversation tracked against the work it belongs to.' },
+  { t: 'Five screens. Our whole partnership.', d: 'Everything we do for your firm, organized into one calm, always-current view, built for board members and owners, not analysts.' },
+  { t: 'Every lead. Every dollar. Live.', d: 'The screen that ends the “is it working?” conversation: qualified-lead pace, real-dollar value, and exactly where every lead came from.' },
+  { t: 'The plan (and the proof you’re on it.', d: 'Growth isn’t one campaign) it’s a journey across every market you serve. The roadmap shows where each market sits.' },
+  { t: 'Watch the work get done.', d: 'The engine room: every project we’re driving this quarter, what’s waiting on you, and how far along each one is.' },
+  { t: 'Every message and request, in one thread.', d: 'No more lost emails or “did you get my note?” · a full ticket and messaging system, every conversation tracked against the work it belongs to.' },
 ];
 
 const TAB_LABELS = ['Home', 'Partnership', 'Roadmap', 'Playbook', 'Messages'];
@@ -289,7 +289,7 @@ export default function GrowthPortalPage() {
       const utm = new URLSearchParams(window.location.search).toString();
       fd.append('source', [
         'page: ' + window.location.href,
-        'referrer: ' + (document.referrer || '—'),
+        'referrer: ' + (document.referrer || 'No'),
         utm ? 'utm: ' + utm : '',
       ].filter(Boolean).join('\n'));
     } catch {
@@ -332,7 +332,7 @@ export default function GrowthPortalPage() {
                 <span style={{ color: 'var(--alloy-yellow)' }}>actually see.</span>
               </h1>
               <p className="lead on-dark" id="heroLead" ref={heroLeadRef} style={{ marginBottom: 28, maxWidth: 540 }}>
-                Revenue created, leads qualified, and ROI you can watch climb — the live numbers that prove the partnership pays for itself, updated in real time.
+                Revenue created, leads qualified, and ROI you can watch climb. The live numbers that prove the partnership pays for itself, updated in real time.
               </p>
             </div>
 
@@ -464,17 +464,17 @@ export default function GrowthPortalPage() {
             <div className="gp-tri-card">
               <div className="ic pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3.2" /></svg></div>
               <h3>See the work, as it happens</h3>
-              <p>No "trust us, we're on it." Every project, subtask, and deadline we're driving for you is visible and updated live — not summarized in a slide three weeks later.</p>
+              <p>No "trust us, we're on it." Every project, subtask, and deadline we're driving for you is visible and updated live, not summarized in a slide three weeks later.</p>
             </div>
             <div className="gp-tri-card">
               <div className="ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 4 14h6.5l-1 8L19 10h-6.5l.5-8Z" /></svg></div>
               <h3>Act on leads in real time</h3>
-              <p>The moment a board fills out a form, it lands in your queue. Qualify, sort, and follow up the same day — while the lead is still warm.</p>
+              <p>The moment a board fills out a form, it lands in your queue. Qualify, sort, and follow up the same day, while the lead is still warm.</p>
             </div>
             <div className="gp-tri-card">
               <div className="ic blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 17l5.5-5.5 4 4L21 8" /><path d="M15 8h6v6" /></svg></div>
               <h3>Prove the value, every quarter</h3>
-              <p>Revenue created, quote value, projected firm value — the numbers that justify the spend, totalled and always on. Renewals built on proof, not faith.</p>
+              <p>Revenue created, quote value, projected firm value. The numbers that justify the spend, totalled and always on. Renewals built on proof, not faith.</p>
             </div>
           </div>
         </div>
@@ -486,7 +486,7 @@ export default function GrowthPortalPage() {
           <div className="gp-head center">
             <span className="eyebrow no-line">Inside the portal</span>
             <h2 className="display-lg" id="gpTitle">Five screens. Our whole partnership.</h2>
-            <p className="lead" id="gpIntro">Everything we do for your firm, organized into one calm, always-current view — built for board members and owners, not analysts.</p>
+            <p className="lead" id="gpIntro">Everything we do for your firm, organized into one calm, always-current view, built for board members and owners, not analysts.</p>
           </div>
 
           <div className="gp-tabs" role="tablist">
@@ -547,7 +547,7 @@ export default function GrowthPortalPage() {
                     </div>
                   </div>
                 </div>
-                <div className="gp-tour-note right p3"><b>Action queue, front &amp; center</b><span>Exactly what is waiting on you — 12 leads to qualify.</span></div>
+                <div className="gp-tour-note right p3"><b>Action queue, front &amp; center</b><span>Exactly what is waiting on you, 12 leads to qualify.</span></div>
                 <div className="gp-tour-note right p4"><b>One tap to the plan</b><span>Jump straight to the full roadmap whenever you want.</span></div>
               </div>
             </div>
@@ -560,7 +560,7 @@ export default function GrowthPortalPage() {
               </div>
               <div className="gp-tour-stage">
                 <div className="gp-tour-note left p1"><b>Leads waiting on you</b><span>12 ready to qualify in a single click.</span></div>
-                <div className="gp-tour-note left p2"><b>Win rate, live</b><span>26% of quotes signed — tracked continuously.</span></div>
+                <div className="gp-tour-note left p2"><b>Win rate, live</b><span>26% of quotes signed, tracked continuously.</span></div>
                 <div className="gp-showcase-art">
                   <div className="gp-frame">
                     <div className="gp-frame-chrome">
@@ -623,7 +623,7 @@ export default function GrowthPortalPage() {
               </div>
               <div className="gp-tour-stage">
                 <div className="gp-tour-note left p1"><b>Foundation → Dominance</b><span>Every market you serve, mapped across all five stages.</span></div>
-                <div className="gp-tour-note left p2"><b>Delivered &amp; counted</b><span>Quarter-by-quarter initiatives — 126 in Q1, 79 this quarter.</span></div>
+                <div className="gp-tour-note left p2"><b>Delivered &amp; counted</b><span>Quarter-by-quarter initiatives, 126 in Q1, 79 this quarter.</span></div>
                 <div className="gp-showcase-art">
                   <div className="gp-frame">
                     <div className="gp-frame-chrome">
@@ -663,7 +663,7 @@ export default function GrowthPortalPage() {
                     </div>
                   </div>
                 </div>
-                <div className="gp-tour-note right p3"><b>The 90-day cycle</b><span>Plan, build, prove — the engine that drives every quarter.</span></div>
+                <div className="gp-tour-note right p3"><b>The 90-day cycle</b><span>Plan, build, prove. The engine that drives every quarter.</span></div>
                 <div className="gp-tour-note right p4"><b>Live stage per market</b><span>See exactly where Los Angeles, San Diego and San Francisco sit.</span></div>
               </div>
             </div>
@@ -676,7 +676,7 @@ export default function GrowthPortalPage() {
               </div>
               <div className="gp-tour-stage">
                 <div className="gp-tour-note left p1"><b>Live project list</b><span>Every initiative with subtasks and due dates.</span></div>
-                <div className="gp-tour-note left p2"><b>Tagged by engine</b><span>Reach, Match, Retain — filter to what matters.</span></div>
+                <div className="gp-tour-note left p2"><b>Tagged by engine</b><span>Reach, Match, Retain. Filter to what matters.</span></div>
                 <div className="gp-showcase-art">
                   <div className="gp-frame">
                     <div className="gp-frame-chrome">
@@ -690,7 +690,7 @@ export default function GrowthPortalPage() {
                         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'baseline', gap: 8 }}><span style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: 30, color: 'var(--alloy-purple)' }}>89<span style={{ fontSize: 16 }}>%</span></span><span style={{ fontSize: 11, color: 'var(--fg-3)' }}>of quarter<br />complete</span><span className="gp-badge ontrack">● On Track</span></div>
                       </div>
                       <div className="gp-projrow">
-                        <div><div className="pname">Build Website — Foundation</div><div className="subtasks">●●○○○○○ 2/7 subtasks</div></div>
+                        <div><div className="pname">Build Website. Foundation</div><div className="subtasks">●●○○○○○ 2/7 subtasks</div></div>
                         <span className="gp-status prog"><span className="d"></span> In progress</span>
                         <span className="gp-eng">Reach</span>
                         <div className="pr"><span className="track"><i style={{ width: '29%' }}></i></span><span className="pct">29%</span></div>
@@ -714,7 +714,7 @@ export default function GrowthPortalPage() {
                         <div className="pr"><span className="track"><i style={{ width: 0 }}></i></span><span className="pct">0%</span></div>
                       </div>
                       <div className="gp-projrow">
-                        <div><div className="pname">Social Media — June</div><div className="subtasks">○○○○○○○ 0/7 subtasks</div></div>
+                        <div><div className="pname">Social Media. June</div><div className="subtasks">○○○○○○○ 0/7 subtasks</div></div>
                         <span className="gp-status prog"><span className="d"></span> In progress</span>
                         <span className="gp-eng">Reach</span>
                         <div className="pr"><span className="track"><i style={{ width: '6%' }}></i></span><span className="pct">6%</span></div>
@@ -726,7 +726,7 @@ export default function GrowthPortalPage() {
                         <span className="av">JS</span>
                         <div><div className="nm">John Smith</div><div className="sub">Alloy started this · 6 replies</div></div>
                       </div>
-                      <div className="gp-msgcard-ttl">Your new site is taking shape — ready for your first look</div>
+                      <div className="gp-msgcard-ttl">Your new site is taking shape, ready for your first look</div>
                       <div className="gp-msgcard-move">
                         <div className="eb"><span className="spin">✦</span> Your move</div>
                         <div className="tx">management.co needs to review website design feedback in the In Review section.</div>
@@ -756,8 +756,8 @@ export default function GrowthPortalPage() {
                 <p>{gpMeta[4].d}</p>
               </div>
               <div className="gp-tour-stage">
-                <div className="gp-tour-note left p1"><b>Tracked inbox</b><span>Every ticket — Pending, In-progress, Resolved.</span></div>
-                <div className="gp-tour-note left p2"><b>Full history kept</b><span>Attach files, CC teammates — nothing lost.</span></div>
+                <div className="gp-tour-note left p1"><b>Tracked inbox</b><span>Every ticket. Pending, In-progress, Resolved.</span></div>
+                <div className="gp-tour-note left p2"><b>Full history kept</b><span>Attach files, CC teammates: nothing lost.</span></div>
                 <div className="gp-showcase-art">
                   <div className="gp-frame">
                     <div className="gp-frame-chrome">
@@ -799,7 +799,7 @@ export default function GrowthPortalPage() {
                           <span className="av">MJ</span>
                           <div className="bubble">
                             <div className="meta"><b>Mary Jane</b> · 5d ago</div>
-                            <p>Hi John — I wanted to make sure the email signature ended on a good note. We created an updated method for you. Can you take a look and let us know if this is easier to install?</p>
+                            <p>Hi John. I wanted to make sure the email signature ended on a good note. We created an updated method for you. Can you take a look and let us know if this is easier to install?</p>
                           </div>
                         </div>
                         <div className="gp-ib-reply">Reply to your team… <span className="send">➤ Send</span></div>
@@ -830,7 +830,7 @@ export default function GrowthPortalPage() {
         <div className="container">
           <div className="gp-head">
             <span className="eyebrow on-dark">Proof of partnership value</span>
-            <h2 className="display-lg" style={{ color: '#fff' }}>The numbers that justify<br />the partnership — <span style={{ color: 'var(--alloy-yellow)' }}>always on.</span></h2>
+            <h2 className="display-lg" style={{ color: '#fff' }}>The numbers that justify<br />the partnership, <span style={{ color: 'var(--alloy-yellow)' }}>always on.</span></h2>
             <p className="lead on-dark">With other agencies you get a raw Google Analytics export and you're left to decode what it means. The portal totals your return continuously, so the case for the work is never more than a glance away.</p>
           </div>
           <div className="gp-proof-grid">
@@ -839,7 +839,7 @@ export default function GrowthPortalPage() {
             <div className="gp-proof-stat"><div className="v green">$2.39M</div><div className="k">Revenue created</div><div className="s">lifetime, closed</div></div>
             <div className="gp-proof-stat"><div className="v">+$1.92M</div><div className="k">Projected firm value</div><div className="s">enterprise value increase</div></div>
           </div>
-          <p style={{ margin: '28px 0 0', fontFamily: 'var(--font-mono)', fontSize: 12, lineHeight: 1.55, letterSpacing: '0.02em', color: 'rgba(255,255,255,0.45)', maxWidth: '74ch' }}>Figures shown are an illustrative partnership. Your portal reflects your firm's actual leads, quotes, revenue, and projected value — tracked from day one.</p>
+          <p style={{ margin: '28px 0 0', fontFamily: 'var(--font-mono)', fontSize: 12, lineHeight: 1.55, letterSpacing: '0.02em', color: 'rgba(255,255,255,0.45)', maxWidth: '74ch' }}>Figures shown are an illustrative partnership. Your portal reflects your firm's actual leads, quotes, revenue, and projected value: tracked from day one.</p>
         </div>
       </section>
 
@@ -849,13 +849,13 @@ export default function GrowthPortalPage() {
           <div className="gp-head">
             <span className="eyebrow no-line">How you get it</span>
             <h2 className="display-lg">No upsell. It comes<br />with the work.</h2>
-            <p className="lead">The Growth Portal isn't a product we sell on the side — it's how every Alloy engagement is run. Start a plan and your portal goes live on day one.</p>
+            <p className="lead">The Growth Portal isn't a product we sell on the side. It's how every Alloy engagement is run. Start a plan and your portal goes live on day one.</p>
           </div>
           <div className="gp-steps">
             <div className="gp-step">
               <div className="n" style={{ background: 'var(--alloy-pink)' }}>1</div>
               <h3>Start a plan</h3>
-              <p>Start a BoardSuite plan. A quick conversation gets the partnership moving — no prep, no pressure.</p>
+              <p>Start a BoardSuite plan. A quick conversation gets the partnership moving: no prep, no pressure.</p>
             </div>
             <div className="gp-step">
               <div className="n" style={{ background: 'var(--alloy-yellow)', color: 'var(--alloy-purple)' }}>2</div>
@@ -865,7 +865,7 @@ export default function GrowthPortalPage() {
             <div className="gp-step">
               <div className="n" style={{ background: '#2c8a6d' }}>3</div>
               <h3>Your portal goes live</h3>
-              <p>Log in to watch leads land, projects move, and value compound — in real time, for as long as we work together.</p>
+              <p>Log in to watch leads land, projects move, and value compound, in real time, for as long as we work together.</p>
             </div>
           </div>
         </div>
@@ -881,7 +881,7 @@ export default function GrowthPortalPage() {
           <div className="gp-faq">
             <details open onToggle={onFaqToggle}>
               <summary>How much does the Growth Portal cost? <span className="pm">+</span></summary>
-              <p>Nothing extra. The portal is included free with every BoardSuite plan — it's simply how we run the work and report on it. There's no separate license, seat fee, or add-on.</p>
+              <p>Nothing extra. The portal is included free with every BoardSuite plan. It's simply how we run the work and report on it. There's no separate license, seat fee, or add-on.</p>
             </details>
             <details onToggle={onFaqToggle}>
               <summary>Can I get the portal without a plan? <span className="pm">+</span></summary>
@@ -889,15 +889,15 @@ export default function GrowthPortalPage() {
             </details>
             <details onToggle={onFaqToggle}>
               <summary>Where does the data come from? <span className="pm">+</span></summary>
-              <p>Directly from the systems running your growth — your lead forms, Google Business Profile, ad platforms, our project management, and our proposal and review engines. The portal pulls it together so you see one honest picture instead of five disconnected dashboards.</p>
+              <p>Directly from the systems running your growth: your lead forms, Google Business Profile, ad platforms, our project management, and our proposal and review engines. The portal pulls it together so you see one honest picture instead of five disconnected dashboards.</p>
             </details>
             <details onToggle={onFaqToggle}>
               <summary>Is it just for one person, or my whole team? <span className="pm">+</span></summary>
-              <p>Your whole team. Invite owners, partners, and key staff so everyone sees the same source of truth — no more forwarding screenshots or re-explaining results in a meeting.</p>
+              <p>Your whole team. Invite owners, partners, and key staff so everyone sees the same source of truth, no more forwarding screenshots or re-explaining results in a meeting.</p>
             </details>
             <details onToggle={onFaqToggle}>
               <summary>How current is the information? <span className="pm">+</span></summary>
-              <p>Leads and project status update in real time. Value metrics like revenue created and projected firm value refresh continuously as quotes are sent, deals close, and work ships — not once a month in a deck.</p>
+              <p>Leads and project status update in real time. Value metrics like revenue created and projected firm value refresh continuously as quotes are sent, deals close, and work ships, not once a month in a deck.</p>
             </details>
           </div>
         </div>
@@ -910,7 +910,7 @@ export default function GrowthPortalPage() {
           <div>
             <span className="eyebrow on-dark no-line">Get started</span>
             <h2 className="display-lg">Start a plan. Get the portal. See everything.</h2>
-            <p>Every Alloy plan comes with the Growth Portal — full transparency into the work and the wins, from day one. Tell us about your firm and we'll show you what our partnership could look like.</p>
+            <p>Every Alloy plan comes with the Growth Portal. Full transparency into the work and the wins, from day one. Tell us about your firm and we'll show you what our partnership could look like.</p>
             <div className="gp-hero-stats" style={{ borderTopColor: 'rgba(255,255,255,0.14)', maxWidth: 520 } as CSSProperties}>
               <div className="item"><div className="v">Day-one access</div><div className="k">live with your first plan</div></div>
               <div className="item"><div className="v">Whole team</div><div className="k">one source of truth</div></div>
@@ -922,7 +922,7 @@ export default function GrowthPortalPage() {
             <h3>Request a walkthrough</h3>
             {formStatus === 'done' ? (
               <div className="gp-form-msg" aria-live="polite" style={{ paddingTop: 4 }}>
-                Thanks{formFirst ? ', ' + formFirst : ''} — we&rsquo;ll be in touch within one business day to set up your walkthrough.
+                Thanks{formFirst ? ', ' + formFirst : ''}. We&rsquo;ll be in touch within one business day to set up your walkthrough.
               </div>
             ) : (
               <form className="gp-form" id="gp-walkthrough-form" name="growth-portal-walkthrough" action="/api/lead" method="post" onSubmit={onFormSubmit}>

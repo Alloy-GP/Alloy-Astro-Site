@@ -1,11 +1,11 @@
 # Alloy Growth Partners
 
-> Marketing for HOA management companies (community association management, "CAM"). Alloy runs one growth system — BoardReach™ (attract boards), BoardMatch™ (close them), BoardRetain™ (keep them) — for one management company per metro, with a guarantee that the firm's growth covers Alloy's fees. Based in Austin, TX; serves the United States.
+> Marketing for HOA management companies (community association management, "CAM"). Alloy runs one growth system (BoardReach™ (attract boards), BoardMatch™ (close them), BoardRetain™ (keep them)) for one management company per metro, with a guarantee that the firm's growth covers Alloy's fees. Based in Austin, TX; serves the United States.
 
 ## Start here
 - [Homepage](https://alloygp.co/): what Alloy does, the metro availability check, and the three engines
-- [BoardSuite™ — the full system](https://alloygp.co/boardsuite)
-- [Pricing — Steady / Accelerate / Ascend tiers](https://alloygp.co/pricing)
+- [BoardSuite™: the full system](https://alloygp.co/boardsuite)
+- [Pricing. Steady / Accelerate / Ascend tiers](https://alloygp.co/pricing)
 - [Results and case study](https://alloygp.co/results)
 - [FAQ](https://alloygp.co/faq)
 - [Contact / claim your market](https://alloygp.co/contact)
@@ -23,4 +23,4 @@
 - [The Alloy Briefing newsletter archive](https://alloygp.co/resources/newsletter)
 
 ## Company
-- [About — the partners](https://alloygp.co/about) · [Testimonials](https://alloygp.co/about/testimonials) · [Partners and integrations](https://alloygp.co/partners) · [Careers](https://alloygp.co/careers)
+- [About. The partners](https://alloygp.co/about) · [Testimonials](https://alloygp.co/about/testimonials) · [Partners and integrations](https://alloygp.co/partners) · [Careers](https://alloygp.co/careers)

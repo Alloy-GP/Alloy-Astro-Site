@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Alloy Growth Partners — Colors & Type
+   Alloy Growth Partners - Colors & Type
    Source of truth: Alloy_Brand_Guide.pdf v1.0
    ========================================================================== */
 
@@ -56,22 +56,22 @@
        url("/fonts/Gotham-Ultra.otf") format("opentype");
 }
 
-/* Poppins (digital substitute) loaded via <link> in BaseLayout.astro — not here.
+/* Poppins (digital substitute) loaded via <link> in BaseLayout.astro - not here.
    CSS @import is render-blocking; the <link> in <head> is not. */
 
 :root {
   /* ---------- Brand colors ---------- */
   /* Primary */
-  --alloy-purple:        #381c4f; /* Primary brand — backgrounds, headers, authority */
+  --alloy-purple:        #381c4f; /* Primary brand - backgrounds, headers, authority */
   --alloy-purple-deep:   #290d41; /* Darker tone used in wordmark + footers */
-  --alloy-pink:          #d9356e; /* Primary accent — CTAs, energy, pull quotes */
+  --alloy-pink:          #d9356e; /* Primary accent - CTAs, energy, pull quotes */
 
   /* Secondary */
   --alloy-yellow:        #f5d880; /* Highlights, stats, energy */
   --alloy-blue:          #a1c8e7; /* Trust, calm, secondary info */
   --alloy-green:         #aed7d0; /* Growth, retention, success */
 
-  /* Engine ink colors — engine labels/numerals readable on white (redesign) */
+  /* Engine ink colors - engine labels/numerals readable on white (redesign) */
   --engine-reach:        #d9356e;
   --engine-match:        #b8942a;
   --engine-retain:       #3f8f83;
@@ -94,7 +94,7 @@
   --alloy-light-gray:    #e8e4ef; /* Borders, dividers */
   --alloy-body-gray:     #555555; /* Body copy text */
 
-  /* ---------- Tints (derived, harmonious — for hover/press/surfaces) ---------- */
+  /* ---------- Tints (derived, harmonious - for hover/press/surfaces) ---------- */
   --alloy-purple-90:     #4c3361;
   --alloy-purple-80:     #604a74;
   --alloy-purple-tint:   #ece8f1;
@@ -106,7 +106,7 @@
   --alloy-green-tint:    #def0ec;
 
   /* ---------- Semantic foreground / background ---------- */
-  --fg-1:                #1a0a26; /* Highest contrast — display headlines */
+  --fg-1:                #1a0a26; /* Highest contrast - display headlines */
   --fg-2:                var(--alloy-purple);
   --fg-3:                var(--alloy-body-gray);
   --fg-muted:            #8a8395;
@@ -170,7 +170,7 @@
   --radius-xl:   16px;
   --radius-pill: 999px;
 
-  /* ---------- Shadows (subtle, not flashy — brand is "warm professional") ---------- */
+  /* ---------- Shadows (subtle, not flashy - brand is "warm professional") ---------- */
   --shadow-xs: 0 1px 2px rgba(56, 28, 79, 0.06);
   --shadow-sm: 0 2px 6px rgba(56, 28, 79, 0.08);
   --shadow-md: 0 6px 18px rgba(56, 28, 79, 0.10);
@@ -260,7 +260,7 @@
   color: var(--fg-muted);
 }
 
-/* Eyebrow / kicker — small uppercase tag above section headers */
+/* Eyebrow / kicker - small uppercase tag above section headers */
 .alloy-eyebrow {
   font-family: var(--font-display);
   font-weight: 700;

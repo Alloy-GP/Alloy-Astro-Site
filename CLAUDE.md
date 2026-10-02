@@ -239,6 +239,8 @@ interface Props {
 
 ## Brand Vocabulary (CAM/HOA Industry)
 
+**Punctuation (client, 2026-10-02): no em dashes anywhere in site copy** — not in body text, headings, eyebrows, labels, titles or descriptions. Use a comma, colon or full stop in prose, a middot (·) in labels/eyebrows/nav, parentheses for asides, and a pipe (|) before the brand in `<title>`s. `.context/emdash.py` (dry run / `--write`) sweeps visible strings and skips code comments.
+
 **boards** (not clients/customers) · **associations / communities** (not properties) · **CAM companies / management firms** · **win more boards / retain associations** · **portfolio** · **managers**. Engines: **BoardReach™ (Attract)** · **BoardMatch™ (Close)** · **BoardRetain™ (Keep)**; **BoardSuite™** = all three.
 
 ---
@@ -262,6 +264,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Em dashes removed site-wide** (client): 695 replacements across 88 files via `.context/emdash.py` (paired asides → parentheses/commas, lists → colons, independent clauses → full stops, labels/eyebrows/nav → middots, titles → `:` / `\|`), compare-table "not included" cells → "No", a handful hand-tuned; CSS/HTML comments scrubbed too. |
 | 2026-10-02 | **Post-launch SEO/AI-search pass** (prod crawl of all 42 URLs + host/headers/perf): `alloy-astro-site.vercel.app` (indexable duplicate) → 308 to alloygp.co (vercel.json host redirect); long-lived `Cache-Control` for `/_astro`, `/fonts` (immutable) and `/assets` + favicons (1d + SWR) — everything was `max-age=0`; `WebSite` schema on every page (site name "Alloy"); `Person` schema for the three partners on /about; `VideoObject` schema for both testimonial videos; `og:image:type` follows the file; visible author + published/updated bylines (`<time>`) on the two articles and the guide; sitemap `lastmod` for dated pages and homepage `<loc>` with trailing slash to match the canonical; `public/llms.txt`; `Disallow: /api/`; hub/career/partner titles ≤60 and seven descriptions ≤160; contextual links (home ledger → /growth-modeled, pricing → /faq + /growth-modeled). Still owed by the client for schema: social profile URLs (`sameAs`). |
 | 2026-10-02 | **LAUNCH.** PR #3 merged to `main` (`a7310c9`, 65 commits); alloygp.co now serves the redesign. Final staging audit clean (59 live URLs → 200/one-hop 301, 146 redirects, schema, links, images, 390px). Post-launch owed by the client: submit `sitemap-index.xml` in Google Search Console and remove the old `sitemap.xml` entry; re-enable both `main` locks; watch homepage queries/CTR for 4 weeks (deliberate title change). |
 | 2026-10-02 | **Client roster into the metro checker**: `CLAIMED_METROS` is now the 20 partner office addresses the client supplied (geocoded; firm names in comments only) — placeholder cities gone. **45% avg close rate everywhere** (Results stat, case study, Groundwork + RFP service stats and prose, BoardMatch FAQ, Groundwork meta description — deliberate) replacing the 40–60% range. Guarantee wording approved by the client; BBB mentions stay. ChatGPT mark supplied and placed (`public/assets/chatgpt-mark.png`, avatar + answer label). |

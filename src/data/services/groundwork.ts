@@ -4,11 +4,11 @@ import type { ServicePageData } from './types';
 const data: ServicePageData = {
   href: '/boardmatch/groundwork',
   engine: 'match',
-  name: 'Groundwork — Fractional BD',
+  name: 'Groundwork. Fractional BD',
   eyebrow: 'BoardMatch™ · Fractional business development',
   h1: 'Senior business development',
   h1Accent: 'without the senior salary.',
-  intro: 'Groundwork is fractional business development for property management companies: a CAM-experienced BD lead who prospects, qualifies, and books the meetings — then hands your principal a board that’s ready to talk. Forty conversations a month, one metro, one firm.',
+  intro: 'Groundwork is fractional business development for property management companies: a CAM-experienced BD lead who prospects, qualifies, and books the meetings, then hands your principal a board that’s ready to talk. Forty conversations a month, one metro, one firm.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 40, suffix: 'conversations / mo', note: 'Live conversations with boards and managers in your metro' },
@@ -19,14 +19,14 @@ const data: ServicePageData = {
     {
       h: 'Prospecting, the part nobody in your office has time for.',
       p: [
-        'Your best closer is also running operations. Groundwork takes the top of the funnel — research, outreach, follow-up, qualification — and delivers a calendar of meetings with boards that fit your portfolio and are actually in motion.',
+        'Your best closer is also running operations. Groundwork takes the top of the funnel (research, outreach, follow-up, qualification) and delivers a calendar of meetings with boards that fit your portfolio and are actually in motion.',
         'The list is built from signals that a board is about to move: board-rotation timing, contract dates, RFP activity, and fit with the associations you already run well. Outreach runs as a cadence across phone, email, LinkedIn, direct mail, and local events, with messaging keyed to the problem that board is likely having.',
       ],
     },
     {
       h: 'A name and a phone number isn’t a lead.',
       p: [
-        'Forty conversations a month means forty live exchanges with board members and managers in your metro — people who told us where their association stands. The boards that clear the bar go on your calendar. The rest go back into the cadence with a note on when their contract opens, and Groundwork makes that call when the date comes around.',
+        'Forty conversations a month means forty live exchanges with board members and managers in your metro, people who told us where their association stands. The boards that clear the bar go on your calendar. The rest go back into the cadence with a note on when their contract opens, and Groundwork makes that call when the date comes around.',
       ],
     },
     {
@@ -39,7 +39,7 @@ const data: ServicePageData = {
     {
       h: 'Handoff and follow-through.',
       p: [
-        'Groundwork stays in the deal after the first meeting: proposal logistics, follow-up cadence, and the lost-deal post-mortem when it doesn’t go your way — so the next one does.',
+        'Groundwork stays in the deal after the first meeting: proposal logistics, follow-up cadence, and the lost-deal post-mortem when it doesn’t go your way, so the next one does.',
         'The handoff is a warm introduction, not a forwarded email. Your principal gets who we spoke with, why they’re looking, how the board decides, and a recommended next move. The debrief goes into the CRM, so the monthly pipeline review reflects what actually happened in the room.',
       ],
     },
@@ -85,7 +85,7 @@ const data: ServicePageData = {
       { q: 'What does our team still do?', a: 'Take the meetings and close. Your principal walks in with the brief, reads the debrief after, and joins the monthly pipeline review.' },
     ],
   },
-  cta: { text: 'Is your metro still open? Thirty minutes tells you — and which engine to fix first.' },
+  cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },
 };
 
 export default data;

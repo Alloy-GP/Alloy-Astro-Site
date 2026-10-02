@@ -39,7 +39,7 @@ const categories: CategoryProps[] = [
     accent: PINK,
     label: 'Accounting & financial',
     headline: 'Books, reserves, dues, audits.',
-    body: 'The foundation layer. Every CAM firm runs accounting software — the only question is whether it integrates with everything else or sits in a silo your team reconciles by hand each month. Dues billing, AR/AP, bank rec, reserve and fund accounting, audit-ready trial balances, 1099s, lockbox integration.',
+    body: 'The foundation layer. Every CAM firm runs accounting software. The only question is whether it integrates with everything else or sits in a silo your team reconciles by hand each month. Dues billing, AR/AP, bank rec, reserve and fund accounting, audit-ready trial balances, 1099s, lockbox integration.',
     board: 'Clean financials at every meeting. Reserve studies that match the bank balance.',
     manager: 'Bank rec, AR aging, vendor 1099s, year-end audits. Where the auditor lives.',
     examples: 'CINC Systems, Enumerate Central (formerly TOPS), FRONTSTEPS Caliber, AppFolio Property Manager, Buildium, VMS, Smartwebs, PayHOA',
@@ -48,8 +48,8 @@ const categories: CategoryProps[] = [
     accent: YELLOW,
     label: 'Board portals & governance',
     headline: 'The room where the work happens.',
-    body: 'Where directors review packets, vote, sign documents, and find the agenda. The standalone-board-portal market that exists for corporate boards (Diligent, BoardEffect) has effectively zero footprint in HOA — every credible option here is a module inside an all-in-one platform. The board sees this surface more than they see your website. They form their opinion of your firm on it.',
-    board: 'Find the packet, sign the doc, see what’s next — on a phone, at 9 PM, before the meeting.',
+    body: 'Where directors review packets, vote, sign documents, and find the agenda. The standalone-board-portal market that exists for corporate boards (Diligent, BoardEffect) has effectively zero footprint in HOA. Every credible option here is a module inside an all-in-one platform. The board sees this surface more than they see your website. They form their opinion of your firm on it.',
+    board: 'Find the packet, sign the doc, see what’s next, on a phone, at 9 PM, before the meeting.',
     manager: 'Packet assembly, agenda templates, motion tracking, document retention.',
     examples: 'Vantaca Home, FRONTSTEPS Community, CINC Systems, Enumerate Engage, TownSq, BoardSpace',
   },
@@ -57,7 +57,7 @@ const categories: CategoryProps[] = [
     accent: BLUE,
     label: 'Resident communication',
     headline: 'Notices, requests, the inbox.',
-    body: 'Mass communication, work order intake, ARC submissions, violation tracking, community calendars, e-voting. Usually bundled into the accounting platform — and usually the source of every "why didn’t anyone tell us?" complaint.',
+    body: 'Mass communication, work order intake, ARC submissions, violation tracking, community calendars, e-voting. Usually bundled into the accounting platform, and usually the source of every "why didn’t anyone tell us?" complaint.',
     board: 'Did our notice go out? Did homeowners actually see it?',
     manager: 'Eblasts, SMS, push, work orders, violations, ARC, gate codes, e-voting.',
     examples: 'TownSq, Condo Control, FRONTSTEPS Community, Smartwebs, AppFolio Property Manager, PayHOA',
@@ -66,7 +66,7 @@ const categories: CategoryProps[] = [
     accent: GREEN,
     label: 'Maintenance & operations',
     headline: 'Inspections, vendors, work orders.',
-    body: 'Site inspections (ideally offline-capable on a phone), vendor bid tracking, COI tracking, preventive maintenance schedules, and the photo evidence that proves the manager was actually there. The layer most underbuilt in the typical CAM stack — and the one Smartwebs originally won on with its "3 clicks and a pic" field workflow.',
+    body: 'Site inspections (ideally offline-capable on a phone), vendor bid tracking, COI tracking, preventive maintenance schedules, and the photo evidence that proves the manager was actually there. The layer most underbuilt in the typical CAM stack, and the one Smartwebs originally won on with its "3 clicks and a pic" field workflow.',
     board: 'Was the property inspected? Were vendors invoiced for work that actually happened?',
     manager: 'Inspection routes, vendor management, COI tracking, PM schedules, photo logs.',
     examples: 'Smartwebs, Vantaca, FRONTSTEPS Suite Manager, AppFolio Property Manager, CINC Systems',
@@ -84,9 +84,9 @@ const categories: CategoryProps[] = [
     accent: PINK,
     label: 'All-in-one HOA property management software',
     headline: 'One vendor, every layer.',
-    body: 'Single-vendor systems covering accounting, portal, communication, documents, and operations. This is where the real competition is — the two clear market leaders for professional CAM firms are Vantaca and CINC Systems, with FRONTSTEPS, Enumerate, and AppFolio Property Manager rounding out the mid-market tier. Easier to buy. Harder to leave. Quality varies module-by-module — the accounting can be excellent and the portal can feel like it shipped in 2014.',
+    body: 'Single-vendor systems covering accounting, portal, communication, documents, and operations. This is where the real competition is: the two clear market leaders for professional CAM firms are Vantaca and CINC Systems, with FRONTSTEPS, Enumerate, and AppFolio Property Manager rounding out the mid-market tier. Easier to buy. Harder to leave. Quality varies module-by-module. The accounting can be excellent and the portal can feel like it shipped in 2014.',
     board: 'One login. One bill. One throat to choke when something breaks.',
-    manager: 'Everything in one dashboard. Or — depending on the vendor — five tabs of one dashboard.',
+    manager: 'Everything in one dashboard. Or, depending on the vendor, five tabs of one dashboard.',
     examples: 'Vantaca · CINC Systems · FRONTSTEPS (Caliber + Community + Suite Manager) · Enumerate (formerly TOPS) · AppFolio Property Manager · Buildium · Smartwebs',
   },
 ];
@@ -101,7 +101,7 @@ const features = [
   {
     n: '02',
     h: 'Integrated e-signature, not bolted on',
-    what: 'Boards sign 12\u201330 documents a year. DocuSign-out, DocuSign-back is a deal-killing experience. The signing flow must live inside the portal — same login, same UI, archived to the document library automatically.',
+    what: 'Boards sign 12\u201330 documents a year. DocuSign-out, DocuSign-back is a deal-killing experience. The signing flow must live inside the portal: same login, same UI, archived to the document library automatically.',
     signal: 'Walk through signing a budget approval end-to-end. Count clicks.',
   },
   {
@@ -113,7 +113,7 @@ const features = [
   {
     n: '04',
     h: 'Compliance-supporting communications',
-    what: 'No platform genuinely "warns you" about fair-housing wording or election-period rules in real time — anyone claiming that is overselling. What the right platform does is support the workflow: configurable templates, approval gates, communication restrictions during election windows, and timestamped audit trails. The cost of one bad eblast during a contested board election dwarfs the licensing fee for a decade; the platform should make the right path the path of least resistance.',
+    what: 'No platform genuinely "warns you" about fair-housing wording or election-period rules in real time. Anyone claiming that is overselling. What the right platform does is support the workflow: configurable templates, approval gates, communication restrictions during election windows, and timestamped audit trails. The cost of one bad eblast during a contested board election dwarfs the licensing fee for a decade; the platform should make the right path the path of least resistance.',
     signal: 'Send a test notice in election mode. Watch what the system makes hard vs. easy.',
   },
   {
@@ -125,13 +125,13 @@ const features = [
   {
     n: '06',
     h: 'Per-association branding & permissions',
-    what: 'One firm running 80 associations needs 80 visual identities, 80 permission models, 80 communication templates — managed centrally. Most platforms force one master brand or one-by-one chaos. The right one does both.',
+    what: 'One firm running 80 associations needs 80 visual identities, 80 permission models, 80 communication templates: managed centrally. Most platforms force one master brand or one-by-one chaos. The right one does both.',
     signal: 'Show me three live associations on your platform with distinct branding.',
   },
   {
     n: '07',
     h: 'Data export without ransom',
-    what: 'Your associations’ data is your data. Get the export terms — including format, frequency, and cost — in writing during the contract phase. The vendors that fight this question are the ones you most need protection from.',
+    what: 'Your associations’ data is your data. Get the export terms (including format, frequency, and cost) in writing during the contract phase. The vendors that fight this question are the ones you most need protection from.',
     signal: 'Section 8 of the contract: data export, format, and ceiling cost.',
   },
   {
@@ -143,7 +143,7 @@ const features = [
   {
     n: '09',
     h: 'A roadmap with ship dates',
-    what: 'Every vendor has a roadmap deck. Ask for the three pain points your team complained about last year. If they’re not scoped with quarter-targeted ship dates, they’re "on the list" — and "the list" is where roadmaps go to die.',
+    what: 'Every vendor has a roadmap deck. Ask for the three pain points your team complained about last year. If they’re not scoped with quarter-targeted ship dates, they’re "on the list" · and "the list" is where roadmaps go to die.',
     signal: 'Three specific items, three specific quarters. In writing.',
   },
 ];
@@ -152,7 +152,7 @@ const rfp = [
   { num: 'Q01', q: 'Walk us through bank reconciliation for a 200-unit association on a Tuesday morning. Show the actual screens a controller uses, not the dashboard.' },
   { num: 'Q02', q: 'Send credentials for a live demo association we can browse on a phone. No sandbox. Fifteen minutes, unsupervised.' },
   { num: 'Q03', q: 'What is the all-in monthly cost for a portfolio of 80 associations, 12,000 doors, with the module mix below? Include ACH fees, eblast credits, document storage, onboarding amortized, and integration fees.' },
-  { num: 'Q04', q: 'Quote the contractual ceiling on year-over-year price increases. What’s the renewal mechanic — opt-out, auto-renew, multi-year lock?' },
+  { num: 'Q04', q: 'Quote the contractual ceiling on year-over-year price increases. What’s the renewal mechanic: opt-out, auto-renew, multi-year lock?' },
   { num: 'Q05', q: 'Connect us with two firms who went live in the last 12 months. We will find a third one ourselves.' },
   { num: 'Q06', q: 'What percentage of your last 10 implementations went live on the originally-scoped timeline? Where did the others slip and why?' },
   { num: 'Q07', q: 'Show three live associations on your platform with distinct branding, distinct permission models, and distinct communication templates. Same login pane.' },
@@ -170,7 +170,7 @@ const rollout: PhaseProps[] = [
     phase: 'Phase 1', weeks: 'Weeks 0\u20134', h: 'Foundations & data prep',
     color: BLUE,
     tasks: [
-      'Lock the implementation team — internal owner, external CSM, executive sponsor.',
+      'Lock the implementation team: internal owner, external CSM, executive sponsor.',
       'Inventory current systems and reconciliations. List every workaround your team has invented.',
       'Stage clean chart of accounts, vendor master, and association master.',
       'Communicate the migration timeline to boards before they hear about it from a manager.',
@@ -221,7 +221,7 @@ const pricing = [
     portfolio: 'Under 50 associations, single market.',
     range: '$1–$3 / door / mo',
     range2: 'Plus $3K–$10K onboarding',
-    gotchas: 'Most platforms at this tier use custom quotes. Module add-ons (inspections, e-voting, ARC), per-user manager seats, and integration fees stack up. Some vendors (Smartwebs, Buildium) skip formal onboarding fees — confirm what is actually included before signing.',
+    gotchas: 'Most platforms at this tier use custom quotes. Module add-ons (inspections, e-voting, ARC), per-user manager seats, and integration fees stack up. Some vendors (Smartwebs, Buildium) skip formal onboarding fees. Confirm what is actually included before signing.',
   },
   {
     color: PINK, tier: 'CAM-managed · mid-market',
@@ -235,22 +235,22 @@ const pricing = [
     portfolio: '300+ associations, complex stack.',
     range: '$1–$3 / door / mo',
     range2: 'Custom MSAs; onboarding $30K–$75K+',
-    gotchas: 'Volume discounts are real but require contractual term commitments. At this scale software should be roughly 10–20% of per-door management fees — not more. Multi-system (best-of-breed across layers) sometimes beats single-vendor TCO above 400 associations.',
+    gotchas: 'Volume discounts are real but require contractual term commitments. At this scale software should be roughly 10–20% of per-door management fees, not more. Multi-system (best-of-breed across layers) sometimes beats single-vendor TCO above 400 associations.',
   },
 ];
 
 const faq: FAQItem[] = [
   {
     q: 'What is HOA management software?',
-    a: 'HOA management software is the day-to-day operating layer a community association management firm — or a self-managed HOA board — runs the business on. It typically covers accounting (dues, reserves, AP/AR), board portals (packets, e-signature, voting), resident communication (notices, work orders, ARC requests), maintenance/inspections, and document retention. Some platforms cover all of those in one (all-in-one); others specialize in one or two layers and integrate.',
+    a: 'HOA management software is the day-to-day operating layer a community association management firm, or a self-managed HOA board, runs the business on. It typically covers accounting (dues, reserves, AP/AR), board portals (packets, e-signature, voting), resident communication (notices, work orders, ARC requests), maintenance/inspections, and document retention. Some platforms cover all of those in one (all-in-one); others specialize in one or two layers and integrate.',
   },
   {
     q: 'What is the difference between HOA software and a board portal?',
-    a: 'HOA software is the broader operating system the management company runs on; a board portal is one surface inside it — where directors log in to find packets, sign documents, and vote. In HOA, standalone board portals essentially do not exist; the corporate-governance board-portal market (Diligent, BoardEffect) serves Fortune 500s and nonprofits and has no real footprint in CAM. The portal you care about is the one inside Vantaca Home, FRONTSTEPS Community, CINC, Enumerate Engage, TownSq, or whichever all-in-one runs your portfolio.',
+    a: 'HOA software is the broader operating system the management company runs on; a board portal is one surface inside it: where directors log in to find packets, sign documents, and vote. In HOA, standalone board portals essentially do not exist; the corporate-governance board-portal market (Diligent, BoardEffect) serves Fortune 500s and nonprofits and has no real footprint in CAM. The portal you care about is the one inside Vantaca Home, FRONTSTEPS Community, CINC, Enumerate Engage, TownSq, or whichever all-in-one runs your portfolio.',
   },
   {
     q: 'What is the best HOA management software?',
-    a: 'It depends on buyer type. For professional CAM firms, the two clear market leaders are Vantaca and CINC Systems, with FRONTSTEPS, Enumerate (formerly TOPS), and AppFolio Property Manager as the strongest alternatives at mid-market. For self-managed HOAs, the most-recommended platforms are PayHOA, Condo Control, HOA Start, EasyHOA, and Smartwebs. The framework matters more than the brand — use the 14-question RFP on this page to score whichever shortlist you build.',
+    a: 'It depends on buyer type. For professional CAM firms, the two clear market leaders are Vantaca and CINC Systems, with FRONTSTEPS, Enumerate (formerly TOPS), and AppFolio Property Manager as the strongest alternatives at mid-market. For self-managed HOAs, the most-recommended platforms are PayHOA, Condo Control, HOA Start, EasyHOA, and Smartwebs. The framework matters more than the brand. Use the 14-question RFP on this page to score whichever shortlist you build.',
   },
   {
     q: 'How much does HOA property management software cost?',
@@ -258,15 +258,15 @@ const faq: FAQItem[] = [
   },
   {
     q: 'Can self-managed HOAs use the same software CAM firms use?',
-    a: 'Most CAM-grade platforms offer a self-managed tier, but the economics rarely work for a single association — these platforms are priced for portfolio scale and integration density. If you are a self-managed board, look at purpose-built tools: PayHOA, HOA Start, EasyHOA, Effortless HOA, or Yardi Breeze Premier. If you are a CAM firm, skip the self-managed tier of any vendor and start where you are going.',
+    a: 'Most CAM-grade platforms offer a self-managed tier, but the economics rarely work for a single association. These platforms are priced for portfolio scale and integration density. If you are a self-managed board, look at purpose-built tools: PayHOA, HOA Start, EasyHOA, Effortless HOA, or Yardi Breeze Premier. If you are a CAM firm, skip the self-managed tier of any vendor and start where you are going.',
   },
   {
     q: 'How long does HOA software implementation actually take?',
-    a: 'It depends on scope. A self-managed HOA can be up and running in days to a few weeks (PayHOA cites days; HOA Start is similar). A small CAM firm typically takes 30–90 days. A mid-to-large CAM portfolio migration is honestly four to six months — vendors quote 60–90 days but the field reality is longer once you account for the dual-system pilot and cohort rollout. Manager turnover during implementation is the single most common reason migrations fail; lock retention bonuses before kickoff, not after.',
+    a: 'It depends on scope. A self-managed HOA can be up and running in days to a few weeks (PayHOA cites days; HOA Start is similar). A small CAM firm typically takes 30–90 days. A mid-to-large CAM portfolio migration is honestly four to six months. Vendors quote 60–90 days but the field reality is longer once you account for the dual-system pilot and cohort rollout. Manager turnover during implementation is the single most common reason migrations fail; lock retention bonuses before kickoff, not after.',
   },
   {
     q: 'Will switching HOA software fix our growth or retention problem?',
-    a: 'Almost never. Software fixes operations problems — slow bank rec, late packets, lost vendor invoices, ARC backlog. It helps with service problems where communication and transparency are bottlenecks. It does not fix positioning problems (invisible to boards shopping for new management) or retention problems (quiet churn, transactional renewal conversations). Those require a growth system above the software layer. That is what BoardSuite is for.',
+    a: 'Almost never. Software fixes operations problems: slow bank rec, late packets, lost vendor invoices, ARC backlog. It helps with service problems where communication and transparency are bottlenecks. It does not fix positioning problems (invisible to boards shopping for new management) or retention problems (quiet churn, transactional renewal conversations). Those require a growth system above the software layer. That is what BoardSuite is for.',
   },
 ];
 
@@ -282,7 +282,7 @@ const AUDIENCES = [
     accent: BLUE,
     label: 'Self-managed HOA software',
     title: 'One association, board-run, no management company.',
-    body: 'The board is doing it themselves — dues, reserves, notices, meetings. Self managed HOA software exists to keep this from becoming a second job. Priorities flip: simplicity over depth, predictable monthly cost over per-door pricing, communication and document management over accounting sophistication.',
+    body: 'The board is doing it themselves: dues, reserves, notices, meetings. Self managed HOA software exists to keep this from becoming a second job. Priorities flip: simplicity over depth, predictable monthly cost over per-door pricing, communication and document management over accounting sophistication.',
     items: [
       'Optimize for: low setup time, low ongoing admin, board-friendly UX.',
       'Skip: per-door pricing models, enterprise modules, CAM-grade integrations.',
@@ -293,7 +293,7 @@ const AUDIENCES = [
     accent: PINK,
     label: 'HOA property management software',
     title: 'A CAM firm running a portfolio of properties.',
-    body: 'The math changes completely. Per-association costs are pooled across the portfolio, but so are the consequences of a bad choice — every association inherits the platform you pick. Integration depth, manager workflows, per-association branding, and contractual price ceilings matter more than UX gloss.',
+    body: 'The math changes completely. Per-association costs are pooled across the portfolio, but so are the consequences of a bad choice. Every association inherits the platform you pick. Integration depth, manager workflows, per-association branding, and contractual price ceilings matter more than UX gloss.',
     items: [
       'Optimize for: workflow density, manager retention, board portal quality.',
       'Insist on: data export terms, integration roadmap, YoY price ceiling.',
@@ -316,7 +316,7 @@ const TOC: Array<{ id: string; label: string }> = [
   { id: 'categories', label: 'The six software categories' },
   { id: 'the-platforms', label: 'The platforms, compared the way an operator compares them' },
   { id: 'features', label: 'Nine features that matter' },
-  { id: 'what-boards-see', label: 'What boards actually see — and judge' },
+  { id: 'what-boards-see', label: 'What boards actually see · and judge' },
   { id: 'integrations', label: 'Integrations that touch marketing' },
   { id: 'pricing', label: 'What it actually costs' },
   { id: 'rfp', label: 'The 14-question RFP' },
@@ -392,7 +392,7 @@ export default function HOASoftwareGuide() {
             <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 5.9vw, 68px)' }}>The HOA management <span className="rd-accent">software guide.</span></h1>
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
-            <p className="rd-intro" style={{ lineHeight: 1.65 }}>Vantaca, AppFolio, Buildium, CINC — compared the way an operator compares them, and what each one means for boards, owners, and your marketing.</p>
+            <p className="rd-intro" style={{ lineHeight: 1.65 }}>Vantaca, AppFolio, Buildium, CINC: compared the way an operator compares them, and what each one means for boards, owners, and your marketing.</p>
             <div className="rd-tiny rd-w-500">By Alloy Growth Partners · Published <time dateTime="2026-05-13">May 13, 2026</time> · Updated <time dateTime="2026-09-23">Sep 23, 2026</time> · {TOC.length} sections · 18 min read</div>
           </div>
         </div>
@@ -417,17 +417,17 @@ export default function HOASoftwareGuide() {
 
           <article className="rd-article" style={{ minWidth: 0 }}>
             <Section id="what-it-is" label="What HOA management software is" title="The operating system underneath every CAM firm and every self-managed HOA.">
-              <p>HOA management software is the day-to-day operating layer that handles dues collection, reserve accounting, board packets, e-signatures, homeowner notices, work orders, ARC submissions, vendor management, and document retention. Some platforms cover all of those — the all-in-one HOA property management software category. Others specialize in one layer — accounting, the board portal, communications — and integrate with the rest.</p>
-              <p>The conversation usually starts the same way. A board complains they can’t find the packet. A manager quits and takes the tribal knowledge with them. A controller spends a weekend reconciling because the integration broke. Somebody says <em>“we need new software for HOA management.”</em> Three vendor demos are scheduled before anyone asks what the actual problem is. <strong>This guide is how to ask that question — and what to do with the answer.</strong></p>
-              <p>Most CAM firms shop HOA software by demo. Boards judge it by Tuesday at 9 PM, on a phone, looking for the packet. This is the guide we give every Alloy client when they’re evaluating the platform underneath their portfolio — categories, real pricing ranges, the 14-question RFP, and the rollout playbook that doesn’t blow up your board NPS.</p>
+              <p>HOA management software is the day-to-day operating layer that handles dues collection, reserve accounting, board packets, e-signatures, homeowner notices, work orders, ARC submissions, vendor management, and document retention. Some platforms cover all of those, the all-in-one HOA property management software category. Others specialize in one layer, accounting, the board portal, communications, and integrate with the rest.</p>
+              <p>The conversation usually starts the same way. A board complains they can’t find the packet. A manager quits and takes the tribal knowledge with them. A controller spends a weekend reconciling because the integration broke. Somebody says <em>“we need new software for HOA management.”</em> Three vendor demos are scheduled before anyone asks what the actual problem is. <strong>This guide is how to ask that question, and what to do with the answer.</strong></p>
+              <p>Most CAM firms shop HOA software by demo. Boards judge it by Tuesday at 9 PM, on a phone, looking for the packet. This is the guide we give every Alloy client when they’re evaluating the platform underneath their portfolio: categories, real pricing ranges, the 14-question RFP, and the rollout playbook that doesn’t blow up your board NPS.</p>
             </Section>
 
             <Section id="why-it-matters" title="Why your software choice is a marketing decision">
-              <p>Boards evaluate you through the portal. Owners judge you by the payment flow. Your proposal promises “technology,” and the platform is what that word means. The software you run shapes every touchpoint a board and an owner have with your firm — which makes it a brand decision as much as an operations one.</p>
+              <p>Boards evaluate you through the portal. Owners judge you by the payment flow. Your proposal promises “technology,” and the platform is what that word means. The software you run shapes every touchpoint a board and an owner have with your firm, which makes it a brand decision as much as an operations one.</p>
             </Section>
 
             <Section id="audience" label="Who this is for" title="Two buyers. Two playbooks. Same platforms.">
-              <p>The product category is the same, but the evaluation math is not. Boards running self-managed HOAs and operators running CAM firms make different bets — and frequently mis-buy by ignoring this.</p>
+              <p>The product category is the same, but the evaluation math is not. Boards running self-managed HOAs and operators running CAM firms make different bets, and frequently mis-buy by ignoring this.</p>
               <div className="rd-grid rd-grid--2 rd-gap-20">
                 {AUDIENCES.map((a) => (
                   <div key={a.label} className="rd-card rd-card--pad rd-stack rd-stack--14" style={{ borderTop: `5px solid ${a.accent}` }}>
@@ -443,7 +443,7 @@ export default function HOASoftwareGuide() {
             </Section>
 
             <Section id="categories" label="The landscape" title="Six functional layers. One platform usually covers all of them.">
-              <p>HOA software is not really six independent markets with separate vendors — it is one all-in-one market dominated by a handful of platforms, with six functional layers inside each one. The interesting question is not “which vendor for each layer” but “which layers is this vendor actually strong in, and which ones were bolted on.”</p>
+              <p>HOA software is not really six independent markets with separate vendors. It is one all-in-one market dominated by a handful of platforms, with six functional layers inside each one. The interesting question is not “which vendor for each layer” but “which layers is this vendor actually strong in, and which ones were bolted on.”</p>
               <div className="rd-grid rd-grid--2 rd-gap-20">
                 {categories.map((c) => <CategoryCard key={c.label} c={c} />)}
               </div>
@@ -496,7 +496,7 @@ export default function HOASoftwareGuide() {
               </div>
             </Section>
 
-            <Section id="what-boards-see" title="What boards actually see — and judge">
+            <Section id="what-boards-see" title="What boards actually see, and judge">
               <p>The login. The financial packet. The violation workflow. The architectural request. If any of them requires a call to your office, that’s the story the board tells at the next meeting. When we build a website or a proposal for a firm, the platform’s board experience is the first thing we look at, because it’s the first thing the board will.</p>
             </Section>
 
@@ -504,7 +504,7 @@ export default function HOASoftwareGuide() {
               <p>Inquiry forms that create a CRM record. Review requests triggered by a closed work order. Newsletter lists synced from the owner roster. Attribution that survives the handoff from marketing to operations. Every platform can do some of this; none does all of it out of the box. BoardSuite Scale includes the custom integration work; below that, we scope it.</p>
             </Section>
 
-            <Section id="pricing" label="Pricing reality" title="What HOA software actually costs — by tier, not by brand.">
+            <Section id="pricing" label="Pricing reality" title="What HOA software actually costs, by tier, not by brand.">
               <p>Public pricing is rare and usually misleading. These are the ranges we see across active client engagements. Build your 36-month TCO from this, then negotiate.</p>
               <div className="rd-grid rd-grid--2 rd-gap-20">
                 {pricing.map((p) => (
@@ -524,16 +524,16 @@ export default function HOASoftwareGuide() {
               </div>
               <div className="rd-stack rd-stack--6" style={{ background: 'var(--alloy-pink-tint)', borderLeft: '4px solid var(--alloy-pink)', padding: '20px 24px', borderRadius: 8 }}>
                 <span className="rd-label rd-label--pink">The line that costs you</span>
-                <div className="rd-small">ACH float on dues processed is the single biggest hidden cost. A 0.40% rate on a $40M annual dues book is $160K/year — typically more than the licensing line on the same contract. Negotiate the ACH rate as hard as you negotiate the seat license.</div>
+                <div className="rd-small">ACH float on dues processed is the single biggest hidden cost. A 0.40% rate on a $40M annual dues book is $160K/year, typically more than the licensing line on the same contract. Negotiate the ACH rate as hard as you negotiate the seat license.</div>
               </div>
             </Section>
 
             <Section id="rfp" label="Vendor evaluation" title="The short-form RFP. Fourteen questions. Send to every shortlist vendor.">
-              <p>This is the diligence sequence we walk every Alloy client through when they’re evaluating a platform — independent of which vendor is in the room. Copy it. Paste it. Score the answers.</p>
+              <p>This is the diligence sequence we walk every Alloy client through when they’re evaluating a platform. Independent of which vendor is in the room. Copy it. Paste it. Score the answers.</p>
               <div className="rd-card" style={{ overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
                 <div className="rd-bg-purple rd-row rd-row--between rd-row--wrap" style={{ padding: '20px 28px', gap: 16 }}>
                   <div className="rd-stack rd-stack--6">
-                    <Label tone="yellow">The Alloy RFP — short form</Label>
+                    <Label tone="yellow">The Alloy RFP · short form</Label>
                     <div className="rd-title-18" style={{ color: '#fff' }}>14 questions. Send to every shortlisted vendor. Score the answers.</div>
                   </div>
                   <span className="rd-label rd-label--white" style={{ opacity: 0.6 }}>Copy/paste · No download required</span>
@@ -547,11 +547,11 @@ export default function HOASoftwareGuide() {
                   ))}
                 </ol>
               </div>
-              <p>Want help running this evaluation? <a className="rd-a" href="/contact">Talk to Alloy</a> — we sit on the buyer side of the table.</p>
+              <p>Want help running this evaluation? <a className="rd-a" href="/contact">Talk to Alloy</a>. We sit on the buyer side of the table.</p>
             </Section>
 
             <Section id="rollout" label="The rollout playbook" title="26 weeks. Four phases. Don’t skip Phase 1.">
-              <p>The vendor will quote you 60–90 days. For a mid-to-large CAM portfolio migration, the honest number is closer to six months — and the board-side communication has to start before week one of dual-system operation, not after. (Self-managed HOAs and small firms onboarding their first platform compress this dramatically: PayHOA cites days, FRONTSTEPS quotes ~60-day averages. The phased shape still applies; the calendar shrinks.)</p>
+              <p>The vendor will quote you 60–90 days. For a mid-to-large CAM portfolio migration, the honest number is closer to six months, and the board-side communication has to start before week one of dual-system operation, not after. (Self-managed HOAs and small firms onboarding their first platform compress this dramatically: PayHOA cites days, FRONTSTEPS quotes ~60-day averages. The phased shape still applies; the calendar shrinks.)</p>
               <div className="rd-grid rd-grid--2 rd-gap-20">
                 {rollout.map((r) => (
                   <div key={r.phase} className="rd-card rd-card--pad-sm rd-stack rd-stack--10" style={{ borderTop: `5px solid ${r.color}` }}>
@@ -575,11 +575,11 @@ export default function HOASoftwareGuide() {
             </Section>
 
             <Section id="switching" title="If you’re switching: the marketing checklist">
-              <p>Announce the change to boards before owners. Redesign the owner communication around the new login. Update every proposal that names the old platform. Retrain the review-request triggers. And put the new portal’s strengths in the sales messaging — a platform migration done well is a proof point, not a disruption.</p>
+              <p>Announce the change to boards before owners. Redesign the owner communication around the new login. Update every proposal that names the old platform. Retrain the review-request triggers. And put the new portal’s strengths in the sales messaging. A platform migration done well is a proof point, not a disruption.</p>
             </Section>
 
             <Section id="build-vs-buy" label="Build vs buy vs system" title={<>Software runs the firm. <span className="rd-accent">It does not grow the firm.</span></>}>
-              <p>If you’re invisible to boards shopping for a new manager — software won’t help. If your proposals lose to firms running the same platform with a better pitch — software won’t help. If a 12% churn rate is quietly undoing a 20% growth rate — software won’t help.</p>
+              <p>If you’re invisible to boards shopping for a new manager: software won’t help. If your proposals lose to firms running the same platform with a better pitch, software won’t help. If a 12% churn rate is quietly undoing a 20% growth rate, software won’t help.</p>
               <p>That’s what <strong>BoardSuite™</strong> is for: the system above the software layer that engineers attract, close, and keep into one connected playbook. Most of our clients run Vantaca, CINC, or AppFolio. The platform is rarely the constraint. The system around it is. See <a className="rd-a" href="/results/apex-cmg">the Apex CMG case study</a> for an 18-month example.</p>
               <div className="rd-grid rd-grid--2 rd-gap-20" style={{ gap: 14 }}>
                 {PROBLEMS.map((p) => (
@@ -629,7 +629,7 @@ export default function HOASoftwareGuide() {
 
       <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
         <div className="rd-wrap">
-          <CtaBar text="Thirty minutes tells you which engine to fix first — and whether your metro is open." />
+          <CtaBar text="Thirty minutes tells you which engine to fix first, and whether your metro is open." />
         </div>
       </section>
     </div>

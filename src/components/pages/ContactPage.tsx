@@ -60,7 +60,7 @@ export default function ContactPage() {
       const lines = [
         metro ? `Metro: ${metro.slice(0, 80)}` : null,
         intent === 'report' ? 'I’d like a market report for my metro.'
-          : intent === 'waitlist' ? 'My metro is already claimed — add me to the waitlist.'
+          : intent === 'waitlist' ? 'My metro is already claimed: add me to the waitlist.'
           : intent === 'claim' || metro ? 'I’d like to claim my market.' : null,
       ].filter(Boolean) as string[];
       const topic = intent === 'report' ? 'Get my market report' : 'Claim my market';
@@ -80,7 +80,7 @@ export default function ContactPage() {
     const extra = [`Reaching out about: ${form.topic}`, form.company.trim() ? `Company: ${form.company.trim()}` : null]
       .filter(Boolean)
       .join('\n');
-    const message = form.message.trim() ? `${form.message}\n\n—\n${extra}` : form.message;
+    const message = form.message.trim() ? `${form.message}\n\n, \n${extra}` : form.message;
 
     const fd = new FormData();
     fd.append('name', form.name);
@@ -114,7 +114,7 @@ export default function ContactPage() {
             <div className="rd-stack" style={{ gap: 28 }}>
               <Eyebrow>Contact</Eyebrow>
               <h1 className="rd-h1 rd-h1--lg">Talk to an <span className="rd-accent">operator.</span></h1>
-              <p className="rd-intro" style={LH}>CAM owner wondering whether your metro is open? Tell us the metro below and we’ll check it — thirty minutes with an operator, no pitch. Also the place for general questions, partnerships, press, and careers.</p>
+              <p className="rd-intro" style={LH}>CAM owner wondering whether your metro is open? Tell us the metro below and we’ll check it, thirty minutes with an operator, no pitch. Also the place for general questions, partnerships, press, and careers.</p>
             </div>
             <div className="rd-stack rd-rule-top" style={{ gap: 22, paddingTop: 32 }}>
               {DETAILS.map((d) => (

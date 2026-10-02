@@ -39,8 +39,8 @@ export const POST: APIRoute = async ({ request }) => {
       await resend.emails.send({
         from: "Alloy Growth Partners <hello@alloygp.co>",
         to: email,
-        subject: "You're on the list — welcome to Alloy.",
-        html: `<p>Hi${firstName ? ` ${firstName}` : ""},</p><p>Thanks for subscribing. We'll be in touch with insights built specifically for HOA and CAM companies looking to grow.</p><p>— The Alloy Team</p>`,
+        subject: "You're on the list: welcome to Alloy.",
+        html: `<p>Hi${firstName ? ` ${firstName}` : ""},</p><p>Thanks for subscribing. We'll be in touch with insights built specifically for HOA and CAM companies looking to grow.</p><p>The Alloy Team</p>`,
       });
     } catch (err) {
       console.error("Resend welcome error:", err);

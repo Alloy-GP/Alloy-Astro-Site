@@ -1,5 +1,5 @@
 /* ============================================================================
-   Site chrome — header (hide-on-scroll, dropdowns, mobile) + footer additions
+   Site chrome - header (hide-on-scroll, dropdowns, mobile) + footer additions
    Loaded after site.css; overrides where needed.
    ============================================================================ */
 
@@ -140,7 +140,7 @@ body.has-fixed-header {
 }
 
 /* ============================================================
-   Mega-dropdown — Our Approach
+   Mega-dropdown - Our Approach
    ============================================================ */
 .nav-mega {
   position: absolute;
@@ -160,7 +160,7 @@ body.has-fixed-header {
   z-index: 1000;
   animation: navMegaIn 220ms var(--ease-standard);
 }
-/* Hover bridge — fills the 6px gap between link and panel so hover doesn't drop */
+/* Hover bridge - fills the 6px gap between link and panel so hover doesn't drop */
 .nav-mega::before,
 .nav-mega-services::before {
   content: "";
@@ -278,7 +278,7 @@ body.has-fixed-header {
 }
 
 /* ============================================================
-   Mega-dropdown — Services (intro + 3 grouped sections, no icons)
+   Mega-dropdown - Services (intro + 3 grouped sections, no icons)
    Same shape as .nav-mega (Approach), but content is grouped by
    pillar with a colored heading and stacked rows underneath.
    ============================================================ */

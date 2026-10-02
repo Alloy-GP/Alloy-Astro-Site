@@ -6,7 +6,7 @@ const data: HubPageData = {
   eyebrow: 'BoardReach™ · Attract',
   h1: 'Get found',
   h1Accent: 'before boards start shopping.',
-  intro: 'Boards research management companies across Google Maps, AI answers, LinkedIn, and review sites before the first call. BoardReach makes your firm the answer they find — in your metro, and only for you.',
+  intro: 'Boards research management companies across Google Maps, AI answers, LinkedIn, and review sites before the first call. BoardReach makes your firm the answer they find, in your metro, and only for you.',
   systemNote: 'Attract feeds Close. Close feeds Keep. One playbook, one partner, one CAM firm per metro.',
   outcomes: {
     eyebrow: 'Three outcomes',
@@ -14,15 +14,15 @@ const data: HubPageData = {
     items: [
       {
         title: 'Boards find you on the map before they find your competitor.',
-        body: 'Most board searches start local — “HOA management company near me”, a city name, a ZIP. The top three map results get the calls. Everyone else gets the RFP, if anything.',
+        body: 'Most board searches start local: “HOA management company near me”, a city name, a ZIP. The top three map results get the calls. Everyone else gets the RFP, if anything.',
         services: [
-          { label: 'Property Management SEO', sub: 'Google, the map pack, and the AI answer — one program', href: '/property-management-seo' },
+          { label: 'Property Management SEO', sub: 'Google, the map pack, and the AI answer · one program', href: '/property-management-seo' },
           { label: 'HOA Website Design', sub: 'A site built to convert boards, not just homeowners', href: '/boardreach/hoa-website-design' },
         ],
       },
       {
         title: 'You look like the firm boards already trust.',
-        body: 'Once a board finds you, they judge you in seconds — the brand, the LinkedIn presence, the proposal on the table. Authority is built before the first call, not during it.',
+        body: 'Once a board finds you, they judge you in seconds: the brand, the LinkedIn presence, the proposal on the table. Authority is built before the first call, not during it.',
         services: [
           { label: 'Branding for CAM', sub: 'An identity that reads as the credible choice', href: '/boardreach/hoa-management-branding' },
           { label: 'Social Media Marketing', sub: 'Founder thought-leadership boards actually see', href: '/boardreach/hoa-social-media-marketing' },
@@ -31,7 +31,7 @@ const data: HubPageData = {
       },
       {
         title: 'Demand you can measure, month over month.',
-        body: 'Inbound compounds — but only if you can see where it comes from. Every BoardReach engagement starts with attribution, so paid, email, and social prove their keep.',
+        body: 'Inbound compounds, but only if you can see where it comes from. Every BoardReach engagement starts with attribution, so paid, email, and social prove their keep.',
         services: [
           { label: 'Lead Generation', sub: 'Lead magnets and demand-gen assets for boards', href: '/boardreach/property-management-lead-generation' },
           { label: 'Email Marketing', sub: 'Nurture sequences written for the board timeline', href: '/boardreach/email-marketing' },
@@ -54,17 +54,17 @@ const data: HubPageData = {
     eyebrow: 'What it costs to wait',
     h2: 'Every board you didn’t hear from this quarter',
     h2Accent: 'hired someone.',
-    body: 'Boards research CAM firms across Google, AI search, LinkedIn, and review sites before the first call. The firms that show up — with real authority — win the meeting. The rest live on referrals they can’t forecast and can’t repeat. That isn’t growth. It’s waiting.',
+    body: 'Boards research CAM firms across Google, AI search, LinkedIn, and review sites before the first call. The firms that show up, with real authority, win the meeting. The rest live on referrals they can’t forecast and can’t repeat. That isn’t growth. It’s waiting.',
   },
   // Hub FAQ (client, 2026-10-01): answers reuse only facts already published on the site; rendered as an accordion + FAQPage schema.
   faq: {
     eyebrow: 'Questions',
     h2: 'Questions about BoardReach',
     items: [
-      { q: 'Where do boards actually look for a management company?', a: 'Local search first — “HOA management company near me”, a city, a ZIP — and the top three map results get the calls. From there they check AI answers, LinkedIn, and review sites before anyone picks up the phone. BoardReach works those four places in that order, so your firm is the answer in each of them.' },
-      { q: 'Do we need all of BoardReach, or can we start with one service?', a: 'You can start with one — most services stand on their own. We usually sequence it: Property Management SEO and your Google Business Profile first, because that’s where board searches begin; branding and the website when authority is the gap; paid search only as one channel inside the engine, never the whole strategy.' },
+      { q: 'Where do boards actually look for a management company?', a: 'Local search first (“HOA management company near me”, a city, a ZIP) and the top three map results get the calls. From there they check AI answers, LinkedIn, and review sites before anyone picks up the phone. BoardReach works those four places in that order, so your firm is the answer in each of them.' },
+      { q: 'Do we need all of BoardReach, or can we start with one service?', a: 'You can start with one. Most services stand on their own. We usually sequence it: Property Management SEO and your Google Business Profile first, because that’s where board searches begin; branding and the website when authority is the gap; paid search only as one channel inside the engine, never the whole strategy.' },
       { q: 'How long before BoardReach produces leads?', a: 'Map pack movement in about ninety days; organic and AI search over six to twelve months; paid search can be live inside a month. Every engagement starts with attribution, so from the first week you can see which channel each inquiry came from instead of guessing.' },
-      { q: 'How is this different from a general marketing agency?', a: 'We only work with community association management companies, so nothing is learned on your retainer. The targeting is board-stage — the people who hire management companies — not homeowner traffic. And we take one CAM firm per metro, so the strategy we build for you is never run for a competitor across town.' },
+      { q: 'How is this different from a general marketing agency?', a: 'We only work with community association management companies, so nothing is learned on your retainer. The targeting is board-stage: the people who hire management companies, not homeowner traffic. And we take one CAM firm per metro, so the strategy we build for you is never run for a competitor across town.' },
       { q: 'What does exclusivity mean for BoardReach?', a: 'Your defined metro is locked for the length of the engagement, and the exclusivity renews with your contract unless something changes. In practice that means the search positions, the content, and the campaigns we build are yours alone in your market. Check whether your metro is open on the homepage, or ask on the call.' },
     ],
   },

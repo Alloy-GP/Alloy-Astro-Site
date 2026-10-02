@@ -8,12 +8,12 @@ const data: ServicePageData = {
   eyebrow: 'BoardRetain™ · Annual report',
   h1: 'One document that proves',
   h1Accent: 'the year.',
-  intro: 'At the annual meeting, the board has to justify your contract to a room of owners. Annual Report Production gives them the document: what was done, what it cost, what was saved, what’s next — designed to be forwarded, printed, and remembered when the contract comes up.',
+  intro: 'At the annual meeting, the board has to justify your contract to a room of owners. Annual Report Production gives them the document: what was done, what it cost, what was saved, what’s next: designed to be forwarded, printed, and remembered when the contract comes up.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
-    { value: 1, suffix: 'document', note: 'Per association or firm-wide — the year, in owners’ hands' },
+    { value: 1, suffix: 'document', note: 'Per association or firm-wide. The year, in owners’ hands' },
     { value: 12, suffix: 'months', note: 'Of work made visible in one place' },
-    { value: 60, suffix: 'days', note: 'Before the annual meeting — that’s when we start' },
+    { value: 60, suffix: 'days', note: 'Before the annual meeting: that’s when we start' },
   ],
   sections: [
     {
@@ -34,7 +34,7 @@ const data: ServicePageData = {
     {
       h: 'Reserve health a homeowner can follow.',
       p: [
-        'The structure is the one boards expect: year in review, reserve health, operations, capital projects, and next year’s priorities. The charts cover reserve funding, income against budget, capital spend by category, and special-assessment risk — built to pass a CFO’s check and a homeowner’s thirty-second skim.',
+        'The structure is the one boards expect: year in review, reserve health, operations, capital projects, and next year’s priorities. The charts cover reserve funding, income against budget, capital spend by category, and special-assessment risk, built to pass a CFO’s check and a homeowner’s thirty-second skim.',
         'Around the charts, we translate CC&R, reserve-study, and audit language into plain English. Boards stop fielding “I don’t understand my dues” at the meeting, and your managers stop fielding it on the phone.',
       ],
     },
@@ -42,7 +42,7 @@ const data: ServicePageData = {
       h: 'A board chair letter they’re proud to sign.',
       p: [
         'Every report opens with a letter from the board chair. We interview the chair, ghost-write the letter in their voice, fact-check it against the numbers, and they approve it word for word before it’s published.',
-        'We don’t put words in a board’s mouth; we shape the ones the chair already uses. The letter turns a set of charts into the board’s own account of the year — the version it presents to owners and remembers at renewal.',
+        'We don’t put words in a board’s mouth; we shape the ones the chair already uses. The letter turns a set of charts into the board’s own account of the year. The version it presents to owners and remembers at renewal.',
       ],
     },
     {
@@ -85,11 +85,11 @@ const data: ServicePageData = {
     items: [
       { q: 'Per association or for the whole firm?', a: 'Both are common. Larger associations get their own; the firm edition goes in every proposal.' },
       { q: 'When should we start?', a: 'Sixty days before the first annual meeting in the season.' },
-      { q: 'Does this replace our required annual disclosure?', a: 'No — it sits on top of it. Required state and CC&R disclosures are reproduced verbatim as your counsel directs, and counsel signs off on reserve language and forward-looking statements. Our work is the narrative, the design, and the distribution that get the document read.' },
+      { q: 'Does this replace our required annual disclosure?', a: 'No: it sits on top of it. Required state and CC&R disclosures are reproduced verbatim as your counsel directs, and counsel signs off on reserve language and forward-looking statements. Our work is the narrative, the design, and the distribution that get the document read.' },
       { q: 'Does it help us win new boards?', a: 'Yes. The annual report is the artifact boards forward most to other boards, so it works for BoardReach™ as much as BoardRetain™. Operators running the program report real inbound from other associations.' },
     ],
   },
-  cta: { text: 'Is your metro still open? Thirty minutes tells you — and which engine to fix first.' },
+  cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },
 };
 
 export default data;

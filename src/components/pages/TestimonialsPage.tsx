@@ -76,7 +76,7 @@ export default function TestimonialsPage() {
               <Eyebrow>Operator stories</Eyebrow>
               <h2 className="rd-h2 rd-h2--sm">Hear it from them.</h2>
             </div>
-            <p className="rd-body" style={LH}>Two CAM operators on what changes when your agency speaks the language of community association management — one in under three minutes, one in five.</p>
+            <p className="rd-body" style={LH}>Two CAM operators on what changes when your agency speaks the language of community association management. One in under three minutes, one in five.</p>
           </div>
           <div className="rd-grid rd-grid--2 rd-gap-20">
             {VIDEOS.map((v) => (
@@ -117,7 +117,7 @@ export default function TestimonialsPage() {
       {/* CTA — pre-redesign "Want to be next?" close */}
       <section className="rd-section rd-bg-off">
         <div className="rd-wrap">
-          <CtaBar text="Want to be next? One CAM company per market. Thirty minutes, no pitch — and you’ll know if yours is still open." />
+          <CtaBar text="Want to be next? One CAM company per market. Thirty minutes, no pitch, and you’ll know if yours is still open." />
         </div>
       </section>
     </div>

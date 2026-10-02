@@ -92,12 +92,12 @@ export default function MarketingStrategyArticle() {
             </Section>
 
             <Section id="three-engines" title="Three engines, one plan">
-              <p>Attract, close, keep. Every marketing dollar belongs to one of them, and most firms overspend on the first and ignore the third. A plan that puts a third of the effort into retention usually outperforms one that puts all of it into leads — because a kept association is a referral engine, and referrals make Attract cheaper.</p>
+              <p>Attract, close, keep. Every marketing dollar belongs to one of them, and most firms overspend on the first and ignore the third. A plan that puts a third of the effort into retention usually outperforms one that puts all of it into leads, because a kept association is a referral engine, and referrals make Attract cheaper.</p>
             </Section>
 
             <Section id="the-18-month-shape" title="The 18-month shape">
               <p><strong>Months 0–3: diagnostic and foundation.</strong> Audit the three engines (attract, close, keep). Identify the binding constraint. Most CAM firms find their close engine is broken before they need more leads. Fix that first.</p>
-              <p><strong>Months 3–6: foundation execution.</strong> Authority content goes live. Proposal anatomy gets rebuilt. SOPs get documented. Reputation systems get installed. Nothing visible yet — and that’s the point. Foundations don’t headline.</p>
+              <p><strong>Months 3–6: foundation execution.</strong> Authority content goes live. Proposal anatomy gets rebuilt. SOPs get documented. Reputation systems get installed. Nothing visible yet, and that’s the point. Foundations don’t headline.</p>
               <p><strong>Months 6–12: signal in market.</strong> Inbound starts arriving. Win rates climb on outbound. Reviews accumulate. Boards begin returning to your education library. The first compound effects show up.</p>
               <p><strong>Months 12–18: pipeline pressure.</strong> The system is producing more qualified opportunities than the firm can comfortably absorb. Hiring conversations begin from a position of demand strength, not desperation.</p>
             </Section>
@@ -107,12 +107,12 @@ export default function MarketingStrategyArticle() {
             </Section>
 
             <Section id="measure-inquiries" title="Measure inquiries, not impressions">
-              <p>Traffic and followers are inputs. Board inquiries, proposal requests, and meetings booked are outputs. Wire attribution before you spend — forms, phone lines, calendar links — so every quarter you know what produced conversations and what produced charts.</p>
+              <p>Traffic and followers are inputs. Board inquiries, proposal requests, and meetings booked are outputs. Wire attribution before you spend (forms, phone lines, calendar links) so every quarter you know what produced conversations and what produced charts.</p>
             </Section>
 
             <Section id="two-failure-modes" title="The two failure modes">
               <p>Most CAM growth efforts fail in one of two ways. <strong>Mode A: agency-driven volume push without system.</strong> Spend climbs, results stay flat, owner concludes “marketing doesn’t work in our industry.” <strong>Mode B: heroic owner sales effort.</strong> One person carries everything, growth is a function of their personal calendar, and the business is one missed quarter from a flat year.</p>
-              <p>Engineered growth is neither. It’s the boring discipline of fixing the engine that’s actually broken, then the next one, then the next one — until growth stops requiring heroics.</p>
+              <p>Engineered growth is neither. It’s the boring discipline of fixing the engine that’s actually broken, then the next one, then the next one, until growth stops requiring heroics.</p>
             </Section>
 
             <Section id="one-firm-per-metro" title="Why exclusivity changes the math">
@@ -143,7 +143,7 @@ export default function MarketingStrategyArticle() {
 
       <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
         <div className="rd-wrap">
-          <CtaBar text="Thirty minutes tells you which engine to fix first — and whether your metro is open." />
+          <CtaBar text="Thirty minutes tells you which engine to fix first, and whether your metro is open." />
         </div>
       </section>
     </div>

@@ -8,7 +8,7 @@ const data: ServicePageData = {
   eyebrow: 'BoardMatch™ · RFP response',
   h1: 'The RFP you',
   h1Accent: 'can’t afford to lose.',
-  intro: 'Some RFPs are worth a dedicated team: the 800-door master association, the portfolio that changes your year. RFP Response System is done-for-you response production — research, narrative, deck, financials, exhibits — with a ten-day turnaround. For your everyday template, see Proposal Optimization.',
+  intro: 'Some RFPs are worth a dedicated team: the 800-door master association, the portfolio that changes your year. RFP Response System is done-for-you response production (research, narrative, deck, financials, exhibits) with a ten-day turnaround. For your everyday template, see Proposal Optimization.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 10, suffix: '-day', note: 'Turnaround from kickoff to submission-ready' },
@@ -27,7 +27,7 @@ const data: ServicePageData = {
       h: 'Research the board, not just the RFP.',
       p: [
         'Who’s on the board, what they’ve complained about, why the incumbent is out, what the last three meetings decided. The response should read like it was written for that room, because it was.',
-        'It starts with a 60-minute intake: the RFP, the board profile, the incumbent, and what you already know about the room. That becomes a three-page strategy memo — who’s voting, what they care about, where the incumbent fell short, where you win outright and where you flank.',
+        'It starts with a 60-minute intake: the RFP, the board profile, the incumbent, and what you already know about the room. That becomes a three-page strategy memo, who’s voting, what they care about, where the incumbent fell short, where you win outright and where you flank.',
       ],
     },
     {
@@ -84,11 +84,11 @@ const data: ServicePageData = {
     items: [
       { q: 'What if we only have five days?', a: 'Call us. Some RFPs can be compressed; some shouldn’t be pursued. We’ll tell you which.' },
       { q: 'Is this included in BoardSuite?', a: 'Growth and Scale include proposal and RFP systems; single-pursuit production is scoped separately when the RFP arrives.' },
-      { q: 'Why not use our internal team?', a: 'Use them when you can. We come in when the stakes outrun your bandwidth — when your BD lead is also running three other proposals, or the RFP needs more strategy and design than your team has time for. Your people still own the relationship and the room.' },
+      { q: 'Why not use our internal team?', a: 'Use them when you can. We come in when the stakes outrun your bandwidth, when your BD lead is also running three other proposals, or the RFP needs more strategy and design than your team has time for. Your people still own the relationship and the room.' },
       { q: 'Can you guarantee we win?', a: 'No, and be skeptical of anyone who does. We can guarantee the response is materially better than what you would have submitted, the fee model is defensible, and the team walking into the finalist meeting is prepared. We also turn down pursuits where the fit isn’t real.' },
     ],
   },
-  cta: { text: 'Is your metro still open? Thirty minutes tells you — and which engine to fix first.' },
+  cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },
 };
 
 export default data;

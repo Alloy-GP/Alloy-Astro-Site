@@ -10,7 +10,7 @@ import { Eyebrow, Label, LinkLabel, ArrowIcon, Btn, Checklist } from '~/componen
 const COURSE_URL = '/resources/courses/trust-building';
 
 const HOW_IT_WORKS = [
-  { title: 'Self-paced', body: 'One page per course. Read it in one sitting or jump to the section you need — every section has its own link.' },
+  { title: 'Self-paced', body: 'One page per course. Read it in one sitting or jump to the section you need. Every section has its own link.' },
   { title: 'Free', body: 'No login, no email. The trust-building course ends with five quick questions you score yourself.' },
   { title: 'Built for operators', body: 'Written for CAM owners and operators who don’t have an afternoon to spare. Each course runs 30–90 minutes and comes from the frameworks we use inside paid engagements.' },
 ];
@@ -18,7 +18,7 @@ const HOW_IT_WORKS = [
 const OBJECTIVES = [
   'Define reviews, testimonials, and case studies in CAM terms',
   'Explain why boards weigh each signal differently',
-  'Read your reviews the way a board does — recency, volume, balance, responses',
+  'Read your reviews the way a board does: recency, volume, balance, responses',
   'Spot the difference between forgettable praise and a testimonial that moves a board',
   'Structure a case study around challenge, solution, and results',
   'Place each signal where boards look during a decision',
@@ -32,15 +32,15 @@ const MODULES: Array<{ label: string; summary: string; sections: Array<{ id: str
     { id: 'why-trust-signals-matter', title: 'Why trust signals matter to HOA boards' },
   ] },
   { label: 'Module 2 · Reviews', summary: 'Reviews are the first signal boards see. Homeowner and board member reviews both count, and not every review carries the same weight.', sections: [
-    { id: 'what-reviews-are', title: 'What reviews are — and why they carry weight' },
+    { id: 'what-reviews-are', title: 'What reviews are, and why they carry weight' },
     { id: 'reviews-extra-factors', title: 'Reviews: extra factors that influence impact' },
   ] },
   { label: 'Module 3 · Testimonials', summary: 'Testimonials are curated board voices, more targeted than reviews. Specificity, authenticity, format, and placement decide whether one lands.', sections: [
-    { id: 'what-testimonials-are', title: 'What testimonials are — and why they stand out' },
+    { id: 'what-testimonials-are', title: 'What testimonials are, and why they stand out' },
     { id: 'testimonials-extra-factors', title: 'Testimonials: extra factors that influence impact' },
   ] },
   { label: 'Module 4 · Case studies', summary: 'Case studies tell the full story. That depth matters most when a board is making the final, high-stakes call.', sections: [
-    { id: 'what-case-studies-are', title: 'What case studies are — and why they convince' },
+    { id: 'what-case-studies-are', title: 'What case studies are, and why they convince' },
     { id: 'case-studies-extra-factors', title: 'Case studies: extra factors that influence impact' },
   ] },
   { label: 'Module 5 · Wrap-up', summary: 'How the three signals work together, where to place them, and the steps to a trust system that stays current.', sections: [
@@ -73,14 +73,14 @@ export default function CoursesPage() {
             <a href="/resources/courses/trust-building" className="rd-tile rd-ink-white" style={{ padding: 40, gap: 18, minHeight: 300 }}>
               <Label tone="yellow" size={12}>Course · 10 sections</Label>
               <div className="rd-h2 rd-h2--sm">Trust building for CAM firms.</div>
-              <p className="rd-body rd-body--16 rd-muted-85" style={{ maxWidth: 520 }}>Reviews, testimonials, and case studies — how boards weigh them, and how to build a system that keeps them current.</p>
+              <p className="rd-body rd-body--16 rd-muted-85" style={{ maxWidth: 520 }}>Reviews, testimonials, and case studies. How boards weigh them, and how to build a system that keeps them current.</p>
               <span className="rd-link rd-link--12 rd-link--white" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>Start the course <ArrowIcon /></span>
             </a>
             <div className="rd-stack rd-gap-20">
               <div className="rd-card rd-card--off rd-stack rd-stack--10" style={{ padding: 26 }}>
                 <Label size={12}>Coming next</Label>
                 <div className="rd-h4">New board member orientation</div>
-                <p className="rd-small rd-small--14" style={{ lineHeight: 1.65 }}>The first 90 days on an HOA board — for the volunteers you manage.</p>
+                <p className="rd-small rd-small--14" style={{ lineHeight: 1.65 }}>The first 90 days on an HOA board, for the volunteers you manage.</p>
               </div>
               <a href="/boardretain/board-education" className="rd-card rd-card--off rd-card-link rd-stack--10" style={{ padding: 26 }}>
                 <Label size={12}>For your firm</Label>

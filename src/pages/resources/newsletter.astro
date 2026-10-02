@@ -22,16 +22,16 @@ const schema = [
   {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: 'The Alloy Briefing — newsletter archive',
+    name: 'The Alloy Briefing: newsletter archive',
     itemListOrder: 'https://schema.org/ItemListOrderDescending',
     numberOfItems: all.length,
     itemListElement: slice.map((i, idx) => ({ '@type': 'ListItem', position: (page - 1) * PAGE_SIZE + idx + 1, name: i.title, url: i.url })),
   },
 ];
-const suffix = page > 1 ? ` — Page ${page}` : '';
+const suffix = page > 1 ? `. Page ${page}` : '';
 ---
 <BaseLayout
-  title={`The Alloy Briefing — Newsletter Archive${suffix} | Alloy GP`}
+  title={`The Alloy Briefing. Newsletter Archive${suffix} | Alloy GP`}
   description="Every issue of The Alloy Briefing, Alloy Growth Partners' newsletter for CAM operators on attracting, closing, and keeping HOA boards."
   pageId="resources"
   pageSchema={schema}

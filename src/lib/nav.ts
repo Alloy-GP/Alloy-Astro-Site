@@ -70,7 +70,7 @@ export const ENGINES: NavEngine[] = [
     color: '#b8942a',
     href: '/boardmatch',
     services: [
-      { label: 'Groundwork — Fractional BD', sub: 'Senior BD muscle without the senior BD salary', href: '/boardmatch/groundwork' },
+      { label: 'Groundwork · Fractional BD', sub: 'Senior BD muscle without the senior BD salary', href: '/boardmatch/groundwork' },
       { label: 'Proposal Optimization', sub: 'Rebuild the standing proposal boards compare you on', href: '/boardmatch/proposal-optimization' },
       { label: 'RFP Response System', sub: 'Done-for-you on a single high-stakes RFP', href: '/boardmatch/rfp-response-system' },
       { label: 'Sales Messaging & UVP', sub: 'The words that separate you from every other firm', href: '/boardmatch/sales-messaging' },
@@ -94,7 +94,7 @@ export const ENGINES: NavEngine[] = [
 ];
 
 export const BOARDSUITE_TILE = {
-  title: 'BoardSuite™ — all three, in unison',
+  title: 'BoardSuite™: all three, in unison',
   sub: 'The full system. One playbook, one accountable team.',
   href: '/boardsuite',
 };

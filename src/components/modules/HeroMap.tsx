@@ -64,7 +64,7 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
         <div className="rd-hm-copy">
           <div className="rd-hm-eyebrow">Marketing for HOA Management Companies</div>
           <h1 className="rd-hm-title">When a board in your city looks for a new HOA management company, <span className="rd-accent">who do they find?</span></h1>
-          <p className="rd-hm-payoff">Google, AI assistants, referral networks — boards check all three. The bigger question is how you stack up when they do: does what they find outshine your competition, or blend in?</p>
+          <p className="rd-hm-payoff">Google, AI assistants, referral networks: boards check all three. The bigger question is how you stack up when they do: does what they find outshine your competition, or blend in?</p>
         </div>
 
         <div className="rd-mc">
@@ -123,7 +123,7 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
             <span className="rd-hm-avatar"><img src={CHATGPT_MARK} alt="" width={16} height={16} decoding="async" /></span>
             <div className="rd-hm-bubble rd-hm-bubble--a">
               <div className="rd-hm-bubble-label rd-hm-bubble-label--ai"><img src={CHATGPT_MARK} alt="" width={11} height={11} decoding="async" />ChatGPT · answer</div>
-              <span className="rd-hm-chip">Your Company</span>is the top choice in <span className="rd-hm-city">{MAP.metro}</span> — strong board reviews and local experience.
+              <span className="rd-hm-chip">Your Company</span>is the top choice in <span className="rd-hm-city">{MAP.metro}</span>: strong board reviews and local experience.
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function HeroMap({ children }: { children?: ReactNode }) {
           <p className="rd-dialog-lead">1× is the floor: the new business Alloy brings in covers what you pay us. We’re confident enough to back it with our money, not just yours.</p>
           <div className="rd-dialog-terms">
             <div className="rd-dialog-terms-head">The one condition</div>
-            <p>The guarantee holds when your firm runs the programs we put in place — the review requests, proposals, follow-ups, and board touchpoints that make the system work. We build it; you run it with us. That’s how we can make the promise.</p>
+            <p>The guarantee holds when your firm runs the programs we put in place: the review requests, proposals, follow-ups, and board touchpoints that make the system work. We build it; you run it with us. That’s how we can make the promise.</p>
             <p>How growth is measured, the timeframe, and what happens if we miss are spelled out in your engagement agreement before you sign, so there’s nothing to interpret later.</p>
           </div>
           <div className="rd-dialog-actions">

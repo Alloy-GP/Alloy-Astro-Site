@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Alloy Growth Portal — landing page styles + portal UI mockups
+   Alloy Growth Portal - landing page styles + portal UI mockups
    Layers on top of colors_and_type.css + site.css
    Ported from design/growth-portal.css. Variant-switcher styles and
    primitives already in site.css / colors_and_type.css are dropped.
@@ -138,13 +138,13 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   border: 1px solid rgba(0,0,0,0.06);
   transform-origin: top left;
 }
-/* Fixed design widths — scaled to fit their column by JS (fitMocks) */
+/* Fixed design widths - scaled to fit their column by JS (fitMocks) */
 .gp-hero-art { position: relative; }
 .gp-showcase-art { position: relative; }
 .gp-showcase-art .gp-frame { width: 780px; }
 
 /* ----------------------------------------------------------------------------
-   HERO — floating standalone widgets (Action Queue + Partnership Value)
+   HERO - floating standalone widgets (Action Queue + Partnership Value)
 ---------------------------------------------------------------------------- */
 .gp-carousel { width: 564px; position: relative; transform-origin: top left; margin-left: auto; }
 .gp-cz-track { position: relative; width: 440px; margin: 0 auto; height: 510px; }
@@ -281,7 +281,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 .gp-frame-url .lock { color: #9a93a8; font-size: 11px; }
 
 /* ----------------------------------------------------------------------------
-   PORTAL APP SHELL (used in hero — full app with sidebar)
+   PORTAL APP SHELL (used in hero - full app with sidebar)
 ---------------------------------------------------------------------------- */
 .gp-app {
   display: grid; grid-template-columns: 62px 1fr;
@@ -381,7 +381,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 .gp-pv.smile .v { font-size: 30px; color: var(--alloy-pink); }
 
 /* ----------------------------------------------------------------------------
-   STANDALONE PANEL mockups (feature sections — content only, no rail)
+   STANDALONE PANEL mockups (feature sections - content only, no rail)
 ---------------------------------------------------------------------------- */
 .gp-panel {
   background:
@@ -495,13 +495,13 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 .gp-shot-name { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fg-3); padding-bottom: 6px; }
 .gp-shot-name::before { content: ""; display: inline-block; width: 26px; height: 2px; background: var(--alloy-pink); vertical-align: middle; margin-right: 12px; opacity: 0.5; }
 
-/* #4 — oversized mockup + a few punchy lines */
+/* #4 - oversized mockup + a few punchy lines */
 .gp-showcase--big { padding: 56px 60px; }
 .gp-showcase--big .gp-showcase-art .gp-frame { width: 540px; }
 .gp-big-points { list-style: none; padding: 0; margin: 34px 0 0; display: flex; flex-direction: column; gap: 22px; }
 .gp-big-points li { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 1.28; color: var(--alloy-purple); letter-spacing: -0.01em; padding-left: 22px; border-left: 3px solid var(--alloy-pink); text-wrap: pretty; }
 
-/* #3 — big numbered editorial list */
+/* #3 - big numbered editorial list */
 .gp-showcase--num .gp-feat-list { counter-reset: feat; display: flex; flex-direction: column; max-width: none; margin: 30px 0 0; text-align: left; border-top: 1px solid var(--border-subtle); }
 .gp-showcase--num .gp-feat-list li { counter-increment: feat; padding: 18px 0 18px 58px; font-family: var(--font-display); font-weight: 600; font-size: 18px; color: var(--alloy-purple); }
 .gp-showcase--num .gp-feat-list li .ck { display: none; }
@@ -518,7 +518,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 .gp-tabpanels > .gp-showcase { display: none; }
 .gp-tabpanels > .gp-showcase.is-active { display: block; }
 .gp-tabpanels > .gp-showcase + .gp-showcase { margin-top: 0; }
-/* Per-panel title — only shown on mobile, where tabs become one continuous list. */
+/* Per-panel title - only shown on mobile, where tabs become one continuous list. */
 .gp-panel-head { display: none; }
 #inside .gp-head.center { margin-bottom: 26px; }
 #inside #gpTitle { min-height: 2.1em; display: flex; align-items: center; justify-content: center; font-size: clamp(28px, 3vw, 36px); }
@@ -568,7 +568,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 /* Below the tablet breakpoint the dense tour mockups (Playbook project rows,
    Messages 2-col inbox) are too cramped at 1:1 in a ~350px column and overflow
    the frame. Pin them to a comfortable design width so fitMocks scales the
-   whole frame down to fit — same treatment as the hero carousel. The simpler
+   whole frame down to fit - same treatment as the hero carousel. The simpler
    Home/Roadmap mockups read fine and keep their own width. */
 @media (max-width: 720px) {
   /* Left-align so the top-left scale origin keeps the scaled frame flush to
@@ -851,7 +851,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 84px; }
 ---------------------------------------------------------------------------- */
 @media (max-width: 1080px) {
   /* minmax(0,1fr) lets the single column shrink below the fixed-width mock's
-     min-content — without it the 564/780px mock forces the track (and the
+     min-content - without it the 564/780px mock forces the track (and the
      copy/stats sharing it) to that width and overflows the viewport. */
   .gp-hero-inner { grid-template-columns: minmax(0, 1fr); gap: 48px; }
   .gp-hero-inner > * { min-width: 0; }

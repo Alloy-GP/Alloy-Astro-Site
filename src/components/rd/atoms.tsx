@@ -102,7 +102,7 @@ export function TextLink({ href, children, tone = 'purple', size = 13, arrow = t
   );
 }
 
-/** Non-interactive twin of TextLink for cards that are themselves the link (`.rd-card-link`) — avoids nested anchors. */
+/** Non-interactive twin of TextLink for cards that are themselves the link (`.rd-card-link`) - avoids nested anchors. */
 export function LinkLabel({ children, tone = 'purple', size = 12, className = '' }: { children: ReactNode; tone?: 'purple' | 'pink' | 'white'; size?: 11 | 12 | 13; className?: string }) {
   const cls = `rd-link${tone !== 'purple' ? ` rd-link--${tone}` : ''}${size !== 13 ? ` rd-link--${size}` : ''} ${className}`.trim();
   return <span className={cls}>{children}<ArrowIcon size={size === 11 ? 11 : 12} /></span>;
@@ -157,7 +157,7 @@ export function ChipRow({ label, chips, all }: { label: string; chips: Array<{ l
 export function StatNumber({ stat, size = 48, unit = false }: { stat: StatItem; size?: 40 | 48 | 52; unit?: boolean }) {
   const display = stat.display ?? stat.value.toLocaleString('en-US');
   // `unit`: the suffix is a word set at full size in yellow ("35+ years", "1 firm per metro") instead of a half-size mark.
-  const trail = display.replace(String(stat.value), ''); // e.g. "+" in "35+" — kept through the count-up
+  const trail = display.replace(String(stat.value), ''); // e.g. "+" in "35+" - kept through the count-up
   return (
     <div className={`rd-stat-num${size !== 48 ? ` rd-stat-num--${size}` : ''}${unit ? ' rd-stat-num--unit' : ''}`}>
       <span data-count={stat.value} data-prefix={stat.prefix ?? ''} data-suffix={unit ? trail : ''}>

@@ -81,7 +81,7 @@ export default function AISearchArticle() {
           </aside>
 
           <article className="rd-article" style={{ minWidth: 0 }}>
-            <p>For fifteen years, the marketing question for CAM firms was “how do we get to page one of Google?” That question is now obsolete. Boards are asking AI for one answer. If you’re not it, you don’t exist in the consideration set — and you’ll never know the search occurred.</p>
+            <p>For fifteen years, the marketing question for CAM firms was “how do we get to page one of Google?” That question is now obsolete. Boards are asking AI for one answer. If you’re not it, you don’t exist in the consideration set, and you’ll never know the search occurred.</p>
 
             <Section id="what-changed" title="What changed">
               <p>AI search engines synthesize an answer from a small set of cited sources. Three to five citations. Not ten blue links. Not “we found 4,200 results.” One synthesized answer, and a small number of sources that get the credit (and the click).</p>
@@ -92,7 +92,7 @@ export default function AISearchArticle() {
             <Section id="what-to-do" title="What to do, in priority order">
               <p><strong>1. Schema, properly.</strong> LocalBusiness, Service, FAQ, and Organization schema, deployed across every page. AI engines lean on structured data more heavily than human users. Most CAM sites have either no schema or broken schema.</p>
               <p><strong>2. Authority content with depth.</strong> Generic “10 things to look for in a CAM firm” posts don’t get cited. 4,000-word definitive guides on regional governance, transition processes, or RFP anatomy do. Depth wins citations.</p>
-              <p><strong>3. Per-metro pillar pages.</strong> If you serve Phoenix, Tucson, and Flagstaff, you need three substantial pages — not one “service area” page with three city names. AI engines reward topical depth at the geographic level.</p>
+              <p><strong>3. Per-metro pillar pages.</strong> If you serve Phoenix, Tucson, and Flagstaff, you need three substantial pages, not one “service area” page with three city names. AI engines reward topical depth at the geographic level.</p>
               <p><strong>4. Citation tracking, monthly.</strong> Most agencies track keyword ranking. That’s a dead metric. Track which AI engines cite you, for which queries, with what context. Then optimize backwards.</p>
             </Section>
 
@@ -125,7 +125,7 @@ export default function AISearchArticle() {
 
       <section className="rd-section rd-bg-off" style={{ paddingTop: 0 }}>
         <div className="rd-wrap">
-          <CtaBar text="Want to be the answer boards get? Thirty minutes tells you how far off you are — and whether your metro is open." />
+          <CtaBar text="Want to be the answer boards get? Thirty minutes tells you how far off you are, and whether your metro is open." />
         </div>
       </section>
     </div>
