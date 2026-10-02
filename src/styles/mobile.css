@@ -167,7 +167,7 @@
 @media (max-width: 1240px) {
   .rd-trustbar-items { gap: 14px 28px; font-size: 15px; }
   .rd-trustbar-label { font-size: 11px; }
-  .rd-trustbar-items .rd-trustbar-logo--peak { height: 40px; }
+  .rd-trustbar-items .rd-trustbar-logo--peak { height: 29px; }
   .rd-trustbar-items .rd-trustbar-logo--thinktank { height: 25px; }
   .rd-trustbar-items .rd-trustbar-logo--innovia { height: 44px; }
 }
@@ -338,7 +338,7 @@
   .rd-trustbar { padding: 24px 0; }
   .rd-trustbar-inner { flex-direction: column; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
   .rd-trustbar-items { flex-wrap: wrap; gap: 10px 24px; font-size: 15px; white-space: normal; }
-  .rd-trustbar-items .rd-trustbar-logo--peak { height: 36px; }
+  .rd-trustbar-items .rd-trustbar-logo--peak { height: 25px; }
   .rd-trustbar-items .rd-trustbar-logo--thinktank { height: 22px; }
   .rd-trustbar-items .rd-trustbar-logo--innovia { height: 42px; margin: -10px -8px; }
   .rd-tip-btn { position: relative; }
