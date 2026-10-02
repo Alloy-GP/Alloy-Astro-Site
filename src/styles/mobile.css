@@ -170,7 +170,15 @@
   .rd-trustbar-items img { height: 44px; }
 }
 
+@media (max-width: 1240px) {
+  .rd-hm { grid-template-columns: minmax(0, 1fr) 480px; gap: 36px; }   /* keep the copy column readable on small desktops */
+  .rd-hm-google { width: 240px; }
+  .rd-hm-pulse, .rd-hm-pin { left: 76%; }   /* clear the Google card's right edge on a 440–480px map */
+}
+
 @media (max-width: 1100px) {
+  .rd-hm { grid-template-columns: minmax(0, 1fr) 440px; }
+  .rd-hm-title { font-size: 38px; }
   .rd-h1, .rd-h1--xl, .rd-h1--lg, .rd-h1--md { font-size: 64px; }
   .rd-h2 { font-size: 48px; }
   .rd-grid--hero, .rd-grid--hero-wide, .rd-grid--hub, .rd-grid--prose, .rd-grid--outcome, .rd-prose-row, .rd-outcome { gap: 48px; }
@@ -191,6 +199,10 @@
   .rd-form-grid   { grid-template-columns: 1fr 1fr; gap: 14px; }
   /* source-order swaps */
   .rd-network .rd-nc { order: 2; }                      /* homepage purple band: copy first, chart second */
+  .rd-hm { grid-template-columns: 1fr; gap: 28px; }
+  .rd-hm-left { gap: 24px; }
+  .rd-hm-map { min-height: 520px; height: 520px; }
+  .rd-hm-referral { right: 16px; }
   .rd-statband, .rd-statband--4 { grid-template-columns: 1fr 1fr; gap: 32px; }
   .rd-tiers { grid-template-columns: 1fr; }
   .rd-engine-row { grid-template-columns: 1fr; gap: 28px; }
@@ -327,18 +339,25 @@
   .rd-trustbar-items img { height: 42px; margin: -10px -8px; }
   .rd-tip-btn { position: relative; }
   .rd-tip-btn::after { content: ""; position: absolute; inset: -14px -8px; }   /* ≥44px hit area */
-  /* Hero card 2b (docs/redesign-handoff-hero-2b/mobile.css.snippet, rev. 2026-10-02) */
-  .rd-hc { gap: 18px; }
-  .rd-hc-title { font-size: 26px; }
-  .rd-hc-payoff { font-size: 20px; }
-  .rd-hc-panel { grid-template-columns: 1fr; gap: 20px; padding: 20px; }   /* guarantee lands under the field */
-  .rd-hc-avail-h { font-size: 20px; }
-  .rd-hc-input { font-size: 16px; }   /* no iOS zoom; the combined field stays a row */
-  .rd-hc-check { padding: 0 16px; }
-  .rd-hc-guarantee { border-left: 0; padding-left: 0; border-top: 1px solid #ddd6e6; padding-top: 20px; }
-  .rd-hc-badge { width: 52px; height: 52px; }
-  .rd-hc-result { padding: 10px; }
-  .rd-hc-result-actions { width: 100%; justify-content: space-between; }
+  /* Hero 7a map hero (docs/redesign-handoff-hero-7a) — one column: copy, metro card, then the map */
+  .rd-hm-title { font-size: 32px; }
+  .rd-hm-payoff { font-size: 16px; }
+  .rd-mc-head { padding: 16px 18px; }
+  .rd-mc-title { font-size: 18px; }
+  .rd-mc-body { padding: 16px 18px 0; }
+  .rd-mc-input { font-size: 16px; }   /* no iOS zoom; the combined field stays a row */
+  .rd-mc-check { padding: 0 16px; }
+  .rd-mc-guarantee { margin: 16px 18px 0; padding: 16px 0 18px; }
+  .rd-mc-result { padding: 10px; }
+  .rd-mc-result-actions { width: 100%; justify-content: space-between; }
+  /* 350px-wide map: Google card top-left → referral pill under it (right) → pin bottom-left → ChatGPT thread bottom-right */
+  .rd-hm-map { min-height: 520px; height: 520px; }
+  .rd-hm-dot { display: none; }
+  .rd-hm-google { left: 16px; top: 16px; width: min(248px, calc(100% - 32px)); padding: 14px; }
+  .rd-hm-referral { right: 12px; top: 214px; width: min(248px, calc(100% - 24px)); }
+  .rd-hm-pulse, .rd-hm-pin { left: 20%; top: 58%; }
+  .rd-hm-chat { left: auto; right: 16px; bottom: 20px; width: min(228px, calc(100% - 32px)); }
+  .rd-hm-bubble--q { max-width: 86%; }
   .rd-dialog-panel { padding: 28px 22px 24px; }
   .site-search { margin-top: 8px; max-width: calc(100vw - 16px); }
   .site-search-input { font-size: 16px; }
@@ -346,7 +365,7 @@
   .site-search-foot { display: none; }
   .rd-dialog-title { font-size: 24px; }
   .rd-dialog-actions { flex-direction: column; align-items: stretch; }
-  .rd-dialog-actions .rd-hc-btn { width: 100%; }
+  .rd-dialog-actions .rd-mc-btn { width: 100%; }
   .rd-network { padding: 56px 0 !important; }
   .rd-network .rd-grid { gap: 32px !important; }
   .rd-network .rd-logo-link { align-self: center; }
@@ -450,10 +469,6 @@
   .rd-h1--sm { font-size: 34px; }
   .rd-h2 { font-size: 30px; }
   .rd-steps, .rd-steps--3 { gap: 0 16px; }
-  .rd-hc-answer-name { font-size: 13px; }
-  .rd-hc-answer-trail { font-size: 11px; }
-  .rd-hc-story { padding: 14px; }
-  .rd-hc-moment { padding: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

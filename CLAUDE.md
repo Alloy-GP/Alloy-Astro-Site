@@ -36,7 +36,6 @@ src/
 │   ├── motion.ts                    # Scroll-reveal runtime (data-reveal contract) — mounted once from BaseLayout
 │   ├── mobile.ts                    # ≤720 enhancements (footer accordions, sticky CTA bar observers, article TOC bar + progress) — mounted from BaseLayout
 │   ├── dialog.ts                    # native <dialog> modals: [data-dialog=id] opens, [data-dialog-close]/backdrop/Esc close — mounted from BaseLayout
-│   ├── hero-story.ts                # homepage hero: the three search moments play one at a time (type → pop / think → slide / search → match); html.js gate
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
 │   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
@@ -67,12 +66,12 @@ src/
 │   │   └── HubPage.tsx              # Template 2 — renders a HubPageData object (the 3 engine hubs)
 │   │
 │   ├── sections/
-│   │   ├── HeroStatic.astro         # Homepage hero wrapper (static): the HeroCard slot IS the hero — banner copy removed 2026-10-01
+│   │   ├── HeroStatic.astro         # Homepage hero wrapper (static): the HeroMap slot IS the hero
 │   │   ├── Shells.tsx               # LEGACY shells (PageHero, CtaBand, …) — still imported by landing-page code; do not use for new work
 │   │
 │   ├── modules/                     # Interactive islands + self-contained modules
-│   │   ├── HeroCard.tsx             # Homepage hero card 2b (STATIC): three search moments → tinted "Your Company · YOU" rows → payoff → lavender panel (metro slot + guarantee badge row)
-│   │   ├── MetroCheck.tsx           # "Is your metro still open?" island inside HeroCard (client:load): metro or ZIP → /api/metro?q= → Open/Claimed
+│   │   ├── HeroMap.tsx              # Homepage hero 7a (STATIC): copy + metro card (MetroCheck slot + guarantee row) | muted street map with Google card / ChatGPT thread / referral pill → #1 pin
+│   │   ├── MetroCheck.tsx           # Metro card header band + combined field (client:load island inside HeroMap): metro or ZIP → /api/metro?q= → Open/Claimed
 │   │   ├── NetworkLeadsChart.tsx    # Homepage "Network leads" column chart with ⓘ tooltips (client:visible)
 │   │   ├── NewsletterSignup.tsx     # /resources newsletter form (client:idle) → /api/subscribe
 │   │   ├── TrustBuildingQuiz.tsx    # Knowledge check at the end of the trust-building guide (client:visible)
@@ -99,7 +98,7 @@ src/
 │   ├── AccentBar.tsx, AnimatedNumber.tsx, Button.tsx, EngineLoop.tsx, Eyebrow.tsx, Icon.tsx, PillarMark.tsx, Tag.tsx  # legacy atoms (Icon still used)
 │
 └── pages/                           # Astro routes — thin shells
-    ├── index.astro                  → HeroStatic › HeroCard › MetroCheck island; HomePage + NetworkLeadsChart slot
+    ├── index.astro                  → HeroStatic › HeroMap › MetroCheck island; HomePage + NetworkLeadsChart slot
     ├── boardsuite.astro, services.astro, pricing.astro, results.astro
     ├── about.astro, about/testimonials.astro, partners.astro, careers.astro, faq.astro, contact.astro, growth-modeled.astro
     ├── privacy-policy.astro, terms-conditions.astro, 404.astro
@@ -125,7 +124,7 @@ src/
 
 | # | Template | Where |
 |---|---|---|
-| 1 | Homepage | `HeroStatic.astro` + `modules/HeroCard.tsx` (+ `MetroCheck` island) + `HomePage.tsx` |
+| 1 | Homepage | `HeroStatic.astro` + `modules/HeroMap.tsx` (+ `MetroCheck` island) + `HomePage.tsx` |
 | 2 | Engine hub | `rd/HubPage.tsx` + `data/hubs/*.ts` |
 | 3 | Service page | `rd/ServicePage.tsx` + `data/services/*.ts` |
 | 4 | Index pages | `BoardSuitePage`, `ServicesPage`, `PricingPage`, `ResultsPage` |
@@ -151,7 +150,7 @@ import YourPage from '~/components/pages/YourPage';
 </BaseLayout>
 ```
 
-Islands inside a static page component are passed as `children` from the route (`<YourPage><Form client:load /></YourPage>`, e.g. `<HeroCard><MetroCheck client:load /></HeroCard>`).
+Islands inside a static page component are passed as `children` from the route (`<YourPage><Form client:load /></YourPage>`, e.g. `<HeroMap><MetroCheck client:load /></HeroMap>`).
 
 **`pageId`** values: `home` · `system` (services, hubs, boardsuite) · `results` · `pricing` · `resources` · omit for About/Contact/FAQ/legal. (Legacy values `services`/`boardsuite`/`approach` still map to `system`.)
 
@@ -178,7 +177,7 @@ The handoff specifies Gotham **900**. This site maps 800 → Gotham-Black and 90
 
 **Light sections:** every off-white `<section class="rd-bg-off">` (alias `.section-light`) carries the textured treatment — grain, 2px five-color rule, purple wash — from layered `background-image`s; an off-white block directly following another keeps only the grain. Don't stack an off-white spacer above an off-white section unless you want that behavior.
 
-**Mobile** follows `docs/redesign-handoff/docs/mobile-spec.md` (prototype: `site/Mobile Spec.dc.html`). ≤980: header becomes a 60px bar with a compact "Claim" CTA + 44px burger → full-height panel (two-level System accordion, System + BoardReach open by default, About · Contact · FAQ row, pinned CTA); every `rd-grid--*` collapses to one column. ≤720: gutters 20, sections 56 (hero 48), H1 42–46 / H2 34 / H3 23 / body 16, buttons full-width, inputs 16px, stat bands 2-col (lone third stat spans; `.rd-statband--compact` stays 3-up), steps 2×2, chips + secondary news cards become edge-bleed snap rails, breadcrumbs collapse to one "‹ Parent" link (`.rd-breadcrumb-parent`), hub system card → 3-up tiles, build cards → rows, tiers stack with the popular one first, compare tables scroll with a sticky first column, footer columns → accordions, the article TOC → sticky "On this page · n of N" bar (`lib/mobile.ts`), and a pink sticky "Claim your market" bar appears after the hero CTA scrolls away (hidden near forms/footer; never on /get-started, /contact). Hooks: `rd-network`, `rd-news-rail`, `rd-threeup--engines`, `rd-grid--stats`, `rd-grid--team`, `rd-form-grid`, `rd-gs-hero`, `rd-compare-card`. Prefer `rd-grid--*` classes over inline `gridTemplateColumns` so grids stack. QA: `node .context/mobile-qa.mjs <url> 390 844 [out.png]` (overflow / <16px inputs / small tap targets); `node .context/eval.mjs <url> <w> <h> "<js>"` evaluates JS in headless Chrome.
+**Mobile** follows `docs/redesign-handoff/docs/mobile-spec.md` (prototype: `site/Mobile Spec.dc.html`). ≤980: header becomes a 60px bar with a compact "Claim" CTA + 44px burger → full-height panel (two-level System accordion, System + BoardReach open by default, About · Contact · FAQ row, pinned CTA); every `rd-grid--*` collapses to one column. ≤720: gutters 20, sections 56 (hero 48), H1 42–46 / H2 34 / H3 23 / body 16, buttons full-width, inputs 16px, stat bands 2-col (lone third stat spans; `.rd-statband--compact` stays 3-up), steps 2×2, chips + secondary news cards become edge-bleed snap rails, breadcrumbs collapse to one "‹ Parent" link (`.rd-breadcrumb-parent`), hub system card → 3-up tiles, build cards → rows, the map hero stacks (copy → metro card → 460–520px map with callouts pulled inside), tiers stack with the popular one first, compare tables scroll with a sticky first column, footer columns → accordions, the article TOC → sticky "On this page · n of N" bar (`lib/mobile.ts`), and a pink sticky "Claim your market" bar appears after the hero CTA scrolls away (hidden near forms/footer; never on /get-started, /contact). Hooks: `rd-network`, `rd-news-rail`, `rd-threeup--engines`, `rd-grid--stats`, `rd-grid--team`, `rd-form-grid`, `rd-gs-hero`, `rd-compare-card`. Prefer `rd-grid--*` classes over inline `gridTemplateColumns` so grids stack. QA: `node .context/mobile-qa.mjs <url> 390 844 [out.png]` (overflow / <16px inputs / small tap targets); `node .context/eval.mjs <url> <w> <h> "<js>"` evaluates JS in headless Chrome.
 
 ---
 
@@ -261,6 +260,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Hero 7a — map hero** (`docs/redesign-handoff-hero-7a/`, supersedes card 2b): two columns — copy + metro card (purple header band with LIVE pill, combined field, guarantee badge row) and a muted street map (`public/assets/map/austin.webp`, generated from OSM tiles by `.context/gen-map.mjs`) with Google / ChatGPT / referral callouts pointing at the #1 pin (pulse is the only motion). `HeroMap.tsx` replaces `HeroCard.tsx`; `lib/hero-story.ts` + the `html.js` gate removed. Classes `rd-hm-*` / `rd-mc-*`. Open items: per-visitor metro needs a map key; ChatGPT avatar is a sparkle until the official mark is licensed. |
 | 2026-10-02 | **Hero card rev. (4a + 6a)** from the client's "home edit" handoff: tinted answer rows with YOU tags (referral chip yellow), one lavender bottom panel with a combined metro field (`.rd-hc-field` + `.rd-hc-check`) and the guarantee badge row (`GuaranteeBadge`, no text); divider + idle microcopy gone. |
 | 2026-10-02 | **Guarantee → "The floor · 1×"** copy (hero card, modal, FAQ); the card is now white with the client's seal (inline SVG `GuaranteeSeal` in HeroCard: five-color arcs, purple disc, ring text, gold check) instead of the gold "THE FLOOR · 1×" box. **iOS menu fix:** mobile panel portaled to `<body>` — Safari treats the header's `backdrop-filter` as a containing block for `position: fixed`, so the panel had no height on iPhones. |
 | 2026-10-02 | **Launch sweep** (`.context/launch-audit.mjs`): 59 live URLs → all 200 or one-hop 301 on stg; 146 redirects clean (only legacy `.html` sources take 2 hops because Vercel `cleanUrls` strips `.html` first); no broken links/images; valid schema; 42/42 routes clean at 390px; production build passes; generated sitemap = 42 routes. Fixes: stale `public/sitemap.xml` deleted + robots.txt line dropped, `/sitemap.xml` → `/sitemap-index.xml` redirect in vercel.json (GSC's old submission keeps resolving); results case cards regain their "what we built" lists. |

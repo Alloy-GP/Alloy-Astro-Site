@@ -1,12 +1,11 @@
-// src/components/modules/MetroCheck.tsx — "Is your metro still open?" (client:load island inside HeroCard).
-// Free-text metro or ZIP → /api/metro?q= → Open / Claimed. The result replaces the form in place
-// (the 2b design has no map); "Claim it" / "Join the waitlist" carry the metro to /contact.
+// src/components/modules/MetroCheck.tsx — the metro card's header band + combined field (client:load island inside HeroMap).
+// Free-text metro or ZIP → /api/metro?q= → Open / Claimed. The result replaces the field in place; "Claim it" /
+// "Join the waitlist" carry the metro to /contact. The LIVE pill in the header swaps to the status.
 import { useEffect, useRef, useState } from 'react';
-import { Glyph } from './HeroCard';
+import { Glyph } from './HeroMap';
 
 type Phase = 'idle' | 'loading' | 'result' | 'error';
 interface Result { name: string; claimed: boolean; near?: string; zip?: string }
-
 
 export default function MetroCheck() {
   const [q, setQ] = useState('');
@@ -37,58 +36,56 @@ export default function MetroCheck() {
 
   const r = phase === 'result' ? result : null;
   const live = phase === 'loading' ? 'Checking…' : r ? (r.claimed ? 'Claimed' : 'Open') : 'Live';
-  const liveColor = r ? (r.claimed ? 'var(--alloy-pink)' : 'var(--live)') : 'var(--live)';
   const micro = phase === 'error' ? error
-    : phase === 'loading' ? 'Checking live availability…'
     : r ? (r.claimed ? `A CAM firm already holds ${r.near ?? r.name}. Join the waitlist and we’ll tell you if it opens.` : `${r.name} is open. Thirty minutes locks it for your firm.`)
     : '';
   const to = (intent?: string) => `/contact?metro=${encodeURIComponent(r?.name ?? q.trim())}${intent ? `&intent=${intent}` : ''}`;
 
   return (
-    <div className="rd-hc-avail">
-      <div className="rd-hc-avail-head">
-        <div className="rd-hc-avail-h">Is your metro still open?</div>
-        <div className="rd-hc-live" aria-live="polite">
-          <span className="rd-hc-live-dot" aria-hidden="true" style={{ background: liveColor, boxShadow: `0 0 0 4px ${r?.claimed ? 'rgba(217,53,110,.18)' : 'rgba(47,158,133,.18)'}` }} />
+    <>
+      <div className="rd-mc-head">
+        <div className="rd-mc-title">Is your metro still open?</div>
+        <div className={`rd-mc-live${r?.claimed ? ' rd-mc-live--claimed' : ''}`} aria-live="polite">
+          <span className="rd-mc-live-dot" aria-hidden="true" />
           {live}
         </div>
       </div>
-
-      {r ? (
-        <div className="rd-hc-result" role="status">
-          <div className="rd-hc-result-main">
-            <span className="rd-hc-result-dot" style={{ background: liveColor }} />
-            <span className="rd-hc-result-name">{r.name}</span>
-            <span className="rd-hc-result-status">· {r.claimed ? 'claimed' : 'open'}</span>
+      <div className="rd-mc-body">
+        {r ? (
+          <div className="rd-mc-result" role="status">
+            <div className="rd-mc-result-main">
+              <span className="rd-mc-result-dot" style={{ background: r.claimed ? 'var(--alloy-pink)' : 'var(--live)' }} />
+              <span className="rd-mc-result-name">{r.name}</span>
+              <span className="rd-mc-result-status">· {r.claimed ? 'claimed' : 'open'}</span>
+            </div>
+            <div className="rd-mc-result-actions">
+              {r.claimed ? (
+                <a href={to('waitlist')} className="rd-mc-btn rd-mc-btn--dark">Join the waitlist</a>
+              ) : (
+                <a href={to()} className="rd-mc-btn"><Glyph name="check" size={12} stroke={3} /> Claim it</a>
+              )}
+              <button type="button" className="rd-mc-again" onClick={reset}>Check another</button>
+            </div>
           </div>
-          <div className="rd-hc-result-actions">
-            {r.claimed ? (
-              <a href={to('waitlist')} className="rd-hc-btn rd-hc-btn--dark">Join the waitlist</a>
-            ) : (
-              <a href={to()} className="rd-hc-btn"><Glyph name="check" size={12} stroke={3} /> Claim it</a>
-            )}
-            <button type="button" className="rd-hc-again" onClick={reset}>Check another</button>
-          </div>
-        </div>
-      ) : (
-        <form className="rd-hc-field" onSubmit={(e) => { e.preventDefault(); void check(); }}>
-          <label htmlFor="hero-metro" className="rd-sr-only">Your metro or ZIP code</label>
-          <input
-            id="hero-metro"
-            ref={inputRef}
-            className="rd-hc-input"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            placeholder="Enter your metro"
-            autoComplete="address-level2"
-            maxLength={80}
-            aria-invalid={phase === 'error' || undefined}
-          />
-          <button type="submit" className="rd-hc-check" disabled={phase === 'loading'}>{phase === 'loading' ? 'Checking…' : 'Check'}</button>
-        </form>
-      )}
-
-      {micro ? <div className={`rd-hc-micro${phase === 'error' ? ' rd-hc-micro--error' : ''}`} aria-live="polite">{micro}</div> : <div className="rd-sr-only" aria-live="polite" />}
-    </div>
+        ) : (
+          <form className="rd-mc-field" onSubmit={(e) => { e.preventDefault(); void check(); }}>
+            <label htmlFor="hero-metro" className="rd-sr-only">Your metro or ZIP code</label>
+            <input
+              id="hero-metro"
+              ref={inputRef}
+              className="rd-mc-input"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              placeholder="Enter your metro"
+              autoComplete="address-level2"
+              maxLength={80}
+              aria-invalid={phase === 'error' || undefined}
+            />
+            <button type="submit" className="rd-mc-check" disabled={phase === 'loading'}>{phase === 'loading' ? 'Checking…' : 'Check'}</button>
+          </form>
+        )}
+        {micro ? <div className={`rd-mc-micro${phase === 'error' ? ' rd-mc-micro--error' : ''}`} aria-live="polite">{micro}</div> : <div className="rd-sr-only" aria-live="polite" />}
+      </div>
+    </>
   );
 }

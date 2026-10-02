@@ -219,3 +219,11 @@ The old `/services/social-media-marketing-for-hoa-management-companies` page sol
 
 **Applied from the "home edit" handoff:** answer rows are now light rows in each channel's tint with purple text and a small YOU tag (referral chip yellow, pink reserved for the Check button); the bottom of the card is one lavender panel with a combined metro field (input + Check) on the left and the guarantee badge row on the right (five-color arcs, purple disc, gold check — no text). Divider and microcopy removed. Kept from earlier client decisions: flush card, radius 10, pink keyword eyebrow + question H1, whole guarantee row opens the terms modal, Open/Claimed result state in place of the field.
 
+## 39. Hero 7a — map hero (client, 2026-10-02)
+
+**Built** from `docs/redesign-handoff-hero-7a/` ("another better update for the home banner"). Left: copy + metro card; right: muted street map with the Google local-pack card, ChatGPT thread and referral pill all pointing at the #1 pin. Earlier client calls kept (flush hero, radii 10, pink keyword eyebrow + question H1, guarantee row = terms button, Open/Claimed result).
+
+**Owed / to decide:**
+- **Per-visitor metro.** The map is a static Austin image generated from OpenStreetMap tiles (`.context/gen-map.mjs`, attribution kept). Centering on the visitor's metro needs a Mapbox/MapTiler key (or one pre-generated image per partner metro — Vercel's `x-vercel-ip-city` header can pick it).
+- **Third-party marks.** Google "G" is used as in the handoff (nominative). The ChatGPT avatar is a neutral sparkle, not the OpenAI logo — license/approve the official mark if wanted. Legal review of both before launch (checklist #17).
+

@@ -1,11 +1,10 @@
 ---
 // src/components/sections/HeroStatic.astro
-// Homepage hero — the hero card IS the hero (client, 2026-10-01: banner copy + layout removed).
-// Static HTML wrapper so the card's H1 paints at HTML parse time (LCP); the card itself is a static
-// React component and only its availability check hydrates.
+// Homepage hero wrapper — the HeroMap (option 7a, 2026-10-02) IS the hero. Static HTML so the H1 paints
+// at HTML parse time (LCP); HeroMap is a static React component and only its metro check hydrates.
 //
 // Usage (src/pages/index.astro):
-//   <HeroStatic><HeroCard><MetroCheck client:load /></HeroCard></HeroStatic>
+//   <HeroStatic><HeroMap><MetroCheck client:load /></HeroMap></HeroStatic>
 ---
 <section class="rd-page rd-section rd-section--hero rd-hero">
   <div class="rd-wrap">

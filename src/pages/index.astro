@@ -2,7 +2,7 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import HeroStatic from '~/components/sections/HeroStatic.astro';
 import HomePage from '~/components/pages/HomePage';
-import HeroCard from '~/components/modules/HeroCard';
+import HeroMap from '~/components/modules/HeroMap';
 import MetroCheck from '~/components/modules/MetroCheck';
 import NetworkLeadsChart from '~/components/modules/NetworkLeadsChart';
 // Title + description changed DELIBERATELY (client, 2026-10-01) to target "marketing for HOA management companies";
@@ -16,9 +16,9 @@ import NetworkLeadsChart from '~/components/modules/NetworkLeadsChart';
 >
   <!--
     HeroStatic renders the h1 as pure static HTML (no island wrapper) so Chrome records LCP
-    at HTML parse time. The hero card is static too; only its availability check and the network-leads chart hydrate.
+    at HTML parse time. The map hero is static too; only its metro check and the network-leads chart hydrate.
   -->
-  <HeroStatic><HeroCard><MetroCheck client:load /></HeroCard></HeroStatic>
+  <HeroStatic><HeroMap><MetroCheck client:load /></HeroMap></HeroStatic>
   <HomePage>
     <NetworkLeadsChart slot="chart" client:visible />
   </HomePage>
