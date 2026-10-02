@@ -88,12 +88,12 @@ export default function HomePage({ chart }: { chart?: ReactNode }) {
         </div>
       </section>
 
-      {/* What you get */}
+      {/* What you get — client 2026-10-02: name the three engines here so the "which engine is leaking?" CTA below lands */}
       <section className="rd-section">
         <div className="rd-wrap rd-stack rd-stack--40">
           <div className="rd-grid rd-grid--2 rd-grid--end">
             <h2 className="rd-h2">What you get in your metro.</h2>
-            <p className="rd-body" style={{ lineHeight: 1.55 }}>Attract, close, keep — run as one playbook, by one partner, for one CAM company in your market.</p>
+            <p className="rd-body" style={{ lineHeight: 1.55 }}>Three engines of growth, run as one playbook by one partner: BoardReach™ attracts the boards, BoardMatch™ closes them, BoardRetain™ keeps them. Exclusive to one CAM company in your market.</p>
           </div>
           {/* Whole block is the link (≤720 it becomes a tappable 52px/1fr row — mobile.css) */}
           <div className="rd-threeup rd-threeup--engines">
