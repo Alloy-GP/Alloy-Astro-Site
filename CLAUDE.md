@@ -250,6 +250,7 @@ interface Props {
 - Landing pages (`/boardstart`, `/cam-growth-portal`, `/find-your-path`) are self-contained; leave them alone.
 - Don't run `pkill -f` patterns that appear in your own shell command (it kills the shell). Kill Chrome with `killall chrome`.
 - Screenshots: `node .context/shot.mjs <url> <out.png> [w] [h] [full 0|1]` (CDP; needs the dev server on :4321).
+- **Pre-launch sweep:** `node .context/launch-audit.mjs [stg] [live]` — live-sitemap URLs → 200/one-hop 301, title/description/word-count regression vs live, every redirect rule, internal links, images, H1 count, canonical, JSON-LD validity, FAQ schema ↔ visible FAQ, duplicates, favicons/og. Mobile: loop `.context/mobile-qa.mjs` over `SITEMAP_ROUTES`.
 - **Staging:** `stg.alloygp.co` is bound to the `staging` branch; `dev.alloygp.co` to `skyleralloygp/site-redesign`. After every push to the redesign branch also run `git push origin skyleralloygp/site-redesign:staging` (fast-forward; `staging` was merged into the redesign with `-s ours` on 2026-10-01). Non-production deploys are `noindex,nofollow` automatically via `VERCEL_ENV` in `BaseLayout.astro`.
 - Update this file's tree + changelog when routes or shared pieces change; log client decisions in `docs/redesign-handoff/OPEN-QUESTIONS.md`.
 
@@ -260,6 +261,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-02 | **Launch sweep** (`.context/launch-audit.mjs`): 59 live URLs → all 200 or one-hop 301 on stg; 146 redirects clean (only legacy `.html` sources take 2 hops because Vercel `cleanUrls` strips `.html` first); no broken links/images; valid schema; 42/42 routes clean at 390px; production build passes; generated sitemap = 42 routes. Fixes: stale `public/sitemap.xml` deleted + robots.txt line dropped, `/sitemap.xml` → `/sitemap-index.xml` redirect in vercel.json (GSC's old submission keeps resolving); results case cards regain their "what we built" lists. |
 | 2026-10-01 | **Full-card links**: `.rd-card-link` (lift + inner label reacts) + `LinkLabel` atom (span twin of TextLink). Resources cards + featured guide, homepage news cards, results case cards, the courses "Branded board education" card and the linked partner card are now whole-card links — no nested anchors. |
 | 2026-10-01 | **Sticky fix**: `body { overflow-x: hidden }` (site.css) removed — it broke `position: sticky` site-wide, so the article/course TOC sidebar never stuck on desktop and the mobile TOC bar never stuck either. `html` keeps the horizontal clip. |
 | 2026-10-01 | **Hub FAQs**: 5 Q&As per engine hub in `data/hubs/*.ts` (`faq`), FAQPage schema added to the three hub routes. |

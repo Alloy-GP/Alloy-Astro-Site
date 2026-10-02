@@ -244,7 +244,7 @@
 .rd-card--hover:hover, a.rd-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
 .rd-card--off     { background: var(--alloy-off-white); }
 /* Whole card is the link (client, 2026-10-01: every card lifts and the full card is clickable) */
-.rd-card-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; cursor: pointer; transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard); }
+a.rd-card-link, .rd-card-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; cursor: pointer; transition: transform var(--dur-fast) var(--ease-standard), box-shadow var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard); }
 .rd-card-link:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--border-strong); color: inherit; }
 .rd-card-link:active { transform: translateY(0); }
 .rd-card-link:focus-visible { outline: 2px solid var(--alloy-pink); outline-offset: 3px; }
@@ -255,7 +255,8 @@
 .rd-card--purple:hover { border-color: var(--alloy-purple); }
 .rd-card--shadow  { box-shadow: var(--shadow-md); border-color: transparent; }
 .rd-card--popular { background: var(--alloy-purple); color: #fff; border-color: var(--alloy-purple); }
-a.rd-card { text-decoration: none; color: inherit; display: block; }
+a.rd-card { text-decoration: none; color: inherit; }
+a.rd-card:not(.rd-card-link) { display: block; }   /* .rd-card-link cards stay flex columns */
 
 .rd-tile {
   display: flex; flex-direction: column; gap: 4px;

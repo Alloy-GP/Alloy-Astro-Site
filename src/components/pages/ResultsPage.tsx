@@ -104,13 +104,15 @@ function BarChart() {
   );
 }
 
-function CaseCard({ num, numTone, tag, tagClass, title, body, chart, stats, quote, by, link }: {
+function CaseCard({ num, numTone, tag, tagClass, title, body, built, chart, stats, quote, by, link }: {
   num: string;
   numTone?: 'match';
   tag: string;
   tagClass: string;
   title: string;
   body: string;
+  /** What was built — the deliverable list the live results page carried (restored 2026-10-02). */
+  built: string[];
   chart: ReactNode;
   stats: Array<{ value: number; prefix?: string; suffix: string; label: string }>;
   quote: string;
@@ -125,6 +127,9 @@ function CaseCard({ num, numTone, tag, tagClass, title, body, chart, stats, quot
       </div>
       <h3 className="rd-h3">{title}</h3>
       <p className="rd-small">{body}</p>
+      <ul className="rd-bullets rd-ink" aria-label="What we built" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        {built.map((b) => <li key={b} className="rd-bullet rd-bullet--start rd-bullet--pink">{b}</li>)}
+      </ul>
       {chart}
       <div data-rise className="rd-row rd-row--wrap" style={{ gap: 32, alignItems: 'flex-start' }}>
         {stats.map((s) => (
@@ -182,7 +187,8 @@ export default function ResultsPage() {
               tag="3-year engagement"
               tagClass="rd-tag rd-tag--purple"
               title="The long climb."
-              body="Regional CAM firm, referral-dependent, RFP-chasing. BoardSuite full system: technical SEO and AI-search rebuild, 14 pillar articles, proposal redesign, Groundwork BD, board education curriculum."
+              body="Regional CAM firm, referral-dependent, RFP-chasing. BoardSuite full system, from local SEO and authority content through proposal redesign and Groundwork BD."
+              built={['Technical SEO + GEO/AI-search rebuild', '14 pillar articles + trade press authority', 'Proposal redesign + Groundwork BD', 'Onboarding + board education curriculum']}
               chart={<ChartBox title="Lead intake, indexed" range="36 months" gap={10}><LineChart /></ChartBox>}
               stats={[
                 { value: 535, suffix: '%', label: 'lead intake' },
@@ -199,7 +205,8 @@ export default function ResultsPage() {
               tag="7-month engagement"
               tagClass="rd-tag"
               title="The short sprint."
-              body="Small-association specialists. BoardSuite Steady: niche-segment SEO and GEO targeting, channel diversification across Google, Bing, directories, and direct — with source attribution wired up from day one."
+              body="Small-association specialists. BoardSuite Steady, built for boards who don’t search the way larger associations do."
+              built={['Niche-segment SEO + GEO targeting', 'Channel diversification across Google, Bing, hoa-usa.com, and direct', 'Source attribution wired up at engagement start', 'Sustained month-over-month compounding']}
               chart={<ChartBox title="Monthly inquiries" range="Sep → Mar" gap={14}><BarChart /></ChartBox>}
               stats={[
                 { value: 405, prefix: '+', suffix: '%', label: 'monthly inquiries' },
