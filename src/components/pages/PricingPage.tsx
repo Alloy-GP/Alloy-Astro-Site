@@ -4,7 +4,7 @@
 // shows the accordion closed). PRICING_FAQ also feeds the FAQPage schema in the route.
 import type { CSSProperties } from 'react';
 import type { FaqItem } from '~/lib/schema';
-import { Eyebrow, H1, TextLink, Btn, Steps, CtaBar, FaqList } from '~/components/rd/atoms';
+import { Eyebrow, H1, TextLink, Btn, Steps, CtaBar, FaqList, CheckIcon } from '~/components/rd/atoms';
 
 export const PRICING_FAQ: FaqItem[] = [
   {
@@ -44,23 +44,28 @@ const TIERS: Array<{ name: string; sub: string; items: string[]; popular?: boole
   {
     name: 'Ascend',
     sub: '5,000+ doors, multi-market. Hitting growth ceilings.',
-    items: ['Everything in Accelerate', 'Fractional BD prospecting', 'Local SEO in up to 5 metros', 'CRM / portal integrations', 'Dedicated CAM operator', 'Bi-weekly strategic review'],
+    items: ['Everything in Accelerate', 'Fractional BD prospecting', 'Local SEO across your metros', 'CRM / portal integrations', 'Dedicated CAM operator', 'Bi-weekly strategic review'],
   },
 ];
 
-const COMPARE: Array<{ dim: string; f: string; g: string; s: string }> = [
-  { dim: 'Strategic review cadence', f: 'Quarterly', g: 'Monthly', s: 'Bi-weekly' },
-  { dim: 'Local SEO', f: '1 metro', g: '1 metro', s: 'Up to 5 metros' },
-  { dim: 'AI search / GEO', f: 'No', g: 'Full', s: 'Full + research' },
-  { dim: 'Content engine', f: 'No', g: '4 articles / mo', s: '8 articles / mo' },
-  { dim: 'Paid acquisition', f: 'No', g: 'Google + LinkedIn', s: 'Google + LinkedIn + Meta' },
-  { dim: 'Proposal optimization', f: 'No', g: 'System', s: 'System + custom' },
-  { dim: 'Fractional BD prospecting', f: 'No', g: 'No', s: '40 conversations / mo' },
-  { dim: 'Newsletter production', f: 'No', g: 'Monthly', s: 'Monthly + custom' },
-  { dim: 'Board education', f: 'No', g: '4 micro-courses', s: 'Custom course production' },
-  { dim: 'CAM operator', f: 'No', g: 'Shared', s: 'Dedicated' },
-  { dim: 'Market exclusivity', f: 'ZIP', g: 'Metro', s: 'Multi-metro' },
+// Qualitative only (client, 2026-10-03): what each tier includes and roughly how far it goes. No quantities, cadences
+// beyond review rhythm, or prices. Exact scope and investment live in the proposal. true = included (check), false = not included.
+type Cell = string | boolean;
+const COMPARE: Array<{ dim: string; desc: string; f: Cell; g: Cell; s: Cell }> = [
+  { dim: 'Strategic review', desc: 'How often we sit down on the numbers and the plan.', f: 'Quarterly', g: 'Monthly', s: 'Bi-weekly' },
+  { dim: 'Local SEO', desc: 'Google Maps, your profile and service-area pages.', f: 'Single market', g: 'Single market', s: 'Multi-market' },
+  { dim: 'AI search (GEO)', desc: 'Being the answer boards get from ChatGPT, Gemini and AI Overviews.', f: false, g: true, s: 'Expanded' },
+  { dim: 'Content engine', desc: 'Authority articles and guides written for boards and search.', f: false, g: true, s: 'Expanded' },
+  { dim: 'Paid acquisition', desc: 'Board-stage search and social campaigns.', f: false, g: true, s: 'Expanded' },
+  { dim: 'Proposal optimization', desc: 'Proposal and RFP system built for board conversion.', f: false, g: true, s: 'Custom work' },
+  { dim: 'Fractional BD prospecting', desc: 'Groundwork: qualified board conversations booked for you.', f: false, g: false, s: true },
+  { dim: 'Newsletter production', desc: 'Branded association newsletters, written and sent.', f: false, g: true, s: 'Custom work' },
+  { dim: 'Board education', desc: 'Micro-courses that make boards better clients.', f: false, g: true, s: 'Custom production' },
+  { dim: 'CAM operator', desc: 'A former operator inside your engagement.', f: false, g: 'Shared', s: 'Dedicated' },
+  { dim: 'Market exclusivity', desc: 'We will not work with a competing firm in your market.', f: 'Local', g: 'Metro', s: 'Multi-metro' },
 ];
+const cell = (v: Cell) => (v === true ? <span className="rd-compare-check" aria-label="Included"><CheckIcon size={16} /></span> : v === false ? <span className="rd-compare-no">No</span> : v);
+const cellStyle = (v: Cell) => (v === false ? tdMuted('No') : tdMuted(String(v)));
 
 const RULES = [
   { title: 'One CAM firm per market.', body: 'We don’t run identical playbooks for two competing firms in the same metro. Period. When you hire us, your competitor can’t.' },
@@ -124,7 +129,7 @@ export default function PricingPage() {
         <div className="rd-wrap rd-stack rd-stack--40">
           <div className="rd-grid rd-grid--2 rd-grid--end">
             <h2 className="rd-h2">What changes between tiers.</h2>
-            <p className="rd-body">The short version. Every line is scoped at the Strategic Review; nothing is added after you sign.</p>
+            <p className="rd-body">A guide to what each tier includes and how far it goes, not a scope. Exact deliverables, cadence and investment are set at the Strategic Review and written into your proposal.</p>
           </div>
           <div className="rd-card rd-compare-card" style={{ padding: '8px 32px 16px' }}>
             <div className="rd-table-wrap">
@@ -146,10 +151,10 @@ export default function PricingPage() {
                 <tbody>
                   {COMPARE.map((r) => (
                     <tr key={r.dim}>
-                      <th scope="row" style={TD_ROW}>{r.dim}</th>
-                      <td style={tdMuted(r.f)}>{r.f}</td>
-                      <td style={TD_GROWTH}>{r.g}</td>
-                      <td style={tdMuted(r.s)}>{r.s}</td>
+                      <th scope="row" style={TD_ROW}>{r.dim}<span className="rd-compare-desc">{r.desc}</span></th>
+                      <td style={cellStyle(r.f)}>{cell(r.f)}</td>
+                      <td style={TD_GROWTH}>{cell(r.g)}</td>
+                      <td style={cellStyle(r.s)}>{cell(r.s)}</td>
                     </tr>
                   ))}
                 </tbody>
