@@ -41,7 +41,7 @@ export const PRIMARY: NavPrimaryItem[] = [
 export const CTA = { label: 'Claim your market', href: '/contact' };
 
 /** Partner portal login (header, restored 2026-10-01 per client). Opens in a new tab. */
-export const LOGIN = { label: 'Log in', href: 'https://growth.alloygp.co' };
+export const LOGIN = { label: 'Client log in', href: 'https://growth.alloygp.co' };   // header 1d utility strip (2026-10-03)
 
 export const ENGINES: NavEngine[] = [
   {

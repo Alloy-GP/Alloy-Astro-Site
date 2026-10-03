@@ -14,7 +14,7 @@ export function SearchIcon({ size = 18 }: { size?: number }) {
   );
 }
 
-export default function SiteSearch({ variant = 'icon' }: { variant?: 'icon' | 'row' }) {
+export default function SiteSearch({ variant = 'icon' }: { variant?: 'icon' | 'row' | 'utility' }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
@@ -42,7 +42,7 @@ export default function SiteSearch({ variant = 'icon' }: { variant?: 'icon' | 'r
 
   // ⌘K / Ctrl+K anywhere; "/" when not typing
   useEffect(() => {
-    if (variant !== 'icon') return;
+    if (variant === 'row') return;
     const onKey = (e: globalThis.KeyboardEvent) => {
       const typing = (e.target as HTMLElement | null)?.closest('input, textarea, select, [contenteditable="true"]');
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); show(); }
@@ -70,7 +70,12 @@ export default function SiteSearch({ variant = 'icon' }: { variant?: 'icon' | 'r
 
   return (
     <>
-      {variant === 'icon' ? (
+      {variant === 'utility' ? (
+        <button type="button" className="site-util-link site-util-search" onClick={show} title="Search (⌘K)" aria-haspopup="dialog" aria-expanded={open}>
+          <SearchIcon size={13} />
+          <span>Search</span>
+        </button>
+      ) : variant === 'icon' ? (
         <button type="button" className="site-iconbtn site-search-btn" onClick={show} aria-label="Search the site (⌘K)" title="Search (⌘K)" aria-haspopup="dialog" aria-expanded={open}>
           <SearchIcon />
         </button>

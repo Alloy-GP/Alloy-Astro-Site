@@ -43,13 +43,12 @@ function Chevron({ dir = 'down', size = 12, stroke = 2.5, className }: { dir?: '
   );
 }
 
-/** Lucide log-in: explicit box + flex:none in CSS so it never clips (the old header's logomark did). */
-function LoginIcon({ size = 16 }: { size?: number }) {
+/** Lucide user (header 1d utility strip: "Client log in"). */
+function UserIcon({ size = 13 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-      <polyline points="10 17 15 12 10 7" />
-      <line x1="15" y1="12" x2="3" y2="12" />
+      <circle cx="12" cy="7" r="4" />
+      <path d="M20 21a8 8 0 0 0-16 0" />
     </svg>
   );
 }
@@ -135,8 +134,31 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
 
   const cur = getEngine(engine);
 
+  // Header 1d: the purple utility strip collapses after 80px of scroll so reading pages keep a compact header.
+  // body.header-compact lets the portaled mobile drawer follow the shorter header.
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    let raf = 0;
+    const update = () => { raf = 0; const s = window.scrollY > 80; setScrolled(s); document.body.classList.toggle('header-compact', s); };
+    const onScroll = () => { if (!raf) raf = window.requestAnimationFrame(update); };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); if (raf) window.cancelAnimationFrame(raf); document.body.classList.remove('header-compact'); };
+  }, []);
+
   return (
-    <header className="site-header" onMouseLeave={scheduleClose}>
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} onMouseLeave={scheduleClose}>
+      {/* Utility strip (header 1d): search + client log in live here on every width */}
+      <div className="site-utility">
+        <div className="site-utility-inner">
+          <SiteSearch variant="utility" />
+          <span className="site-utility-divider" aria-hidden="true" />
+          <a href={LOGIN.href} className="site-util-link site-util-login" target="_blank" rel="noopener noreferrer">
+            <UserIcon />
+            <span>{LOGIN.label}</span>
+          </a>
+        </div>
+      </div>
       <div className="site-header-inner">
         <a href="/" className="site-logo" aria-label="Alloy Growth Partners: home">
           <img src="/assets/alloy-logo-full-color.svg" alt="Alloy Growth Partners" width={160} height={30} />
@@ -149,6 +171,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
                 key={item.id}
                 href={item.href}
                 className={`site-nav-link${activeId === item.id ? ' is-active' : ''}${open ? ' is-open' : ''}`}
+                aria-current={activeId === item.id ? 'page' : undefined}
                 onMouseEnter={openMenu}
                 onFocus={openMenu}
                 aria-haspopup="true"
@@ -158,18 +181,11 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
                 <Chevron className="site-nav-chevron" />
               </a>
             ) : (
-              <a key={item.id} href={item.href} className={`site-nav-link${activeId === item.id ? ' is-active' : ''}`} onMouseEnter={closeNow}>
+              <a key={item.id} href={item.href} className={`site-nav-link${activeId === item.id ? ' is-active' : ''}`} aria-current={activeId === item.id ? 'page' : undefined} onMouseEnter={closeNow}>
                 {item.label}
               </a>
             ),
           )}
-          <div className="site-tools" onMouseEnter={closeNow}>
-            <SiteSearch />
-            <a href={LOGIN.href} className="site-login" target="_blank" rel="noopener noreferrer" aria-label={`${LOGIN.label} to the partner portal (opens in a new tab)`}>
-              <LoginIcon />
-              <span>{LOGIN.label}</span>
-            </a>
-          </div>
           <a href={CTA.href} className="site-cta site-cta--desktop" onMouseEnter={closeNow}>{CTA.label}</a>
         </nav>
 
@@ -251,7 +267,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
           <div className="site-menu-bar" aria-hidden="true"><span /><span /><span /><span /><span /></div>
 
           <div className="site-mobile-body">
-            <SiteSearch variant="row" />
+            {/* Search + Client log in live in the utility strip above (header 1d), not in the drawer */}
             {/* The System — two-level accordion */}
             <button
               type="button"
@@ -302,7 +318,7 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
             )}
 
             {PRIMARY.filter((i) => !i.dropdown).map((item) => (
-              <a key={item.id} href={item.href} className={`site-mobile-row${activeId === item.id ? ' is-active' : ''}`}>
+              <a key={item.id} href={item.href} className={`site-mobile-row${activeId === item.id ? ' is-active' : ''}`} aria-current={activeId === item.id ? 'page' : undefined}>
                 {item.label}
                 <Chevron dir="right" size={16} stroke={2} />
               </a>
@@ -312,7 +328,6 @@ export default function SiteHeader({ active }: SiteHeaderProps) {
               {MOBILE_SECONDARY.map(([label, href]) => (
                 <a key={href} href={href}>{label}</a>
               ))}
-              <a href={LOGIN.href} target="_blank" rel="noopener noreferrer" className="site-mobile-login"><LoginIcon size={14} />{LOGIN.label}</a>
             </div>
           </div>
 

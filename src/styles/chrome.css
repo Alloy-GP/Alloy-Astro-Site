@@ -11,7 +11,18 @@
   border-bottom: 1px solid var(--border-subtle);
   font-family: var(--font-display);
 }
-body.has-fixed-header { padding-top: 67px; }
+body.has-fixed-header { padding-top: 112px; }   /* 36px utility strip + 76px main bar incl. border (header 1d) */
+
+/* ---------- Utility strip (header 1d, 2026-10-03): Search + Client log in ---------- */
+.site-utility { background: var(--alloy-purple); height: 36px; overflow: hidden; transition: height var(--dur-base) var(--ease-standard); }
+.site-header.is-scrolled .site-utility { height: 0; }   /* collapses after 80px of scroll (optional in the spec; keeps reading pages compact) */
+.site-utility-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; height: 36px; display: flex; align-items: center; justify-content: flex-end; gap: 24px; font-size: 12px; font-weight: 500; }
+.site-util-link { display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0; border: 0; background: none; font: inherit; font-size: 12px; font-weight: 500; color: var(--alloy-on-purple); text-decoration: none; cursor: pointer; white-space: nowrap; transition: color var(--dur-fast) var(--ease-standard); }
+.site-util-link:hover { color: #fff; }
+.site-util-link svg { flex: none; }
+.site-util-login { color: #fff; font-weight: 700; }
+.site-utility-divider { width: 1px; height: 14px; background: rgba(255,255,255,.18); flex: none; }
+.site-util-link:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 2px; }
 .site-header-inner {
   max-width: 1160px; margin: 0 auto; padding: 18px 40px;
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
@@ -24,11 +35,11 @@ body.has-fixed-header { padding-top: 67px; }
 .site-nav-link {
   display: inline-flex; align-items: center; gap: 5px;
   padding: 6px 0; color: var(--alloy-purple); text-decoration: none; cursor: pointer;
-  border: 0; border-bottom: 2px solid transparent; background: none; font: inherit;
-  transition: color var(--dur-fast) var(--ease-standard), border-color var(--dur-fast) var(--ease-standard);
+  border: 0; background: none; font: inherit;
+  transition: color var(--dur-fast) var(--ease-standard);
 }
 .site-nav-link:hover, .site-nav-link.is-open { color: var(--alloy-pink); }
-.site-nav-link.is-active { color: var(--alloy-pink); border-bottom-color: var(--alloy-pink); }
+.site-nav-link.is-active { color: var(--alloy-pink); }   /* header 1d: colour only, no underline (aria-current carries the cue) */
 .site-nav-chevron { transition: transform var(--dur-base) var(--ease-standard); }
 .site-nav-link.is-open .site-nav-chevron { transform: rotate(180deg); }
 
@@ -42,23 +53,9 @@ body.has-fixed-header { padding-top: 67px; }
 .site-cta:hover  { background: var(--alloy-pink-hover); color: #fff; }
 .site-cta:active { background: var(--alloy-pink-press); transform: translateY(1px); }
 
-/* ---------- Tools: search + partner login (restored 2026-10-01) ---------- */
-.site-tools { display: flex; align-items: center; gap: 2px; margin-left: -8px; }
-.site-iconbtn {
-  display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex: none;
-  border: 0; border-radius: 8px; background: none; color: var(--alloy-purple); cursor: pointer;
-  transition: background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard);
-}
+/* ---------- Search dialog (trigger lives in the utility strip since header 1d; .site-iconbtn kept for the legacy icon variant) ---------- */
+.site-iconbtn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex: none; border: 0; border-radius: 8px; background: none; color: var(--alloy-purple); cursor: pointer; }
 .site-iconbtn:hover { background: var(--alloy-off-white); color: var(--alloy-pink); }
-.site-login {
-  display: inline-flex; align-items: center; gap: 7px; flex: none; white-space: nowrap;
-  height: 40px; padding: 0 12px; border-radius: 8px; color: var(--alloy-purple); text-decoration: none;
-  font-size: 13px; font-weight: 600; letter-spacing: .01em;
-  transition: background var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard);
-}
-.site-login svg { flex: none; width: 16px; height: 16px; overflow: visible; }
-.site-login:hover { background: var(--alloy-off-white); color: var(--alloy-pink); }
-.site-iconbtn:focus-visible, .site-login:focus-visible { outline: 2px solid var(--alloy-pink); outline-offset: 2px; }
 
 /* Search dialog (SiteSearch.tsx; base .rd-dialog styles in redesign.css) */
 .site-search { margin-top: min(12vh, 120px); max-width: min(640px, calc(100vw - 32px)); }
