@@ -10,8 +10,9 @@ const data: ServicePageData = {
   h1Accent: 'can’t afford to lose.',
   intro: 'Some RFPs are worth a dedicated team: the 800-door master association, the portfolio that changes your year. RFP Response System is done-for-you response production (research, narrative, deck, financials, exhibits) with a ten-day turnaround. For your everyday template, see Proposal Optimization.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
-    { value: 10, suffix: '-day', note: 'Turnaround from kickoff to submission-ready' },
+    { value: 800, display: '800', suffix: '-door', note: 'The master association that changes your year is the RFP we take' },
     { value: 1, suffix: 'pursuit', note: 'Full attention on one RFP, not a template' },
     { value: 45, suffix: '% avg', note: 'Qualified-to-closed on pursuits we support end to end' },
   ],

@@ -44,6 +44,7 @@ const data: HubPageData = {
     eyebrow: 'One Alloy CAM partner · 18 months',
     h2: 'What Attract produced for one firm.',
     link: { label: 'Read the results', href: '/results' },
+    footnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
     stats: [
       { value: 535, suffix: '%', note: 'lead intake vs. baseline' },
       { value: 3, suffix: '×', note: 'proposal requests' },

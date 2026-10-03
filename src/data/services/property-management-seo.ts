@@ -12,6 +12,7 @@ const data: ServicePageData = {
   intro: 'Property management SEO built for community association management. Local search, the map pack, and AI citations across ChatGPT, Perplexity, Gemini, and Google AI Overviews: one program, one metro, one firm.',
   secondaryCta: { label: 'Talk SEO strategy', href: '/contact' },
   heroAside: 'seo-map',
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
     { value: 3, label: 'firms on the map', note: 'The local pack shows three results above every organic listing. Fourth place is page two.' },
     { value: 535, suffix: '%', label: 'more lead intake', note: 'One Alloy CAM partner, 18 months, SEO and AI-search rebuild at the core.' },
@@ -45,7 +46,7 @@ const data: ServicePageData = {
       h: 'AI search: being the source the answer cites.',
       p: [
         'Boards now ask ChatGPT, Perplexity, Gemini, and Google’s AI Overview who manages associations in their city. Those answers are assembled from a handful of sources: reviews, directories, and pages that plainly explain what a firm does and where. Most CAM sites give the models nothing to quote.',
-        'We structure your site so it can be cited: clear entity pages, FAQ schema, consistent citations across forty-plus directories, and authority content written for board-stage questions. When the answer names three firms, one of them is you.',
+        'We structure your site so it can be cited: clear entity pages, FAQ schema, consistent citations across the directories that matter, and authority content written for board-stage questions. When the answer names three firms, one of them is you.',
       ],
     },
     {

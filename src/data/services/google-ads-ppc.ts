@@ -12,10 +12,11 @@ const data: ServicePageData = {
   h1Accent: 'not homeowners.',
   intro: 'Google Ads for HOA management companies, run on the queries boards type when a contract is actually in play. RFP-active, contract-end window, replacement search. A purpose-built landing page for every campaign, reporting tied to pipeline, and a budget that scales only as conversions prove out.',
   secondaryCta: { label: 'Talk paid strategy', href: '/contact' },
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
-    { value: 30, suffix: 'days', label: 'to a stable account', note: 'Built, launched, and optimized through first conversion data. Most agencies take ninety or more to do less.' },
+    { value: 1, suffix: 'page per campaign', label: 'purpose-built landing pages', note: 'Paid clicks never land on your homepage. Each campaign gets its own page and offer, tuned through first conversion data.' },
     { value: 3, suffix: '–5×', label: 'landing-page conversion lift', note: 'What a purpose-built page per campaign does versus sending paid clicks to your homepage.' },
-    { value: 4, prefix: '$', suffix: 'K / mo', label: 'minimum media spend', note: 'Below that the account can’t gather enough conversion data to optimize. Typical range is $4K–$25K, paid straight to Google.' },
+    { value: 0, prefix: '$', label: 'markup on media', note: 'Media spend is billed at cost, straight to Google. We size the budget with you at the Strategic Review.' },
   ],
   sections: [
     {
@@ -91,7 +92,7 @@ const data: ServicePageData = {
       { q: 'Should every CAM firm run Google Ads?', a: 'No. If your map-pack presence and SEO aren’t built, paid clicks land on a weak foundation and you pay for what organic would have delivered. Paid is one channel inside BoardReach™, strongest for firms entering a new metro or filling a near-term pipeline gap.' },
       { q: 'How is this different from a generic PPC agency?', a: 'A generalist bids on “property management <city>” and sends the click to your homepage. We bid on board-stage intent, write for directors comparing proposals, land each campaign on its own page, and report in contracts rather than clicks. The CAM vocabulary isn’t learned on your retainer.' },
       { q: 'Who pays the media spend?', a: 'You do, directly to Google on your card. We never mark up or rebill it. Our retainer covers strategy, build, and management. Standard monthly spend runs $4K–$25K depending on metro count, portfolio target, and competitor pressure.' },
-      { q: 'What’s the minimum budget?', a: '$4,000 a month in media. Below that the campaign can’t gather enough conversion data to optimize, and we’d rather tell you that than run it.' },
+      { q: 'What’s the minimum budget?', a: 'Enough media to gather conversion data the account can optimize against; we size it with you at the Strategic Review based on metro count and competition. If the budget can’t get there, we’d rather tell you than run it.' },
       { q: 'Is this included in BoardSuite?', a: 'Paid acquisition is part of the Accelerate and Ascend tiers (Google and LinkedIn; Ascend adds Meta). It’s also available standalone for firms that have the search foundation in place and need pipeline now.' },
     ],
   },

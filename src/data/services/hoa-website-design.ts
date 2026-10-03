@@ -11,6 +11,7 @@ const data: ServicePageData = {
   h1Tail: ', not just homeowners.',
   intro: 'Most CAM sites are built for the owners you already have: portals, payments, forms. Boards evaluating you land on the same page and leave. We build the site four audiences actually use: boards, RFP committees, homeowners, and the talent you’re hiring.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
     { value: 4, suffix: 'audiences', note: 'Boards, RFP committees, homeowners, talent: each with a clear path' },
     { value: 535, suffix: '%', note: 'More lead intake for one Alloy CAM partner after the rebuild' },

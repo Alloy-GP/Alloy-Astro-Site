@@ -35,7 +35,7 @@ const data: ServicePageData = {
       h: 'Language for the whole team.',
       p: [
         'The principal, the BD lead, the manager on the site visit. Each hears the same questions and each should give the same answer. We write the talk tracks, the objection responses, and the one-liners.',
-        'Opener scripts, three variants per persona. Eight discovery questions, ranked by which ones surface a board ready to fire its incumbent. Objection cards for the eleven objections that come up in 90% of selection meetings, with three ways to answer each. A twelve-slide finalist deck built to run 25 minutes.',
+        'Opener scripts for each persona. Discovery questions ranked by which ones surface a board ready to fire its incumbent. Objection cards for the objections that come up in nearly every selection meeting, with more than one way to answer each. A finalist deck built to run inside the board’s time slot.',
       ],
     },
     {
@@ -68,7 +68,7 @@ const data: ServicePageData = {
       'Talk tracks for each sales moment',
       'Objection handling guide',
       'Opener scripts and discovery questions',
-      'Twelve-slide finalist presentation',
+      'Finalist presentation deck',
       'Follow-up email and LinkedIn library',
       'Onboarding guide for new BD hires',
       'Website and proposal copy alignment',

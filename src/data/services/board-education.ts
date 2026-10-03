@@ -11,8 +11,8 @@ const data: ServicePageData = {
   intro: 'Boards leave when they don’t understand what you do. Board Education Programs for HOA management companies are branded micro-courses, workshops, and guides that teach volunteers their job, with your firm as the teacher. It is the most underused retention tool in the category.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
-    { value: 4, suffix: 'micro-courses', note: 'In the BoardSuite Growth library, branded to your firm' },
-    { value: 20, suffix: 'min', note: 'Typical course length, built for volunteers with day jobs' },
+    { value: 1, suffix: 'library', note: 'Branded micro-courses in the BoardSuite library, built for your firm' },
+    { value: 11, suffix: 'months', note: 'Before renewal, when boards actually decide. Education works all year.' },
     { value: 1, suffix: 'teacher', note: 'You. Every lesson positions your firm as the authority' },
   ],
   sections: [
@@ -56,7 +56,7 @@ const data: ServicePageData = {
     intro: 'Every line below is included in the retainer. Nothing is added after you sign.',
     items: [
       'Curriculum design for your portfolio',
-      'Four to eight branded micro-courses',
+      'A branded micro-course library, sized to your portfolio',
       'Video production and editing',
       'Workshop decks and facilitator notes',
       'One-page board guides',
@@ -81,7 +81,7 @@ const data: ServicePageData = {
     items: [
       { q: 'Do boards actually take these?', a: 'When the manager introduces them at onboarding and references them in meetings, yes. The playbook is half the product.' },
       { q: 'Can we sell this to boards?', a: 'Some firms do. Most include it as a retention differentiator and mention it in every proposal.' },
-      { q: 'Is this included in BoardSuite?', a: 'Accelerate includes four micro-courses, branded to your firm. Ascend adds custom course production, so the library can grow into what’s specific to your portfolio.' },
+      { q: 'Is this included in BoardSuite?', a: 'Accelerate includes the branded micro-course library. Ascend adds custom course production, so the library can grow into what’s specific to your portfolio. Scope is set in your proposal.' },
       { q: 'Who writes the courses?', a: 'We do, from interviews with your managers and your own documents: the budget calendar, meeting procedures, how you run bids. Your firm reviews everything before it goes live. Courses teach general practice and your process; they don’t replace advice from the association’s attorney or reserve specialist.' },
     ],
   },

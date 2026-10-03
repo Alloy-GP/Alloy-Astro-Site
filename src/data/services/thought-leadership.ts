@@ -11,7 +11,7 @@ const data: ServicePageData = {
   intro: 'Boards renew with the manager who seems to know more than anyone else in the room. Thought Leadership for HOA management companies puts your principal’s expertise in writing (articles, LinkedIn, trade press, speaking) so your authority is visible to the boards you have and the ones you want.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
-    { value: 4, suffix: 'articles / mo', note: 'Long-form, ghostwritten, in your voice' },
+    { value: 1, suffix: 'point of view', note: 'The opinion the industry comes to associate with your firm, developed in long form' },
     { value: 1, suffix: 'byline', note: 'Your principal’s: the person boards hire' },
     { value: 3, suffix: 'channels', note: 'Your site, LinkedIn, and trade press, repurposed across all of them' },
   ],
@@ -57,7 +57,7 @@ const data: ServicePageData = {
     items: [
       'Positioning and topic strategy',
       'Monthly principal interview',
-      'Four long-form articles a month',
+      'Long-form articles on a steady monthly cadence',
       'Quarterly stance pieces on live industry questions',
       'LinkedIn repurposing (with Social Media Marketing)',
       'Trade press pitching and placement',

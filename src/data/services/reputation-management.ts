@@ -11,10 +11,11 @@ const data: ServicePageData = {
   h1Tail: 'Fix that.',
   intro: 'Management companies get reviewed by the owner who got the violation letter, not the board that renewed for the fifth year. Reputation Management for CAM firms builds a system that gets the happy ones to speak, responds to the rest with grace, and keeps the rating that the next board checks.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
-    { value: 10, suffix: '+ reviews / qtr', note: 'Our velocity target: recent, real, and from the right people' },
+    { value: 97, suffix: '%', note: 'Of consumers read reviews before choosing a local business (BrightLocal, 2026)' },
     { value: 4.5, suffix: '★ +', note: 'Where a CAM firm needs to sit to make the shortlist' },
-    { value: 24, suffix: 'hr', note: 'Response time on every review, good or bad' },
+    { value: 71, suffix: '%', note: 'Read them on Google first (BrightLocal, 2026). That’s where we start.' },
   ],
   sections: [
     {
@@ -55,7 +56,7 @@ const data: ServicePageData = {
       h: 'The reviews that stay up.',
       p: [
         'Google, the BBB, and Yelp prohibit review removal as a paid service. Anyone selling it is selling you a policy violation. We report the reviews that break platform rules (fakes, spam, conflicts of interest) through each platform’s own process.',
-        'If you inherited the problem through an acquisition or a manager who left badly, we publish authority content (case studies, board testimonials, transparency reports) that typically surfaces above the legacy results within 60–90 days.',
+        'If you inherited the problem through an acquisition or a manager who left badly, we publish authority content (case studies, board testimonials, transparency reports) that typically surfaces above the legacy results within a quarter.',
       ],
     },
   ],
@@ -67,7 +68,7 @@ const data: ServicePageData = {
       'Profile cleanup: Google, BBB, CAI, and CAM directories',
       'Request system built into manager workflows',
       'Request templates and timing triggers',
-      'Response writing within 24 hours',
+      'Response writing for every review, good or bad',
       'Escalation protocol for serious complaints',
       'Crisis plan with two-hour on-call response',
       'Fake and policy-violating review removal',
@@ -81,8 +82,8 @@ const data: ServicePageData = {
     intro: 'Four steps, one accountable team. Timelines are scoped at the Strategic Review.',
     steps: [
       { title: 'Audit', body: 'Where you stand, where you’re listed, what’s said. Every mention from the last 24 months, against the firms boards compare you to.' },
-      { title: 'System', body: 'Triggers, templates, and the manager playbook. Response templates cover the twelve most common review types.' },
-      { title: 'Run', body: 'Requests go out; responses go up; we monitor. Live in about 30 days; velocity builds over 60–90.' },
+      { title: 'System', body: 'Triggers, templates, and the manager playbook. Response templates cover the most common review types.' },
+      { title: 'Run', body: 'Requests go out; responses go up; we monitor. Live within the first month; velocity builds over the following quarter.' },
       { title: 'Report', body: 'Volume, rating, and sentiment: monthly. Share of voice and the AI-search summary too; recalibrated quarterly.' },
     ],
   },
@@ -91,7 +92,7 @@ const data: ServicePageData = {
       { q: 'Can you remove bad reviews?', a: 'Only ones that violate platform policy. The rest we respond to, then outnumber.' },
       { q: 'Do boards really read reviews?', a: 'Yes. It’s the first thing a board member does after the referral. Our Trust Building course covers exactly how they weigh them.' },
       { q: 'What if some of our bad reviews are fair?', a: 'Then the program starts with operations, not marketing. We find what’s driving the complaints (response time, manager turnover, financial transparency) and recommend that fix first. Reputation work without the operational fix is paint over rust.' },
-      { q: 'Do you handle Reddit, Nextdoor, and forums?', a: 'We monitor more than twenty surfaces. We engage directly only where the platform allows it, like Nextdoor or a Reddit AMA, and mediate off-platform everywhere else. Most CAM firms ignore these surfaces. Boards don’t, especially directors under fifty.' },
+      { q: 'Do you handle Reddit, Nextdoor, and forums?', a: 'We monitor the review sites, forums and neighborhood apps where boards talk. We engage directly only where the platform allows it, like Nextdoor or a Reddit AMA, and mediate off-platform everywhere else. Most CAM firms ignore these surfaces. Boards don’t, especially directors under fifty.' },
     ],
   },
   cta: { text: 'Is your metro still open? Thirty minutes tells you, and which engine to fix first.' },

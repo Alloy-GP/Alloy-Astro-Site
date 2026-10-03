@@ -11,9 +11,9 @@ const data: ServicePageData = {
   intro: 'Boards forget what you did last quarter. Newsletter Production for HOA management companies is a done-for-you, branded monthly or quarterly newsletter (for boards, for homeowners, or both) that shows the work, teaches the basics, and keeps your firm the obvious choice at renewal.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
-    { value: 12, suffix: 'issues / yr', note: 'Monthly, written, designed, and sent for you' },
+    { value: 12, suffix: 'months', note: 'Of themes mapped to your portfolio’s seasonality, written, designed and sent for you' },
     { value: 2, suffix: 'audiences', note: 'Boards and homeowners, with different content and cadence' },
-    { value: 1, suffix: 'hour', note: 'Of your team’s time per issue. A quick call and an approval' },
+    { value: 1, suffix: 'call', note: 'Per issue from your team: a quick call and an approval. We do the rest' },
   ],
   sections: [
     {
@@ -98,7 +98,7 @@ const data: ServicePageData = {
     items: [
       { q: 'Per-community or firm-wide?', a: 'Either. Most firms run a firm-wide board edition plus community variants for larger associations.' },
       { q: 'Isn’t this what Email Marketing does?', a: 'Email Marketing is for boards you don’t have yet. Newsletters are for the ones you do.' },
-      { q: 'Can we edit issues before they go out?', a: 'Yes. Every issue gets a 24-hour manager review window: approve it as-is, request copy edits, or replace a community’s block. After 24 hours we publish on schedule, because boards complain when newsletters slip.' },
+      { q: 'Can we edit issues before they go out?', a: 'Yes. Every issue gets a manager review window before it sends: approve it as-is, request copy edits, or replace a community’s block. Then we publish on schedule, because boards complain when newsletters slip.' },
       { q: 'Do you handle state-specific notice language?', a: 'Optionally. A pre-publication legal pass checks reserve-disclosure language, election communications, and state-specific notice requirements before the issue goes out. Most firms add it once they’re producing at portfolio scale.' },
       { q: 'Can you produce Spanish editions?', a: 'Yes. English and Spanish, with other languages on request. Professional translators who know HOA terminology do the work, not a translation tool, and the Spanish edition is held to the same editorial standard.' },
       { q: 'We already have a newsletter. Can you take it over?', a: 'Yes. We audit what you send today (cadence, design, open rates, and the manager hours it costs) and rebuild from there. We usually find quick wins inside the first 60 days: open rates climbing, manager hours dropping.' },

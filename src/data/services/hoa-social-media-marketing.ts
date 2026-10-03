@@ -12,9 +12,9 @@ const data: ServicePageData = {
   intro: 'Board members look you up. The owner, the executive team, the firm page, if the last post is from 2023, that’s the impression. Social Media Marketing for HOA management companies is founder-led thought leadership, ghostwritten and scheduled, repurposed from everything else you publish.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
-    { value: 20, suffix: 'posts / mo', note: 'Across the founder and firm accounts, written for you' },
+    { value: 1, suffix: 'calendar', note: 'A monthly content calendar across the founder and firm accounts, written for you' },
     { value: 1, suffix: 'voice', note: 'Yours. We ghostwrite, you approve' },
-    { value: 5, suffix: '+ channels', note: 'LinkedIn first; Facebook, Instagram, YouTube, Nextdoor where boards are' },
+    { value: 3, suffix: 'audiences', note: 'Boards, managers and the industry, each on the channels where they actually are' },
   ],
   sections: [
     {
@@ -34,14 +34,14 @@ const data: ServicePageData = {
     {
       h: 'Repurposed, not reinvented.',
       p: [
-        'Every article, webinar, newsletter, and case study becomes eight to twelve posts. Nothing is written from scratch when it can be cut from something you already said better.',
+        'Every article, webinar, newsletter, and case study becomes a month of posts. Nothing is written from scratch when it can be cut from something you already said better.',
       ],
     },
     {
       h: 'A calendar built on the association year.',
       p: [
         'The calendar follows the CAM year, not a generic marketing one: budget season, annual meetings, reserve study cycles, dues notices, storm prep. Four pillars rotate through it. Governance posts explain what boards are deciding. Community posts spotlight the associations you run and the volunteers who keep them going. Seasonal posts land before the question does. Trust posts introduce the managers a board would actually work with.',
-        'Approval is built around that calendar. You get a 24-hour review window on every draft. Posts that name a specific association also go past its manager, and anything sensitive (elections, dues changes, legal notices) routes through the manager and the board chair on a 48-hour timeline.',
+        'Approval is built around that calendar. You get a review window on every draft. Posts that name a specific association also go past its manager, and anything sensitive (elections, dues changes, legal notices) routes through the manager and the board chair on a 48-hour timeline.',
       ],
     },
     {
@@ -78,7 +78,7 @@ const data: ServicePageData = {
       'Founder and firm profile optimization',
       'Platform plan with a job for every channel',
       'Monthly content calendar',
-      '~20 ghostwritten posts a month',
+      'Ghostwritten posts on a steady monthly calendar',
       'Repurposing from long-form content',
       'Community management and reply drafting',
       'Off-hours comment monitoring and escalation',

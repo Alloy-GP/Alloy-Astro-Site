@@ -12,7 +12,7 @@ const data: ServicePageData = {
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 3, suffix: 'firms', note: 'How many boards usually shortlist. Looking like the safe choice matters.' },
-    { value: 60, suffix: '–90 days', note: 'Typical identity project from discovery to guidelines' },
+    { value: 1, suffix: 'system', note: 'Logo, visual system, messaging and guidelines, built so anyone on your team can apply it' },
     { value: 1, suffix: 'firm per metro', note: 'Your identity is never reused for a competitor' },
   ],
   sections: [
@@ -90,7 +90,7 @@ const data: ServicePageData = {
     items: [
       { q: 'We have a logo. Do we need a rebrand?', a: 'Maybe not. If the mark works, we build the system around it: messaging, templates, guidelines. A new mark is only the answer when the current one costs you credibility.' },
       { q: 'Who owns the files?', a: 'You do. Every source file, every template, every guideline is delivered and yours.' },
-      { q: 'How long does a rebrand take?', a: 'Typically 60–90 days from discovery to guidelines, then the 90-day rollout. Firms with sub-brands or several regions scope longer. We don’t ship a brand in four weeks. That’s a logo refresh, not a system.' },
+      { q: 'How long does a rebrand take?', a: 'Typically a quarter from discovery to guidelines, then a rollout phase. Firms with sub-brands or several regions scope longer; we set the timeline in your proposal. We don’t ship a brand in a few weeks. That’s a logo refresh, not a system.' },
       { q: 'We have an in-house designer. Can they handle the rollout?', a: 'Yes: that’s the cleanest setup. We deliver the system and your designer applies it, with design tokens, Figma and source files, and a written rollout playbook. We stay available for 90 days after delivery as a sounding board.' },
     ],
   },

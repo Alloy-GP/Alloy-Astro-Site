@@ -135,10 +135,10 @@ export default function PricingPage() {
             <div className="rd-table-wrap">
               <table className="rd-table" style={{ minWidth: 640 }}>
                 <colgroup>
-                  <col style={{ width: '31.8%' }} />
-                  <col style={{ width: '22.7%' }} />
-                  <col style={{ width: '22.7%' }} />
-                  <col style={{ width: '22.7%' }} />
+                  <col style={{ width: '40%' }} />
+                  <col style={{ width: '20%' }} />
+                  <col style={{ width: '20%' }} />
+                  <col style={{ width: '20%' }} />
                 </colgroup>
                 <thead>
                   <tr>
@@ -179,10 +179,13 @@ export default function PricingPage() {
             <Eyebrow>Pricing questions</Eyebrow>
             <h2 className="rd-h2">Honest answers, plainly.</h2>
             <p className="rd-body">Not ready for the full system? We also take selective project work (an RFP response sprint, a brand and website refresh) when there’s a strategic event in motion.</p>
-            <div><TextLink href="/contact" size={12}>See one-off engagements</TextLink></div>
+            <div className="rd-stack rd-stack--10">
+              <div><TextLink href="/contact" size={12}>See one-off engagements</TextLink></div>
+              <div><TextLink href="/faq" size={12}>Read the full FAQ</TextLink></div>
+              <div><TextLink href="/growth-modeled" size={12}>Model your growth</TextLink></div>
+            </div>
           </div>
           <FaqList items={PRICING_FAQ} group="pricing" />
-          <div className="rd-row rd-row--wrap" style={{ gap: 18 }}><TextLink href="/faq" size={12}>More questions? Read the full FAQ</TextLink><TextLink href="/growth-modeled" size={12}>Model your growth</TextLink></div>
         </div>
       </section>
 

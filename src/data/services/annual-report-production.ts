@@ -13,7 +13,7 @@ const data: ServicePageData = {
   stats: [
     { value: 1, suffix: 'document', note: 'Per association or firm-wide. The year, in owners’ hands' },
     { value: 12, suffix: 'months', note: 'Of work made visible in one place' },
-    { value: 60, suffix: 'days', note: 'Before the annual meeting: that’s when we start' },
+    { value: 100, suffix: '%', note: 'Of the year’s work in one place, in owners’ hands before the meeting' },
   ],
   sections: [
     {
@@ -75,7 +75,7 @@ const data: ServicePageData = {
     h2: 'How it works.',
     intro: 'Four steps, one accountable team. Timelines are scoped at the Strategic Review.',
     steps: [
-      { title: 'Kick off', body: 'Sixty days out: scope, associations, data sources.' },
+      { title: 'Kick off', body: 'Well ahead of the meeting: scope, associations, data sources.' },
       { title: 'Gather', body: 'Reports, notes, photos, and numbers. Data pulls and interviews take about two weeks.' },
       { title: 'Produce', body: 'Written, designed, reviewed by your team. The chair approves the outline before design starts, and counsel reviews the disclosures.' },
       { title: 'Deliver', body: 'Print, PDF, and the meeting deck. Plus accessible HTML, social tiles, and a distribution playbook.' },
@@ -84,7 +84,7 @@ const data: ServicePageData = {
   faq: {
     items: [
       { q: 'Per association or for the whole firm?', a: 'Both are common. Larger associations get their own; the firm edition goes in every proposal.' },
-      { q: 'When should we start?', a: 'Sixty days before the first annual meeting in the season.' },
+      { q: 'When should we start?', a: 'Well before the first annual meeting of the season. We set the date at kickoff.' },
       { q: 'Does this replace our required annual disclosure?', a: 'No: it sits on top of it. Required state and CC&R disclosures are reproduced verbatim as your counsel directs, and counsel signs off on reserve language and forward-looking statements. Our work is the narrative, the design, and the distribution that get the document read.' },
       { q: 'Does it help us win new boards?', a: 'Yes. The annual report is the artifact boards forward most to other boards, so it works for BoardReach™ as much as BoardRetain™. Operators running the program report real inbound from other associations.' },
     ],

@@ -12,7 +12,7 @@ const data: ServicePageData = {
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   stats: [
     { value: 1, suffix: 'system', note: 'One set of templates across proposal, deck, mailer, signage' },
-    { value: 10, suffix: '-day', note: 'Turnaround on most proposal production runs' },
+    { value: 4, suffix: 'surfaces', note: 'Proposal, deck, mailer and signage, produced from one system' },
     { value: 0, suffix: 'off-brand pieces', note: 'Every piece pulls from the same guidelines' },
   ],
   sections: [
