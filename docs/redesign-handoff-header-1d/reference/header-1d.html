@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site header — option 1d (reference)</title>
+<style>
+  body { margin:0; background:#f8f7fc; font-family:'Gotham','Poppins',sans-serif; color:#381c4f; }
+  a { text-decoration:none; }
+  .util a { color:#D9CCE6; display:inline-flex; align-items:center; gap:7px; }
+  .util a:hover { color:#fff; }
+  .util a.login { color:#fff; font-weight:700; }
+  .nav a { color:#381c4f; padding:6px 0; }
+  .nav a:hover, .nav a.active { color:#d9356e; }
+  .nav a.cta { background:#d9356e; color:#fff; font-weight:700; font-size:12px; letter-spacing:.1em; text-transform:uppercase; padding:12px 20px; border-radius:10px; }
+  .nav a.cta:hover { background:#c12a60; color:#fff; } .nav a.cta:active { background:#a82451; transform:translateY(1px); }
+  @media (max-width: 900px) { .nav { display:none !important; } }
+</style></head>
+<body>
+<header style="background:#fff; border-bottom:1px solid #e8e4ef;">
+  <div class="util" style="background:#381c4f;">
+    <div style="max-width:1160px; margin:0 auto; padding:0 40px; height:36px; display:flex; align-items:center; justify-content:flex-end; gap:24px; font-size:12px; font-weight:500;">
+      <a href="/search"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>Search</a>
+      <span style="width:1px; height:14px; background:rgba(255,255,255,.18);"></span>
+      <a class="login" href="/login"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>Client log in</a>
+    </div>
+  </div>
+  <div style="max-width:1160px; margin:0 auto; padding:18px 40px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="/"><img src="alloy-logo-full-color.svg" alt="Alloy Growth Partners" style="height:30px; display:block;"></a>
+    <nav class="nav" style="display:flex; gap:32px; align-items:center; font-size:14px; font-weight:500;">
+      <a class="active" href="/system" style="display:inline-flex; align-items:center; gap:5px;">The System<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+      <a href="/results">Results</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/resources">Resources</a>
+      <a class="cta" href="/claim">Claim your market</a>
+    </nav>
+  </div>
+</header>
+</body></html>

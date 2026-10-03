@@ -57,8 +57,8 @@ src/
 │
 ├── components/
 │   ├── chrome/
-│   │   ├── SiteHeader.tsx           # Fixed header: logo · The System ▾ · Results · Pricing · Resources · search · Log in ↗ · [Claim your market]; two-level dropdown; mobile panel
-│   │   ├── SiteSearch.tsx           # Header search: icon button (desktop) / row (mobile panel) + native <dialog>; ⌘K, ↑↓↵; index from lib/search-index.ts
+│   │   ├── SiteHeader.tsx           # Fixed header 1d: purple utility strip (Search · Client log in) + main bar logo · The System ▾ · Results · Pricing · Resources · [Claim your market]; two-level dropdown; mobile panel; strip collapses on scroll
+│   │   ├── SiteSearch.tsx           # Header search: `utility` trigger (strip) / legacy icon + row variants + native <dialog>; ⌘K, ↑↓↵; index from lib/search-index.ts
 │   │   └── SiteFooter.tsx           # Purple footer: brand col + BoardReach / BoardMatch+BoardRetain / Company / Resources + legal bar
 │   │
 │   ├── rd/                          # REDESIGN BUILDING BLOCKS — use these first
@@ -196,7 +196,7 @@ States are CSS classes (`.am-prep`, `.am-in`) so React hydration can't wipe them
 
 ## Chrome
 
-**Header (`SiteHeader.tsx`, island `client:load`):** fixed, white 92% + blur, 67px tall (`body.has-fixed-header` pads for it). Nav from `nav.ts` `PRIMARY` + `CTA`. "The System" opens on hover/focus, resets to BoardReach on open, closes 120ms after mouse-leave or on Escape; right pane is keyed on engine for the cross-fade. ≤980px: burger → full-screen `.site-mobile-nav` with per-engine accordions. Search (icon → `<dialog>`, ⌘K) and the partner-portal **Log in** link (growth.alloygp.co, new tab, icon + text with `flex: none` so it never clips) were restored 2026-10-01 at the client's request; ≤980 both live in the panel (search row on top, Log in in the secondary row).
+**Header (`SiteHeader.tsx`, island `client:load`):** fixed; **header 1d (2026-10-03, `docs/redesign-handoff-header-1d/`)** = 36px purple utility strip (Search → palette, **Client log in** → growth.alloygp.co, new tab) above a 67px white main bar (`body.has-fixed-header` pads 112px; ≤980 the bar is 60px → 97px). The strip collapses after 80px of scroll (`.site-header.is-scrolled`, `body.header-compact` moves the mobile drawer up). Active nav item is colour only + `aria-current="page"` (no underline). Main bar: logo · nav · one pink CTA. Nav from `nav.ts` `PRIMARY` + `CTA`. "The System" opens on hover/focus, resets to BoardReach on open, closes 120ms after mouse-leave or on Escape; right pane is keyed on engine for the cross-fade. ≤980px: burger → full-screen `.site-mobile-nav` with per-engine accordions. Search (⌘K palette) and the client log in moved from the main bar / mobile drawer into the utility strip on 2026-10-03.
 **Footer (`SiteFooter.tsx`, static):** columns from `nav.ts` (`ENGINES` + `FOOTER`). Uses `alloy-logomark.svg` (not the 215 KB PNG).
 
 ---
@@ -264,6 +264,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-03 | **Header 1d** (`docs/redesign-handoff-header-1d/`): new 36px purple utility strip with Search (opens the palette) and **Client log in** (user glyph) above the main bar; search icon + Log in removed from the main bar and the mobile drawer; active nav item has no underline (colour + `aria-current`); strip collapses after 80px of scroll. Body offsets 112px desktop / 97px ≤980; `body.header-compact` repositions the drawer. |
 | 2026-10-03 | **No delivery specifics on service pages** (client): quantities, turnarounds, SLAs and spend minimums removed from stat bands, checklists, steps and FAQs (Groundwork's forty conversations, Board Education's four micro-courses, 20 posts, 4 articles, 12 issues, 10-day turnarounds, 24-hour windows, 60–90-day timelines, $4K media floor…). Timelines stay only as hedged ranges ("about a quarter"). Sample/outcome metrics (535%, 3×, 45% avg, 2×, 3–5×, 1 in 2) stay and are annotated: `statsFootnote` (ServicePageData) / `proof.footnote` (HubPageData) → `.rd-stat-footnote`. Two leftover 40–60% stats → 45% avg. Reputation band now cites BrightLocal 2026 (97% read reviews, 71% on Google). **Pricing**: description column 40%, tighter cell padding, sticky first column 190–210px on phones; the FAQ-section links (one-off engagements, full FAQ, growth model) now stack in the intro column instead of floating under the table grid. |
 | 2026-10-03 | **Pricing compare table made qualitative** (client: no quantities or specifics before a proposal): rows are label + one-line "what you get" (`.rd-compare-desc`), cells are a check (`.rd-compare-check`), a muted "No", or a level word (Single/Multi-market, Expanded, Custom work, Shared/Dedicated, Local/Metro/Multi-metro); no article counts, conversation counts, course counts or metro caps. Intro says it's a guide, not a scope. Tier card: "Local SEO across your metros". Service pages still state Groundwork's forty conversations and Board Education's four micro-courses (flagged to the client). |
 | 2026-10-02 | **Eyebrow lines removed** (client: "no dashes on eyebrows"): the 28×3 `.rd-eyebrow::before` bar and the legacy `.eyebrow::before` bar are `display: none`; eyebrows are now plain uppercase labels. `--noline` / `.no-line` stay as no-ops. |
