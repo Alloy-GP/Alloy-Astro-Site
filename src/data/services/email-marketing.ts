@@ -10,6 +10,7 @@ const data: ServicePageData = {
   h1Accent: 'until they’re ready.',
   intro: 'Most boards don’t switch when they first meet you. They switch eleven months later when the contract comes up. Email Marketing for HOA management companies keeps you present in between: segmented, branded, and written for the board timeline, not a generic drip.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
     { value: 11, suffix: 'months', note: 'Average gap between first conversation and contract decision' },
     { value: 4, suffix: 'segments', note: 'Prospect boards, current boards, homeowners, vendors and partners' },

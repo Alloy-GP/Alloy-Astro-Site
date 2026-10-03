@@ -8,10 +8,11 @@ const data: ServicePageData = {
   eyebrow: 'BoardMatch™ · Fractional business development',
   h1: 'Senior business development',
   h1Accent: 'without the senior salary.',
-  intro: 'Groundwork is fractional business development for property management companies: a CAM-experienced BD lead who prospects, qualifies, and books the meetings, then hands your principal a board that’s ready to talk. Forty conversations a month, one metro, one firm.',
+  intro: 'Groundwork is fractional business development for property management companies: a CAM-experienced BD lead who prospects, qualifies, and books the meetings, then hands your principal a board that’s ready to talk. A steady cadence of conversations, one metro, one firm.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
-    { value: 40, suffix: 'conversations / mo', note: 'Live conversations with boards and managers in your metro' },
+    { value: 100, suffix: '%', note: 'Of meetings qualified against your criteria before they reach your calendar' },
     { value: 45, suffix: '% avg', note: 'Qualified-to-closed on meetings Groundwork books' },
     { value: 1, suffix: 'firm per metro', note: 'Your Groundwork lead never prospects for a competitor' },
   ],
@@ -26,7 +27,7 @@ const data: ServicePageData = {
     {
       h: 'A name and a phone number isn’t a lead.',
       p: [
-        'Forty conversations a month means forty live exchanges with board members and managers in your metro, people who told us where their association stands. The boards that clear the bar go on your calendar. The rest go back into the cadence with a note on when their contract opens, and Groundwork makes that call when the date comes around.',
+        'Every conversation is a live exchange with a board member or manager in your metro, someone who told us where their association stands. The boards that clear the bar go on your calendar. The rest go back into the cadence with a note on when their contract opens, and Groundwork makes that call when the date comes around.',
       ],
     },
     {
@@ -72,7 +73,7 @@ const data: ServicePageData = {
     steps: [
       { title: 'Define', body: 'Ideal association profile, territory, and qualification bar. Written down with your principal before the first call.' },
       { title: 'Build', body: 'Target list, messaging, and CRM. Sorted by contract timing, so outreach starts with the boards closest to a decision.' },
-      { title: 'Prospect', body: 'Forty conversations a month; meetings on your calendar.' },
+      { title: 'Prospect', body: 'A steady monthly cadence of conversations; meetings on your calendar.' },
       { title: 'Close', body: 'Briefs, follow-up, and post-mortems until the contract signs.' },
     ],
   },

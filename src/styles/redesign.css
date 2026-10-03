@@ -416,6 +416,9 @@ textarea.rd-field { resize: vertical; min-height: 120px; }
 .rd-compare-desc { display: block; margin-top: 3px; font-size: 13px; font-weight: 400; line-height: 1.4; letter-spacing: 0; text-transform: none; color: var(--alloy-body-gray); }   /* pricing compare: one-line "what you get" under each row label */
 .rd-compare-check { display: inline-flex; width: 26px; height: 26px; border-radius: 50%; background: rgba(174,215,208,.45); color: var(--alloy-purple); align-items: center; justify-content: center; }
 .rd-compare-no { color: var(--alloy-border-strong, #c9c1d6); font-weight: 500; }
+.rd-stat-footnote { margin: 18px 0 0; font-size: 12px; line-height: 1.5; color: rgba(255,255,255,.62); }   /* "sample metrics" note under purple stat/proof bands */
+.rd-compare-card .rd-table th, .rd-compare-card .rd-table td { padding: 14px 16px 14px 0; }
+.rd-compare-card .rd-table th[scope=row] { padding-right: 28px; }
 .rd-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 /* Article body */

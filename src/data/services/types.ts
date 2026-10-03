@@ -57,6 +57,8 @@ export interface ServicePageData {
   /** Right-hand hero column. Default 'siblings'. */
   heroAside?: 'siblings' | 'seo-map';
   stats: StatItem[];
+  /** Shown under the stat band when the band carries sample/illustrative metrics (client, 2026-10-03). */
+  statsFootnote?: string;
   sections: ProseSection[];
   included: { eyebrow?: string; h2: string; intro: string; items: string[] };
   process: { h2: string; intro: string; steps: Step[] };

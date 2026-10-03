@@ -10,6 +10,7 @@ const data: ServicePageData = {
   h1Accent: 'compare you on.',
   intro: 'Your standing proposal is the document every board reads before they pick. Proposal Optimization rebuilds it (structure, narrative, pricing presentation, design) so it answers the board’s real questions in the order they ask them. This is the template you reuse; for a single high-stakes RFP, see RFP Response System.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
+  statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
     { value: 12, suffix: 'things', note: 'What boards actually evaluate in a proposal, per our audit' },
     { value: 1, display: '1 in 2', note: 'Where your close rate should be, up from the industry’s one in four' },
@@ -87,8 +88,8 @@ const data: ServicePageData = {
   faq: {
     items: [
       { q: 'How is this different from RFP Response System?', a: 'Proposal Optimization rebuilds the standing template you use for every pursuit. RFP Response System is done-for-you production on one specific, high-stakes RFP.' },
-      { q: 'Can you help with an RFP that’s due next week?', a: 'That’s RFP Response System: ten-day turnaround.' },
-      { q: 'How long until the new proposal is in use?', a: 'About 90 days: three weeks of audit and strategy, five weeks of rebuild, and two weeks of training and the first live proposal. Win-rate signal becomes meaningful around month five or six.' },
+      { q: 'Can you help with an RFP that’s due next week?', a: 'That’s RFP Response System, built to run on the RFP’s clock, even a short one.' },
+      { q: 'How long until the new proposal is in use?', a: 'About a quarter: audit and strategy, the rebuild, then training and the first live proposal. Exact timing is set at the Strategic Review. Win-rate signal becomes meaningful a few months after that.' },
       { q: 'Our proposal already looks great.', a: 'Looks and wins are different things. Good-looking proposals lose all the time because the differentiation is wrong, the fee disclosure spooks the board, or the answers are in the wrong order. We audit win rate, not aesthetics.' },
       { q: 'How is this different from hiring a designer?', a: 'A designer fixes layout. We fix what happens in the selection meeting. Strategy comes first, what your differentiators should be, then structure, the order boards want answers in, then design. Most CAM proposals fail before the designer opens the file.' },
     ],

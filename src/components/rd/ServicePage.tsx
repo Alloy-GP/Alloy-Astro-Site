@@ -73,7 +73,7 @@ export default function ServicePage({ data }: { data: ServicePageData }) {
       </section>
 
       <section className="rd-section rd-section--band rd-bg-purple">
-        <div className="rd-wrap"><StatBand stats={data.stats} columns={3} /></div>
+        <div className="rd-wrap"><StatBand stats={data.stats} columns={3} />{data.statsFootnote ? <p className="rd-stat-footnote">{data.statsFootnote}</p> : null}</div>
       </section>
 
       <section className="rd-section rd-section--flush">

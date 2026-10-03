@@ -22,7 +22,7 @@ export interface HubPageData {
   /** Footer line inside "The system" card. */
   systemNote: string;
   outcomes: { eyebrow: string; h2: string; items: HubOutcome[] };
-  proof: { eyebrow: string; h2: string; link: Cta; stats: StatItem[] };
+  proof: { eyebrow: string; h2: string; link: Cta; stats: StatItem[]; footnote?: string };
   wait: { eyebrow: string; h2: string; h2Accent?: string; body: string };
   /** Optional FAQ (rendered + FAQPage schema) */
   faq?: { eyebrow?: string; h2?: string; items: FaqItem[] };

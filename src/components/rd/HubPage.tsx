@@ -85,6 +85,7 @@ export default function HubPage({ data }: { data: HubPageData }) {
               </div>
             ))}
           </div>
+          {data.proof.footnote ? <p className="rd-stat-footnote">{data.proof.footnote}</p> : null}
         </div>
       </section>
 
