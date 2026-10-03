@@ -56,6 +56,9 @@ export default function SiteSearch({ variant = 'icon' }: { variant?: 'icon' | 'r
   useEffect(() => { setActive(0); }, [q]);
 
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    // Chrome consumes Escape inside <input type="search"> (it clears the field) and never fires the dialog's
+    // native cancel, so the palette looked stuck. Close it ourselves.
+    if (e.key === 'Escape') { e.preventDefault(); hide(); return; }
     if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => Math.min(a + 1, results.length - 1)); }
     else if (e.key === 'ArrowUp') { e.preventDefault(); setActive((a) => Math.max(a - 1, 0)); }
     else if (e.key === 'Enter') { const hit = results[active]; if (hit) window.location.href = hit.h; }
@@ -86,7 +89,7 @@ export default function SiteSearch({ variant = 'icon' }: { variant?: 'icon' | 'r
         </button>
       )}
 
-      <dialog ref={dialogRef} className="rd-dialog site-search" aria-label="Site search">
+      <dialog ref={dialogRef} className="rd-dialog site-search" aria-label="Site search" onKeyDown={(e) => { if (e.key === 'Escape') { e.preventDefault(); hide(); } }}>
         <div className="site-search-panel">
           <div className="site-search-row">
             <span className="site-search-row-icon"><SearchIcon size={20} /></span>
