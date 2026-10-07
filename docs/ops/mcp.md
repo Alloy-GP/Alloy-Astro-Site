@@ -10,6 +10,17 @@
 
 ## Supplying the secrets
 
+**Cloud-only setups (no local checkout):** put everything in one env file on the Mac that creates the workspaces and point Conductor's user setting `environment_variable_files` at it:
+
+```
+AHREFS_MCP_KEY=…
+GSC_BIGQUERY_PROJECT=alloy-gsc
+GOOGLE_APPLICATION_CREDENTIALS_B64=<base64 of the service-account JSON, single line>
+```
+
+The BigQuery launcher decodes `GOOGLE_APPLICATION_CREDENTIALS_B64` into `.secrets/gcp-service-account.json` on first run, so no file has to travel with the repo.
+
+
 Conductor copies gitignored files listed in `.worktreeinclude` (`.env`, `.env.local`, `.secrets/`) into every new workspace, so:
 
 1. Put `gcp-service-account.json` in `.secrets/` of the repository root on your Mac.
