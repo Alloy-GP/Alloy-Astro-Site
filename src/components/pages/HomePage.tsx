@@ -50,7 +50,7 @@ export default function HomePage({ chart, newsletter }: { chart?: ReactNode; new
             <p className="rd-body" style={{ color: '#fff', opacity: .85, lineHeight: 1.55 }}>Boards submit on MatchHOA. In your metro, every one goes to you.</p>
             <div className="rd-row rd-row--wrap" style={{ gap: 22, paddingTop: 6 }}>
               <Btn href="/contact" className="rd-btn--inline">Claim your market</Btn>
-              <a href="https://matchhoa.com" className="rd-logo-link" target="_blank" rel="noopener" title="matchhoa.com">
+              <a href="https://www.matchhoa.com" className="rd-logo-link" target="_blank" rel="noopener" title="matchhoa.com">
                 <img src="/assets/match-hoa-white.svg" alt="MatchHOA" width={110} height={44} loading="lazy" />
               </a>
             </div>

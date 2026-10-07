@@ -47,7 +47,7 @@ const REFERRALS: Array<{ name: string; desc: string; href?: string; cta?: string
   { name: 'Legal counsel network', desc: 'Vetted CC&R, transition, and HOA-litigation counsel in 12 metros. We coordinate; they handle the legal work; you get one project manager.' },
   { name: 'Accounting + audit firms', desc: 'Five CAM-specialized accounting firms in our network. Joint engagements for portfolio-wide audit, transition, and financial review.' },
   { name: 'PR + crisis comms', desc: 'When a story breaks beyond marketing (local news, regulatory, litigation) we hand off cleanly to specialist crisis firms we trust.' },
-  { name: 'Board matchmaking', desc: "Boards find Alloy looking for a manager, not a marketer. We send them to Match HOA. A free concierge service that screens management companies against the community's needs and delivers a shortlist of two or three vetted matches. Boards get a clean process; the firms on the shortlist get a warm, qualified introduction.", href: 'https://matchhoa.com', cta: 'Visit Match HOA' },
+  { name: 'Board matchmaking', desc: "Boards find Alloy looking for a manager, not a marketer. We send them to Match HOA. A free concierge service that screens management companies against the community's needs and delivers a shortlist of two or three vetted matches. Boards get a clean process; the firms on the shortlist get a warm, qualified introduction.", href: 'https://www.matchhoa.com', cta: 'Visit Match HOA' },
 ];
 
 const PRINCIPLES = [
