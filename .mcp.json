@@ -1,0 +1,16 @@
+{
+  "$comment": "Project-scope MCP servers for Claude Code (read automatically in Conductor; use 'Refresh status' after changes). No secrets live here: the Ahrefs key comes from the AHREFS_MCP_KEY environment variable; BigQuery credentials are loaded by scripts/mcp/bigquery-toolbox.sh from .secrets/mcp.env + .secrets/gcp-service-account.json (gitignored). See docs/ops/mcp.md.",
+  "mcpServers": {
+    "ahrefs": {
+      "type": "http",
+      "url": "https://api.ahrefs.com/mcp/mcp",
+      "headers": {
+        "Authorization": "Bearer ${AHREFS_MCP_KEY}"
+      }
+    },
+    "bigquery": {
+      "command": "./scripts/mcp/bigquery-toolbox.sh",
+      "args": []
+    }
+  }
+}

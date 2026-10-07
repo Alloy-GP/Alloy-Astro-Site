@@ -256,6 +256,7 @@ interface Props {
 - **Pre-launch sweep:** `node .context/launch-audit.mjs [stg] [live]` — live-sitemap URLs → 200/one-hop 301, title/description/word-count regression vs live, every redirect rule, internal links, images, H1 count, canonical, JSON-LD validity, FAQ schema ↔ visible FAQ, duplicates, favicons/og. Mobile: loop `.context/mobile-qa.mjs` over `SITEMAP_ROUTES`.
 - **Staging:** `stg.alloygp.co` is bound to the `staging` branch; `dev.alloygp.co` to `skyleralloygp/site-redesign`. After every push to the redesign branch also run `git push origin skyleralloygp/site-redesign:staging` (fast-forward; `staging` was merged into the redesign with `-s ours` on 2026-10-01). Non-production deploys are `noindex,nofollow` automatically via `VERCEL_ENV` in `BaseLayout.astro`.
 - Update this file's tree + changelog when routes or shared pieces change; log client decisions in `docs/redesign-handoff/OPEN-QUESTIONS.md`.
+- **MCP servers** (`.mcp.json`, project scope): `ahrefs` (remote, `AHREFS_MCP_KEY` bearer) and `bigquery` (Google MCP Toolbox → Search Console export, `GSC_BIGQUERY_PROJECT` + service-account JSON in gitignored `.secrets/`). Setup/secrets: `docs/ops/mcp.md`; Conductor workspace settings in `.conductor/settings.toml` (setup installs the Toolbox binary; `.worktreeinclude` copies `.env` + `.secrets/` into new workspaces).
 
 ---
 
