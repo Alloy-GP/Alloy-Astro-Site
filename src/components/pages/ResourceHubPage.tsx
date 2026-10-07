@@ -22,14 +22,14 @@ interface Resource {
 
 const SIDE: Resource[] = [
   { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies', href: '/resources/courses/trust-building' },
-  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'CAM marketing strategy: the plan before the tactics', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics', href: '/resources/cam-marketing-strategy' },
 ];
 
 // Real pieces only (client, 2026-10-01: no placeholder articles). Add new articles here as they publish.
 const LATEST: Resource[] = [
   { kind: 'AI search', ink: REACH_INK, accent: PINK, meta: '3 min read', title: 'How CAM firms win in AI search.', href: '/resources/ai-search-for-cam' },
-  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'CAM marketing strategy: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Guide', ink: MATCH_INK, accent: YELLOW, meta: 'Long read', title: 'The HOA management software guide: platforms, pricing, and the RFP.', href: '/resources/hoa-management-software-guide' },
+  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Guide', ink: MATCH_INK, accent: YELLOW, meta: 'Long read', title: 'Best HOA management software (2026): platforms, pricing, and the RFP.', href: '/resources/hoa-management-software-guide' },
   { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies.', href: '/resources/courses/trust-building' },
   { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
   { kind: 'Briefing', ink: BLUE_INK, accent: BLUE, meta: 'Newsletter archive', title: 'Every issue of the Alloy Briefing, by year.', href: '/resources/newsletter' },
@@ -72,7 +72,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
           <div className="rd-grid rd-grid--hero-wide rd-gap-20 rd-rule-top" style={{ paddingTop: 48 }}>
             <a href="/resources/hoa-management-software-guide" className="rd-card-link rd-bg-purple rd-ink-white rd-stack--18" style={{ borderRadius: 10, padding: 40, minHeight: 340 }}>
               <Label tone="yellow" size={12}>Featured guide</Label>
-              <div className="rd-h2 rd-h2--sm">The HOA management software guide.</div>
+              <div className="rd-h2 rd-h2--sm">Best HOA management software: the 2026 buyer’s guide.</div>
               <p className="rd-body rd-body--16 rd-muted-85" style={{ maxWidth: 520 }}>Vantaca, AppFolio, Buildium, CINC and the rest: compared the way an operator compares them, with what each one means for boards, owners, and your marketing stack.</p>
               <span className="rd-btn rd-btn--sm" style={{ padding: '14px 22px', marginTop: 'auto', alignSelf: 'flex-start' }}>Read the guide</span>
             </a>

@@ -16,7 +16,7 @@ const data: HubPageData = {
         title: 'Boards find you on the map before they find your competitor.',
         body: 'Most board searches start local: “HOA management company near me”, a city name, a ZIP. The top three map results get the calls. Everyone else gets the RFP, if anything.',
         services: [
-          { label: 'Property Management SEO', sub: 'Google, the map pack, and the AI answer · one program', href: '/property-management-seo' },
+          { label: 'HOA Management SEO', sub: 'Google, the map pack, and the AI answer · one program', href: '/property-management-seo' },
           { label: 'HOA Website Design', sub: 'A site built to convert boards, not just homeowners', href: '/boardreach/hoa-website-design' },
         ],
       },
@@ -63,7 +63,7 @@ const data: HubPageData = {
     h2: 'Questions about BoardReach',
     items: [
       { q: 'Where do boards actually look for a management company?', a: 'Local search first (“HOA management company near me”, a city, a ZIP) and the top three map results get the calls. From there they check AI answers, LinkedIn, and review sites before anyone picks up the phone. BoardReach works those four places in that order, so your firm is the answer in each of them.' },
-      { q: 'Do we need all of BoardReach, or can we start with one service?', a: 'You can start with one. Most services stand on their own. We usually sequence it: Property Management SEO and your Google Business Profile first, because that’s where board searches begin; branding and the website when authority is the gap; paid search only as one channel inside the engine, never the whole strategy.' },
+      { q: 'Do we need all of BoardReach, or can we start with one service?', a: 'You can start with one. Most services stand on their own. We usually sequence it: HOA Management SEO and your Google Business Profile first, because that’s where board searches begin; branding and the website when authority is the gap; paid search only as one channel inside the engine, never the whole strategy.' },
       { q: 'How long before BoardReach produces leads?', a: 'Map pack movement in about ninety days; organic and AI search over six to twelve months; paid search can be live inside a month. Every engagement starts with attribution, so from the first week you can see which channel each inquiry came from instead of guessing.' },
       { q: 'How is this different from a general marketing agency?', a: 'We only work with community association management companies, so nothing is learned on your retainer. The targeting is board-stage: the people who hire management companies, not homeowner traffic. And we take one CAM firm per metro, so the strategy we build for you is never run for a competitor across town.' },
       { q: 'What does exclusivity mean for BoardReach?', a: 'Your defined metro is locked for the length of the engagement, and the exclusivity renews with your contract unless something changes. In practice that means the search positions, the content, and the campaigns we build are yours alone in your market. Check whether your metro is open on the homepage, or ask on the call.' },

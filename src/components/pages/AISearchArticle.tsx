@@ -15,7 +15,7 @@ const TOC: Array<{ id: string; label: string }> = [
 ];
 
 const KEEP_READING = [
-  { kind: 'Strategy', ink: '#4a86ad', accent: BLUE, meta: '12 min read', title: 'CAM marketing strategy: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Strategy', ink: '#4a86ad', accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
   { kind: 'Service', ink: REACH_INK, accent: PINK, meta: 'BoardReach', title: 'Property management SEO: Google, the map, and the AI answer.', href: '/property-management-seo' },
   { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: '10 sections', title: 'Trust building for CAM firms.', href: '/resources/courses/trust-building' },
 ];

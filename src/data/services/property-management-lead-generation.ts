@@ -9,7 +9,7 @@ const data: ServicePageData = {
   h1: 'Turn attention into',
   h1Accent: 'board inquiries',
   h1Tail: 'you can count.',
-  intro: 'Traffic isn’t a pipeline. Lead Generation for property management companies is the set of assets and campaigns that convert a curious board member into a named contact: guides, calculators, webinars, paid campaigns, and the follow-up that turns a download into a meeting.',
+  intro: 'Traffic isn’t a pipeline. Lead Generation for HOA management companies is the set of assets and campaigns that convert a curious board member into a named contact: guides, calculators, webinars, paid campaigns, and the follow-up that turns a download into a meeting.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [

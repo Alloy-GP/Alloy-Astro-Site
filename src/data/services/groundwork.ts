@@ -8,7 +8,7 @@ const data: ServicePageData = {
   eyebrow: 'BoardMatch™ · Fractional business development',
   h1: 'Senior business development',
   h1Accent: 'without the senior salary.',
-  intro: 'Groundwork is fractional business development for property management companies: a CAM-experienced BD lead who prospects, qualifies, and books the meetings, then hands your principal a board that’s ready to talk. A steady cadence of conversations, one metro, one firm.',
+  intro: 'Groundwork is fractional business development for HOA management companies: a CAM-experienced BD lead who prospects, qualifies, and books the meetings, then hands your principal a board that’s ready to talk. A steady cadence of conversations, one metro, one firm.',
   secondaryCta: { label: 'Talk to a CAM operator', href: '/contact' },
   statsFootnote: 'Sample metrics from Alloy partner engagements and industry benchmarks, shown as a guide. Your proposal shows the numbers for your firm.',
   stats: [
