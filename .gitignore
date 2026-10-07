@@ -12,3 +12,6 @@ dist/
 
 # Conductor workspace scratch (screenshots, attachments)
 .context/
+
+# MCP / API secrets copied into workspaces by Conductor (.worktreeinclude), never committed
+.secrets/

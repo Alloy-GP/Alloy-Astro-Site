@@ -1,0 +1,27 @@
+"$schema" = "https://conductor.build/schemas/settings.repo.schema.json"
+
+# Conductor workspace settings for the Alloy site.
+# - setup: installs deps and Google's MCP Toolbox binary (BigQuery MCP server, used by .mcp.json).
+# - run.dev: Astro dev server on the workspace's first allocated port (local workspaces only;
+#   cloud sandboxes start it by hand: npx astro dev --port 4321 --host 127.0.0.1).
+# - Secrets (Ahrefs MCP key, GCP service account) are NOT in git: they live in .secrets/ and .env,
+#   which Conductor copies into new workspaces via .worktreeinclude.
+
+[scripts]
+setup = """
+npm install
+# Google MCP Toolbox (BigQuery MCP server) → ~/.local/bin/toolbox, if missing
+if [ ! -x "$HOME/.local/bin/toolbox" ]; then
+  mkdir -p "$HOME/.local/bin"
+  ARCH=$(uname -m); [ "$ARCH" = "x86_64" ] && ARCH=amd64; [ "$ARCH" = "aarch64" ] && ARCH=arm64
+  OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+  curl -sL -o "$HOME/.local/bin/toolbox" "https://storage.googleapis.com/mcp-toolbox-for-databases/v1.13.1/$OS/$ARCH/toolbox" && chmod +x "$HOME/.local/bin/toolbox"
+fi
+"""
+run_mode = "concurrent"
+
+[scripts.run.dev]
+available_in = [ "local" ]
+command = "npx astro dev --port $CONDUCTOR_PORT --host 127.0.0.1"
+default = true
+icon = "play"
