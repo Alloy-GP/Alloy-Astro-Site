@@ -11,7 +11,9 @@ mailchimp.setConfig({
 
 export const POST: APIRoute = async ({ request }) => {
   try {
-    const data = await request.formData();
+    // Empty or non-form bodies (bots, health probes) are a client error, not a server error.
+    let data: FormData;
+    try { data = await request.formData(); } catch { return new Response(JSON.stringify({ error: 'Expected form data.' }), { status: 400, headers: { 'Content-Type': 'application/json' } }); }
     const name = data.get("name")?.toString().trim() ?? "";
     const email = data.get("email")?.toString().trim() ?? "";
     const company = data.get("company")?.toString().trim() ?? "";
