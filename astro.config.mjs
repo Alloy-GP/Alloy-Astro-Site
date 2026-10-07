@@ -174,6 +174,11 @@ export default defineConfig({
     '/courses/trust-building/lessons/from-proof-to-persuasion': '/resources/courses/trust-building#from-proof-to-persuasion',
     '/courses/trust-building-quiz': '/resources/courses/trust-building#knowledge-check',
     '/learn/is-online-employee-training-too-much': '/resources/courses/trust-building',
+    // 2026-10-07 post-launch sweep (Ahrefs backlinks → live 404s with inbound links)
+    '/learn/poor-employee-training': '/resources/courses',            // incontextsolutions.com (DR 42) links here
+    '/contact-us': '/contact',                                          // alloyhoapartners.com
+    '/boardmatch-hoa-proposals': '/boardmatch',                         // alloycreatives.com, letsalloy.com
+    '/product/the-local-takeover-ai-advantage-bundle': '/pricing',      // alloycreatives.com cart links
     // Dropped page (was in the nav + sitemap so it's been crawled). Google Ads returned as a page 2026-10-01.
     '/boardreach/local-pack-optimization': '/property-management-seo',
 

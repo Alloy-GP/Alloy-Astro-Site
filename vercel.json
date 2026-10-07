@@ -38,6 +38,26 @@
       "source": "/courses/outsmarting-ai-search-how-micro-courses-drive-clicks-credibility-conversions/:path*",
       "destination": "/resources/courses",
       "permanent": true
+    },
+    {
+      "source": "/account-login",
+      "destination": "https://growth.alloygp.co/",
+      "permanent": true
+    },
+    {
+      "source": "/account-login/",
+      "destination": "https://growth.alloygp.co/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/:path*",
+      "destination": "/resources/courses",
+      "permanent": true
+    },
+    {
+      "source": "/product/:path*",
+      "destination": "/pricing",
+      "permanent": true
     }
   ],
   "headers": [

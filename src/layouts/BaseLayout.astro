@@ -139,6 +139,8 @@ const orgLd = {
   name: SITE.name,
   url: SITE.url,
   logo: SITE.org.logo,
+  // Google's LocalBusiness rich-result validation requires `image` (Ahrefs Site Audit flagged every page without it, 2026-10-06)
+  image: [`${SITE.url}/assets/alloy-og.png`, `${SITE.url}/apple-touch-icon.png`],
   sameAs: SITE.org.sameAs,
   description,
   address: {

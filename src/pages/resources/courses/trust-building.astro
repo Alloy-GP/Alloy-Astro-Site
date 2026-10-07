@@ -7,7 +7,6 @@ import BaseLayout from '~/layouts/BaseLayout.astro';
 import CourseTrustBuildingPage from '~/components/pages/CourseTrustBuildingPage';
 import TrustBuildingQuiz from '~/components/modules/TrustBuildingQuiz';
 import { courseSchema, breadcrumbSchema } from '~/lib/schema';
-import { SITE } from '~/config/site';
 
 const path = '/resources/courses/trust-building';
 const description = 'Learn how reviews, testimonials, and case studies help CAM companies win more boards. Free micro-course from Alloy Growth Partners.';
@@ -18,16 +17,12 @@ const baseCourse = courseSchema({
   url: path,
 });
 
-// Extra Course fields carried over from the pre-redesign schema.
+// Extra Course fields carried over from the pre-redesign schema. (2026-10-07: Course-level `courseMode` and an
+// Organization `instructor` failed schema.org validation — courseMode lives on CourseInstance, instructor must be a Person.)
 const course = {
   ...baseCourse,
   educationalLevel: 'Beginner',
   inLanguage: 'en',
-  courseMode: 'online',
-  hasCourseInstance: {
-    ...baseCourse.hasCourseInstance,
-    instructor: { '@type': 'Organization', name: SITE.name, url: SITE.url },
-  },
 };
 
 const crumbs = breadcrumbSchema([
