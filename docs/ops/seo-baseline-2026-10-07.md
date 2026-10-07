@@ -15,40 +15,58 @@ Sources: Ahrefs (Site Explorer, Rank Tracker project 9497923, Keywords Explorer,
 
 **Conclusion:** the blocker is indexing + relevance/authority on the money pages, not technical health. Next step is the Search Console *Pages* report / URL Inspection (needs the `claude-gsc-reader` service account added to the property) to see which of the 42 URLs Google has actually indexed, then "Request indexing" on the priority pages.
 
-## What people actually search (US monthly volume · KD · traffic potential)
+## What CAM operators actually search (US monthly volume · KD · traffic potential)
 
-| Query | Volume | KD | TP | We have |
-|---|---:|---:|---:|---|
-| hoa management software | 1,400 | 8 | 10,000 | /resources/hoa-management-software-guide (not ranking) |
-| hoa management company | 1,300 | 0 | 4,200 | nothing board-facing (a "how to choose" guide would target it) |
-| property management seo | 600 | 0 | 300 | /property-management-seo (not ranking) |
-| property management marketing | 500 | 1 | 700 | no page uses this phrase |
-| property management leads | 450 | 0 | 150 | /boardreach/property-management-lead-generation |
-| best hoa management software | 200 | 30 | 11,000 | the guide, retitled, could target it |
-| property management website design | 200 | 1 | 100 | /boardreach/hoa-website-design (HOA phrasing only) |
-| hoa newsletter | 200 | 0 | 150 | /boardretain/newsletter-production |
-| property management marketing agency | 150 | 0 | 500 | homepage / about |
-| property management lead generation | 150 | 0 | 200 | lead-gen page |
-| marketing for property management companies | 100 | 0 | 700 | — |
-| hoa website design | 100 | 22 | 90 | hoa-website-design page |
-| seo for property management companies | 90 | — | — | — |
-| community association management marketing | 80 | — | — | — |
-| hoa management marketing | 60 | — | — | homepage (indirectly) |
-| **marketing for hoa management companies** (current homepage target) | **~0** | — | — | homepage title/H1 |
-| cam marketing agency | 0 | — | — | — |
-| hoa reputation management | 0 (GSC shows impressions) | — | — | reputation page |
+Client direction (2026-10-07): **no "property management" targeting** — that is the rental-management industry. The site serves HOA / community association management companies only.
 
-Read: the market phrases its need as **"property management …"** far more than "HOA management …". Nearly every attainable term (KD 0–8) is one we already have a page for; they need the phrasing in titles/H1s and they need to be indexed.
+### A. Exact CAM-marketing intent (small, specific, and nobody owns it)
+| Query | Vol | Note |
+|---|---:|---|
+| marketing an hoa management company | 100 | no SERP data in Ahrefs → no established competitor |
+| hoa management seo | 100 | same |
+| community association management marketing | 80 | same |
+| hoa management marketing | 60 | same |
+| hoa management proposal | 40 | BoardMatch |
+| hoa management growth / hoa management company growth | 30 + 30 | homepage / results |
+| cam marketing | 30 | ambiguous (webcams); use only inside CAM copy |
+| rfp for hoa management services | 20 | RFP page |
+| hoa management website design | 10 | website page |
 
-## Who ranks today
-- *property management seo*: agency guides (ClearLead, Boulder SEO, Brindle, Kihan) plus RealPage/AppFolio blogs. All KD 0 — reachable with the existing page once indexed and linked internally.
-- *hoa management software*: vendors (PayHOA, AppFolio, RunHOA, ManageCasa), Capterra, and blog roundups — the buyer's guide can compete for "best hoa management software" with a roundup-style title.
-- *marketing for property management companies*: Buildium blog (DR 76) and Fourandhalf (DR 60) — beatable over time with the strategy article + homepage.
+≈500 searches/month combined, all KD ≈ 0. These are the phrases to put in titles and H1s on the pages that already exist.
 
-## Recommended next moves (need client sign-off where marked)
-1. **Index check + request indexing** of the 42 canonical URLs in Search Console (client, in the GSC UI; API is read-only). Priority: /, /property-management-seo, /resources/hoa-management-software-guide, /boardreach/property-management-lead-generation, /resources/cam-marketing-strategy, /boardmatch, /boardreach, /boardretain, /pricing.
-2. **Title/H1 phrasing (client decision):** add "property management" to the homepage title and to the SEO, lead-gen, website-design and newsletter pages alongside the HOA wording, e.g. homepage → "Property Management & HOA Marketing Agency | Alloy Growth Partners". Keeps the HOA positioning, adds the phrasing people type.
-3. **Retitle the software guide** toward "Best HOA Management Software (2026): Buyer's Guide for CAM Firms" (KD 30, TP 11,000) and keep the comparison/RFP content.
-4. **Internal links** from the homepage ledger/engine tiles to /property-management-seo and the guide with phrase-match anchors.
-5. **Board-side content**: "How to choose an HOA management company" (1,300 vol, KD 0) — positions partners; links to MatchHOA.
-6. Re-run this baseline in 30 days from the BigQuery export (`node .context/bq.mjs sql …`) and Rank Tracker.
+### B. Operator research intent (the real top of funnel)
+| Query | Vol | KD | We have |
+|---|---:|---:|---|
+| hoa management software | 1,400 | 8 | buyer's guide (not indexed/ranking) |
+| software for hoa management | 300 | 26 | guide |
+| community association management software | 250 | 4 | guide |
+| best hoa management software | 200 | 30 | guide (retitle) |
+| hoa management app | 200 | 6 | guide |
+| hoa management software reviews | 150 | 5 | guide |
+| best community association management software | 100 | 0 | guide |
+| hoa board communication software | 100 | — | board-education / newsletter |
+| hoa website software · platforms · builder · best hoa website software | 150–200 each | 12–36 | hoa-website-design page (+ a platform comparison) |
+| how to start an hoa management company | 60 | 0 | — (new firms = ideal prospects) |
+| how much do hoa management companies charge / hoa management fees | 60 + 60 | 0–24 | — (pricing guide for operators + boards) |
+| cam license | 1,200 | 0 | — (manager audience; L&D / Peak Executive Academy angle) |
+| community association manager | 600 | 0 | — (role definition; manager audience) |
+
+### C. The deliverables Alloy sells, searched as templates/examples (all KD 0)
+| Query | Vol | Page |
+|---|---:|---|
+| hoa newsletter template(s) · ideas · examples · free templates | 150 + 150 + 150 + 100 + 100 | /boardretain/newsletter-production (+ a free template) |
+| hoa website templates · examples · ideas | 250 + 200 + 100 | /boardreach/hoa-website-design (+ an examples gallery) |
+| hoa board member training · free hoa board member certification course · hoa board training · hoa board education | 150 + 150 + 40 + 40 | /boardretain/board-education (+ the free course) |
+| hoa board meeting agenda template · minutes template · candidate statement examples | 150 each | board-education resources |
+
+### D. Board-side demand (large; MatchHOA's territory)
+"hoa management companies" 2,000 · "hoa management company" 1,300 (KD 0) · "hoa management companies near me" 600 · "top hoa management companies" 150 (KD 0) · "list of hoa management companies" 150 (KD 0) · metro queries in partner markets: "hoa management companies austin" 200 (KD 0), "houston hoa management" 250 (KD 0), "hoa management companies in dallas" 150 (KD 0), "hoa management company san antonio" 150 · "how to choose an hoa management company" 50 · "selecting an association management company" 30. Best served from matchhoa.com (directory + metro pages naming the partner) with alloygp.co hosting the "how to choose" guide that routes boards to MatchHOA.
+
+## Recommended next moves (client sign-off where marked)
+1. **Index check + request indexing** of the 42 URLs (client, GSC UI). Priority: /, /property-management-seo, the software guide, lead-gen, strategy article, the three hubs, /pricing.
+2. **Exact-phrase titles/H1s (client decision)** — homepage title → "HOA Management Marketing Agency | Alloy Growth Partners"; strategy article → "Marketing an HOA Management Company: the plan before the tactics"; /property-management-seo title → "HOA Management SEO: Google, the Map Pack and the AI Answer"; proposal page keeps "HOA management proposal"; RFP page adds "RFP for HOA management services". URLs unchanged.
+3. **Retitle the software guide** → "Best HOA Management Software (2026): Buyer's Guide for CAM Firms"; add a short "community association management software" section + reviews framing.
+4. **Lead magnets on existing pages**: free HOA newsletter template (newsletter page), HOA website examples gallery (website page), "HOA board member training" free course (board-education page). All KD 0, all searched by the operators we want.
+5. **Operator guides**: "How to start an HOA management company", "What HOA management companies charge" (fees guide), "CAM license requirements by state" (manager audience).
+6. **Board-side** stays on MatchHOA; alloygp.co publishes "How to choose an HOA management company" and links to MatchHOA.
+7. Re-run this baseline in 30 days from the BigQuery export and Rank Tracker.
