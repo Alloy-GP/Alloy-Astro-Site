@@ -21,7 +21,7 @@ const TOC: Array<{ id: string; label: string }> = [
 ];
 
 const KEEP_READING = [
-  { kind: 'Guide', ink: REACH_INK, accent: PINK, meta: 'Long read', title: 'The HOA management software guide.', href: '/resources/hoa-management-software-guide' },
+  { kind: 'Guide', ink: REACH_INK, accent: PINK, meta: 'Long read', title: 'Best HOA management software: the 2026 buyer’s guide.', href: '/resources/hoa-management-software-guide' },
   { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: '10 sections', title: 'Trust building for CAM firms.', href: '/resources/courses/trust-building' },
   { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
 ];
@@ -53,7 +53,7 @@ export default function MarketingStrategyArticle() {
         <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
           <div className="rd-stack" style={{ gap: 28 }}>
             <Eyebrow>Strategy</Eyebrow>
-            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 5.9vw, 68px)' }}>CAM marketing strategy: <span className="rd-accent">the plan before the tactics.</span></h1>
+            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 5.9vw, 68px)' }}>Marketing an HOA management company: <span className="rd-accent">the plan before the tactics.</span></h1>
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
             <p className="rd-intro" style={{ lineHeight: 1.65 }}>How community association management companies should think about growth before they buy a single channel.</p>

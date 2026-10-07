@@ -253,7 +253,7 @@ const faq: FAQItem[] = [
     a: 'It depends on buyer type. For professional CAM firms, the two clear market leaders are Vantaca and CINC Systems, with FRONTSTEPS, Enumerate (formerly TOPS), and AppFolio Property Manager as the strongest alternatives at mid-market. For self-managed HOAs, the most-recommended platforms are PayHOA, Condo Control, HOA Start, EasyHOA, and Smartwebs. The framework matters more than the brand. Use the 14-question RFP on this page to score whichever shortlist you build.',
   },
   {
-    q: 'How much does HOA property management software cost?',
+    q: 'How much does HOA management software cost?',
     a: 'Self-managed HOAs typically pay $0.50–$3 per door per month or $39–$300 per month flat (PayHOA, HOA Start, EasyHOA, Effortless HOA). CAM firms typically pay $1–$3.50 per door per month depending on portfolio size, plus onboarding from $3K (small firms) up to $75K+ (enterprise). The headline rate is misleading: ACH fees (commonly 0.30–0.50% of dues processed) are often the single biggest hidden cost. Build a 36-month TCO before negotiating.',
   },
   {
@@ -389,10 +389,10 @@ export default function HOASoftwareGuide() {
         <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
           <div className="rd-stack" style={{ gap: 28 }}>
             <Eyebrow>Guide</Eyebrow>
-            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 5.9vw, 68px)' }}>The HOA management <span className="rd-accent">software guide.</span></h1>
+            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 5.9vw, 68px)' }}>The best HOA management software: <span className="rd-accent">the 2026 buyer’s guide.</span></h1>
           </div>
           <div className="rd-stack" style={{ gap: 16 }}>
-            <p className="rd-intro" style={{ lineHeight: 1.65 }}>Vantaca, AppFolio, Buildium, CINC: compared the way an operator compares them, and what each one means for boards, owners, and your marketing.</p>
+            <p className="rd-intro" style={{ lineHeight: 1.65 }}>Vantaca, AppFolio, Buildium, CINC: HOA and community association management software compared the way an operator compares them, with the reviews, pricing and integrations that matter, and what each platform means for boards, owners and your marketing.</p>
             <div className="rd-tiny rd-w-500">By Alloy Growth Partners · Published <time dateTime="2026-05-13">May 13, 2026</time> · Updated <time dateTime="2026-09-23">Sep 23, 2026</time> · {TOC.length} sections · 18 min read</div>
           </div>
         </div>

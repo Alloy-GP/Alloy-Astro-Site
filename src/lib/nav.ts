@@ -52,7 +52,7 @@ export const ENGINES: NavEngine[] = [
     color: '#d9356e',
     href: '/boardreach',
     services: [
-      { label: 'Property Management SEO', sub: 'Google, the map pack, and the AI answer', href: '/property-management-seo' },
+      { label: 'HOA Management SEO', sub: 'Google, the map pack, and the AI answer', href: '/property-management-seo' },
       { label: 'HOA Website Design', sub: 'Turn visitors into inbound board inquiries', href: '/boardreach/hoa-website-design' },
       { label: 'Branding for CAM', sub: 'An identity boards remember at the vote', href: '/boardreach/hoa-management-branding' },
       { label: 'Social Media Marketing', sub: 'Founder thought-leadership, on a cadence', href: '/boardreach/hoa-social-media-marketing' },
@@ -118,7 +118,7 @@ export type FooterLink = [label: string, href: string];
 export const FOOTER = {
   /** Short labels used in the footer engine columns (design copy) */
   engineLabels: {
-    reach: ['Property Management SEO', 'HOA Website Design', 'Branding for CAM', 'Social Media Marketing', 'Email Marketing', 'Lead Generation', 'Google Ads & PPC', 'Print & Marketing Materials'],
+    reach: ['HOA Management SEO', 'HOA Website Design', 'Branding for CAM', 'Social Media Marketing', 'Email Marketing', 'Lead Generation', 'Google Ads & PPC', 'Print & Marketing Materials'],
     match: ['Groundwork BD', 'Proposal Optimization', 'RFP Response', 'Sales Messaging'],
     retain: ['Board Education', 'Newsletters', 'Reputation', 'Thought Leadership', 'Annual Reports'],
   } as Record<EngineKey, string[]>,

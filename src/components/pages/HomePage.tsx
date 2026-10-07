@@ -129,13 +129,13 @@ export default function HomePage({ chart, newsletter }: { chart?: ReactNode; new
             <div className="rd-news-rail">
             <a href="/resources/cam-marketing-strategy" className="rd-news-card rd-news-card--blue rd-card-link">
               <div className="rd-row rd-row--between"><span className="rd-label rd-label--12" style={{ color: '#4a86ad' }}>Strategy</span><span className="rd-tiny rd-tiny--12">12 min</span></div>
-              <h3 className="rd-title-22">CAM marketing strategy: the plan before the tactics.</h3>
+              <h3 className="rd-title-22">Marketing an HOA management company: the plan before the tactics.</h3>
               <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Why “do more marketing” fails, and what an engineered, system-first growth plan looks like over 18 months.</p>
               <div className="rd-mt-auto"><LinkLabel>Read</LinkLabel></div>
             </a>
             <a href="/resources/hoa-management-software-guide" className="rd-news-card rd-news-card--yellow rd-card-link">
               <div className="rd-row rd-row--between"><Label tone="match" size={12}>Guide</Label><span className="rd-tiny rd-tiny--12">Long read</span></div>
-              <h3 className="rd-title-22">The HOA management software guide.</h3>
+              <h3 className="rd-title-22">Best HOA management software: the 2026 buyer’s guide.</h3>
               <p className="rd-small rd-small--14" style={{ lineHeight: 1.55 }}>Platforms, pricing tiers, the nine features that decide renewal, and a 14-question RFP you can send to every vendor.</p>
               <div className="rd-mt-auto"><LinkLabel>Read the guide</LinkLabel></div>
             </a>
