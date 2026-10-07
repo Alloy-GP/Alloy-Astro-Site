@@ -37,7 +37,7 @@ export const FAQ_GROUPS: Group[] = [
       node: (
         <>
           Not directly. Alloy works for management companies, not for boards. If you're a board shopping for a manager, the place we send you is{' '}
-          <a href="https://matchhoa.com" target="_blank" rel="noopener" style={{ color: 'var(--alloy-pink)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>Match HOA</a>
+          <a href="https://www.matchhoa.com" target="_blank" rel="noopener" style={{ color: 'var(--alloy-pink)', fontWeight: 600, textDecoration: 'underline', textUnderlineOffset: 3 }}>Match HOA</a>
           {' '}a free concierge service that screens management companies against your community's needs and hands you a shortlist of two or three vetted matches, usually within a week. No cost to the board, no obligation.
         </>
       ),
