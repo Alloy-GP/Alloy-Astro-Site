@@ -1,11 +1,11 @@
 // src/components/pages/BookClubPage.tsx — /book-club
 // HOA Leader Book Club signup page in the site's rd-* system: editorial hero with the form card on the right
-// (the /contact layout), textured off-white three-up, purple band with proof tiles (hub band), steps, host
+// (the /contact layout), textured off-white three-up, purple band with three fact cards, steps, host
 // section, CTA bar. Copy is the client's book club block + "Where is this going next?" card from the Growth
 // Engine handoff (cai-growth.html, 2026-10-08); nothing claimed beyond it. The form island
 // (modules/BookClubForm.tsx) arrives as `children` from the route.
 import type { CSSProperties, ReactNode } from 'react';
-import { Eyebrow, H1, HeroCtas, SectionHead, Steps, CtaBar, Label, LinkLabel, Btn } from '~/components/rd/atoms';
+import { Eyebrow, H1, HeroCtas, SectionHead, Steps, CtaBar, Label, Btn } from '~/components/rd/atoms';
 
 const CALENDAR_URL = 'https://calendar.app.google/ssQ22vSCJC38Cy8QA';
 const LH: CSSProperties = { lineHeight: 1.65 };
@@ -23,7 +23,7 @@ const PROOF = [
 ];
 
 const STEPS = [
-  { title: 'Save your seats', body: 'Your name, your company, and the senior leaders you want in the room. It takes a minute.' },
+  { title: 'Save your seat', body: 'Your name, your company, and the senior leaders you want in the room. It takes a minute.' },
   { title: 'Cameron emails the details', body: 'You and every leader you added get the when and the where.' },
   { title: 'Show up for an hour', body: 'One idea, one AI tool, people who know the work. Nothing to read, nothing to prep.' },
 ];
@@ -40,7 +40,7 @@ export default function BookClubPage({ children }: { children?: ReactNode }) {
             <p className="rd-intro rd-intro--19">
               Nothing to read, nothing to prep. One idea worked for our industry, an AI tool to run your firm through, and a room of owners and leaders who know the work.
             </p>
-            <HeroCtas primary={{ label: 'Save our seats', href: '#seats' }} secondary={{ label: 'Book 20 minutes with Cameron', href: CALENDAR_URL }} />
+            <HeroCtas primary={{ label: 'Save your seat', href: '#seats' }} secondary={{ label: 'Book 20 minutes with Cameron', href: CALENDAR_URL }} />
             <div className="rd-row rd-row--wrap" style={{ gap: 10 }}>
               <span className="rd-tag">$199 a month value · included</span>
               <span className="rd-tag">Seats for your senior leaders · included</span>
@@ -77,15 +77,16 @@ export default function BookClubPage({ children }: { children?: ReactNode }) {
             <p className="rd-body" style={{ color: 'var(--alloy-on-purple)' }}>
               Your seat is included because you were at the retreat. So are seats for the senior leaders you are developing. Add them when you save your seat and Cameron emails everyone the details.
             </p>
-            <div><Btn href="#seats" variant="yellow" className="rd-btn--inline">Save our seats</Btn></div>
+            <div><Btn href="#seats" variant="yellow" className="rd-btn--inline">Save your seat</Btn></div>
           </div>
-          <div data-reveal data-rise className="rd-proof">
+          {/* Three facts as translucent cards (client: no yellow rules, a little smaller) */}
+          <div data-reveal data-rise className="rd-grid rd-grid--3" style={{ gap: 14 }}>
             {PROOF.map((s) => (
-              <div key={s.unit} className="rd-proof-item">
-                <div className="rd-stat-num rd-stat-num--52 rd-stat-num--unit">
-                  {s.value}<span className="rd-stat-unit rd-accent--yellow"> {s.unit}</span>
+              <div key={s.unit} className="rd-inset rd-stack" style={{ gap: 10, padding: '22px 20px' }}>
+                <div className="rd-stat-num rd-stat-num--unit" style={{ fontSize: 36 }}>
+                  {s.value}<span className="rd-stat-unit rd-accent--yellow" style={{ display: 'block', fontSize: 24, marginTop: 2 }}>{s.unit}</span>
                 </div>
-                <div className="rd-stat-note">{s.note}</div>
+                <div className="rd-stat-note" style={{ fontSize: 13, lineHeight: 1.45 }}>{s.note}</div>
               </div>
             ))}
           </div>
@@ -95,7 +96,7 @@ export default function BookClubPage({ children }: { children?: ReactNode }) {
       {/* How it works */}
       <section className="rd-section">
         <div className="rd-wrap rd-stack rd-stack--40">
-          <SectionHead eyebrow="How it works" h2="Save your seats," accent="then show up." />
+          <SectionHead eyebrow="How it works" h2="Save your seat," accent="then show up." />
           <Steps steps={STEPS} />
         </div>
       </section>
@@ -125,18 +126,10 @@ export default function BookClubPage({ children }: { children?: ReactNode }) {
         </div>
       </section>
 
-      {/* The tool from the retreat + closing CTA */}
+      {/* Closing CTA (no link to the Growth Engine tool: gated resource, client 2026-10-08) */}
       <section className="rd-section rd-section--tight">
         <div className="rd-wrap rd-stack rd-stack--24">
-          <a href="/cai-growth" className="rd-card rd-card--pad rd-card-link rd-row rd-row--between rd-row--wrap" style={{ gap: 20, textDecoration: 'none' }}>
-            <div className="rd-stack" style={{ gap: 6 }}>
-              <Label tone="pink">From the retreat</Label>
-              <span className="rd-title-18 rd-ink">The Growth Engine walk-through</span>
-              <span className="rd-small" style={{ lineHeight: 1.55 }}>Build your growth playbook from your own answers in about 50 minutes. The AI tool from the retreat, whenever you want to run it again.</span>
-            </div>
-            <LinkLabel>Open the tool</LinkLabel>
-          </a>
-          <CtaBar text="Seats for your senior leaders are included. Save yours." label="Save our seats" href="#seats" />
+          <CtaBar text="Seats for your senior leaders are included. Save yours." label="Save your seat" href="#seats" />
         </div>
       </section>
     </div>

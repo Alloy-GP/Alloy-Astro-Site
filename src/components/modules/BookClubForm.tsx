@@ -106,7 +106,7 @@ export default function BookClubForm() {
   return (
     <>
       <div className="rd-stack" style={{ gap: 8 }}>
-        <h2 className="rd-title-26" style={{ fontSize: 24, lineHeight: 1.15 }}>Save your seats</h2>
+        <h2 className="rd-title-26" style={{ fontSize: 24, lineHeight: 1.15 }}>Save your seat</h2>
         <p className="rd-small" style={LH}>Your seat is included. So are seats for the senior leaders you are developing.</p>
       </div>
 
@@ -161,7 +161,7 @@ export default function BookClubForm() {
         </div>
 
         <button type="submit" className="rd-btn rd-btn--dark rd-btn--block" style={{ padding: '18px 28px' }} disabled={loading} aria-busy={loading}>
-          {loading ? 'Saving…' : 'Save our seats'}
+          {loading ? 'Saving…' : 'Save my seat'}
         </button>
         <div className="rd-tiny rd-tiny--12 rd-center">Cameron emails the details to you and every leader you add.</div>
       </form>
