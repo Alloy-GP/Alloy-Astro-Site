@@ -54,8 +54,9 @@ export default function NewsletterSignup({ source = 'resources-page' }: { source
 
   const loading = status === 'loading';
 
+  // id / name / action / method are what WhatConverts keys on (Tracking › Web Forms, Attribute Type "ID" → newsletter-signup)
   return (
-    <form onSubmit={handleSubmit} className="rd-stack rd-stack--14" noValidate={false}>
+      <form id="newsletter-signup" name="newsletter-signup" action="/api/subscribe" method="post" onSubmit={handleSubmit} className="rd-stack rd-stack--14" noValidate={false}>
       <div className="rd-field-group">
         <label className="rd-field-label" htmlFor="nl-first">First name</label>
         <input id="nl-first" type="text" name="firstName" autoComplete="given-name" placeholder="Your first name" className="rd-field" value={firstName} onChange={(e) => setFirstName(e.target.value)} />

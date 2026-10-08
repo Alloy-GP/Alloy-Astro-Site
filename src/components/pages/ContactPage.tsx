@@ -146,7 +146,9 @@ export default function ContactPage() {
                   </div>
                 ) : null}
 
-                <form onSubmit={handleSubmit} className="rd-stack" style={{ gap: 22 }}>
+                {/* id / name / action / method are what WhatConverts keys on (Tracking › Web Forms, Attribute Type "ID"
+                    → contact-form); the submit handler takes over, no navigation. */}
+                <form id="contact-form" name="contact" action="/api/contact" method="post" onSubmit={handleSubmit} className="rd-stack" style={{ gap: 22 }}>
                   <div className="rd-grid rd-grid--2 rd-form-grid" style={{ gap: 16 }}>
                     <label className="rd-field-group" style={{ ...fieldGroup, ...span2 }}>
                       <span className="rd-field-label" style={fieldLabel}>Name</span>
