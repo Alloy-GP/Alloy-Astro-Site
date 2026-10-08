@@ -27,7 +27,8 @@ src/
 │   ├── redesign.css                 # PAGE SYSTEM: every `rd-*` class (layout, type, buttons, cards, stat bands, FAQ, motion states…)
 │   ├── mobile.css                   # ALL responsive rules (980 / 720 / 480) — contract: docs/redesign-handoff/docs/mobile-spec.md. Never put media queries anywhere else.
 │   ├── courses.css                  # legacy course styling (no longer imported by any route)
-│   └── growth-portal.css            # /cam-growth-portal landing page only
+│   ├── growth-portal.css            # /cam-growth-portal landing page only
+│   └── growth-engine.css            # /cai-growth worksheet only: `ge-*` classes, element rules scoped `.ge-root :where(…)`, light/dark via data-theme
 │
 ├── lib/
 │   ├── nav.ts                       # NAV DATA: PRIMARY, CTA, LOGIN (growth.alloygp.co), ENGINES (3 engines × services), BOARDSUITE_TILE, DROPDOWN_FOOTER, MOBILE_*, FOOTER + helpers
@@ -40,6 +41,7 @@ src/
 │   ├── map-tiles.ts                 # SERVER: renderMetroMap(lat,lng) — stitches OSM z12 tiles → grayscale/lifted → cream (#fdfbf5) multiply WebP (sharp); used by /api/map and .context/gen-map.mjs
 │   ├── newsletters.ts               # SERVER: Mailchimp campaign archive → NewsletterIssue[] (getAllIssues / getRecentIssues, 10-min cache)
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
+│   ├── growth-engine.js             # /cai-growth worksheet app (vanilla DOM from the client's cai-growth.html, localStorage state, jsPDF lazy chunk, book club form → /api/book-club); plain JS + @ts-nocheck on purpose
 │   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
 │
 ├── config/site.ts                   # Site-wide SEO defaults (name, URL, OG image, org schema)
@@ -115,7 +117,8 @@ src/
     ├── resources/courses/index.astro, resources/courses/trust-building.astro
     ├── results/apex-cmg.astro
     ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter, noindex, not in sitemap/nav — client 2026-10-01), untouched by the redesign
-    └── api/ {lead,contact,subscribe,metro,map,newsletters,ping,thinktank}.ts # endpoints (map: ?lat&lng → 768px muted street-map WebP, CDN-cached 30d; metro: ?q= ZIP | "City, ST" | city via Zippopotam/Nominatim; newsletters: issues JSON; ?raw=1 diagnostics)
+    ├── cai-growth.astro             # Growth Engine Walk-Through worksheet (same landing-page chrome rules): shell + `lib/growth-engine.js` + `styles/growth-engine.css`; HOA Leader Book Club form → /api/book-club
+    └── api/ {lead,contact,subscribe,book-club,metro,map,newsletters,ping,thinktank}.ts # endpoints (book-club: Resend to cameron@ + admin@ + INTERNAL_NOTIFY_EMAIL, optional SLACK_WEBHOOK_URL post, confirmation, Mailchimp tags book-club/growth-engine; map: ?lat&lng → 768px muted street-map WebP, CDN-cached 30d; metro: ?q= ZIP | "City, ST" | city via Zippopotam/Nominatim; newsletters: issues JSON; ?raw=1 diagnostics)
 ```
 
 **Retired in the redesign (now 301s in `astro.config.mjs`):** `/our-approach*`, `/we-know-cam`, `/about/we-know-cam`, `/resource-hub*`, `/courses*` (10 lessons + quiz), `/services/social-media-marketing-for-hoa-management-companies`, `/services/hoa-newsletter-production`, `/hoa-cam-marketing-services`, `/groundwork`, `/hoa-board-education-programs`, `/strategic-review-request`, `/boardreach/local-pack-optimization`, `/results/rise-amg`, and (2026-10-01) **`/get-started` → `/contact`** — every "Claim your market" CTA now points at `/contact`.
@@ -265,6 +268,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-08 | **Growth Engine Walk-Through** at `/cai-growth` from the client's `cai-growth.html`: the eight-function worksheet (ICP, uniques, one-liner, stages, qualification bar, 30-day plan, drill, export/PDF) kept as the handoff's vanilla JS (`lib/growth-engine.js`, classes prefixed `ge-`, element rules scoped with `.ge-root :where()` so the handoff cascade survives site.css), jsPDF from npm as a lazy chunk instead of the CDN, headshot → `public/assets/team/cameron-lange.jpg`, Gotham self-hosted (no Google Fonts), inputs 16px on phones. Landing-page chrome (hideHeader/hideFooter, `noindex,follow`, not in nav/sitemap). The **HOA Leader Book Club** form is a real `<form id name action method>` (WhatConverts auto-tracks it like the Contact/Growth Portal forms) posting to new **`/api/book-club`**: Resend notification to cameron@ + admin@ (+ `INTERNAL_NOTIFY_EMAIL`), optional direct Slack post when `SLACK_WEBHOOK_URL` is set, confirmation to the requester, Mailchimp upsert tagged `book-club` + `growth-engine` (seat-holders are not subscribed); seats deduped, requester excluded, max 10. |
 | 2026-10-07 | **Exact-phrase retitles** (client; Ahrefs volumes): homepage → "HOA Management Marketing Agency" (60/mo phrase vs ~0 for the old one), strategy article + cards → "Marketing an HOA management company…" (100/mo), SEO service renamed **HOA Management SEO** (nav, hub, schema, title, intro; URL unchanged), lead-gen title/intro and Groundwork intro say HOA management companies (no "property management" anywhere in positioning), software guide → "Best HOA Management Software (2026)…" with a community-association-software + reviews sentence. Plan: `docs/ops/seo-plan.md`. |
 | 2026-10-07 | **Ahrefs + GSC pass** (via the Ahrefs MCP, `.context/ahrefs.mjs`): 500 backlinks → 36 linked URLs tested live → 5 dead ones now redirect (`/learn/poor-employee-training` DR 42, `/account-login` → portal, `/contact-us`, `/boardmatch-hoa-proposals`, `/product/…` → pricing; wildcards `/learn/*`, `/product/*` in vercel.json); Site Audit (health 100, 0 errors): Organization gains `image` (Google LocalBusiness rich-result requirement flagged on all pages), Course schema drops Course-level `courseMode` + Organization `instructor` (schema.org errors), short descriptions on /contact, /privacy-policy, /terms-conditions lengthened. GSC (28 days to launch+4) captured in `docs/ops/gsc-baseline-2026-10-06.md`. |
 | 2026-10-07 | **Post-launch sweep (day 5)**: full crawl of every internal link (66 URLs, 0 broken, 0 redirecting links, 0 chains), all 57 pre-redesign URLs → 200 in ≤1 hop, 35 external links OK, no JS exceptions/console errors/failed requests on 11 page loads (desktop + phone), TTFB ~40–55 ms, APIs healthy, vercel.app duplicate still 308s, staging still noindex. Fixes: two dead `preconnect` hosts (js.surebizpayments.com, jssecure.ksrndkeh.com — DNS gone) removed from BaseLayout; `/api/subscribe`, `/api/contact`, `/api/lead` return 400 (not 500) on empty/non-form bodies. Tools: `.context/crawl.mjs <base>`, `.context/console-check.mjs <base> <w> <h> <paths…>`. |

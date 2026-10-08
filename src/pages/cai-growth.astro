@@ -1,0 +1,41 @@
+---
+// src/pages/cai-growth.astro
+// Growth Engine Walk-Through: the worksheet attendees build their growth playbook with
+// (client handoff `cai-growth.html`, 2026-10-08). Focused landing page in the
+// /cam-growth-portal mould: hideHeader + hideFooter, noindex, not in nav or the sitemap,
+// carries its own masthead. The whole app is src/lib/growth-engine.js (vanilla DOM,
+// answers stay in localStorage) styled by src/styles/growth-engine.css. The HOA Leader
+// Book Club form at the bottom posts to /api/book-club and is a real <form> so
+// WhatConverts (loaded by BaseLayout) records the lead.
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import '~/styles/growth-engine.css';
+---
+<BaseLayout
+  title="Growth Engine Walk-Through | Alloy Growth Partners"
+  description="Build your growth playbook: ICP, uniques, one-liner, pipeline stages, qualification bar and a 30-day plan for a community association management firm."
+  robots="noindex,follow"
+  hideHeader
+  hideFooter
+>
+  <div class="ge-root" id="ge-root">
+    <div class="ge-wrap">
+      <div class="ge-mast">
+        <div>
+          <div class="ge-eyebrow">Growth Engine</div>
+          <div class="ge-by">Built by Alloy Growth Partners</div>
+        </div>
+        <div class="ge-row" style="gap:8px">
+          <button class="ge-btn ge-ghost ge-small" id="ge-export" type="button">Export</button>
+          <button class="ge-btn ge-ghost ge-small" id="ge-reset" type="button">Start over</button>
+          <button class="ge-btn ge-ghost ge-small" id="ge-theme" type="button">Theme</button>
+        </div>
+      </div>
+      <div id="ge-app">
+        <noscript><p class="ge-muted">This worksheet needs JavaScript turned on.</p></noscript>
+      </div>
+    </div>
+  </div>
+  <script>
+    import '~/lib/growth-engine.js';
+  </script>
+</BaseLayout>
