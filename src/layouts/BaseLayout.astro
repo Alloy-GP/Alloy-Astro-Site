@@ -116,7 +116,8 @@ const {
 
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? SITE.url).toString();
 // Mobile sticky "Claim your market" bar (mobile-spec.md frame 1b): every chrome page except the form page (/contact).
-const showStickyCta = !hideHeader && !hideFooter && !/^\/contact\/?$/.test(Astro.url.pathname);
+// No sticky "Claim your market" bar on /contact (it is the destination) or /book-club (its own CTA).
+const showStickyCta = !hideHeader && !hideFooter && !/^\/(contact|book-club)\/?$/.test(Astro.url.pathname);
 
 // Staging / preview safety net: every non-production deployment (Vercel sets VERCEL_ENV to
 // "preview" for branch deploys such as stg.alloygp.co) is noindex,nofollow so Google never
