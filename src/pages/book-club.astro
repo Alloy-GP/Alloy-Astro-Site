@@ -1,0 +1,59 @@
+---
+// src/pages/book-club.astro
+// HOA Leader Book Club signup: a standalone landing page for the seats form that also
+// sits at the end of the Growth Engine walk-through (/cai-growth). Same focused
+// landing-page chrome as /cam-growth-portal and /cai-growth (hideHeader + hideFooter,
+// noindex, not in nav or the sitemap, own masthead) and the same `ge-*` look, pinned to
+// the light theme. The form block + Cameron card come from src/lib/book-club-form.js, so
+// /book-club and /cai-growth share one form (id="ge-book-club"), one endpoint
+// (/api/book-club) and one WhatConverts web-form registration.
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import '~/styles/growth-engine.css';
+---
+<BaseLayout
+  title="HOA Leader Book Club | Alloy Growth Partners"
+  description="One hour with people who run management companies. Nothing to read, nothing to prep. Save your seat, and seats for the senior leaders you are developing."
+  robots="noindex,follow"
+  hideHeader
+  hideFooter
+>
+  <div class="ge-root" id="ge-root" data-theme="light">
+    <div class="ge-wrap">
+      <div class="ge-mast">
+        <div>
+          <div class="ge-eyebrow">HOA Leader Book Club</div>
+          <div class="ge-by">From Alloy Growth Partners</div>
+        </div>
+        <div class="ge-row" style="gap:8px">
+          <a class="ge-btn ge-ghost ge-small" href="/cai-growth">Growth Engine tool</a>
+        </div>
+      </div>
+
+      <div class="ge-stack ge-g24">
+        <div class="ge-stack ge-g12">
+          <h1>Save your seat at the HOA Leader Book Club</h1>
+          <p class="ge-muted">One hour with people who run management companies. Nothing to read, nothing to prep. Your seat is included, and so are seats for the senior leaders you are developing.</p>
+        </div>
+
+        <div class="ge-cta-zone">
+          <div id="bc-form">
+            <noscript><p class="ge-muted">This form needs JavaScript. Email <a href="mailto:cameron@alloygp.co?subject=HOA%20Leader%20Book%20Club">cameron@alloygp.co</a> with your name, company and the leaders you want seated.</p></noscript>
+          </div>
+          <div id="bc-call"></div>
+        </div>
+
+        <div class="ge-foot">
+          © 2026 Alloy Growth Partners · <a href="/privacy-policy">Privacy</a> · <a href="/terms-conditions">Terms</a> · <a href="/">alloygp.co</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    import { ctaBookClub, ctaCall } from '~/lib/book-club-form.js';
+    document.getElementById('bc-form')!.replaceChildren(ctaBookClub({
+      source: 'Book club landing page',
+      toolNote: '<b>An AI tool every session.</b> Like the <a href="/cai-growth">Growth Engine walk-through</a>. Run your firm through it and leave with your version.',
+    }));
+    document.getElementById('bc-call')!.replaceChildren(ctaCall(false));
+  </script>
+</BaseLayout>
