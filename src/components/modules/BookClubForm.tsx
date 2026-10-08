@@ -103,6 +103,8 @@ export default function BookClubForm() {
   }
 
   const loading = status === 'loading';
+  // "Save my seat" until a leader email is added, then "Save our seats" (client, 2026-10-08).
+  const submitLabel = seatCount ? 'Save our seats' : 'Save my seat';
   return (
     <>
       <div className="rd-stack" style={{ gap: 8 }}>
@@ -161,7 +163,7 @@ export default function BookClubForm() {
         </div>
 
         <button type="submit" className="rd-btn rd-btn--dark rd-btn--block" style={{ padding: '18px 28px' }} disabled={loading} aria-busy={loading}>
-          {loading ? 'Saving…' : 'Save my seat'}
+          {loading ? 'Saving…' : submitLabel}
         </button>
         <div className="rd-tiny rd-tiny--12 rd-center">Cameron emails the details to you and every leader you add.</div>
       </form>

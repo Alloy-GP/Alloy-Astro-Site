@@ -868,3 +868,12 @@ section.rd-bg-off, .rd-spacer-96.rd-bg-off, .section-light {
 
 /* Mobile sticky CTA bar - hidden on desktop; layout + motion in mobile.css */
 .rd-sticky-cta { display: none; }
+
+/* ── Logo-only header ───────────────────────────────────────────────────────
+   Landing pages that keep the site look but drop the nav (/book-club, client 2026-10-08):
+   the route runs BaseLayout with hideHeader and renders this static bar itself. Same white
+   main-bar look as .site-header (67px, 30px logo), in normal flow (no fixed offset needed). */
+.rd-logo-header { background: #fff; border-bottom: 1px solid var(--border-subtle); }
+.rd-logo-header-inner { height: 67px; display: flex; align-items: center; }
+.rd-logo-header a { display: flex; align-items: center; }
+.rd-logo-header img { height: 30px; width: auto; display: block; }

@@ -1,11 +1,10 @@
 ---
 // src/pages/book-club.astro
-// HOA Leader Book Club signup landing page, built from the site's rd-* system with the full site
-// chrome (header + footer, like /contact). noindex, not in nav or the sitemap: shared by link with
+// HOA Leader Book Club signup landing page, built from the site's rd-* system. Logo-only header
+// (hideHeader + the static .rd-logo-header bar below; client: no nav) and the full site footer. noindex, not in nav or the sitemap: shared by link with
 // retreat attendees. The seats form (modules/BookClubForm.tsx) is the only island; it posts to
 // /api/book-club and keeps id="ge-book-club" so one WhatConverts web-form registration covers this
-// page and the worksheet's form on /cai-growth. BaseLayout hides the sticky "Claim your market"
-// bar here (the page has its own CTA).
+// page and the worksheet's form on /cai-growth. No sticky "Claim your market" bar (hideHeader).
 import BaseLayout from '~/layouts/BaseLayout.astro';
 import BookClubPage from '~/components/pages/BookClubPage';
 import BookClubForm from '~/components/modules/BookClubForm';
@@ -14,7 +13,16 @@ import BookClubForm from '~/components/modules/BookClubForm';
   title="HOA Leader Book Club | Alloy Growth Partners"
   description="One hour with people who run management companies. Nothing to read, nothing to prep. Save your seat, and seats for the senior leaders you are developing."
   robots="noindex,follow"
+  hideHeader
 >
+  <!-- Logo only, no nav (client, 2026-10-08): static bar in the site header's look; the site footer stays. -->
+  <header class="rd-logo-header">
+    <div class="rd-wrap rd-logo-header-inner">
+      <a href="/" aria-label="Alloy Growth Partners: home">
+        <img src="/assets/alloy-logo-full-color.svg" alt="Alloy Growth Partners" width="160" height="30" />
+      </a>
+    </div>
+  </header>
   <BookClubPage>
     <BookClubForm client:load />
   </BookClubPage>

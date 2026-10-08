@@ -87,9 +87,9 @@ export function ctaBookClub(opts){
     teamwrap.replaceChildren();
     data.team.forEach(function(_, i){
       var input = el("input",{type:"email",name:"team",value:data.team[i],placeholder:"leader@yourcompany.com",
-        oninput:function(e){ data.team[i] = e.target.value; }});
+        oninput:function(e){ data.team[i] = e.target.value; refreshLabel(); }});
       var x = el("button",{class:"ge-xbtn",type:"button",title:"Remove this seat",text:"\u00d7",
-        onclick:function(){ data.team.splice(i,1); drawTeam(); }});
+        onclick:function(){ data.team.splice(i,1); drawTeam(); refreshLabel(); }});
       teamwrap.appendChild(el("div",{class:"ge-teamrow"},[input, x]));
     });
     teamwrap.appendChild(el("button",{class:"ge-addbtn",type:"button",
@@ -113,6 +113,9 @@ export function ctaBookClub(opts){
       el("input",{type:"tel",id:"bc_cell",name:"cell",autocomplete:"tel",placeholder:"(210) 555-0148",oninput:function(e){data.cell=e.target.value;}})])
   ]);
 
+  /* "Save my seat" until a leader email is added, then "Save our seats" (client, 2026-10-08). */
+  function label(){ return seats().length ? "Save our seats" : "Save my seat"; }
+  function refreshLabel(){ if(submit && !submit.disabled) submit.textContent = label(); }
   function seats(){
     return data.team.map(function(t){ return t.trim(); }).filter(function(t){ return t; });
   }
@@ -132,7 +135,7 @@ export function ctaBookClub(opts){
     );
   }
   function manual(){
-    submit.disabled = false; submit.textContent = "Save our seats";
+    submit.disabled = false; submit.textContent = label();
     var txt = body();
     var copyBtn = el("button",{class:"ge-btn ge-gold",type:"button",text:"Copy my details"});
     copyBtn.addEventListener("click", function(){ copyText(txt, copyBtn); });
@@ -145,7 +148,7 @@ export function ctaBookClub(opts){
     );
   }
 
-  submit = el("button",{class:"ge-btn ge-gold",type:"submit",text:"Save our seats"});
+  submit = el("button",{class:"ge-btn ge-gold",type:"submit",text:"Save my seat"});
   function sendSeats(){
     var ok = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     var problems = [];
@@ -169,7 +172,7 @@ export function ctaBookClub(opts){
       fd.append("source", sourceInfo(source));
       fetch(FORM_ENDPOINT,{method:"POST",body:fd})
         .then(function(r){ if(!r.ok) throw new Error("bad response"); submit.textContent = "Saved"; done(); })
-        .catch(function(){ submit.disabled = false; submit.textContent = "Save our seats"; manual(); });
+        .catch(function(){ submit.disabled = false; submit.textContent = label(); manual(); });
     } else {
       manual();
     }
