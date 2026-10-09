@@ -1,0 +1,20 @@
+---
+// src/pages/collections/attorney-first-vs-pre-legal.astro — /collections/attorney-first-vs-pre-legal
+// Collections content cluster, page 3 of 11 (docs/ops/collections-cluster.md): noindex until the [PROOF] placeholders are filled (brief).
+// Copy + links live in src/data/articles/attorney-first-vs-pre-legal.ts; the route only wires layout, schema and robots.
+// Gating is driven by `data.noindex`: clear it in the data file (and add the path to SITEMAP_ROUTES) to go live.
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import ArticlePage from '~/components/rd/ArticlePage';
+import { articlePageSchema } from '~/lib/article-page';
+import { data } from '~/data/articles/attorney-first-vs-pre-legal';
+---
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  pageId="resources"
+  ogType="article"
+  pageSchema={articlePageSchema(data)}
+  {...(data.noindex ? { robots: 'noindex,follow' } : {})}
+>
+  <ArticlePage data={data} />
+</BaseLayout>

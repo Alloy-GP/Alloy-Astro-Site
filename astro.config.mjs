@@ -14,6 +14,13 @@ const SITEMAP_ROUTES = new Set([
   '/boardsuite', '/careers', '/contact', '/faq', '/growth-modeled', '/partners', '/pricing', '/privacy-policy',
   '/property-management-seo', '/resources', '/resources/ai-search-for-cam', '/resources/newsletter', '/resources/cam-marketing-strategy', '/resources/courses', '/resources/courses/trust-building',
   '/resources/hoa-management-software-guide', '/results', '/results/apex-cmg', '/services', '/terms-conditions',
+  // Collections content cluster (docs/ops/collections-cluster.md). Indexable from 2026-10-20:
+  '/collections/pre-legal-collections', '/collections/automating-hoa-dues-collection', '/collections/cost-of-delinquent-accounts', '/collections/collection-policy',
+  // Gated (noindex, not listed) until their go-live / until proof is in. Add each here when `data.noindex` is cleared:
+  //   '/collections' + '/collections/attorney-first-vs-pre-legal'   (after the HOA 48 proof placeholders are filled)
+  //   '/resources/hoa-management-company-revenue-streams', '/resources/how-to-grow-an-hoa-management-company'   (2026-10-27)
+  //   '/resources/hoa-management-software-limits'   (2026-11-03)
+  //   '/resources/why-associations-change-management-companies', '/resources/winning-hoa-management-proposals'   (2026-11-10)
   // Campaign landing pages (indexable today; not part of the redesign)
   // landing pages (/boardstart, /cam-growth-portal, /find-your-path) stay live but noindex + out of the sitemap (client, 2026-10-01)
 ]);
@@ -50,7 +57,7 @@ export default defineConfig({
         const url = item.url.replace('https://alloygp.co', '');
         // lastmod only where we know a real content date (articles, guide, course, and pages changed at launch) —
         // a build timestamp on every URL would be noise Google learns to ignore.
-        const LASTMOD = { '': '2026-10-02', '/': '2026-10-02', '/pricing': '2026-10-01', '/results': '2026-10-02', '/results/apex-cmg': '2026-10-02', '/about/testimonials': '2026-10-01', '/resources/ai-search-for-cam': '2026-10-02', '/resources/cam-marketing-strategy': '2026-09-23', '/resources/hoa-management-software-guide': '2026-09-23', '/resources/courses/trust-building': '2026-09-23', '/faq': '2026-10-02', '/contact': '2026-10-02' };
+        const LASTMOD = { '': '2026-10-02', '/': '2026-10-02', '/pricing': '2026-10-01', '/results': '2026-10-02', '/results/apex-cmg': '2026-10-02', '/about/testimonials': '2026-10-01', '/resources/ai-search-for-cam': '2026-10-02', '/resources/cam-marketing-strategy': '2026-09-23', '/resources/hoa-management-software-guide': '2026-09-23', '/resources/courses/trust-building': '2026-09-23', '/faq': '2026-10-02', '/contact': '2026-10-02', '/collections/pre-legal-collections': '2026-10-20', '/collections/automating-hoa-dues-collection': '2026-10-20', '/collections/cost-of-delinquent-accounts': '2026-10-20', '/collections/collection-policy': '2026-10-20' };
         if (LASTMOD[url]) item.lastmod = LASTMOD[url];
         if (url === '' || url === '/') {
           item.changefreq = 'weekly';
@@ -70,7 +77,7 @@ export default defineConfig({
         ) {
           item.changefreq = 'monthly';
           item.priority = 0.85;
-        } else if (url.startsWith('/resources') || url.startsWith('/resource-hub')) {
+        } else if (url.startsWith('/resources') || url.startsWith('/resource-hub') || url.startsWith('/collections')) {
           item.changefreq = 'weekly';
           item.priority = 0.8;
         } else if (url.startsWith('/results') || url.startsWith('/about')) {

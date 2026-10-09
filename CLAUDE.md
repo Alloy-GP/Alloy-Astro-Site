@@ -43,7 +43,8 @@ src/
 │   ├── newsletter-issue.ts          # client-safe NewsletterIssue type + formatIssueDate
 │   ├── growth-engine.js             # /cai-growth worksheet app (vanilla DOM from the client's cai-growth.html, localStorage state, jsPDF lazy chunk); plain JS + @ts-nocheck on purpose
 │   ├── book-club-form.js            # worksheet pieces split out of growth-engine.js: `el()` helper, Cameron card (ctaCall) + the worksheet's book club form (ctaBookClub({source, toolNote}) → /api/book-club)
-│   └── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
+│   ├── schema.ts                    # JSON-LD builders: faqSchema, breadcrumbSchema, serviceSchema, articleSchema, courseSchema
+│   └── article-page.ts              # Collections cluster helpers: AUTHOR (Cameron Lange; `linkedIn` TODO → Person.sameAs), articlePageSchema(data) = Article(Person author) + BreadcrumbList + FAQPage, articleWords/readMinutes
 │
 ├── config/site.ts                   # Site-wide SEO defaults (name, URL, OG image, org schema)
 │
@@ -53,6 +54,7 @@ src/
 │   │   ├── property-management-seo.ts, email-marketing.ts, hoa-website-design.ts, … (15 services)
 │   ├── hubs/                        # ONE file per engine hub (HubPageData): boardreach.ts, boardmatch.ts, boardretain.ts (+ types.ts)
 │   ├── courseTrustBuilding.ts       # Lesson + quiz content for /resources/courses/trust-building
+│   ├── articles/                    # ONE file per collections-cluster page (ArticleData; types.ts = contract): collections-hub, pre-legal-collections, attorney-first-vs-pre-legal, automating-hoa-dues-collection, cost-of-delinquent-accounts, collection-policy, hoa-management-company-revenue-streams, how-to-grow-an-hoa-management-company, hoa-management-software-limits, why-associations-change-management-companies, winning-hoa-management-proposals. `noindex` on a page = gated (robots + out of sitemap)
 │   └── metros.ts                    # Partner offices (20 addresses from the client, 2026-10-02; claimed = within 15 mi) + open metros, claimStatus() — used by /api/metro
 │
 ├── layouts/
@@ -69,6 +71,7 @@ src/
 │   │   │                            #   ProseRows, Checklist, Steps, FaqList, CtaBar, SiblingCard, icons (ArrowIcon, ChevronRightIcon, CheckIcon, PlusIcon)
 │   │   ├── ServicePage.tsx          # Template 3 — renders a ServicePageData object (all 15 service pages)
 │   │   └── HubPage.tsx              # Template 2 — renders a HubPageData object (the 3 engine hubs)
+│   │   └── ArticlePage.tsx          # Template 5, data-driven — renders an ArticleData object (collections cluster): hero + byline + disclosure, sticky TOC, numbered sections, blocks (p/h3/ul/ol/callout/note/proof/worksheet/table/cta via a tiny inline markup: **bold**, [label](href)), in-article FAQ, keep-reading, CtaBar
 │   │
 │   ├── sections/
 │   │   ├── HeroStatic.astro         # Homepage hero wrapper (static): the HeroMap slot IS the hero
@@ -118,6 +121,8 @@ src/
     ├── boardretain/{board-education,newsletter-production,reputation-management,thought-leadership,annual-report-production}.astro
     ├── resources/index.astro (fetches getRecentIssues), resources/newsletter.astro (getAllIssues, paginated), resources/cam-marketing-strategy.astro, resources/ai-search-for-cam.astro, resources/hoa-management-software-guide.astro
     ├── resources/courses/index.astro, resources/courses/trust-building.astro
+    ├── collections/{index,pre-legal-collections,attorney-first-vs-pre-legal,automating-hoa-dues-collection,cost-of-delinquent-accounts,collection-policy}.astro   # collections cluster (docs/ops/collections-cluster.md) → ArticlePage; hub + attorney-first noindex until proof is in
+    ├── resources/{hoa-management-company-revenue-streams,how-to-grow-an-hoa-management-company,hoa-management-software-limits,why-associations-change-management-companies,winning-hoa-management-proposals}.astro   # cluster insights pages, gated (noindex, out of sitemap) until their go-live dates
     ├── results/apex-cmg.astro
     ├── boardstart.astro, cam-growth-portal.astro, find-your-path.astro   # landing pages (hideHeader/hideFooter, noindex, not in sitemap/nav — client 2026-10-01), untouched by the redesign
     ├── cai-growth.astro             # Growth Engine Walk-Through worksheet (same landing-page chrome rules): shell + `lib/growth-engine.js` + `styles/growth-engine.css`; HOA Leader Book Club form → /api/book-club
@@ -137,7 +142,7 @@ src/
 | 2 | Engine hub | `rd/HubPage.tsx` + `data/hubs/*.ts` |
 | 3 | Service page | `rd/ServicePage.tsx` + `data/services/*.ts` |
 | 4 | Index pages | `BoardSuitePage`, `ServicesPage`, `PricingPage`, `ResultsPage` |
-| 5 | Article / guide | `ResourceHubPage`, `MarketingStrategyArticle`, `AISearchArticle`, `HOASoftwareGuide`, `CoursesPage`, `CourseTrustBuildingPage`, `RiseDeepCaseStudy` |
+| 5 | Article / guide | `ResourceHubPage`, `MarketingStrategyArticle`, `AISearchArticle`, `HOASoftwareGuide`, `CoursesPage`, `CourseTrustBuildingPage`, `RiseDeepCaseStudy`; data-driven: `rd/ArticlePage.tsx` + `data/articles/*.ts` (collections cluster) |
 | 6 | Editorial | `AboutPage`, `TestimonialsPage`, `PartnersPage`, `CareersPage`, `FAQPage`, `ContactPage`, `GrowthModeledPage`, `LegalPages` |
 
 ### Adding a service page
@@ -145,6 +150,12 @@ src/
 2. Create `src/data/services/<slug>.ts` exporting a `ServicePageData` (see `property-management-seo.ts` as the exemplar; `h1` / `h1Accent` / optional `h1Tail` split the two-tone headline).
 3. Create `src/pages/<engine>/<slug>.astro` modeled on `src/pages/property-management-seo.astro`: `pageId="system"`, `pageSchema=[faqSchema, serviceSchema, breadcrumbSchema]`, `<ServicePage data={data} />` with **no** client directive.
 4. Add the route to `SITEMAP_ROUTES` in `astro.config.mjs`.
+
+### Adding an article page (collections cluster pattern)
+1. Create `src/data/articles/<slug>.ts` exporting an `ArticleData` (see `types.ts`; `collection-policy.ts` shows every block type). Copy strings use `**bold**` and `[label](href)` only. Set `noindex: '<why>'` to gate the page.
+2. Create the route from any `src/pages/collections/*.astro` (thin shell: `articlePageSchema(data)` + `<ArticlePage data={data} />`, `robots` driven by `data.noindex`).
+3. Add the path to `SITEMAP_ROUTES` (+ `LASTMOD`) when it goes live; list it in `public/llms.txt`.
+4. Run `node scripts/content-lint.mjs` (word counts, ≥25-word sentences, banned words, em dashes, "70%" as a goal, link targets, title/description length).
 
 ### Adding any other page
 Build the component in `src/components/pages/` from `rd-*` classes and `rd/atoms`, following `BoardSuitePage.tsx` / `ServicesPage.tsx`. Route shell:
@@ -273,6 +284,7 @@ interface Props {
 | Date | Change |
 |---|---|
 | 2026-05 → 2026-09-22 | Pre-redesign history (initial Astro site, service pages, sitemap plugin, LCP fixes, Match HOA backlinks) — see git log on `main`. |
+| 2026-10-09 | **Collections content cluster** (handoff `alloy-collections-handoff.md`, 2026-10-08): 11 new pages on one data-driven template (`rd/ArticlePage.tsx` + `data/articles/*.ts`, `lib/article-page.ts` for Article schema with Cameron Lange as Person author + BreadcrumbList + FAQPage). `/collections` hub + 5 spokes (`pre-legal-collections` is the brief's final copy verbatim; `attorney-first-vs-pre-legal` cites sourced fee ranges and the California no-cost-model cases; `collection-policy` links official state code and ships a "not a legal template" outline at `public/assets/collections/`) and 5 insights pages built under **`/resources/`** (the brief said `/insights/`; site convention) with the brief's slugs. **Gating**: hub + attorney-first are `noindex` and off the sitemap until the HOA 48 `[PROOF]` placeholders are filled; pages 7–11 are `noindex`/unlisted until their go-live dates (Oct 27 / Nov 3 / Nov 10) so the whole cluster can merge on Oct 20; links to not-yet-live pages are `TODO(date)` comments. Copy rules enforced by `scripts/content-lint.mjs`. New CSS: "Article extras" block in `redesign.css` (inline links, h3, callout, worksheet, source table, proof placeholder, inline CTA) + ≤720 rules. Status, URL changes, go-live checklist and open items (HOA 48 proof, Cameron's LinkedIn URL, Ahrefs checks for pages 10–11): `docs/ops/collections-cluster.md`. |
 | 2026-10-09 | **Branch consolidation**: `staging` fast-forwarded to `main` (it was 26 commits behind with no commits of its own) and is now the working branch; the four fully-merged feature branches (`cai-growth-page-setup`, `port-of-spain`, `sticky-nav-boardstart-cta`, `update-reveal-handoff`) deleted from origin; `skyleralloygp/site-redesign` fast-forwarded to `main` and kept only for the dev.alloygp.co binding. Flow is now `staging` → PR → `main`. |
 | 2026-10-08 | **Book club landing page** at `/book-club`, rebuilt in the site's `rd-*` system after the first cut (worksheet look) was rejected by the client: **logo-only header** (client: no nav; `hideHeader` + static `.rd-logo-header` bar in redesign.css, 60px ≤980 in mobile.css) with the site footer, `noindex,follow`, not in nav/sitemap. `BookClubPage.tsx` = editorial hero (two-tone H1, intro, pink CTA → `#seats`, calendar link, yellow tags) with the **`BookClubForm`** island in an off-white card (the /contact composition: `rd-field`s, leader rows, dark block submit, success state), textured three-up (the handoff's three bullets), purple band ("Bring the leaders you are developing" + three `rd-inset` fact cards $199 a month / 1 hour / 3 things; client: no yellow rules, smaller), `Steps` (save seats → Cameron emails details → show up), host section (Cameron headshot + "Where is this going next?" copy, outline Book 20 minutes), `CtaBar`. No link to the Growth Engine tool (gated resource, client). Buttons say "Save your seat" (client: no "our"; team seats live in the copy and the form); both forms' submit reads **"Save my seat" until a leader email is added, then "Save our seats"** (`BookClubForm` + `lib/book-club-form.js`). BaseLayout hides the sticky CTA on `/book-club`. Form keeps `id="ge-book-club"` → one WhatConverts registration with the worksheet form; submissions are labelled "Book club landing page" in the source block. Copy stays within the handoff (the "included because you were at the retreat" line is retreat-specific). The worksheet's own form/Cameron card still come from `lib/book-club-form.js`. |
 | 2026-10-08 | **Growth Engine Walk-Through** at `/cai-growth` from the client's `cai-growth.html`: the eight-function worksheet (ICP, uniques, one-liner, stages, qualification bar, 30-day plan, drill, export/PDF) kept as the handoff's vanilla JS (`lib/growth-engine.js`, classes prefixed `ge-`, element rules scoped with `.ge-root :where()` so the handoff cascade survives site.css), jsPDF from npm as a lazy chunk instead of the CDN, headshot → `public/assets/team/cameron-lange.jpg`, Gotham self-hosted (no Google Fonts), inputs 16px on phones. Landing-page chrome (hideHeader/hideFooter, `noindex,follow`, not in nav/sitemap). The **HOA Leader Book Club** form is a real `<form id name action method>` (WhatConverts auto-tracks it like the Contact/Growth Portal forms) posting to new **`/api/book-club`**: Resend notification to cameron@ + admin@ (+ `INTERNAL_NOTIFY_EMAIL`), optional direct Slack post when `SLACK_WEBHOOK_URL` is set, confirmation to the requester, Mailchimp upsert tagged `book-club` + `growth-engine` (seat-holders are not subscribed); seats deduped, requester excluded, max 10. **WhatConverts only records forms registered under Tracking › Web Forms** (profile 149173; Attribute Type ID): the Contact form is now `id="contact-form"` and the newsletter form `id="newsletter-signup"` (plus name/action/method) so they can be registered alongside `gp-walkthrough-form` and `ge-book-club`. |
