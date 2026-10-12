@@ -1,7 +1,8 @@
 // src/data/articles/winning-hoa-management-proposals.ts — /resources/winning-hoa-management-proposals
 // Cluster page 11 (the brief's /insights/… → /resources/). Revised 2026-10-12 per the client notes: stronger advice
 // on demonstrating value, board priorities and conversion; the collections differentiator is a plan, not a provider.
-// Ahrefs volume check NOT run (no Ahrefs access from this workspace); candidate terms in `keywords`.
+// Ahrefs (US, 2026-10-12): "hoa management proposal" 40/mo, "hoa rfp" 40, "hoa rfp template" 30, "rfp for hoa management services" 10 KD 0;
+// "property management proposal" 50 and "… template" 60 KD 0 exist but are excluded (client: no property-management targeting).
 // Go-live 2026-11-10: until then noindex + out of sitemap.
 import type { ArticleData } from './types';
 
@@ -15,12 +16,12 @@ export const data: ArticleData = {
   h1: 'What to put in',
   h1Accent: 'an HOA management proposal.',
   title: 'What to Put in an HOA Management Proposal | Alloy',
-  description: 'The sections boards weigh when comparing HOA management proposals: fee structure, staffing, reporting, transition plan, a delinquency plan, and proof.',
-  keywords: ['hoa management proposal (volume unchecked)', 'hoa management company proposal (volume unchecked)', 'hoa management rfp (volume unchecked)'],
+  description: 'What boards weigh when comparing HOA management proposals and RFP responses: fee structure, staffing, reporting, transition plan, a delinquency plan, proof.',
+  keywords: ['hoa management proposal (40/mo)', 'hoa rfp (40)', 'hoa rfp template (30)', 'rfp for hoa management services (10, KD 0)'],
   published: '2026-11-10',
-  answer: `Boards comparing HOA management proposals weigh five things. They want the fee structure and what it includes, the people who will actually manage the association, and the reporting they will see. They also want a transition plan and proof that other boards are happy. A clear plan for delinquent accounts is the differentiator most proposals leave out.`,
+  answer: `Boards comparing HOA management proposals or RFP responses weigh five things. They want the fee structure and what it includes, the people who will actually manage the association, and the reporting they will see. They also want a transition plan and proof that other boards are happy. A clear plan for delinquent accounts is the differentiator most proposals leave out.`,
   disclosure: 'interest',
-  noindex: 'Go-live 2026-11-10 per the brief, after the Ahrefs volume check. On that date: remove robots, add to SITEMAP_ROUTES, activate the TODO links on page 8.',
+  noindex: 'Go-live 2026-11-10 per the brief. On that date: remove robots, add to SITEMAP_ROUTES, activate the TODO links on page 8.',
   aside: { title: 'Where does your proposal lose boards?', body: 'A conversation with a CAM operator about your last five proposals: what won, what lost, and what the board was really asking.', label: 'Review your proposals', href: '/contact?intent=proposals' },
   sections: [
     {
@@ -146,7 +147,7 @@ export const data: ArticleData = {
     `Rebuild the proposal around the checklist and gather the evidence first. If the delinquency plan is the page you cannot write yet, start with [Collections as a Revenue Stream for HOA Management Companies](/collections). If the whole document needs work, [talk to Alloy](/contact?intent=proposals).`,
   ],
   keepReading: [
-    { kind: 'Insights', meta: 'Retention', title: 'Why associations change management companies.', href: '/resources/why-associations-change-management-companies', tone: 'retain' },
+    { kind: 'Insights', meta: 'Retention', title: 'Why HOA boards change management companies.', href: '/resources/why-associations-change-management-companies', tone: 'retain' },
     { kind: 'Insights', meta: 'Three levers', title: 'How to grow an HOA management company.', href: '/resources/how-to-grow-an-hoa-management-company', tone: 'match' },
     { kind: 'Service', meta: 'BoardMatch', title: 'RFP response system: answer every board the same strong way.', href: '/boardmatch/rfp-response-system', tone: 'reach' },
   ],

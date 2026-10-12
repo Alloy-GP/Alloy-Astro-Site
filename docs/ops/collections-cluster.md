@@ -50,8 +50,8 @@ data-driven template. Nothing goes to `main` without Skyler's approval.
 | 7 | `/resources/hoa-management-company-revenue-streams` | Revenue vs contribution table and worksheet; collections line conditional. CTA: profitability. | Gated to 2026-10-27 |
 | 8 | `/resources/how-to-grow-an-hoa-management-company` | "Wrong scoreboard" section, margin on the revenue lever, owner-dependence test in the 12-month plan. CTA: growth. | Gated to 2026-10-27 |
 | 9 | `/resources/hoa-management-software-limits` | People/process/platform section, vendor questions, hedged claims. CTA: operations. | Gated to 2026-11-03 |
-| 10 | `/resources/why-associations-change-management-companies` | Light touch: statistics as sourced and directional, absolutes removed. CTA: retention. Ahrefs check still owed. | Gated to 2026-11-10 |
-| 11 | `/resources/winning-hoa-management-proposals` | Board-priority section with the survey, "show value instead of claiming it", delinquency plan as a process not a provider. CTA: proposals. Ahrefs check still owed. | Gated to 2026-11-10 |
+| 10 | `/resources/why-associations-change-management-companies` | Light touch: statistics as sourced and directional, absolutes removed. CTA: retention. Retitled "Why HOA Boards Change Management Companies" after the Ahrefs check. | Gated to 2026-11-10 |
+| 11 | `/resources/winning-hoa-management-proposals` | Board-priority section with the survey, "show value instead of claiming it", delinquency plan as a process not a provider. CTA: proposals. Ahrefs check done; RFP added to description and answer. | Gated to 2026-11-10 |
 
 Gating: `data.noindex` → `robots noindex,follow`, out of `SITEMAP_ROUTES`, inbound links left as `TODO(date)` comments. Everything can merge on 2026-10-20; later waves un-gate on their dates.
 
@@ -95,8 +95,10 @@ Gating: `data.noindex` → `robots noindex,follow`, out of `SITEMAP_ROUTES`, inb
 
 ## Open items
 
-- **Cameron Lange's LinkedIn URL** → `AUTHOR.linkedIn` in `src/lib/article-page.ts`.
-- **Ahrefs volume checks for pages 10 and 11** (no Ahrefs access from this workspace). Candidate terms in each data file's `keywords`. Run before the 2026-11-10 go-live.
+- ~~Cameron Lange's LinkedIn URL~~ added 2026-10-12 (`AUTHOR.linkedIn` → Person `sameAs` on every cluster page).
+- ~~Ahrefs volume checks for pages 10 and 11~~ run 2026-10-12 (US, via the Ahrefs MCP on Skyler's Mac):
+  - Page 10: "how to change hoa management company" **100/mo, KD 0, CPC $4.00**; "change hoa management company" 60; "how to switch hoa management companies" 30; "how to fire hoa management company" 30 (KD 31); "switching hoa management companies" 20. The brief's "why hoa boards change management companies" has no measured volume. **Retitled** to "Why HOA Boards Change Management Companies" (H1 "Why HOA boards change management companies"); description leads with "change". Reader stays the operator; the phrase is board-side, so expect some board traffic.
+  - Page 11: "hoa management proposal" **40/mo**; "hoa rfp" 40; "hoa rfp template" 30; "rfp for hoa management services" 10 (KD 0). "property management proposal" (50) and "property management proposal template" (60, KD 0) exist but are excluded under the no-property-management rule. Title kept; description and opening answer now mention RFP responses.
 - **Published dates** are the brief's go-live dates. Adjust if a page ships on a different day.
 - **Resources hub listing / nav**: the cluster is not on `/resources` or in the nav. Recommend adding the indexable pages to `LATEST` in `ResourceHubPage.tsx` at go-live.
 - Hub runs ~2,300 words (brief guide 1,800–2,200) after the approaches and process-review sections were added at the client's request.

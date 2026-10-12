@@ -1,7 +1,9 @@
 // src/data/articles/why-associations-change-management-companies.ts — /resources/why-associations-change-management-companies
 // Cluster page 10 (the brief's /insights/… → /resources/). Written to the handoff spec (2026-10-08). The "most
 // common" claim is sourced (AppFolio + HOA-USA board survey, 2022) and labelled directional.
-// Ahrefs volume check NOT run (no Ahrefs access from this workspace, 2026-10-09); candidate terms listed in `keywords`.
+// Ahrefs (US, 2026-10-12): "how to change hoa management company" 100/mo KD 0 (CPC $4.00), "change hoa management company" 60,
+// "how to switch hoa management companies" 30, "how to fire hoa management company" 30 KD 31, "switching hoa management companies" 20;
+// the brief's "why hoa boards change management companies" has no measured volume. Title/H1 retitled to carry "HOA boards change".
 // Revised 2026-10-12 per the client notes: statistics kept as sourced and labelled directional, a retention CTA, no provider named.
 // Go-live 2026-11-10: until then noindex + out of sitemap.
 import type { ArticleData } from './types';
@@ -13,16 +15,16 @@ export const data: ArticleData = {
   parent: { label: 'Resources', href: '/resources' },
   crumb: 'Why associations change companies',
   eyebrow: 'Insights',
-  h1: 'Why associations change',
+  h1: 'Why HOA boards change',
   h1Accent: 'management companies.',
-  title: 'Why Associations Change Management Companies | Alloy',
-  description: 'Why HOA boards switch management companies, led by slow responses and financial problems: what each looks like before the board says it, and how to fix it.',
-  keywords: ['why hoa boards change management companies (volume unchecked)', 'switching hoa management companies (volume unchecked)', 'how to change hoa management company (volume unchecked)'],
+  title: 'Why HOA Boards Change Management Companies | Alloy',
+  description: 'Why HOA boards change management companies, led by slow responses and financial problems: what each looks like before the board says it, and how to fix it.',
+  keywords: ['how to change hoa management company (100/mo, KD 0)', 'change hoa management company (60)', 'how to switch hoa management companies (30)', 'how to fire hoa management company (30, KD 31)', 'switching hoa management companies (20)'],
   published: '2026-11-10',
   answer: `Boards most often change management companies over responsiveness, follow-through and financial problems. In a 2022 AppFolio and HOA-USA survey, unresponsiveness was the leading reason board members switched or considered switching. Behind the stated reasons sit four patterns: communication gaps, budget and reserve trouble, delinquency handling and slow service. Each shows up before the board says it.`,
   disclosure: 'interest',
   aside: { title: 'Which boards are quietly shopping?', body: 'A conversation with a CAM operator about the early signs in your portfolio and how to fix each one before the renewal vote.', label: 'Review retention', href: '/contact?intent=retention' },
-  noindex: 'Go-live 2026-11-10 per the brief, after the Ahrefs volume check. On that date: remove robots, add to SITEMAP_ROUTES, activate the TODO links on page 8.',
+  noindex: 'Go-live 2026-11-10 per the brief. On that date: remove robots, add to SITEMAP_ROUTES, activate the TODO links on page 8.',
   sections: [
     {
       id: 'what-boards-say',

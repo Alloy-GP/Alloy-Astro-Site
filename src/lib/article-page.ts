@@ -5,12 +5,12 @@ import { SITE } from '~/config/site';
 import { articleSchema, breadcrumbSchema, faqSchema } from '~/lib/schema';
 import type { ArticleData, Block } from '~/data/articles/types';
 
-/** Author of the collections cluster (brief, 2026-10-08). LinkedIn URL is owed by the client; `sameAs` is omitted until it arrives. */
+/** Author of the collections cluster (brief, 2026-10-08). `linkedIn` → Person.sameAs on every cluster page. */
 export const AUTHOR = {
   name: 'Cameron Lange',
   jobTitle: 'Managing Partner',
   org: SITE.name,
-  linkedIn: '' as string, // TODO(client): Cameron Lange's LinkedIn profile URL → Person.sameAs
+  linkedIn: 'https://www.linkedin.com/in/cameronlange', // client, 2026-10-12 → Person.sameAs
 };
 
 export function authorPerson() {
