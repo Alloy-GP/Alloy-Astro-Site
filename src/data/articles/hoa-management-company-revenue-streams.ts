@@ -1,6 +1,7 @@
 // src/data/articles/hoa-management-company-revenue-streams.ts — /resources/hoa-management-company-revenue-streams
-// Cluster page 7 (the brief's /insights/… → the site's /resources/ article convention). Written to the handoff
-// spec (2026-10-08). Go-live 2026-10-27: until then the route is noindex and the page is out of the sitemap.
+// Cluster page 7 (the brief's /insights/… → /resources/). Revised 2026-10-12 per the client notes: revenue vs.
+// contribution to profit made explicit, collections revenue conditional, no provider named.
+// Go-live 2026-10-27: until then noindex and out of the sitemap.
 import type { ArticleData } from './types';
 
 export const data: ArticleData = {
@@ -11,12 +12,13 @@ export const data: ArticleData = {
   h1: 'Revenue streams',
   h1Accent: 'for HOA management companies.',
   title: 'Revenue Streams for HOA Management Companies | Alloy',
-  description: 'HOA management company revenue beyond the base fee: ancillary services, resale fees, project oversight, collections. Revenue per door ties it together.',
+  description: 'HOA management company revenue beyond the base fee: ancillary services, resale fees, project oversight, collections. Which lines add to profit, and how to tell.',
   keywords: ['property management revenue streams'],
   published: '2026-10-27',
-  answer: `An HOA management company earns a base management fee per association, then adds revenue lines on top of it. The main ones are ancillary services billed by the task, transfer and resale fees, project oversight, and collections revenue from a pre-legal program. Revenue per door is the number that shows whether the lines add up.`,
-  disclosure: 'short',
+  answer: `An HOA management company earns a base management fee per association, then adds revenue lines on top of it. The main ones are ancillary services billed by the task, transfer and resale fees, project oversight, and in some models collections coordination. Revenue per door shows whether the lines add up. Contribution per line shows whether they add to profit.`,
+  disclosure: 'interest',
   noindex: 'Go-live 2026-10-27 per the brief. On that date: remove robots from the route, add the path to SITEMAP_ROUTES, activate the TODO links on pages 1 and 5.',
+  aside: { title: 'Which lines actually make money?', body: 'A conversation with a CAM operator about your fee schedule, the hours behind each line and where margin is leaking.', label: 'Talk revenue and margin', href: '/contact?intent=profitability' },
   sections: [
     {
       id: 'base-fee',
@@ -24,7 +26,7 @@ export const data: ArticleData = {
       blocks: [
         { t: 'p', s: `The base fee is the monthly contract amount per association, negotiated per door or as a flat figure. It funds the manager's time, the accounting, the board packets and the office. It is also the line every competitor bids against.` },
         { t: 'p', s: `Base fees are sticky in both directions. They rarely go up mid-contract, and the proposal that wins is often the one that goes down. Companies that grow on base fee alone grow only by adding doors, which means winning contracts faster than they lose them.` },
-        { t: 'p', s: `Every other line on this page exists to make growth less dependent on that race.` },
+        { t: 'p', s: `Every other line on this page exists to make growth less dependent on that race. Not every line is worth having, which is the point of the section on contribution.` },
       ],
     },
     {
@@ -39,7 +41,7 @@ export const data: ArticleData = {
           `**Project oversight.** A percentage or flat fee for managing capital projects, insurance claims and reconstruction.`,
         ] },
         { t: 'p', s: `The rule for boards is that every ancillary fee should be in the schedule the board signed. The rule for operators is that the schedule should be reviewed yearly, because the work changes faster than the document.` },
-        { t: 'p', s: `A quick audit finds the leaks. Pull one quarter of work orders, closings and board requests, and mark every task the schedule allows you to bill. Then check whether it was billed. Most companies find a short list of tasks that are done every month and invoiced never.` },
+        { t: 'p', s: `A quick audit finds the leaks. Pull one quarter of work orders, closings and board requests, and mark every task the schedule allows you to bill. Then check whether it was billed. Most companies find a short list of tasks that are done every month and invoiced rarely.` },
       ],
     },
     {
@@ -55,23 +57,42 @@ export const data: ArticleData = {
       id: 'collections-revenue',
       h2: 'How does collections revenue work, and what should you check first?',
       blocks: [
-        { t: 'p', s: `Collections revenue is the newest line and the least understood. In a pre-legal collections program, delinquent accounts go to a non-attorney vendor for a fixed window, usually 90 days, before any attorney is involved. In owner-paid programs, the charges are added to the delinquent owner's balance and the association pays nothing.` },
-        { t: 'p', s: `The management company earns a management company administrative fee inside that structure. It pays for coordinating each account: submission, answering the vendor's questions, posting payments and reporting to the board. The accounts already exist and the coordination is work the company already does. That is what makes it a revenue line rather than a new product.` },
+        { t: 'p', s: `Collections revenue is the newest line and the least understood. It exists in two forms. A board-approved administration fee in the management agreement pays the management company for delinquency work. Or, in some pre-legal vendor arrangements, charges are added to the delinquent owner's balance where the governing documents and state law allow. A coordination fee for the management company sits inside them.` },
+        { t: 'p', s: `Neither is automatic. Not every account produces revenue. Charges that cannot be recovered may fall back to the association, and in some states the owner-paid model is contested. It is a candidate line rather than a new product because the accounts already exist. The coordination is work the company already does.` },
         { t: 'p', s: `Before adding it, check four things:` },
         { t: 'ul', items: [
-          `**Authority.** The governing documents and state law must allow the program's charges to be added to an owner's balance. The association's attorney confirms this.`,
-          `**Disclosure.** The board should see the full fee schedule, including the management company's fee, before approving the program.`,
-          `**Vendor limits.** The vendor must not give legal advice, file liens, sue or foreclose. Those stay with the attorney.`,
+          `**Authority.** The governing documents, state law and the management agreement must allow the charge. The association's attorney confirms this.`,
+          `**Disclosure.** The board should see the full fee schedule, including anything the management company earns, before approving the arrangement.`,
+          `**Limits.** Whoever runs the stage must not give legal advice, file liens, sue or foreclose. Those stay with the attorney.`,
           `**Reporting.** The board gets stage and status for every account, monthly, without asking.`,
         ] },
-        { t: 'p', s: `[Collections as a Revenue Stream for HOA Management Companies](/collections) covers the program end to end, including what boards ask before approving one.` },
+        { t: 'p', s: `[Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches and what boards ask before approving one. It also shows how to review the process you have.` },
+      ],
+    },
+    {
+      id: 'revenue-vs-profit',
+      h2: 'Which of these lines actually add to profit?',
+      blocks: [
+        { t: 'p', s: `Revenue is what the line bills. Contribution is what is left after the hours it takes to deliver. The two are not the same, and companies that track only the first sometimes add lines that lose money.` },
+        { t: 'table', caption: 'Revenue line vs. what usually drives its contribution', head: ['Line', 'What drives contribution', 'Watch for'], rows: [
+          ['Base fee', 'Hours per association against the fee. Delinquency, projects and board demands move it.', 'Associations priced three years ago at today’s hours.'],
+          ['Ancillary services', 'Usually high contribution when the work is routine and documented, because the hours are already being spent.', 'Work done but not billed. Fees the board did not sign.'],
+          ['Transfer and resale', 'Mostly fixed effort per closing, so contribution tracks volume.', 'Lumpy. State limits on who can be charged.'],
+          ['Project oversight', 'Depends on the hours the project consumes against the percentage or flat fee.', 'Scope creep. Projects priced before the scope was written.'],
+          ['Collections coordination', 'Only positive if the fee covers the coordination hours. A managed process lowers the hours either way.', 'Charges without authority. Boards that were not told.'],
+        ] },
+        { t: 'worksheet', title: 'Worksheet: contribution per line, this quarter', rows: [
+          { label: 'Revenue from the line this quarter', hint: 'From invoices, by line.' },
+          { label: 'Hours spent delivering it', hint: 'Estimate from a typical week if you do not track time. Include accounting and admin.' },
+          { label: 'Loaded hourly cost', hint: 'Wages plus payroll taxes, benefits and a share of overhead.' },
+        ], result: 'Contribution = revenue − (hours × loaded hourly cost)', note: 'Run it for each line. A line with revenue and no contribution is a cost with a nicer name.' },
       ],
     },
     {
       id: 'revenue-per-door',
       h2: 'Why is revenue per door the number that ties it together?',
       blocks: [
-        { t: 'p', s: `Revenue per door is total revenue divided by the number of units under management. It is the one metric that captures every line above in a single figure, and it moves when any of them moves.` },
+        { t: 'p', s: `Revenue per door is total revenue divided by the number of units under management. It is the one metric that captures every line above in a single figure, and it moves when any of them moves. Pair it with contribution per association and you can see both whether the lines add up and whether they add to profit.` },
         { t: 'p', s: `Track it quarterly, by association, and watch three things:` },
         { t: 'ul', items: [
           `**Direction.** Rising revenue per door with a flat door count means the lines are working. Flat revenue per door with a rising door count means growth is coming from the base fee race.`,
@@ -82,23 +103,23 @@ export const data: ArticleData = {
           { label: 'Total revenue this quarter', hint: 'All lines: base fees, ancillary, transfer and resale, project oversight, collections.' },
           { label: 'Doors under management', hint: 'Units across every association at quarter end.' },
         ], result: 'Revenue per door = total revenue ÷ doors', note: `Run it for the same quarter last year. The direction matters more than the figure.` },
-        { t: 'cta', s: `Revenue per door is one of three growth levers. Alloy builds the other two: attracting boards and keeping them.`, label: `See Alloy's services`, href: '/services' },
+        { t: 'cta', s: `Revenue per door is one of three growth levers. Alloy helps management companies work on all three, and on the margin underneath them.`, label: 'Talk through revenue and margin', href: '/contact?intent=profitability' },
       ],
     },
   ],
   faq: [
-    { q: 'What are the main revenue streams for an HOA management company?', a: `The base management fee per association comes first. On top of it sit ancillary service fees from the management agreement's schedule, transfer and resale fees, and project oversight fees on capital work. The newest line is collections revenue from a pre-legal program. Revenue per door, total revenue divided by units managed, shows whether the lines add up.` },
-    { q: 'Is collections revenue a conflict of interest for the management company?', a: `It can be if it is hidden. The fee must be disclosed to the board as part of the program's full fee schedule. The charges must be allowed by the governing documents and state law, and the vendor must take no legal action. Handled that way, boards generally see it as payment for coordination work the company already does.` },
-    { q: 'Should a management company raise its base fee or add revenue lines?', a: `Both, in the right order. Base fees should at least track costs at renewal. But lines tied to work the company already does, like collections coordination and documented ancillary services, add revenue without reopening the contract. Revenue per door shows whether the mix is improving.` },
+    { q: 'What are the main revenue streams for an HOA management company?', a: `The base management fee per association comes first. On top of it sit ancillary service fees from the management agreement's schedule, transfer and resale fees, and project oversight fees on capital work. The newest line, in some models, is collections coordination. Revenue per door, total revenue divided by units managed, shows whether the lines add up.` },
+    { q: 'Is collections revenue a conflict of interest for the management company?', a: `It can be if it is hidden or unauthorized. The fee must be disclosed to the board as part of the full fee schedule. The charges must be allowed by the governing documents, state law and the management agreement. Handled that way, boards generally see it as payment for coordination work the company already does.` },
+    { q: 'Should a management company raise its base fee or add revenue lines?', a: `Both, in the right order. Base fees should at least track costs at renewal. But lines tied to work the company already does, like documented ancillary services, add revenue without reopening the contract. Contribution per line shows whether each one is worth having. Revenue per door shows whether the mix is improving.` },
     { q: 'How often should the fee schedule be reviewed?', a: `Annually, before renewal season. Work changes faster than the agreement: new state disclosure rules, new lender forms, new project types. A schedule the board signed three years ago is leaving revenue unbilled and inviting disputes about what is included. Review it with the board at renewal so nothing in it is a surprise later.` },
   ],
   next: [
-    `Run the revenue-per-door worksheet for this quarter and the same quarter last year. If collections is the line that is missing, [Collections as a Revenue Stream for HOA Management Companies](/collections) explains how the program works. If the missing lever is doors, [talk to Alloy](/contact).`,
+    `Run both worksheets for this quarter and the same quarter last year. If collections is the line that is missing or unmanaged, [Collections as a Revenue Stream for HOA Management Companies](/collections) explains the approaches. If the question is margin across the whole business, [talk to Alloy](/contact?intent=profitability).`,
   ],
   keepReading: [
     { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'match' },
     { kind: 'Insights', meta: 'Three levers', title: 'How to grow an HOA management company.', href: '/resources/how-to-grow-an-hoa-management-company', tone: 'reach' },
     { kind: 'Strategy', meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy', tone: 'blue' },
   ],
-  cta: { text: 'Revenue per door is one lever. Thirty minutes with a CAM operator tells you which of the three to pull first.', label: 'Talk to Alloy' },
+  cta: { text: 'Revenue is easy to add and margin is easy to lose. Thirty minutes with a CAM operator covers your fee schedule, the hours behind it and where to look first.', label: 'Talk through revenue and margin', href: '/contact?intent=profitability' },
 };

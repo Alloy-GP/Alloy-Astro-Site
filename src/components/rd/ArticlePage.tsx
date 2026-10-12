@@ -3,7 +3,7 @@
 // Layout mirrors MarketingStrategyArticle / AISearchArticle (breadcrumb, two-column hero with byline,
 // sticky TOC + CTA card, numbered sections, keep-reading cards, CTA bar) and adds the pieces the
 // collections cluster needs: byline disclosure, definition callouts, fill-in worksheets, source tables,
-// an in-article FAQ (FAQPage schema comes from lib/article-page.ts) and visible [PROOF: …] placeholders.
+// an in-article FAQ (FAQPage schema comes from lib/article-page.ts), per-article CTA card + intent, and [PROOF: …] placeholders (unused since 2026-10-12).
 // Static: no client directive.
 import type { ReactNode } from 'react';
 import { Breadcrumb, Eyebrow, Label, Btn, CtaBar, ArrowIcon, FaqList } from '~/components/rd/atoms';
@@ -18,11 +18,11 @@ const TONES: Record<ReadingTone, { ink: string; accent: string }> = {
   blue: { ink: '#4a86ad', accent: BLUE },
 };
 
-/** The brief's exact line for pages that name HOA 48; a shorter one for the rest of the cluster. */
+/** Cluster-wide interest disclosure (client, 2026-10-12: no provider named; Alloy recommends processes, not companies). */
 const DISCLOSURE = {
-  named: "Alloy's partners operate HOA 48, a pre-legal collections company referenced on this page.",
-  short: "Alloy's partners operate HOA 48, a pre-legal collections company.",
+  interest: "Alloy's partners have a financial interest in a pre-legal collections business. These articles recommend processes, not providers.",
 };
+const DEFAULT_ASIDE = { title: 'Growing a management company?', body: 'Thirty minutes with a CAM operator. Written 90-day plan, yours to keep.', label: 'Talk to Alloy', href: '/contact' };
 
 const TOKEN = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)\s]+\))/g;
 const LINK = /^\[([^\]]+)\]\(([^)\s]+)\)$/;
@@ -117,6 +117,7 @@ export default function ArticlePage({ data: d }: { data: ArticleData }) {
   ];
   const num = (id: string) => String(toc.findIndex((t) => t.id === id) + 1).padStart(2, '0');
   const mins = readMinutes(d);
+  const aside = d.aside ?? DEFAULT_ASIDE;
 
   return (
     <div className="rd-page">
@@ -158,9 +159,9 @@ export default function ArticlePage({ data: d }: { data: ArticleData }) {
               </div>
             </nav>
             <div className="rd-bg-purple rd-ink-white rd-stack" style={{ borderRadius: 10, padding: 22, gap: 12, marginTop: 6 }}>
-              <div className="rd-title-16">Growing a management company?</div>
-              <p className="rd-tiny rd-muted-80">Thirty minutes with a CAM operator. Written 90-day plan, yours to keep.</p>
-              <Btn href="/contact" size="xs">Talk to Alloy</Btn>
+              <div className="rd-title-16">{aside.title}</div>
+              <p className="rd-tiny rd-muted-80">{aside.body}</p>
+              <Btn href={aside.href} size="xs">{aside.label}</Btn>
             </div>
           </aside>
 

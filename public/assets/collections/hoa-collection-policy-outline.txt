@@ -29,11 +29,13 @@ board and the attorney.
    Order in which a payment is applied, per statute where one applies
    (some states require assessments first).
 
-7. PRE-LEGAL STAGE
-   Trigger [X days past due]. Vendor. Window [90 days]. What the vendor may
-   and may not do (no legal advice, no liens, no suits, no foreclosure).
-   Who pays program charges and the authority for adding them to the owner's
-   balance. Return to the board with a full contact history.
+7. INTERMEDIATE (PRE-LEGAL) STAGE, IF THE BOARD ADOPTS ONE
+   Trigger [X days past due]. Who runs it [internal team / vendor / counsel's
+   pre-lien cadence]. Window [commonly 60 to 120 days, within state notice
+   periods and lien deadlines]. What the stage may and may not do (no legal
+   advice, no liens, no suits, no foreclosure). Who pays which charges and the
+   authority for adding any charge to the owner's balance. Return to the board
+   with a full contact history.
 
 8. ATTORNEY REFERRAL
    Trigger. Board decision. Contents of the file sent to counsel. Which costs

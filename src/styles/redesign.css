@@ -467,7 +467,8 @@ textarea.rd-field { resize: vertical; min-height: 120px; }
 .rd-article-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 22px 24px; border: 1px solid var(--border-subtle); border-radius: 10px; background: var(--alloy-off-white); }
 .rd-article .rd-article-cta p { font-size: 16px; color: var(--alloy-purple); font-weight: 500; flex: 1 1 320px; }
 .rd-article .rd-faq { border-top: 1px solid var(--border-subtle); }
-.rd-article .rd-faq .rd-faq-a { font-size: 16px; }                      /* mobile-only sticky TOC bar, built by src/lib/mobile.ts */
+.rd-article .rd-faq .rd-faq-a { font-size: 16px; }
+.rd-toc > .rd-bg-purple .rd-btn { width: 100%; white-space: normal; text-align: center; line-height: 1.3; padding-left: 14px; padding-right: 14px; }                      /* mobile-only sticky TOC bar, built by src/lib/mobile.ts */
 
 /* Bars (charts) */
 .rd-bar-track { height: 14px; border-radius: 4px; background: rgba(255,255,255,.12); overflow: hidden; }

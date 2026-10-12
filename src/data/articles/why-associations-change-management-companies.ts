@@ -2,6 +2,7 @@
 // Cluster page 10 (the brief's /insights/… → /resources/). Written to the handoff spec (2026-10-08). The "most
 // common" claim is sourced (AppFolio + HOA-USA board survey, 2022) and labelled directional.
 // Ahrefs volume check NOT run (no Ahrefs access from this workspace, 2026-10-09); candidate terms listed in `keywords`.
+// Revised 2026-10-12 per the client notes: statistics kept as sourced and labelled directional, a retention CTA, no provider named.
 // Go-live 2026-11-10: until then noindex + out of sitemap.
 import type { ArticleData } from './types';
 
@@ -19,7 +20,8 @@ export const data: ArticleData = {
   keywords: ['why hoa boards change management companies (volume unchecked)', 'switching hoa management companies (volume unchecked)', 'how to change hoa management company (volume unchecked)'],
   published: '2026-11-10',
   answer: `Boards most often change management companies over responsiveness, follow-through and financial problems. In a 2022 AppFolio and HOA-USA survey, unresponsiveness was the leading reason board members switched or considered switching. Behind the stated reasons sit four patterns: communication gaps, budget and reserve trouble, delinquency handling and slow service. Each shows up before the board says it.`,
-  disclosure: 'short',
+  disclosure: 'interest',
+  aside: { title: 'Which boards are quietly shopping?', body: 'A conversation with a CAM operator about the early signs in your portfolio and how to fix each one before the renewal vote.', label: 'Review retention', href: '/contact?intent=retention' },
   noindex: 'Go-live 2026-11-10 per the brief, after the Ahrefs volume check. On that date: remove robots, add to SITEMAP_ROUTES, activate the TODO links on page 8.',
   sections: [
     {
@@ -34,7 +36,7 @@ export const data: ArticleData = {
       id: 'communication-gaps',
       h2: 'Communication gaps: what they look like before the board says it',
       blocks: [
-        { t: 'p', s: `The board's first complaint is almost never about money. It is about silence. Emails answered in days, calls returned after the meeting, a question asked twice.` },
+        { t: 'p', s: `The board's first complaint is rarely about money. It is about silence. Emails answered in days, calls returned after the meeting, a question asked twice.` },
         { t: 'ul', items: [
           `**Early sign.** Board members start copying each other on emails to the manager, or the president starts calling the company's owner directly.`,
           `**What it means.** The board has stopped trusting that one message is enough.`,
@@ -62,7 +64,7 @@ export const data: ArticleData = {
         { t: 'ul', items: [
           `**Early sign.** The same accounts on the delinquency report for a year. Questions about one owner's account at every meeting.`,
           `**What it means.** The board sees a management problem, not a collections problem.`,
-          `**Fix.** A written collection policy with a trigger date and a pre-legal stage with a fixed window before the attorney. Add a monthly report with stage and next action for every account. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the stage and why it helps the management company as well as the board.`,
+          `**Fix.** A written collection policy with a trigger date and a defined next stage with dates before the attorney, whoever runs it. Add a monthly report with stage and next action for every account. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches. A managed process helps the management company as well as the board.`,
         ] },
       ],
     },
@@ -104,7 +106,7 @@ export const data: ArticleData = {
           `**Watch the signs above.** Copied emails, carried action items, a receivables line that only grows.`,
           `**Start the renewal conversation six months out.** Bring the record: response times, projects closed, delinquency movement. Boards renew what they can see.`,
         ] },
-        { t: 'p', s: `Retention is the cheapest growth lever a management company has. [How to Grow an HOA Management Company](/resources/how-to-grow-an-hoa-management-company) puts it next to the other two. Alloy's [BoardRetain](/boardretain) engine is built for this job.` },
+        { t: 'p', s: `Retention is usually the cheapest growth lever a management company has. [How to Grow an HOA Management Company](/resources/how-to-grow-an-hoa-management-company) puts it next to the other two. Alloy's [BoardRetain](/boardretain) engine is built for this job.` },
       ],
     },
   ],
@@ -112,15 +114,15 @@ export const data: ArticleData = {
     { q: 'What is the most common reason HOA boards fire their management company?', a: `In the most cited survey, AppFolio's 2022 study with HOA-USA, unresponsiveness and long response times led. Two thirds of board members who switched or considered it, 66%, cited them. Follow-through and customer service came next. Financial problems and delinquency handling show up in the conversations behind those answers.` },
     { q: 'How much notice does a board give before changing companies?', a: `Whatever the management agreement requires, often 30 to 90 days. The decision is usually made well before the notice. The signs are visible months earlier: copied emails, carried action items, questions about the termination clause. A company that reads the signs has a quarter or two to respond before the vote.` },
     { q: 'Can a management company recover a board that is already shopping?', a: `Sometimes. It takes an honest conversation about what went wrong, a written fix with dates, and visible change within weeks, not quarters. Boards that have found a replacement rarely turn back, so the recovery window is before the search starts.` },
-    { q: `Does switching management companies usually fix the board's problem?`, a: `Not always. Some problems travel with the association: a thin reserve, a divided board, chronic delinquency. A management company that names those problems early, with a plan, is harder to blame for them and harder to replace. Boards that switch and find the same problems waiting often regret the change.` },
+    { q: `Does switching management companies usually fix the board's problem?`, a: `Not in every case. Some problems travel with the association: a thin reserve, a divided board, chronic delinquency. A management company that names those problems early, with a plan, is harder to blame for them and harder to replace. Boards that switch and find the same problems waiting often regret the change.` },
   ],
   next: [
-    `Walk the four patterns against each association in your portfolio and mark the early signs you can see today. Then read [How to Grow an HOA Management Company](/resources/how-to-grow-an-hoa-management-company) for where retention sits among the three levers.`,
+    `Walk the four patterns against each association in your portfolio and mark the early signs you can see today. Then read [How to Grow an HOA Management Company](/resources/how-to-grow-an-hoa-management-company) for where retention sits among the three levers. Or [talk to Alloy](/contact?intent=retention) about the associations that worry you.`,
   ],
   keepReading: [
     { kind: 'Insights', meta: 'Three levers', title: 'How to grow an HOA management company.', href: '/resources/how-to-grow-an-hoa-management-company', tone: 'match' },
     { kind: 'Insights', meta: 'Proposals', title: 'What to put in an HOA management proposal.', href: '/resources/winning-hoa-management-proposals', tone: 'reach' },
     { kind: 'Course', meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies.', href: '/resources/courses/trust-building', tone: 'retain' },
   ],
-  cta: { text: 'Keeping boards is the cheapest lever. Thirty minutes with a CAM operator tells you where the leak is.', label: 'Talk to Alloy' },
+  cta: { text: 'Keeping boards is usually the cheapest lever. Thirty minutes with a CAM operator covers the early signs in your portfolio and what to fix first.', label: 'Review how you keep boards', href: '/contact?intent=retention' },
 };

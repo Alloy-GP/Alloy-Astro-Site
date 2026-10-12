@@ -3,7 +3,8 @@
 // One file per page under src/data/articles/. Copy strings accept a tiny inline markup:
 //   **bold**            → <strong>
 //   [label](/path)      → internal link      [label](https://…) → external link (new tab, noopener)
-// Keep sentences short (the brief: under 25 words), no em dashes, no promised outcomes.
+// Keep sentences short (the brief: under 25 words), no em dashes, no promised outcomes, no "always" / "never",
+// no provider named (client, 2026-10-12): recommend processes, not companies.
 import type { FaqItem } from '~/lib/schema';
 
 export type ReadingTone = 'reach' | 'match' | 'retain' | 'blue';
@@ -64,8 +65,10 @@ export interface ArticleData {
   answer: string;
   /** Blocks rendered before the first H2 (e.g. a definition callout). */
   lead?: Block[];
-  /** Disclosure under the byline. 'named' = the page names HOA 48 (the brief's exact line); 'short' = the cluster-wide line. */
-  disclosure: 'named' | 'short' | 'none';
+  /** Disclosure under the byline. 'interest' = the cluster-wide financial-interest line (no provider named; client, 2026-10-12). */
+  disclosure: 'interest' | 'none';
+  /** Sticky-column CTA card. Each article routes to /contact?intent=<key> so the form preselects a matching topic. */
+  aside?: { title: string; body: string; label: string; href: string };
   sections: ArticleSection[];
   faq?: FaqItem[];
   /** Closing "Next steps" paragraph(s). */

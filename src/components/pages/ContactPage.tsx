@@ -11,7 +11,18 @@ import { Eyebrow, Btn, CheckIcon } from '~/components/rd/atoms';
 const LH: CSSProperties = { lineHeight: 1.65 };
 
 // /contact is the "Claim your market" destination since /get-started was retired (client, 2026-10-01).
-const TOPICS = ['Claim my market', 'Get my market report', 'General question', 'Partnerships', 'Press', 'Careers'] as const;
+const TOPICS = ['Claim my market', 'Get my market report', 'Collections process', 'Growth strategy', 'Operations and tools', 'Revenue and margin', 'Proposals or retention', 'General question', 'Partnerships', 'Press', 'Careers'] as const;
+
+// Article CTAs (collections cluster, 2026-10-12): /contact?intent=<key> preselects a topic and seeds the message.
+// Conversations, not deliverables: the wording promises a review conversation with a CAM operator, nothing more.
+const ARTICLE_INTENTS: Record<string, { topic: (typeof TOPICS)[number]; line: string }> = {
+  collections: { topic: 'Collections process', line: 'I’d like to talk through our current collections process and where accounts get stuck.' },
+  growth: { topic: 'Growth strategy', line: 'I’d like to review our growth strategy.' },
+  operations: { topic: 'Operations and tools', line: 'I’d like to review where our processes and tools are falling short.' },
+  profitability: { topic: 'Revenue and margin', line: 'I’d like to talk through revenue and margin in our business.' },
+  proposals: { topic: 'Proposals or retention', line: 'I’d like to improve how we win proposals.' },
+  retention: { topic: 'Proposals or retention', line: 'I’d like to improve how we keep the boards we have.' },
+};
 
 interface ContactFormState {
   name: string;
@@ -56,7 +67,10 @@ export default function ContactPage() {
     // report = open metro ("Get my report" button) · waitlist = claimed metro · claim = legacy links
     const metro = params.get('metro');
     const intent = params.get('intent');
-    if (metro || intent) {
+    const article = intent ? ARTICLE_INTENTS[intent] : undefined;
+    if (article) {
+      setForm(f => ({ ...f, topic: article.topic, message: f.message || article.line }));
+    } else if (metro || intent) {
       const lines = [
         metro ? `Metro: ${metro.slice(0, 80)}` : null,
         intent === 'report' ? 'I’d like a market report for my metro.'

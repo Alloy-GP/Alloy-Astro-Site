@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // scripts/content-lint.mjs — checks the collections cluster copy (src/data/articles/*.ts) against the
-// handoff's copy rules: word count per page, sentences under 25 words, banned words, no em dashes,
-// "70%" always framed as a goal, no mgmt-fee amounts, and every internal link resolving to a route.
+// handoff's copy rules plus the 2026-10-12 positioning notes: word count per page, sentences under 25 words,
+// banned words, no em dashes, no provider named or linked, no 70% figure, no "always"/"never", no "our program",
+// no visible proof placeholders, and every internal link resolving to a route.
 // Run: node scripts/content-lint.mjs            (exit 1 on any hard failure)
 import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -32,7 +33,7 @@ function proseSentences(d) {
   return out.flatMap((t) => stripMarkup(t).replace(/\([^)]*\)/g, '').split(/(?<=[.!?]["”]?)\s+(?=[A-Z"“])/)).map((s) => s.trim()).filter(Boolean);
 }
 const routeExists = (href) => {
-  const p = href.replace(/#.*$/, '');
+  const p = href.replace(/[#?].*$/, '');
   if (p.startsWith('/assets/')) return existsSync(join('public', p));
   const base = p === '/' ? 'index' : p.slice(1);
   return ['src/pages/' + base + '.astro', 'src/pages/' + base + '/index.astro', 'src/pages/' + base + '.ts'].some(existsSync);
@@ -50,13 +51,18 @@ for (const f of readdirSync(DIR).filter((x) => x.endsWith('.ts') && x !== 'types
   const banned = text.match(BANNED); if (banned) { issues.push(`banned word "${banned[0]}"`); hard++; }
   const long = proseSentences(d).filter((s) => words(s) >= 25);
   if (long.length) issues.push(`${long.length} sentence(s) ≥25 words`);
-  for (const m of text.matchAll(/[^.]*70\s?%\+?[^.]*\./g)) { if (!/goal|target/i.test(m[0])) { issues.push(`70% without "goal": "${m[0].trim().slice(0, 60)}"`); hard++; } }
+  const all2 = text + ' ' + d.title + ' ' + d.description + ' ' + (d.aside ? Object.values(d.aside).join(' ') : '') + ' ' + d.cta.text + ' ' + (d.cta.label ?? '');
+  if (/hoa\s?48/i.test(all2)) { issues.push('names HOA 48 (client 2026-10-12: no provider named)'); hard++; }
+  if (/\b70\s?%/.test(all2)) { issues.push('cites a 70% figure (provider-specific goal, removed)'); hard++; }
+  if (/\bour (pre-legal|collections?) (program|service|stage|vendor)/i.test(all2)) { issues.push('"our pre-legal program" wording (Alloy is not the provider)'); hard++; }
+  for (const m of all2.matchAll(/\b(always|never)\b/gi)) { issues.push(`absolute "${m[0]}" (regulated industry: avoid)`); hard++; }
+  if (/\[PROOF:/.test(all2) || d.sections.some((s) => s.blocks.some((b) => b.t === 'proof'))) { issues.push('visible proof placeholder'); hard++; }
   const answerWords = words(d.answer); if (answerWords < 40 || answerWords > 60) issues.push(`opening answer ${answerWords} words (want 40–60)`);
   for (const q of d.faq ?? []) { const n = words(q.a); if (f !== 'pre-legal-collections.ts' && (n < 40 || n > 60)) issues.push(`FAQ "${q.q.slice(0, 30)}…" ${n} words`); }
   const links = [...text.matchAll(/\]\((\/[^)\s]+)\)/g)].map((m) => m[1]);
   for (const href of new Set(links)) if (!routeExists(href)) { issues.push(`dead internal link ${href}`); hard++; }
   for (const k of d.keepReading) if (!routeExists(k.href)) { issues.push(`dead keep-reading link ${k.href}`); hard++; }
-  if (/hoa48\.com/.test(text) && !['collections-hub.ts', 'pre-legal-collections.ts'].includes(f)) { issues.push('links hoa48.com (only pages 1 and 2 may)'); hard++; }
+  if (/hoa48\.com/.test(text)) { issues.push('links hoa48.com (no provider links)'); hard++; }
   if (d.title.length > 60) issues.push(`title ${d.title.length} chars`);
   if (d.description.length > 160) issues.push(`description ${d.description.length} chars`);
   rows.push({ file: f.replace('.ts', ''), words: total, sections: d.sections.length, faq: (d.faq ?? []).length, noindex: d.noindex ? 'yes' : '', issues: issues.join('; ') || 'ok' });
