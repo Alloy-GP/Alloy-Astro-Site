@@ -1,4 +1,4 @@
-// src/data/articles/pre-legal-collections.ts — /collections/pre-legal-collections (cluster page 2)
+// src/data/articles/pre-legal-collections.ts — /resources/collections/pre-legal-collections (cluster page 2)
 // Originally the handoff's FINAL COPY (2026-10-08, built around a named provider). Rewritten 2026-10-12 per the
 // client notes: provider-neutral, timelines as ranges, when a middle stage fits and when it does not, how it sits
 // with existing attorney and vendor relationships, what to ask. Indexable. Go-live: 2026-10-20.
@@ -7,8 +7,8 @@ import type { ArticleData } from './types';
 const REG_F = 'https://www.consumerfinance.gov/rules-policy/regulations/1006/';
 
 export const data: ArticleData = {
-  path: '/collections/pre-legal-collections',
-  parent: { label: 'Collections', href: '/collections' },
+  path: '/resources/collections/pre-legal-collections',
+  parent: { label: 'Collections', href: '/resources/collections' },
   crumb: 'Pre-legal collections',
   eyebrow: 'Collections',
   h1: 'What pre-legal collections are',
@@ -155,12 +155,12 @@ export const data: ArticleData = {
     { q: 'Do state laws affect pre-legal collections?', a: `Yes. Notice requirements, allowable charges, licensing of third-party collectors and the order in which payments are applied vary by state. Federal debt collection rules generally apply to third parties too. Confirm the process with the association's attorney before adding a stage, and again when the law changes.` },
   ],
   next: [
-    `Pre-legal collections is one way management companies give boards a clear plan for delinquent accounts and recover the hours spent chasing them. Read [Collections as a Revenue Stream for HOA Management Companies](/collections) for the full picture, or [talk to Alloy](/contact?intent=collections) about reviewing your current process.`,
+    `Pre-legal collections is one way management companies give boards a clear plan for delinquent accounts and recover the hours spent chasing them. Read [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) for the full picture, or [talk to Alloy](/contact?intent=collections) about reviewing your current process.`,
   ],
   keepReading: [
-    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/collections/collection-policy', tone: 'retain' },
-    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/collections/automating-hoa-dues-collection', tone: 'blue' },
-    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'match' },
+    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/resources/collections/collection-policy', tone: 'retain' },
+    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/resources/collections/automating-hoa-dues-collection', tone: 'blue' },
+    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts', tone: 'match' },
   ],
   cta: { text: 'Not sure whether a middle stage fits your portfolio? Thirty minutes with a CAM operator covers your current process, your relationships and what to change first.', label: 'Review your collections process', href: '/contact?intent=collections' },
 };

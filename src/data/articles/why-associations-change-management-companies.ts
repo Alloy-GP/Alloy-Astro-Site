@@ -66,7 +66,7 @@ export const data: ArticleData = {
         { t: 'ul', items: [
           `**Early sign.** The same accounts on the delinquency report for a year. Questions about one owner's account at every meeting.`,
           `**What it means.** The board sees a management problem, not a collections problem.`,
-          `**Fix.** A written collection policy with a trigger date and a defined next stage with dates before the attorney, whoever runs it. Add a monthly report with stage and next action for every account. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches. A managed process helps the management company as well as the board.`,
+          `**Fix.** A written collection policy with a trigger date and a defined next stage with dates before the attorney, whoever runs it. Add a monthly report with stage and next action for every account. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches. A managed process helps the management company as well as the board.`,
         ] },
       ],
     },

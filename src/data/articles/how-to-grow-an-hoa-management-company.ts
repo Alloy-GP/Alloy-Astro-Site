@@ -85,7 +85,7 @@ export const data: ArticleData = {
           `**Fee discipline.** Review the schedule annually and bill what it says.`,
           `**Unnecessary work.** Double entry, case-by-case decisions, reports built by hand. Removing them raises margin without touching a fee.`,
         ] },
-        { t: 'p', s: `[Collections as a Revenue Stream for HOA Management Companies](/collections) covers the collections line in detail. The other lines, and how to tell revenue from contribution, are in [Revenue Streams for HOA Management Companies](/resources/hoa-management-company-revenue-streams).` },
+        { t: 'p', s: `[Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the collections line in detail. The other lines, and how to tell revenue from contribution, are in [Revenue Streams for HOA Management Companies](/resources/hoa-management-company-revenue-streams).` },
       ],
     },
     {
@@ -124,12 +124,12 @@ export const data: ArticleData = {
     { q: 'Should a small management company spend on marketing?', a: `Only on the lever that is weakest. If retention is the problem, spend on communication and reporting first. If boards are not finding you, spend on local search and reviews. Marketing that adds leads to a company losing contracts only accelerates the churn.` },
   ],
   next: [
-    `Answer the three questions in the second section with real numbers. The weakest one is the plan. If it is new contracts or retention, [talk to Alloy](/contact?intent=growth). If it is revenue per door, start with [Collections as a Revenue Stream for HOA Management Companies](/collections).`,
+    `Answer the three questions in the second section with real numbers. The weakest one is the plan. If it is new contracts or retention, [talk to Alloy](/contact?intent=growth). If it is revenue per door, start with [Collections as a Revenue Stream for HOA Management Companies](/resources/collections).`,
   ],
   keepReading: [
     { kind: 'Insights', meta: 'Fee lines', title: 'Revenue streams for HOA management companies.', href: '/resources/hoa-management-company-revenue-streams', tone: 'match' },
     { kind: 'Strategy', meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy', tone: 'blue' },
-    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'retain' },
+    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts', tone: 'retain' },
   ],
   cta: { text: 'Thirty minutes with a CAM operator tells you which lever is weakest, what to do about it first, and whether your metro is open.', label: 'Review your growth strategy', href: '/contact?intent=growth' },
 };

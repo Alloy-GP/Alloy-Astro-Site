@@ -1,11 +1,11 @@
-// src/data/articles/collections-hub.ts — /collections (cluster page 1, the hub)
+// src/data/articles/collections-hub.ts — /resources/collections (cluster page 1, the hub)
 // Written to the handoff spec (2026-10-08), repositioned 2026-10-12 (client notes): Alloy as an unbiased advisor
 // on collections strategy and process, no provider named, timelines as ranges, no absolutes, revenue framed as
 // conditional. Proof placeholders removed → the page is indexable. Go-live: 2026-10-20.
 import type { ArticleData } from './types';
 
 export const data: ArticleData = {
-  path: '/collections',
+  path: '/resources/collections',
   parent: { label: 'Resources', href: '/resources' },
   crumb: 'Collections',
   eyebrow: 'Collections',
@@ -36,7 +36,7 @@ export const data: ArticleData = {
           { label: 'Staff hours per account per month', hint: 'Manager, accounting and front-desk time: notices, calls, board questions, reconciliation.' },
           { label: 'Loaded hourly cost', hint: 'Wages plus taxes, benefits and overhead for the people doing that work.' },
         ], result: 'Monthly cost = accounts × hours × loaded hourly cost', note: 'No benchmarks are built in. The point is to see your own number, then decide whether that work should stay unmanaged and unbilled.' },
-        { t: 'p', s: `Run the same math for board meeting minutes if you want the full picture. A longer version of this exercise, including opportunity cost and the homeowner side, is in [What Delinquent Accounts Cost a Management Company](/collections/cost-of-delinquent-accounts).` },
+        { t: 'p', s: `Run the same math for board meeting minutes if you want the full picture. A longer version of this exercise, including opportunity cost and the homeowner side, is in [What Delinquent Accounts Cost a Management Company](/resources/collections/cost-of-delinquent-accounts).` },
       ],
     },
     {
@@ -50,7 +50,7 @@ export const data: ArticleData = {
           `**A pre-legal stage.** A non-attorney vendor or a dedicated internal team works accounts for a defined window before any attorney referral: structured outreach, payment plans and documentation. It can resolve accounts that would otherwise reach counsel. It also adds a party and a step that have to be managed.`,
           `**Hybrid.** Most companies that review their process land here. Internal reminders, then a pre-legal stage with clear entry and exit rules. The attorney takes accounts that need legal action from the start or do not resolve.`,
         ] },
-        { t: 'p', s: `No single model is right for every portfolio. The right answer depends on the governing documents, state law, the association's existing relationships and what the board will support. [What Pre-Legal Collections Are and Where They Fit](/collections/pre-legal-collections) covers the middle stage. [Attorney-First vs. Pre-Legal Collections](/collections/attorney-first-vs-pre-legal) compares the trade-offs.` },
+        { t: 'p', s: `No single model is right for every portfolio. The right answer depends on the governing documents, state law, the association's existing relationships and what the board will support. [What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections) covers the middle stage. [Attorney-First vs. Pre-Legal Collections](/resources/collections/attorney-first-vs-pre-legal) compares the trade-offs.` },
       ],
     },
     {
@@ -157,12 +157,12 @@ export const data: ArticleData = {
     { q: 'Do state laws limit what can be charged to a delinquent owner?', a: `Often, yes. States differ on notice requirements, interest, late charges and which collection costs can be added to an owner's balance. Some require a written collection policy. Ask any provider how its charges comply in your state, and have the association's attorney review the agreement before adding a stage.` },
   ],
   next: [
-    `Start with your own numbers. Run the worksheet above for one month, then work through the eight checks. Read how a pre-legal stage fits the [collection policy](/collections/collection-policy) and the [software stack](/collections/automating-hoa-dues-collection). If you want a second set of eyes on the process, [talk to Alloy](/contact?intent=collections).`,
+    `Start with your own numbers. Run the worksheet above for one month, then work through the eight checks. Read how a pre-legal stage fits the [collection policy](/resources/collections/collection-policy) and the [software stack](/resources/collections/automating-hoa-dues-collection). If you want a second set of eyes on the process, [talk to Alloy](/contact?intent=collections).`,
   ],
   keepReading: [
-    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/collections/pre-legal-collections', tone: 'reach' },
-    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'match' },
-    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/collections/collection-policy', tone: 'retain' },
+    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections', tone: 'reach' },
+    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts', tone: 'match' },
+    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/resources/collections/collection-policy', tone: 'retain' },
   ],
   cta: { text: 'Want a second set of eyes on your collections process? Thirty minutes with a CAM operator covers where accounts stall, what it costs and what to change first.', label: 'Review your collections process', href: '/contact?intent=collections' },
 };

@@ -58,7 +58,7 @@ export const data: ArticleData = {
       h2: 'Gap three: software does not resolve delinquent accounts on its own',
       blocks: [
         { t: 'p', s: `This is the gap most operators discover last. Platforms bill, remind and accept payments, and that keeps most owners current. The owners who stop responding are not a software problem. Past the policy trigger, an account needs validation, a plain-language notice, calls, a payment-plan option and a deadline, and someone accountable for each.` },
-        { t: 'p', s: `A defined next stage fills this gap, whether it is an internal team, the attorney's pre-lien cadence or a pre-legal vendor. It has a window, a cadence and an exit rule, and the platform stays the ledger. [Automating HOA Dues Collection](/collections/automating-hoa-dues-collection) maps where software stops and the process starts. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches and what each one costs.` },
+        { t: 'p', s: `A defined next stage fills this gap, whether it is an internal team, the attorney's pre-lien cadence or a pre-legal vendor. It has a window, a cadence and an exit rule, and the platform stays the ledger. [Automating HOA Dues Collection](/resources/collections/automating-hoa-dues-collection) maps where software stops and the process starts. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and what each one costs.` },
       ],
     },
     {
@@ -108,11 +108,11 @@ export const data: ArticleData = {
     { q: 'Should we switch platforms to grow?', a: `Rarely. Switching costs months and seldom moves any of the three growth levers. Use the current platform fully first. If the gap is contracts, boards or delinquencies, the fix is process and marketing, not a migration. Switch when the platform fails at accounting or portals, which are the jobs it is actually for.` },
   ],
   next: [
-    `Audit the three gaps and the three adoption questions against your own company. Then read [How to Grow an HOA Management Company](/resources/how-to-grow-an-hoa-management-company) for the levers, and [Automating HOA Dues Collection](/collections/automating-hoa-dues-collection) for the collections handoff.`,
+    `Audit the three gaps and the three adoption questions against your own company. Then read [How to Grow an HOA Management Company](/resources/how-to-grow-an-hoa-management-company) for the levers, and [Automating HOA Dues Collection](/resources/collections/automating-hoa-dues-collection) for the collections handoff.`,
   ],
   keepReading: [
     { kind: 'Guide', meta: 'Long read', title: 'Best HOA management software (2026): the buyer’s guide for CAM firms.', href: '/resources/hoa-management-software-guide', tone: 'blue' },
-    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/collections/automating-hoa-dues-collection', tone: 'reach' },
+    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/resources/collections/automating-hoa-dues-collection', tone: 'reach' },
     { kind: 'Insights', meta: 'Three levers', title: 'How to grow an HOA management company.', href: '/resources/how-to-grow-an-hoa-management-company', tone: 'match' },
   ],
   cta: { text: 'Software runs the operation. Thirty minutes with a CAM operator covers adoption, process and where your tools and people are falling short of each other.', label: 'Review your operations and tools', href: '/contact?intent=operations' },

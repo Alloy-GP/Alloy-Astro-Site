@@ -1,4 +1,4 @@
-// src/data/articles/attorney-first-vs-pre-legal.ts — /collections/attorney-first-vs-pre-legal (cluster page 3)
+// src/data/articles/attorney-first-vs-pre-legal.ts — /resources/collections/attorney-first-vs-pre-legal (cluster page 3)
 // Written to the handoff spec (2026-10-08), rebalanced 2026-10-12 per the client notes: trade-offs both ways, no
 // provider named, fee ranges are sourced inline, no savings promised. Stays noindex until the comparison is
 // approved (client). Statute links go to official state code sites.
@@ -14,8 +14,8 @@ const TINNELLY_2012 = 'https://hoalaw.tinnellylaw.com/allowable-collection-fees-
 const TINNELLY_2017 = 'https://hoalaw.tinnellylaw.com/no-cost-collections-can-prove-costly/';
 
 export const data: ArticleData = {
-  path: '/collections/attorney-first-vs-pre-legal',
-  parent: { label: 'Collections', href: '/collections' },
+  path: '/resources/collections/attorney-first-vs-pre-legal',
+  parent: { label: 'Collections', href: '/resources/collections' },
   crumb: 'Attorney-first vs. pre-legal',
   eyebrow: 'Collections',
   h1: 'Attorney-first vs. pre-legal collections:',
@@ -125,12 +125,12 @@ export const data: ArticleData = {
     },
   ],
   next: [
-    `If your associations have not had a middle stage, start with [What Pre-Legal Collections Are and Where They Fit](/collections/pre-legal-collections). Then bring this comparison and your attorney's invoices to the board. The management company's side of the picture is in [Collections as a Revenue Stream for HOA Management Companies](/collections).`,
+    `If your associations have not had a middle stage, start with [What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections). Then bring this comparison and your attorney's invoices to the board. The management company's side of the picture is in [Collections as a Revenue Stream for HOA Management Companies](/resources/collections).`,
   ],
   keepReading: [
-    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/collections/pre-legal-collections', tone: 'reach' },
-    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'match' },
-    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/collections/collection-policy', tone: 'retain' },
+    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections', tone: 'reach' },
+    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts', tone: 'match' },
+    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/resources/collections/collection-policy', tone: 'retain' },
   ],
   cta: { text: 'Want the comparison run on your own numbers? Thirty minutes with a CAM operator covers your attorney costs per file, your backlog and whether a middle stage would help.', label: 'Review your collections process', href: '/contact?intent=collections' },
 };

@@ -1,12 +1,12 @@
-// src/data/articles/cost-of-delinquent-accounts.ts — /collections/cost-of-delinquent-accounts (cluster page 5)
+// src/data/articles/cost-of-delinquent-accounts.ts — /resources/collections/cost-of-delinquent-accounts (cluster page 5)
 // Written to the handoff spec (2026-10-08), expanded 2026-10-12 per the client notes: labor, opportunity cost,
 // homeowner experience and profitability; worksheet assumptions spelled out; revenue framed as conditional.
 // Indexable. Go-live 2026-10-20.
 import type { ArticleData } from './types';
 
 export const data: ArticleData = {
-  path: '/collections/cost-of-delinquent-accounts',
-  parent: { label: 'Collections', href: '/collections' },
+  path: '/resources/collections/cost-of-delinquent-accounts',
+  parent: { label: 'Collections', href: '/resources/collections' },
   crumb: 'Cost of delinquent accounts',
   eyebrow: 'Collections',
   h1: 'What delinquent accounts cost',
@@ -102,7 +102,7 @@ export const data: ArticleData = {
       blocks: [
         { t: 'p', s: `The work in the worksheet does not disappear. The question is whether it is managed, and whether anyone pays for it.` },
         { t: 'p', s: `A managed process moves accounts through defined stages on dates the board approved. That alone cuts the touches. Fewer owner calls because the notice explained the balance. Fewer board questions because the report arrived first. Fewer judgment calls because the terms were set in advance.` },
-        { t: 'p', s: `In some arrangements the management company also earns a fee for coordinating the process. That can be a board-approved line in the management agreement. It can also be a coordination fee inside an owner-paid vendor model, where the governing documents and state law allow it. Neither is automatic, both must be disclosed to the board, and the association's attorney should confirm the authority. Revenue that does not cover the coordination hours is not profit, so count the hours either way. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches and how to review your own.` },
+        { t: 'p', s: `In some arrangements the management company also earns a fee for coordinating the process. That can be a board-approved line in the management agreement. It can also be a coordination fee inside an owner-paid vendor model, where the governing documents and state law allow it. Neither is automatic, both must be disclosed to the board, and the association's attorney should confirm the authority. Revenue that does not cover the coordination hours is not profit, so count the hours either way. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and how to review your own.` },
         // TODO(2026-10-27): link "revenue per door" → /resources/hoa-management-company-revenue-streams once page 7 is live.
         { t: 'p', s: `Revenue per door is one of the three ways a management company grows, alongside new contracts and retention. Removing unbilled hours is the quiet fourth, and it improves margin on every contract you already have.` },
       ],
@@ -115,12 +115,12 @@ export const data: ArticleData = {
     { q: 'How soon should a delinquent account leave the reminder stage?', a: `When the collection policy says so. Policies commonly set a trigger at 60, 90 or 120 days past due, within what state notice periods allow. Accounts that linger past the trigger are the ones that consume staff time and board patience. Name the trigger in the policy and move accounts on the date.` },
   ],
   next: [
-    `Run the worksheet for one month and bring the number to your next leadership meeting. Then read [What Pre-Legal Collections Are and Where They Fit](/collections/pre-legal-collections) for one option for the next stage. [Building an HOA Collection Policy a Board Will Approve](/collections/collection-policy) covers the trigger that starts it.`,
+    `Run the worksheet for one month and bring the number to your next leadership meeting. Then read [What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections) for one option for the next stage. [Building an HOA Collection Policy a Board Will Approve](/resources/collections/collection-policy) covers the trigger that starts it.`,
   ],
   keepReading: [
-    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/collections/pre-legal-collections', tone: 'reach' },
-    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/collections/automating-hoa-dues-collection', tone: 'blue' },
-    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/collections/collection-policy', tone: 'retain' },
+    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections', tone: 'reach' },
+    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/resources/collections/automating-hoa-dues-collection', tone: 'blue' },
+    { kind: 'Collections', meta: 'Policy', title: 'Building an HOA collection policy a board will approve.', href: '/resources/collections/collection-policy', tone: 'retain' },
   ],
   cta: { text: 'Want help turning the worksheet into a decision? Thirty minutes with a CAM operator covers your backlog, the hours behind it and the options.', label: 'Review your collections process', href: '/contact?intent=collections' },
 };

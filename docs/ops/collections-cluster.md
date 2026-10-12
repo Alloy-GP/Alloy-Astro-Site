@@ -13,7 +13,7 @@ data-driven template. Nothing goes to `main` without Skyler's approval.
 | Copy, links, FAQ, CTA, gating per page | `src/data/articles/<slug>.ts` (one file per page; `types.ts` is the contract) |
 | Template | `src/components/rd/ArticlePage.tsx` (hero + byline + interest disclosure, sticky TOC + per-article CTA card, numbered sections, callouts, worksheets, tables, FAQ, keep-reading, CTA bar) |
 | Schema + author | `src/lib/article-page.ts` (`articlePageSchema`: Article with Person author Cameron Lange + BreadcrumbList + FAQPage when a FAQ exists; `AUTHOR.linkedIn` is the TODO for `sameAs`) |
-| Routes | `src/pages/collections/*.astro`, `src/pages/resources/<slug>.astro` (thin shells; `robots` driven by `data.noindex`) |
+| Routes | `src/pages/resources/collections/*.astro`, `src/pages/resources/<slug>.astro` (thin shells; `robots` driven by `data.noindex`) |
 | Contact intents | `ContactPage.tsx` `ARTICLE_INTENTS`: `/contact?intent=collections|growth|operations|profitability|proposals|retention` preselects a topic and seeds the message |
 | Styles | `redesign.css` "Article extras" block, `mobile.css` ≤720 rules |
 | Policy outline download | `public/assets/collections/hoa-collection-policy-outline.txt` ("not a legal template") |
@@ -35,18 +35,18 @@ data-driven template. Nothing goes to `main` without Skyler's approval.
 
 - **No trailing slashes** (`trailingSlash: 'never'`); the contact CTA is `/contact`.
 - **`/insights/*` → `/resources/*`** (all articles on this site live under `/resources`). Slugs unchanged. Renaming back is five route files plus five `path` fields.
-- `/collections/*` kept as specified.
+- `/resources/collections/*` kept as specified.
 
 ## Page status
 
 | # | URL | Status on staging | Index |
 |---|---|---|---|
-| 1 | `/collections` | Repositioned: profitability/operations framing, four-approach overview, eight-step process review, conditional revenue, bigger-picture close. Proof placeholders removed. | Indexable, in sitemap (2026-10-20) |
-| 2 | `/collections/pre-legal-collections` | Rewritten provider-neutral: definition, stages, generic window, when it fits / doesn't, existing relationships, what to ask. The brief's final copy no longer applies. | Indexable (2026-10-20) |
-| 3 | `/collections/attorney-first-vs-pre-legal` | Rebalanced: what each path buys and costs, stage table with leverage and relationships, owner-paid fee debate, how to decide on your own data. | **noindex** until the comparison is approved (client) |
-| 4 | `/collections/automating-hoa-dues-collection` | Hedged capabilities, trigger section with ranges, integration realities, where admin work goes away. CTA: operations. | Indexable (2026-10-20) |
-| 5 | `/collections/cost-of-delinquent-accounts` | Added opportunity cost, homeowner experience, profitability per association; worksheet assumptions spelled out; four options instead of one. | Indexable (2026-10-20) |
-| 6 | `/collections/collection-policy` | Reframed around assessing the policy you have; middle stage "if the board adopts one"; outline + download updated. | Indexable (2026-10-20) |
+| 1 | `/resources/collections` | Repositioned: profitability/operations framing, four-approach overview, eight-step process review, conditional revenue, bigger-picture close. Proof placeholders removed. | Indexable, in sitemap (2026-10-20) |
+| 2 | `/resources/collections/pre-legal-collections` | Rewritten provider-neutral: definition, stages, generic window, when it fits / doesn't, existing relationships, what to ask. The brief's final copy no longer applies. | Indexable (2026-10-20) |
+| 3 | `/resources/collections/attorney-first-vs-pre-legal` | Rebalanced: what each path buys and costs, stage table with leverage and relationships, owner-paid fee debate, how to decide on your own data. | **noindex** until the comparison is approved (client) |
+| 4 | `/resources/collections/automating-hoa-dues-collection` | Hedged capabilities, trigger section with ranges, integration realities, where admin work goes away. CTA: operations. | Indexable (2026-10-20) |
+| 5 | `/resources/collections/cost-of-delinquent-accounts` | Added opportunity cost, homeowner experience, profitability per association; worksheet assumptions spelled out; four options instead of one. | Indexable (2026-10-20) |
+| 6 | `/resources/collections/collection-policy` | Reframed around assessing the policy you have; middle stage "if the board adopts one"; outline + download updated. | Indexable (2026-10-20) |
 | 7 | `/resources/hoa-management-company-revenue-streams` | Revenue vs contribution table and worksheet; collections line conditional. CTA: profitability. | Gated to 2026-10-27 |
 | 8 | `/resources/how-to-grow-an-hoa-management-company` | "Wrong scoreboard" section, margin on the revenue lever, owner-dependence test in the 12-month plan. CTA: growth. | Gated to 2026-10-27 |
 | 9 | `/resources/hoa-management-software-limits` | People/process/platform section, vendor questions, hedged claims. CTA: operations. | Gated to 2026-11-03 |

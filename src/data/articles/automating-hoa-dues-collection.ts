@@ -1,11 +1,11 @@
-// src/data/articles/automating-hoa-dues-collection.ts — /collections/automating-hoa-dues-collection (cluster page 4)
+// src/data/articles/automating-hoa-dues-collection.ts — /resources/collections/automating-hoa-dues-collection (cluster page 4)
 // Written to the handoff spec (2026-10-08), revised 2026-10-12 per the client notes: practical automation,
 // integration realities, less administrative work, no overstated capabilities, no provider named. Indexable. Go-live 2026-10-20.
 import type { ArticleData } from './types';
 
 export const data: ArticleData = {
-  path: '/collections/automating-hoa-dues-collection',
-  parent: { label: 'Collections', href: '/collections' },
+  path: '/resources/collections/automating-hoa-dues-collection',
+  parent: { label: 'Collections', href: '/resources/collections' },
   crumb: 'Automating dues collection',
   eyebrow: 'Collections',
   h1: 'Automating HOA dues collection:',
@@ -67,7 +67,7 @@ export const data: ArticleData = {
         { t: 'p', s: `Whatever the next stage is, an internal team, the association's attorney or a pre-legal vendor, the handoff has the same shape. Accounts that pass the trigger move to a defined stage with a window, a cadence and an exit rule. Someone validates the balance, sends a plain-language notice, follows a written schedule of contacts and offers the board's standard payment plan.` },
         { t: 'p', s: `Software stays in the picture. The platform is still the ledger: payments post there, the aging report updates there, the board reads status there. Whoever works the account works from the ledger's data and reports back to it.` },
         { t: 'p', s: `Integration is where plans meet reality. Few platforms hand accounts to an outside party and take status back automatically. Expect exports, a shared spreadsheet or a portal upload, and a weekly reconciliation. Build that routine into the handoff and assign it, or the two records drift and the board sees two different numbers.` },
-        { t: 'p', s: `[What Pre-Legal Collections Are and Where They Fit](/collections/pre-legal-collections) explains the middle-stage option in detail. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches and what each costs.` },
+        { t: 'p', s: `[What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections) explains the middle-stage option in detail. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and what each costs.` },
       ],
     },
     {
@@ -125,11 +125,11 @@ export const data: ArticleData = {
     { q: 'What should the board see each month?', a: `Three numbers, in one place: accounts resolved, accounts in a payment plan, accounts with counsel. Add the aging report by bucket and the next action and date for each account. A board that gets this without asking spends its meeting on something other than the same five delinquent accounts.` },
   ],
   next: [
-    `Audit the checklist against your current stack and mark every "no". Then read [What Pre-Legal Collections Are and Where They Fit](/collections/pre-legal-collections) to see one option for the resolution stage. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches and what each one costs.`,
+    `Audit the checklist against your current stack and mark every "no". Then read [What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections) to see one option for the resolution stage. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and what each one costs.`,
   ],
   keepReading: [
-    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/collections/pre-legal-collections', tone: 'reach' },
-    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'match' },
+    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections', tone: 'reach' },
+    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts', tone: 'match' },
     { kind: 'Guide', meta: 'Long read', title: 'Best HOA management software (2026): the buyer’s guide for CAM firms.', href: '/resources/hoa-management-software-guide', tone: 'blue' },
   ],
   cta: { text: 'Software runs the operation. Thirty minutes with a CAM operator covers where your processes and tools fall short, and what is already paid for but not used.', label: 'Review your operations and tools', href: '/contact?intent=operations' },

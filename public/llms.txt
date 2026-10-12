@@ -23,11 +23,11 @@
 - [The Alloy Briefing newsletter archive](https://alloygp.co/resources/newsletter)
 
 ## HOA collections for management companies
-- [Collections as a revenue and operations lever for HOA management companies](https://alloygp.co/collections)
-- [What pre-legal collections are and where they fit](https://alloygp.co/collections/pre-legal-collections)
-- [Automating HOA dues collection: what software does and doesn't solve](https://alloygp.co/collections/automating-hoa-dues-collection)
-- [What delinquent accounts cost a management company](https://alloygp.co/collections/cost-of-delinquent-accounts)
-- [Building an HOA collection policy a board will approve](https://alloygp.co/collections/collection-policy)
+- [Collections as a revenue and operations lever for HOA management companies](https://alloygp.co/resources/collections)
+- [What pre-legal collections are and where they fit](https://alloygp.co/resources/collections/pre-legal-collections)
+- [Automating HOA dues collection: what software does and doesn't solve](https://alloygp.co/resources/collections/automating-hoa-dues-collection)
+- [What delinquent accounts cost a management company](https://alloygp.co/resources/collections/cost-of-delinquent-accounts)
+- [Building an HOA collection policy a board will approve](https://alloygp.co/resources/collections/collection-policy)
 
 ## Company
 - [About. The partners](https://alloygp.co/about) · [Testimonials](https://alloygp.co/about/testimonials) · [Partners and integrations](https://alloygp.co/partners) · [Careers](https://alloygp.co/careers)

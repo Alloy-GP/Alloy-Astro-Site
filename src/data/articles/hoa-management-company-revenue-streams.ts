@@ -66,7 +66,7 @@ export const data: ArticleData = {
           `**Limits.** Whoever runs the stage must not give legal advice, file liens, sue or foreclose. Those stay with the attorney.`,
           `**Reporting.** The board gets stage and status for every account, monthly, without asking.`,
         ] },
-        { t: 'p', s: `[Collections as a Revenue Stream for HOA Management Companies](/collections) covers the approaches and what boards ask before approving one. It also shows how to review the process you have.` },
+        { t: 'p', s: `[Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and what boards ask before approving one. It also shows how to review the process you have.` },
       ],
     },
     {
@@ -114,10 +114,10 @@ export const data: ArticleData = {
     { q: 'How often should the fee schedule be reviewed?', a: `Annually, before renewal season. Work changes faster than the agreement: new state disclosure rules, new lender forms, new project types. A schedule the board signed three years ago is leaving revenue unbilled and inviting disputes about what is included. Review it with the board at renewal so nothing in it is a surprise later.` },
   ],
   next: [
-    `Run both worksheets for this quarter and the same quarter last year. If collections is the line that is missing or unmanaged, [Collections as a Revenue Stream for HOA Management Companies](/collections) explains the approaches. If the question is margin across the whole business, [talk to Alloy](/contact?intent=profitability).`,
+    `Run both worksheets for this quarter and the same quarter last year. If collections is the line that is missing or unmanaged, [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) explains the approaches. If the question is margin across the whole business, [talk to Alloy](/contact?intent=profitability).`,
   ],
   keepReading: [
-    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'match' },
+    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts', tone: 'match' },
     { kind: 'Insights', meta: 'Three levers', title: 'How to grow an HOA management company.', href: '/resources/how-to-grow-an-hoa-management-company', tone: 'reach' },
     { kind: 'Strategy', meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy', tone: 'blue' },
   ],

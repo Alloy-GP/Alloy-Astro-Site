@@ -1,4 +1,4 @@
-// src/data/articles/collection-policy.ts — /collections/collection-policy (cluster page 6)
+// src/data/articles/collection-policy.ts — /resources/collections/collection-policy (cluster page 6)
 // Written to the handoff spec (2026-10-08), reframed 2026-10-12 per the client notes: assess the policy you have,
 // find the weak points, consider improvements; no single model presented as universal; timelines as ranges.
 // Statute links go to official state code sites only (flagged for attorney review). Indexable. Go-live 2026-10-20.
@@ -13,8 +13,8 @@ const REG_F = 'https://www.consumerfinance.gov/rules-policy/regulations/1006/';
 const OUTLINE = '/assets/collections/hoa-collection-policy-outline.txt';
 
 export const data: ArticleData = {
-  path: '/collections/collection-policy',
-  parent: { label: 'Collections', href: '/collections' },
+  path: '/resources/collections/collection-policy',
+  parent: { label: 'Collections', href: '/resources/collections' },
   crumb: 'Collection policy',
   eyebrow: 'Collections',
   h1: 'Building an HOA collection policy',
@@ -87,7 +87,7 @@ export const data: ArticleData = {
           `**State who pays.** Which charges the association owes, which are added to the owner's balance, and the authority in the governing documents or statute for each. Have the attorney confirm it for your state. Where a charge cannot be supported, leave it out.`,
           `**Define the return.** At the end of the window, unresolved accounts return to the board with a full contact history, and the board decides on attorney referral.`,
         ] },
-        { t: 'p', s: `Keep the attorney stage as it was. The middle stage sits in front of it, not instead of it. [What Pre-Legal Collections Are and Where They Fit](/collections/pre-legal-collections) describes when a middle stage fits and when it does not. [Collections as a Revenue Stream for HOA Management Companies](/collections) covers the management company's side.` },
+        { t: 'p', s: `Keep the attorney stage as it was. The middle stage sits in front of it, not instead of it. [What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections) describes when a middle stage fits and when it does not. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the management company's side.` },
       ],
     },
     {
@@ -133,12 +133,12 @@ export const data: ArticleData = {
     { q: 'Who drafts the policy, the manager or the attorney?', a: `Usually the manager drafts from the governing documents and a template the attorney has approved. The attorney then reviews for state compliance, and the board adopts by resolution. That order keeps costs down and gives the board a document the manager can actually administer.` },
   ],
   next: [
-    `Run the five checks on the policy you have and draft the edits from the outline. Send them to the association's attorney, then bring the one-page summary to the board. If you are weighing a middle stage, read [What Pre-Legal Collections Are and Where They Fit](/collections/pre-legal-collections) first so the stage is described accurately.`,
+    `Run the five checks on the policy you have and draft the edits from the outline. Send them to the association's attorney, then bring the one-page summary to the board. If you are weighing a middle stage, read [What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections) first so the stage is described accurately.`,
   ],
   keepReading: [
-    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/collections/pre-legal-collections', tone: 'reach' },
-    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/collections/cost-of-delinquent-accounts', tone: 'match' },
-    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/collections/automating-hoa-dues-collection', tone: 'blue' },
+    { kind: 'Collections', meta: 'Start here', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections', tone: 'reach' },
+    { kind: 'Collections', meta: 'Worksheet', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts', tone: 'match' },
+    { kind: 'Collections', meta: 'Software', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/resources/collections/automating-hoa-dues-collection', tone: 'blue' },
   ],
   cta: { text: 'Want a second set of eyes on the policy and the practice? Thirty minutes with a CAM operator covers where they disagree and what to fix first.', label: 'Review your collections process', href: '/contact?intent=collections' },
 };
