@@ -134,6 +134,7 @@ export const FOOTER = {
   ] as FooterLink[],
   resources: [
     ['Resource Hub', '/resources'],
+    ['Collections', '/resources/collections'],
     ['Results', '/results'],
     ['Newsletter', '/resources/newsletter'],
     ['Courses', '/resources/courses'],

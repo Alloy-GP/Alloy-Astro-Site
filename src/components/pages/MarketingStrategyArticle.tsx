@@ -22,7 +22,7 @@ const TOC: Array<{ id: string; label: string }> = [
 
 const KEEP_READING = [
   { kind: 'Guide', ink: REACH_INK, accent: PINK, meta: 'Long read', title: 'Best HOA management software: the 2026 buyer’s guide.', href: '/resources/hoa-management-software-guide' },
-  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: '10 sections', title: 'Trust building for CAM firms.', href: '/resources/courses/trust-building' },
+  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: 'Series · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
   { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
 ];
 

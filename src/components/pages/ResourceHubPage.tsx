@@ -1,5 +1,6 @@
 // src/components/pages/ResourceHubPage.tsx — /resources
 // Template 4 (resources index). Copy from docs/redesign-handoff/site/resources.dc.html.
+// 2026-10-13: Collections series section (hub + five spokes) between Featured and Latest; the hub leads Latest.
 // Static component. The newsletter form is a separate island
 // (~/components/modules/NewsletterSignup) passed in as `children` from the
 // route so only the form hydrates.
@@ -25,14 +26,25 @@ const SIDE: Resource[] = [
   { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics', href: '/resources/cam-marketing-strategy' },
 ];
 
+// Collections series (2026-10-13): the hub + five spokes, all live. Gated insights pages join here as they un-gate.
+const COLLECTIONS: Resource[] = [
+  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: 'Start here · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
+  { kind: 'Collections', ink: REACH_INK, accent: PINK, meta: '9 min read', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections' },
+  { kind: 'Collections', ink: MATCH_INK, accent: YELLOW, meta: '9 min read', title: 'Attorney-first vs. pre-legal collections: a cost comparison.', href: '/resources/collections/attorney-first-vs-pre-legal' },
+  { kind: 'Collections', ink: BLUE_INK, accent: BLUE, meta: '7 min read', title: 'Automating HOA dues collection: what software does and doesn\u2019t solve.', href: '/resources/collections/automating-hoa-dues-collection' },
+  { kind: 'Collections', ink: MATCH_INK, accent: YELLOW, meta: 'Worksheet · 7 min', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts' },
+  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: 'Outline + PDF · 9 min', title: 'Building an HOA collection policy a board will approve.', href: '/resources/collections/collection-policy' },
+];
+
 // Real pieces only (client, 2026-10-01: no placeholder articles). Add new articles here as they publish.
+// 2026-10-13: the collections hub leads; the newsletter archive moved to the Briefing band below + footer.
 const LATEST: Resource[] = [
+  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: 'New series · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
   { kind: 'AI search', ink: REACH_INK, accent: PINK, meta: '3 min read', title: 'How CAM firms win in AI search.', href: '/resources/ai-search-for-cam' },
   { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
   { kind: 'Guide', ink: MATCH_INK, accent: YELLOW, meta: 'Long read', title: 'Best HOA management software (2026): platforms, pricing, and the RFP.', href: '/resources/hoa-management-software-guide' },
   { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies.', href: '/resources/courses/trust-building' },
   { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
-  { kind: 'Briefing', ink: BLUE_INK, accent: BLUE, meta: 'Newsletter archive', title: 'Every issue of the Alloy Briefing, by year.', href: '/resources/newsletter' },
 ];
 
 function ResourceCard({ r }: { r: Resource }) {
@@ -80,6 +92,24 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
               {SIDE.map((r) => <ResourceCard key={r.title} r={r} />)}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Collections series (2026-10-13) */}
+      <section className="rd-section" style={{ paddingTop: 0 }}>
+        <div className="rd-wrap">
+         <div className="rd-stack rd-rule-top" style={{ gap: 36, paddingTop: 48 }}>
+          <div className="rd-grid rd-grid--2 rd-grid--end">
+            <div className="rd-stack rd-stack--14">
+              <Eyebrow tone="retain">Collections</Eyebrow>
+              <h2 className="rd-h2">Delinquent accounts, from unpaid work to a managed process.</h2>
+            </div>
+            <p className="rd-body">A six-part series for management company owners: what delinquency really costs, the approaches and their trade-offs, where software stops, and how to build a collection policy a board will approve. Start with the hub.</p>
+          </div>
+          <div className="rd-grid rd-grid--3 rd-gap-20">
+            {COLLECTIONS.map((r) => <ResourceCard key={r.href} r={r} />)}
+          </div>
+         </div>
         </div>
       </section>
 

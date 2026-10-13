@@ -328,7 +328,7 @@ const TOC: Array<{ id: string; label: string }> = [
 
 const KEEP_READING = [
   { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min', title: 'CAM marketing strategy: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: '10 sections', title: 'Trust building for CAM firms.', href: '/resources/courses/trust-building' },
+  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: '7 min read', title: 'Automating HOA dues collection: what software does and doesn’t solve.', href: '/resources/collections/automating-hoa-dues-collection' },
   { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
 ];
 
@@ -417,7 +417,7 @@ export default function HOASoftwareGuide() {
 
           <article className="rd-article" style={{ minWidth: 0 }}>
             <Section id="what-it-is" label="What HOA management software is" title="The operating system underneath every CAM firm and every self-managed HOA.">
-              <p>HOA management software is the day-to-day operating layer that handles dues collection, reserve accounting, board packets, e-signatures, homeowner notices, work orders, ARC submissions, vendor management, and document retention. Some platforms cover all of those, the all-in-one HOA property management software category. Others specialize in one layer, accounting, the board portal, communications, and integrate with the rest.</p>
+              <p>HOA management software is the day-to-day operating layer that handles <a className="rd-a" href="/resources/collections/automating-hoa-dues-collection">dues collection</a>, reserve accounting, board packets, e-signatures, homeowner notices, work orders, ARC submissions, vendor management, and document retention. Some platforms cover all of those, the all-in-one HOA property management software category. Others specialize in one layer, accounting, the board portal, communications, and integrate with the rest.</p>
               <p>The conversation usually starts the same way. A board complains they can’t find the packet. A manager quits and takes the tribal knowledge with them. A controller spends a weekend reconciling because the integration broke. Somebody says <em>“we need new software for HOA management.”</em> Three vendor demos are scheduled before anyone asks what the actual problem is. <strong>This guide is how to ask that question, and what to do with the answer.</strong></p>
               <p>Most CAM firms shop HOA software by demo. Boards judge it by Tuesday at 9 PM, on a phone, looking for the packet. This is the guide we give every Alloy client when they’re evaluating the platform underneath their portfolio: categories, real pricing ranges, the 14-question RFP, and the rollout playbook that doesn’t blow up your board NPS.</p>
             </Section>
