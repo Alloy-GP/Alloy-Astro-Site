@@ -49,6 +49,10 @@ Applied across article text, FAQs, the downloadable outline, metadata and struct
 - **Comparison page.** Gomez Law and LS Carlson ranges removed everywhere (general HOA legal-cost guides, not assessment-collection pricing); table says "per the association's actual attorney fee schedule". The ProPublica/Alcock Colorado foreclosure figure stays as one verified, attributed data point in prose. "Leverage" language replaced with service descriptions. No fixed demand-letter → lien → lawsuit sequence or upfront-payment assumption. Hanson replaced with the client's sentence and verified against the order (N.D. Cal. No. 13-05377 RS, Judge Seeborg, order denying second motion to dismiss, 2014-07-11; prior order 2014-02-19 granted in part with leave to amend) and linked. Cisneros verified against the opinion (Bankr. N.D. Cal. No. 12-10468, Judge Jaroslovsky, 2012-10-01; $7,720 + $7,024 disallowed; §§1366(e), 1366.1) and linked to the govinfo copy.
 - **Publication.** Pages 1–6 dated 2026-10-13 (actual publication). Comparison page indexable: its source and accuracy checks passed.
 
+## Deadline wording (client, 2026-10-13, round 2)
+
+Pausing collection activity does not extend legal deadlines. The hub's exit rule and the automation FAQ carry the client's exact replacement sentences; the same principle was applied to every other "pause" mention (pre-legal cadence, policy stage definition and outline item 7 + PDF, cost FAQ, automation trigger bullet and checklist, comparison table, software-limits page): outreach pauses when law or a payment plan requires it, and counsel tracks lien and filing deadlines separately.
+
 ## Page status
 
 | # | URL | Status on staging | Index |

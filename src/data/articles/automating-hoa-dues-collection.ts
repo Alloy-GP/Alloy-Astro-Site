@@ -55,7 +55,7 @@ export const data: ArticleData = {
           `**Pick the day.** Policies set different triggers; 60, 90 and 120 days are all in use. Shorter triggers catch accounts before balances grow; longer ones give reminders time to work and respect existing board expectations.`,
           `**Check it against applicable notice periods and deadlines.** Federal and state law may require specific notices before an account can escalate, and some states give the association a window to lien. Review the whole sequence with counsel; the trigger must leave room for all of it.`,
           `**Flag automatically.** Set the platform to flag accounts on the trigger date and put them on one list.`,
-          `**Name the owner.** One person reviews the list each week and moves the accounts that nothing prevents. A dispute, a bankruptcy notice, a required notice period, an active payment plan or another legal restriction holds an account back. The trigger starts a review, not an automatic escalation. A list nobody owns is a queue.`,
+          `**Name the owner.** One person reviews the list each week and moves the accounts that nothing prevents. A dispute, a bankruptcy notice, a required notice period, an active payment plan or another legal restriction holds an account back. The trigger starts a review, not an automatic escalation, and holding an account back does not extend any legal deadline. A list nobody owns is a queue.`,
         ] },
         { t: 'p', s: `Once the trigger is in the policy, the board has approved the handoff in advance. The manager no longer decides account by account, and whoever handles the next stage receives files on a schedule.` },
       ],
@@ -93,7 +93,7 @@ export const data: ArticleData = {
           `A defined next stage with a window, a cadence and an exit rule, whoever runs it`,
           `A written collection policy that names the trigger and the handoffs`,
           `Attorney referral for accounts that need counsel from the start, and for those that did not resolve, with the contact history attached`,
-          `Follow-up pauses when a dispute, a bankruptcy notice or a required notice period applies`,
+          `Follow-up pauses when a dispute, a bankruptcy notice or a required notice period applies; legal deadlines are tracked separately`,
         ] },
         { t: 'h3', s: 'Reporting (back to the board)' },
         { t: 'ul', items: [
@@ -120,7 +120,7 @@ export const data: ArticleData = {
     },
   ],
   faq: [
-    { q: 'Can HOA software collect delinquent dues on its own?', a: `It can bill, remind and accept payments, which keeps most owners current. It is not built to resolve an account that has stopped responding. Past the policy trigger, the account needs a defined process: account verification, a plain-language notice, calls and a payment-plan option. It also needs a deadline that pauses when law requires it.` },
+    { q: 'Can HOA software collect delinquent dues on its own?', a: `It can bill, remind and accept payments, which keeps most owners current. It is not built to resolve an account that has stopped responding. Past the policy trigger, the account needs a defined process: account verification, a plain-language notice, calls and a payment-plan option. It also needs a defined timeline, with collection activity paused when required and legal deadlines tracked separately.` },
     { q: 'At what point should an automated reminder sequence stop?', a: `When the collection policy says so. Policies name a trigger, for example 60, 90 or 120 days past due, after which the account is reviewed for the next stage. Past that point the account simply ages. Set the trigger in the policy, flag accounts automatically, and move the ones no dispute, stay, notice period or payment plan holds back.` },
     { q: 'Does a pre-legal vendor replace the management software?', a: `No. The platform remains the ledger: payments post there and the board reads status there. Whoever works the account works from that data and reports back into it. That usually means exports and a weekly reconciliation rather than a live integration. Plan for that routine before adding a stage.` },
     { q: 'What should the board see each month?', a: `Three numbers, in one place: accounts resolved, accounts in a payment plan, accounts with counsel. Add the aging report by bucket and the next action and date for each account. A board that gets this without asking spends its meeting on something other than the same five delinquent accounts.` },

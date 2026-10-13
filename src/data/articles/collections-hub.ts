@@ -64,7 +64,7 @@ export const data: ArticleData = {
           `**First notice.** A plain-language letter that explains the balance and gives the owner a clear way to pay or to ask a question.`,
           `**Structured follow-up.** A written cadence of letters, emails and calls, not an open-ended stream of reminders.`,
           `**Payment options.** Standard payment-plan terms the board has approved in advance, so the manager is not negotiating case by case.`,
-          `**Exit rule.** A date on which the account is either resolved, in a plan, or referred to counsel with a decision from the board. A dispute, a bankruptcy stay, a required notice period, an active payment plan or another legal restriction pauses the clock.`,
+          `**Exit rule.** A date on which the account is either resolved, in a plan, or referred to counsel with a decision from the board. Pause collection activity when required by applicable law or an active payment plan. Counsel should separately track lien and filing deadlines; a pause in outreach does not automatically extend them.`,
           `**Documentation.** Every contact logged, so the attorney starts with a record and the board can see what was done.`,
           `**Reporting.** Stage and status for every delinquent account, monthly, without being asked.`,
         ] },
