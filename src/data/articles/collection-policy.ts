@@ -13,7 +13,7 @@ const CIV_5655 = 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.
 const CIV_5650 = 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=5650.';
 const FLA_720_3085 = 'http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0720/Sections/0720.3085.html';
 const REG_F = 'https://www.consumerfinance.gov/rules-policy/regulations/1006/';
-const OUTLINE = '/assets/collections/hoa-collection-policy-outline.txt';
+const OUTLINE = '/assets/collections/hoa-collection-policy-outline.pdf';
 
 export const data: ArticleData = {
   path: '/resources/collections/collection-policy',
@@ -125,7 +125,7 @@ export const data: ArticleData = {
           `**Records and reporting.** Monthly report contents; retention of notices and contact logs.`,
           `**Adoption and review.** Resolution date; annual review date.`,
         ] },
-        { t: 'cta', s: `The same outline as a plain text file, labelled "not a legal template", for pasting into your own document.`, label: 'Download the outline', href: OUTLINE },
+        { t: 'cta', s: `The same outline as a branded PDF, labelled "not a legal template", to share with the board and the association's attorney.`, label: 'Download the outline (PDF)', href: OUTLINE },
       ],
     },
   ],

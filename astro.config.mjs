@@ -170,6 +170,7 @@ export default defineConfig({
     '/collections/automating-hoa-dues-collection': '/resources/collections/automating-hoa-dues-collection',
     '/collections/cost-of-delinquent-accounts': '/resources/collections/cost-of-delinquent-accounts',
     '/collections/collection-policy': '/resources/collections/collection-policy',
+    '/assets/collections/hoa-collection-policy-outline.txt': '/assets/collections/hoa-collection-policy-outline.pdf',   // outline became a branded PDF (2026-10-13)
     '/resource-hub': '/resources',
     '/resource-hub/cam-marketing-strategy': '/resources/cam-marketing-strategy',
     '/resource-hub/ai-search-for-cam': '/resources/ai-search-for-cam',
