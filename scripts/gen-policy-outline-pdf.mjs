@@ -15,7 +15,8 @@ const callout = section.blocks.find((b) => b.t === 'callout');
 const items = section.blocks.find((b) => b.t === 'ol').items;
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const inline = (s) => esc(s).replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>');
+// [label, e.g. examples] → a blank to write on, followed by the label and examples as a muted hint.
+const inline = (s) => esc(s).replace(/\[([^\]]+)\]/g, (_m, inner) => `<span class="fill"><span class="blank"></span> <span class="hint">${inner}</span></span>`);
 const rows = items.map((it) => {
   const m = it.match(/^\*\*(.+?)\*\*\s*(.*)$/s);
   return { title: m ? m[1] : '', body: m ? m[2] : it };
@@ -49,7 +50,9 @@ h1 .accent { color: var(--pink); }
 .num { font-family: Gotham; font-weight: 800; font-size: 16pt; line-height: 1; color: var(--pink); padding-top: 2px; }
 .row h2 { font-size: 11.5pt; font-weight: 700; color: var(--purple); margin: 0 0 3px; line-height: 1.3; }
 .row p { margin: 0; }
-mark { background: var(--yellow); color: var(--purple); font-weight: 500; padding: 0 3px; border-radius: 3px; }
+.fill { white-space: nowrap; }
+.blank { display: inline-block; width: 0.85in; border-bottom: 1.2px solid var(--purple); vertical-align: -3px; margin: 0 2px 0 1px; background: var(--yellow); height: 11px; border-radius: 2px 2px 0 0; }
+.hint { color: var(--muted); font-size: 8.5pt; }
 .next { break-inside: avoid; margin-top: 16px; background: var(--purple); color: #fff; border-radius: 10px; padding: 16px 18px; }
 .next .label { font-size: 8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--yellow); margin: 0 0 8px; }
 .next h3 { margin: 0 0 8px; font-size: 13pt; font-weight: 700; color: #fff; }
@@ -62,7 +65,7 @@ mark { background: var(--yellow); color: var(--purple); font-weight: 500; paddin
 <div class="hdr">${logo}<span class="tag">HOA collection policy · Sample outline</span></div>
 <p class="eyebrow">Collections</p>
 <h1>HOA collection policy: <span class="accent">a sample outline.</span></h1>
-<p class="intro">Eleven sections a manager can draft from. Every bracket is a decision for the board and the association's attorney. The full article, with the five-point check for the policy you already have, is at ${PAGE_URL}.</p>
+<p class="intro">Eleven sections a manager can draft from. Fill in a blank for each association; the examples beside them are illustrations, not recommendations. The governing documents and applicable law set every number. The full article, with the five-point check for the policy you already have, is at ${PAGE_URL}.</p>
 <div class="callout"><strong>${esc(callout.label)}</strong> ${esc(callout.s)}</div>
 ${rows.map((r, i) => `<div class="row"><div class="num">${String(i + 1).padStart(2, '0')}</div><div><h2>${esc(r.title.replace(/\.$/, ''))}</h2><p>${inline(r.body)}</p></div></div>`).join('\n')}
 <div class="next">
