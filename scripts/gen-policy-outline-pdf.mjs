@@ -73,7 +73,7 @@ ${rows.map((r, i) => `<div class="row"><div class="num">${String(i + 1).padStart
   <h3>Draft, review, adopt.</h3>
   <ol>
     <li>Run the five checks on the policy you already have (policy versus practice, trigger versus law, legal basis for every charge, payment plans, reporting).</li>
-    <li>Draft from the sections above and fill every bracket with the board.</li>
+    <li>Draft from the sections above and fill every blank with the board.</li>
     <li>Send the draft to the association's attorney to confirm the legal requirements, the policy language and the legal basis, limits and notices for every charge.</li>
     <li>Bring a one-page summary to the board and ask for a resolution adopting the policy, with a review date one year out.</li>
   </ol>
