@@ -3,8 +3,9 @@
 // the body is the pre-redesign /resource-hub/ai-search-for-cam article, copy verbatim (commit c3c47de on main),
 // re-set in the rd-article layout used by MarketingStrategyArticle. Static — no client directive needed.
 import type { ReactNode } from 'react';
-import { Breadcrumb, Eyebrow, Label, Btn, CtaBar, ArrowIcon } from '~/components/rd/atoms';
-import { PINK, BLUE, GREEN, REACH_INK, RETAIN_INK } from '~/lib/tokens';
+import { Breadcrumb, Eyebrow, Label, Btn, CtaBar } from '~/components/rd/atoms';
+import ResourceCard from '~/components/rd/ResourceCard';
+import { REACH_INK, RETAIN_INK } from '~/lib/tokens';
 
 const PATH = '/resources/ai-search-for-cam';
 
@@ -15,9 +16,9 @@ const TOC: Array<{ id: string; label: string }> = [
 ];
 
 const KEEP_READING = [
-  { kind: 'Strategy', ink: '#4a86ad', accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Service', ink: REACH_INK, accent: PINK, meta: 'BoardReach', title: 'Property management SEO: Google, the map, and the AI answer.', href: '/property-management-seo' },
-  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: '10 sections', title: 'Trust building for CAM firms.', href: '/resources/courses/trust-building' },
+  { kind: 'Strategy', ink: '#4a86ad', meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Service', ink: REACH_INK, meta: 'BoardReach', title: 'Property management SEO: Google, the map, and the AI answer.', href: '/property-management-seo' },
+  { kind: 'Course', ink: RETAIN_INK, meta: '10 sections', title: 'Trust building for CAM firms.', href: '/resources/courses/trust-building' },
 ];
 
 function Section({ id, title, children }: { id: string; title: ReactNode; children: ReactNode }) {
@@ -108,17 +109,8 @@ export default function AISearchArticle() {
       <section className="rd-section rd-bg-off">
         <div className="rd-wrap rd-stack rd-stack--24">
           <Label>Keep reading</Label>
-          <div className="rd-grid rd-grid--3 rd-gap-20">
-            {KEEP_READING.map((k) => (
-              <a key={k.href} href={k.href} className="rd-card" style={{ display: 'flex', flexDirection: 'column', gap: 12, borderLeft: `5px solid ${k.accent}`, padding: '26px 26px 22px 28px' }}>
-                <div className="rd-row rd-row--between">
-                  <span className="rd-label rd-label--12" style={{ color: k.ink }}>{k.kind}</span>
-                  <span className="rd-tiny rd-tiny--12">{k.meta}</span>
-                </div>
-                <div className="rd-title-22 rd-ink" style={{ fontSize: 21 }}>{k.title}</div>
-                <span className="rd-link rd-link--12" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>Read <ArrowIcon /></span>
-              </a>
-            ))}
+          <div className="rd-grid rd-grid--3 rd-gap-20 rd-res-grid">
+            {KEEP_READING.map((k) => <ResourceCard key={k.href} r={k} />)}
           </div>
         </div>
       </section>

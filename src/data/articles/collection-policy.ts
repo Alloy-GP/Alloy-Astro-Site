@@ -13,7 +13,7 @@ const CIV_5655 = 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.
 const CIV_5650 = 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=5650.';
 const FLA_720_3085 = 'http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0700-0799/0720/Sections/0720.3085.html';
 const REG_F = 'https://www.consumerfinance.gov/rules-policy/regulations/1006/';
-const OUTLINE = '/assets/collections/hoa-collection-policy-outline.txt';
+const OUTLINE = '/assets/collections/hoa-collection-policy-outline.pdf';
 
 export const data: ArticleData = {
   path: '/resources/collections/collection-policy',
@@ -111,21 +111,21 @@ export const data: ArticleData = {
       id: 'sample-outline',
       h2: 'Sample outline (not a legal template)',
       blocks: [
-        { t: 'callout', label: 'Not a legal template.', s: `This outline shows structure only. Terms, amounts and notice periods depend on the governing documents and your state's law. The association's attorney must review the final policy. Every bracket is a decision for the board and the attorney.` },
+        { t: 'callout', label: 'Not a legal template.', s: `This outline shows structure only. Terms, amounts and notice periods depend on the governing documents and your state's law. The association's attorney must review the final policy. Every open item is a decision for the board and the attorney.` },
         { t: 'ol', items: [
           `**Purpose and authority.** Cite the declaration and bylaw sections and the state statute that authorize the policy.`,
-          `**Assessments and due dates.** Regular and special assessments; due date; grace period [X days].`,
-          `**Delinquency.** Date an account is delinquent; late charge [$ or %]; interest [rate], each within state limits.`,
-          `**Notice sequence.** Reminder at [X days]; late notice at [X days]; any statutory notice with its required content and delivery method.`,
-          `**Payment plans.** When plans must be offered, when the board may offer them, the applicable terms [length, minimum]; who approves; what ends a plan.`,
+          `**Assessments and due dates.** Regular and special assessments; due date; grace period [X days, e.g. 10, 15 or 30].`,
+          `**Delinquency.** Date an account is delinquent; late charge [a flat amount or a percentage, within state limits]; interest [rate per year, within state limits].`,
+          `**Notice sequence.** Reminder at [X days, e.g. 15]; late notice at [X days, e.g. 30]; any statutory notice with its required content and delivery method.`,
+          `**Payment plans.** When plans must be offered, when the board may offer them, the applicable terms [length, e.g. 6 to 18 months, and minimum payment]; who approves; what ends a plan.`,
           `**Application of payments.** Order of application, per statute where one applies.`,
-          `**Intermediate stage, if adopted.** Trigger [X days, sequence reviewed against deadlines]; who runs it; window [X days]; scope statement (excludes legal advice, lien recording, lawsuits, foreclosure). Account verification, not a substitute for statutory validation; what pauses follow-up. Who pays which charges, with the legal basis for each confirmed by counsel; return to the board with contact history.`,
+          `**Intermediate stage, if adopted.** Trigger [X days past due, e.g. 60, 90 or 120, with the sequence reviewed against deadlines]; who runs it [internal team, counsel's cadence or a vendor]; window [X days, e.g. 60 to 120]; scope statement (excludes legal advice, lien recording, lawsuits, foreclosure). Account verification, not a substitute for statutory validation; what pauses follow-up. Who pays which charges, with the legal basis for each confirmed by counsel; return to the board with contact history.`,
           `**Attorney referral.** Trigger, and what requires earlier referral; board decision; file contents. Which costs are added to the owner's balance, with the legal basis confirmed by counsel.`,
           `**Liens, suits and foreclosure.** Reference to the attorney's process and the statutory requirements; legal review and applicable board-approval requirements at each step.`,
           `**Records and reporting.** Monthly report contents; retention of notices and contact logs.`,
           `**Adoption and review.** Resolution date; annual review date.`,
         ] },
-        { t: 'cta', s: `The same outline as a plain text file, labelled "not a legal template", for pasting into your own document.`, label: 'Download the outline', href: OUTLINE },
+        { t: 'cta', s: `The same outline as a branded PDF, labelled "not a legal template", to share with the board and the association's attorney.`, label: 'Download the outline (PDF)', href: OUTLINE },
       ],
     },
   ],

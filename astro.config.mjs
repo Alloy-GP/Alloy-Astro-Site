@@ -56,7 +56,7 @@ export default defineConfig({
         const url = item.url.replace('https://alloygp.co', '');
         // lastmod only where we know a real content date (articles, guide, course, and pages changed at launch) —
         // a build timestamp on every URL would be noise Google learns to ignore.
-        const LASTMOD = { '': '2026-10-02', '/': '2026-10-02', '/pricing': '2026-10-01', '/results': '2026-10-02', '/results/apex-cmg': '2026-10-02', '/about/testimonials': '2026-10-01', '/resources/ai-search-for-cam': '2026-10-02', '/resources/cam-marketing-strategy': '2026-09-23', '/resources/hoa-management-software-guide': '2026-09-23', '/resources/courses/trust-building': '2026-09-23', '/faq': '2026-10-02', '/contact': '2026-10-02', '/resources/collections': '2026-10-13', '/resources/collections/pre-legal-collections': '2026-10-13', '/resources/collections/attorney-first-vs-pre-legal': '2026-10-13', '/resources/collections/automating-hoa-dues-collection': '2026-10-13', '/resources/collections/cost-of-delinquent-accounts': '2026-10-13', '/resources/collections/collection-policy': '2026-10-13' };
+        const LASTMOD = { '': '2026-10-02', '/': '2026-10-02', '/pricing': '2026-10-01', '/results': '2026-10-02', '/results/apex-cmg': '2026-10-02', '/about/testimonials': '2026-10-01', '/resources/ai-search-for-cam': '2026-10-02', '/resources/cam-marketing-strategy': '2026-09-23', '/resources/hoa-management-software-guide': '2026-09-23', '/resources/courses/trust-building': '2026-09-23', '/faq': '2026-10-02', '/contact': '2026-10-02', '/resources': '2026-10-13', '/resources/collections': '2026-10-13', '/resources/collections/pre-legal-collections': '2026-10-13', '/resources/collections/attorney-first-vs-pre-legal': '2026-10-13', '/resources/collections/automating-hoa-dues-collection': '2026-10-13', '/resources/collections/cost-of-delinquent-accounts': '2026-10-13', '/resources/collections/collection-policy': '2026-10-13' };
         if (LASTMOD[url]) item.lastmod = LASTMOD[url];
         if (url === '' || url === '/') {
           item.changefreq = 'weekly';
@@ -170,6 +170,7 @@ export default defineConfig({
     '/collections/automating-hoa-dues-collection': '/resources/collections/automating-hoa-dues-collection',
     '/collections/cost-of-delinquent-accounts': '/resources/collections/cost-of-delinquent-accounts',
     '/collections/collection-policy': '/resources/collections/collection-policy',
+    '/assets/collections/hoa-collection-policy-outline.txt': '/assets/collections/hoa-collection-policy-outline.pdf',   // outline became a branded PDF (2026-10-13)
     '/resource-hub': '/resources',
     '/resource-hub/cam-marketing-strategy': '/resources/cam-marketing-strategy',
     '/resource-hub/ai-search-for-cam': '/resources/ai-search-for-cam',

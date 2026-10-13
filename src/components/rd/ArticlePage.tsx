@@ -6,16 +6,17 @@
 // an in-article FAQ (FAQPage schema comes from lib/article-page.ts), per-article CTA card + intent, and [PROOF: …] placeholders (unused since 2026-10-12).
 // Static: no client directive.
 import type { ReactNode } from 'react';
-import { Breadcrumb, Eyebrow, Label, Btn, CtaBar, ArrowIcon, FaqList } from '~/components/rd/atoms';
-import { PINK, YELLOW, BLUE, GREEN, REACH_INK, MATCH_INK, RETAIN_INK } from '~/lib/tokens';
+import { Breadcrumb, Eyebrow, Label, Btn, CtaBar, FaqList } from '~/components/rd/atoms';
+import ResourceCard from '~/components/rd/ResourceCard';
+import { REACH_INK, MATCH_INK, RETAIN_INK } from '~/lib/tokens';
 import type { ArticleData, Block, ReadingTone } from '~/data/articles/types';
 import { AUTHOR, readMinutes } from '~/lib/article-page';
 
-const TONES: Record<ReadingTone, { ink: string; accent: string }> = {
-  reach: { ink: REACH_INK, accent: PINK },
-  match: { ink: MATCH_INK, accent: YELLOW },
-  retain: { ink: RETAIN_INK, accent: GREEN },
-  blue: { ink: '#4a86ad', accent: BLUE },
+const TONES: Record<ReadingTone, { ink: string }> = {
+  reach: { ink: REACH_INK },
+  match: { ink: MATCH_INK },
+  retain: { ink: RETAIN_INK },
+  blue: { ink: '#4a86ad' },
 };
 
 /** Cluster-wide interest disclosure (client, 2026-10-12: no provider named; Alloy recommends processes, not companies). */
@@ -213,20 +214,10 @@ export default function ArticlePage({ data: d }: { data: ArticleData }) {
       <section className="rd-section rd-bg-off">
         <div className="rd-wrap rd-stack rd-stack--24">
           <Label>Keep reading</Label>
-          <div className="rd-grid rd-grid--3 rd-gap-20">
-            {d.keepReading.map((k) => {
-              const tone = TONES[k.tone ?? 'reach'];
-              return (
-                <a key={k.href} href={k.href} className="rd-card" style={{ display: 'flex', flexDirection: 'column', gap: 12, borderLeft: `5px solid ${tone.accent}`, padding: '26px 26px 22px 28px' }}>
-                  <div className="rd-row rd-row--between">
-                    <span className="rd-label rd-label--12" style={{ color: tone.ink }}>{k.kind}</span>
-                    <span className="rd-tiny rd-tiny--12">{k.meta}</span>
-                  </div>
-                  <div className="rd-title-22 rd-ink" style={{ fontSize: 21 }}>{k.title}</div>
-                  <span className="rd-link rd-link--12" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>Read <ArrowIcon /></span>
-                </a>
-              );
-            })}
+          <div className="rd-grid rd-grid--3 rd-gap-20 rd-res-grid">
+            {d.keepReading.map((k) => (
+              <ResourceCard key={k.href} r={{ kind: k.kind, ink: TONES[k.tone ?? 'reach'].ink, meta: k.meta, title: k.title, href: k.href, ...(k.image ? { image: k.image } : {}) }} />
+            ))}
           </div>
         </div>
       </section>

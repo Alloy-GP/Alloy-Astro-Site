@@ -6,8 +6,9 @@
 // "The two failure modes" are the live sections, interleaved by topic.
 // Static — no client directive needed.
 import type { ReactNode } from 'react';
-import { Breadcrumb, Eyebrow, Label, Btn, CtaBar, ArrowIcon } from '~/components/rd/atoms';
-import { PINK, GREEN, REACH_INK, RETAIN_INK } from '~/lib/tokens';
+import { Breadcrumb, Eyebrow, Label, Btn, CtaBar } from '~/components/rd/atoms';
+import ResourceCard from '~/components/rd/ResourceCard';
+import { REACH_INK, RETAIN_INK } from '~/lib/tokens';
 
 const TOC: Array<{ id: string; label: string }> = [
   { id: 'start-with-the-board', label: 'Start with the board, not the channel' },
@@ -21,9 +22,9 @@ const TOC: Array<{ id: string; label: string }> = [
 ];
 
 const KEEP_READING = [
-  { kind: 'Guide', ink: REACH_INK, accent: PINK, meta: 'Long read', title: 'Best HOA management software: the 2026 buyer’s guide.', href: '/resources/hoa-management-software-guide' },
-  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: '10 sections', title: 'Trust building for CAM firms.', href: '/resources/courses/trust-building' },
-  { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
+  { kind: 'Guide', ink: REACH_INK, meta: 'Long read', title: 'Best HOA management software: the 2026 buyer’s guide.', href: '/resources/hoa-management-software-guide' },
+  { kind: 'Collections', ink: RETAIN_INK, meta: 'Series · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
+  { kind: 'Proof', ink: REACH_INK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
 ];
 
 function Section({ id, title, children }: { id: string; title: ReactNode; children: ReactNode }) {
@@ -126,17 +127,8 @@ export default function MarketingStrategyArticle() {
       <section className="rd-section rd-bg-off">
         <div className="rd-wrap rd-stack rd-stack--24">
           <Label>Keep reading</Label>
-          <div className="rd-grid rd-grid--3 rd-gap-20">
-            {KEEP_READING.map((k) => (
-              <a key={k.href} href={k.href} className="rd-card" style={{ display: 'flex', flexDirection: 'column', gap: 12, borderLeft: `5px solid ${k.accent}`, padding: '26px 26px 22px 28px' }}>
-                <div className="rd-row rd-row--between">
-                  <span className="rd-label rd-label--12" style={{ color: k.ink }}>{k.kind}</span>
-                  <span className="rd-tiny rd-tiny--12">{k.meta}</span>
-                </div>
-                <div className="rd-title-22 rd-ink" style={{ fontSize: 21 }}>{k.title}</div>
-                <span className="rd-link rd-link--12" style={{ marginTop: 'auto', alignSelf: 'flex-start' }}>Read <ArrowIcon /></span>
-              </a>
-            ))}
+          <div className="rd-grid rd-grid--3 rd-gap-20 rd-res-grid">
+            {KEEP_READING.map((k) => <ResourceCard key={k.href} r={k} />)}
           </div>
         </div>
       </section>

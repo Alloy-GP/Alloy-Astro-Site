@@ -115,7 +115,7 @@ export default function HomePage({ chart, newsletter }: { chart?: ReactNode; new
         <div className="rd-wrap rd-stack rd-stack--40">
           <div className="rd-grid rd-grid--2 rd-grid--end">
             <h2 className="rd-h2">What’s changing in CAM growth right now.</h2>
-            <p className="rd-body" style={{ lineHeight: 1.55 }}>Search is moving to AI answers, boards are shopping locally first, and most CAM sites weren’t built for either. Three pieces from the resource hub on what to do about it.</p>
+            <p className="rd-body" style={{ lineHeight: 1.55 }}>Search is moving to AI answers, boards are shopping locally first, and most CAM sites weren’t built for either. Three pieces from the resource hub on what to do about it, plus a new series on <a className="rd-a" href="/resources/collections">collections as a revenue lever</a>.</p>
           </div>
           <div className="rd-news-grid">
             <a href="/resources/ai-search-for-cam" className="rd-news-card rd-news-card--lead rd-card-link">
