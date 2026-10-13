@@ -61,9 +61,9 @@ export const data: ArticleData = {
         { t: 'p', s: `Neither is automatic. Not every account produces revenue. Charges that cannot be recovered may fall back to the association, and in some states the owner-paid model is contested. It is a candidate line rather than a new product because the accounts already exist. The coordination is work the company already does.` },
         { t: 'p', s: `Before adding it, check four things:` },
         { t: 'ul', items: [
-          `**Authority.** The governing documents, state law and the management agreement must allow the charge. The association's attorney confirms this.`,
+          `**Legal basis.** Board approval or a management agreement alone does not establish that a charge may be added to a homeowner's balance. Counsel should confirm the legal basis, applicable limits and required notices for each charge.`,
           `**Disclosure.** The board should see the full fee schedule, including anything the management company earns, before approving the arrangement.`,
-          `**Limits.** Whoever runs the stage must not give legal advice, file liens, sue or foreclose. Those stay with the attorney.`,
+          `**Scope.** The pre-legal stage described here excludes legal advice, lien recording, lawsuits and foreclosure. Accounts requiring those steps should receive legal review and follow applicable board-approval requirements.`,
           `**Reporting.** The board gets stage and status for every account, monthly, without asking.`,
         ] },
         { t: 'p', s: `[Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and what boards ask before approving one. It also shows how to review the process you have.` },

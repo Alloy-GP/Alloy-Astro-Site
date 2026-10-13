@@ -22,6 +22,8 @@ const TONES: Record<ReadingTone, { ink: string; accent: string }> = {
 const DISCLOSURE = {
   interest: "Alloy's partners have a financial interest in a pre-legal collections business. These articles recommend processes, not providers.",
 };
+/** Legal disclaimer on every cluster page (client, 2026-10-13). */
+const LEGAL_DISCLAIMER = "This article provides general operational education, not legal advice. Requirements vary by jurisdiction and association. Have the association's attorney review collection policies, notices, agreements and charges before implementation.";
 const DEFAULT_ASIDE = { title: 'Growing a management company?', body: 'Thirty minutes with a CAM operator. Written 90-day plan, yours to keep.', label: 'Talk to Alloy', href: '/contact' };
 
 const TOKEN = /(\*\*[^*]+\*\*|\[[^\]]+\]\([^)\s]+\))/g;
@@ -201,6 +203,8 @@ export default function ArticlePage({ data: d }: { data: ArticleData }) {
                 {d.next.map((p, i) => <p key={i}>{inline(p)}</p>)}
               </section>
             ) : null}
+
+            <p className="rd-article-note" data-disclaimer>{LEGAL_DISCLAIMER}</p>
           </article>
         </div>
       </section>

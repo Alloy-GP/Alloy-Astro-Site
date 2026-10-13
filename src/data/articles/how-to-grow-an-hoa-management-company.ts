@@ -81,7 +81,7 @@ export const data: ArticleData = {
         { t: 'p', s: `Revenue per door is total revenue divided by units managed. It rises when you add fee lines to contracts you already have, without adding doors. Margin rises only when those lines cover the hours they take.` },
         { t: 'ul', items: [
           `**Ancillary services.** Resale packages, lender questionnaires, extra meetings, project oversight, each in the fee schedule the board signed and each actually billed.`,
-          `**A managed collections process.** Fewer unbilled hours on every contract. In some models, a board-approved fee or a coordination fee where the governing documents and state law allow it.`,
+          `**A managed collections process.** Fewer unbilled hours on every contract. In some models, a board-approved administration fee or a coordination fee. Counsel confirms the legal basis for any charge passed to an owner.`,
           `**Fee discipline.** Review the schedule annually and bill what it says.`,
           `**Unnecessary work.** Double entry, case-by-case decisions, reports built by hand. Removing them raises margin without touching a fee.`,
         ] },

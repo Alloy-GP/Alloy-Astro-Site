@@ -82,7 +82,7 @@ export const data: ArticleData = {
       blocks: [
         { t: 'p', s: `Most proposals describe collections in a sentence about late notices and the attorney. Boards with a receivables problem notice the proposal that offers a plan instead.` },
         { t: 'p', s: `The plan is a process, not a product. Give it its own page. The trigger in the collection policy, what happens at each stage and on what dates, and who does what (your team, the association's attorney, any vendor the board chooses). Then what the board sees each month, and which accounts go to counsel from day one. If a middle stage before the attorney is part of your approach, describe it in those terms. Keep the board's existing attorney in the plan unless the board asks otherwise.` },
-        { t: 'p', s: `Say who pays what, and under what authority in the governing documents and state law. If the management company earns anything from the process, say so in the proposal. Boards respect disclosure and resent surprises. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and the questions boards ask.` },
+        { t: 'p', s: `Say who pays what, and that counsel confirms the legal basis, limits and notices for any charge added to an owner's balance. If the management company earns anything from the process, say so in the proposal. Boards respect disclosure and resent surprises. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and the questions boards ask.` },
       ],
     },
     {

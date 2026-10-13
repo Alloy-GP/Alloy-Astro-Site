@@ -14,7 +14,7 @@ export const data: ArticleData = {
   title: 'What Delinquent HOA Dues Cost a Management Company | Alloy',
   description: 'Delinquent HOA dues cost a management company staff hours, board trust and renewals, not only the association cash. A worksheet to measure it, and the fix.',
   keywords: ['delinquent hoa dues', 'hoa accounts receivable'],
-  published: '2026-10-20',
+  published: '2026-10-13',
   answer: `Delinquent accounts cost the management company in three currencies: staff time, board trust and renewals. The association loses cash. The management company loses hours nobody bills for and agenda minutes spent on the same accounts. It also loses the confidence of a board that reads the receivables line first. The fix starts with measuring your own number.`,
   disclosure: 'interest',
   aside: { title: 'What is delinquency costing you?', body: 'A conversation with a CAM operator about your backlog, the hours behind it and the options for getting the work managed.', label: 'Review your process', href: '/contact?intent=collections' },
@@ -89,9 +89,9 @@ export const data: ArticleData = {
         { t: 'p', s: `Then lay out the options every management company has:` },
         { t: 'ol', items: [
           `**Absorb the cost.** The default, and a legitimate choice for a small portfolio with few delinquencies.`,
-          `**Fix the process first.** A written trigger, a validated first notice, standard payment plans and a monthly report often shrink the hours before anything else changes. This is usually the first move.`,
-          `**Bill for the work.** A collections administration fee in the management agreement, approved by the board. Some boards accept it; some do not.`,
-          `**Add a stage.** An internal team, the attorney's pre-lien cadence or a pre-legal vendor takes the accounts past the trigger. In some arrangements charges go to the owner where the governing documents and state law allow, which can lower the association's direct cost.`,
+          `**Fix the process first.** A written trigger, a verified first notice, standard payment plans and a monthly report often shrink the hours before anything else changes. This is usually the first move.`,
+          `**Bill for the work.** A collections administration fee in the management agreement, approved by the board. Some boards accept it; some do not. Whether any of it may be passed to an owner is a separate legal question for counsel.`,
+          `**Add a stage.** An internal team, the attorney's pre-lien cadence or a pre-legal vendor takes the accounts past the trigger. In some arrangements charges go to the owner where counsel has confirmed a legal basis, which can lower the association's direct cost.`,
         ] },
         { t: 'p', s: `The right answer is usually a combination, and it can differ by association.` },
       ],
@@ -102,7 +102,7 @@ export const data: ArticleData = {
       blocks: [
         { t: 'p', s: `The work in the worksheet does not disappear. The question is whether it is managed, and whether anyone pays for it.` },
         { t: 'p', s: `A managed process moves accounts through defined stages on dates the board approved. That alone cuts the touches. Fewer owner calls because the notice explained the balance. Fewer board questions because the report arrived first. Fewer judgment calls because the terms were set in advance.` },
-        { t: 'p', s: `In some arrangements the management company also earns a fee for coordinating the process. That can be a board-approved line in the management agreement. It can also be a coordination fee inside an owner-paid vendor model, where the governing documents and state law allow it. Neither is automatic, both must be disclosed to the board, and the association's attorney should confirm the authority. Revenue that does not cover the coordination hours is not profit, so count the hours either way. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and how to review your own.` },
+        { t: 'p', s: `In some arrangements the management company also earns a fee for coordinating the process. That can be a board-approved line in the management agreement. It can also be a coordination fee inside an owner-paid vendor model. Neither is automatic and both must be disclosed to the board. Board approval or a management agreement alone does not establish that a charge may be added to a homeowner's balance. Counsel should confirm the legal basis, applicable limits and required notices for each charge. Revenue that does not cover the coordination hours is not profit, so count the hours either way. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and how to review your own.` },
         // TODO(2026-10-27): link "revenue per door" → /resources/hoa-management-company-revenue-streams once page 7 is live.
         { t: 'p', s: `Revenue per door is one of the three ways a management company grows, alongside new contracts and retention. Removing unbilled hours is the quiet fourth, and it improves margin on every contract you already have.` },
       ],
@@ -111,8 +111,8 @@ export const data: ArticleData = {
   faq: [
     { q: 'Who really pays for delinquent HOA dues?', a: `The association loses the cash until it is collected. The management company pays in staff time, board goodwill and renewal risk, none of which appear on an invoice. Owners who pay on time carry the association's shortfall through reserves or special assessments. The worksheet above measures the management company's share.` },
     { q: 'What is a reasonable delinquency rate for an HOA?', a: `There is no single benchmark worth quoting, because it varies by region, housing type and economy. The useful comparison is your own portfolio over time, by association. Track accounts past the policy trigger each month and watch the direction, not a national average.` },
-    { q: 'Should the management company charge the association for collections work?', a: `Some do, through a fee schedule in the management agreement that the board approves. Others recover coordination costs inside a vendor arrangement where the governing documents and state law allow charges to be added to the owner's balance. Either way, disclose it to the board and have the association's attorney confirm the authority.` },
-    { q: 'How soon should a delinquent account leave the reminder stage?', a: `When the collection policy says so. Policies commonly set a trigger at 60, 90 or 120 days past due, within what state notice periods allow. Accounts that linger past the trigger are the ones that consume staff time and board patience. Name the trigger in the policy and move accounts on the date.` },
+    { q: 'Should the management company charge the association for collections work?', a: `Some do, through a fee schedule in the management agreement that the board approves. Others recover coordination costs inside a vendor arrangement. Either way, disclose it to the board. Board approval or a management agreement alone does not establish that a charge may be added to a homeowner's balance. Counsel confirms the legal basis, limits and notices.` },
+    { q: 'How soon should a delinquent account leave the reminder stage?', a: `When the collection policy says so. Policies set a trigger, for example 60, 90 or 120 days past due, within applicable notice requirements. Accounts that linger past the trigger consume staff time and board patience. Name the trigger in the policy and review accounts on the date. A dispute, a bankruptcy notice or a required notice period pauses the move.` },
   ],
   next: [
     `Run the worksheet for one month and bring the number to your next leadership meeting. Then read [What Pre-Legal Collections Are and Where They Fit](/resources/collections/pre-legal-collections) for one option for the next stage. [Building an HOA Collection Policy a Board Will Approve](/resources/collections/collection-policy) covers the trigger that starts it.`,

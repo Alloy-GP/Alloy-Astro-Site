@@ -56,6 +56,8 @@ for (const f of readdirSync(DIR).filter((x) => x.endsWith('.ts') && x !== 'types
   if (/\b70\s?%/.test(all2)) { issues.push('cites a 70% figure (provider-specific goal, removed)'); hard++; }
   if (/\bour (pre-legal|collections?) (program|service|stage|vendor)/i.test(all2)) { issues.push('"our pre-legal program" wording (Alloy is not the provider)'); hard++; }
   for (const m of all2.matchAll(/\b(always|never)\b/gi)) { issues.push(`absolute "${m[0]}" (regulated industry: avoid)`); hard++; }
+  for (const m of all2.matchAll(/before any attorney|legal weight|cannot (give legal advice|file a lien|record a lien)|(can't|cannot):?\s*file liens|deadline protect|easier to protect|(windows|stages|providers|vendors) commonly/gi)) { issues.push(`2026-10-13 rule: "${m[0]}"`); hard++; }
+  if (/\bcommonly\b/i.test(all2)) issues.push('uses "commonly" (check it is not a claim about providers)');
   if (/\[PROOF:/.test(all2) || d.sections.some((s) => s.blocks.some((b) => b.t === 'proof'))) { issues.push('visible proof placeholder'); hard++; }
   const answerWords = words(d.answer); if (answerWords < 40 || answerWords > 60) issues.push(`opening answer ${answerWords} words (want 40–60)`);
   for (const q of d.faq ?? []) { const n = words(q.a); if (f !== 'pre-legal-collections.ts' && (n < 40 || n > 60)) issues.push(`FAQ "${q.q.slice(0, 30)}…" ${n} words`); }
