@@ -1,0 +1,117 @@
+# Collections content cluster (alloygp.co)
+
+Built 2026-10-09 on `staging` from the handoff `alloy-collections-handoff.md` (2026-10-08). **Repositioned 2026-10-12**
+from the client's review notes: Alloy is an unbiased advisor on collections strategy and process, no provider is named
+or linked, claims are hedged for a regulated industry, each article ties to Alloy's bigger picture (revenue, margin,
+less unnecessary work, people and technology, less owner dependence) and carries its own CTA. Eleven pages, one
+data-driven template. Nothing goes to `main` without Skyler's approval.
+
+## Where things live
+
+| Piece | Path |
+|---|---|
+| Copy, links, FAQ, CTA, gating per page | `src/data/articles/<slug>.ts` (one file per page; `types.ts` is the contract) |
+| Template | `src/components/rd/ArticlePage.tsx` (hero + byline + interest disclosure, sticky TOC + per-article CTA card, numbered sections, callouts, worksheets, tables, FAQ, keep-reading, CTA bar) |
+| Schema + author | `src/lib/article-page.ts` (`articlePageSchema`: Article with Person author Cameron Lange + BreadcrumbList + FAQPage when a FAQ exists; `AUTHOR.linkedIn` is the TODO for `sameAs`) |
+| Routes | `src/pages/resources/collections/*.astro`, `src/pages/resources/<slug>.astro` (thin shells; `robots` driven by `data.noindex`) |
+| Contact intents | `ContactPage.tsx` `ARTICLE_INTENTS`: `/contact?intent=collections|growth|operations|profitability|proposals|retention` preselects a topic and seeds the message |
+| Styles | `redesign.css` "Article extras" block, `mobile.css` ≤720 rules |
+| Policy outline download | `public/assets/collections/hoa-collection-policy-outline.txt` ("not a legal template") |
+| Copy-rules lint | `node scripts/content-lint.mjs` |
+
+## Positioning rules (client, 2026-10-12) — enforced by the lint where a regex can
+
+- Alloy recommends **strategies and processes, not providers**. No collections company is named, linked, described or promoted. No "our pre-legal program" / "our collections service". Alloy is not a collection agency and does not perform collections.
+- Timelines are **ranges** ("commonly 60 to 120 days", "policies commonly use 60, 90 or 120 days"), never a universal number.
+- No **"always"** or **"never"** anywhere in copy. No blanket claims that associations pay nothing, that owners cover every charge, or that a management company earns revenue on every account. Revenue is conditional on the governing documents, state law, the management agreement and disclosure to the board; revenue is distinguished from contribution to profit.
+- Attorney-first is presented with its real advantages (legal leverage, deadline protection, existing relationships, counsel's judgment, deferred-billing arrangements where offered) and pre-legal with its limitations (no leverage, an added party, deadline risk, contested owner-paid charges, compliance obligations).
+- Pre-legal activity is described as generally subject to federal debt collection law (Regulation F linked) and, in many states, licensing and state collection law.
+- Software claims are hedged ("rarely go late by accident", "not built to handle", "on its own"). No platform is disparaged.
+- No performance figures or resolution rates. No invented statistics. Worksheets where a number would otherwise be needed.
+- Statutes cited only from official state code sites, labelled "not legal advice", flagged for attorney review (below).
+- **Disclosure** under every byline: "Alloy's partners have a financial interest in a pre-legal collections business. These articles recommend processes, not providers." Rationale: removing a provider's name removes the mention, not the interest; an "unbiased" stance with an undisclosed interest is the bigger credibility risk. One constant in `ArticlePage.tsx` if the team wants it changed or dropped.
+
+## URL changes vs. the brief
+
+- **No trailing slashes** (`trailingSlash: 'never'`); the contact CTA is `/contact`.
+- **`/insights/*` → `/resources/*`** (all articles on this site live under `/resources`). Slugs unchanged. Renaming back is five route files plus five `path` fields.
+- `/resources/collections/*` kept as specified.
+
+## Legal-accuracy round (client notes, 2026-10-13)
+
+Applied across article text, FAQs, the downloadable outline, metadata and structured data:
+
+- **Scope of pre-legal.** Every "vendors cannot record liens" statement replaced with: "The pre-legal stage described here excludes legal advice, lien recording, lawsuits and foreclosure. Accounts requiring those steps should receive legal review and follow applicable board-approval requirements." "Before any attorney involvement" → "before referral for legal enforcement"; counsel may review policies, notices and agreements during the stage.
+- **Board approval vs. fee authority.** Wherever owner-paid charges or management compensation appear: "Board approval or a management agreement alone does not establish that a charge may be added to a homeowner's balance. Counsel should confirm the legal basis, applicable limits and required notices for each charge."
+- **Account verification vs. statutory validation.** The ledger step is "Account verification", with: "Ledger verification does not replace required debt-validation notices or dispute procedures. Follow-up must pause when applicable law requires it." Date-based escalation is now a review that pauses for disputes, bankruptcy stays, required notices, payment plans and other restrictions. FDCPA / Regulation F described as applying to third parties that regularly collect consumer debts; the "pre-legal" label exempts nobody.
+- **Collection-policy article.** "HOA collections are governed by applicable federal and state law, as well as the association's governing documents." Payment plans: "When payment plans must be offered, when the board may offer them, and the applicable terms." Authority: "Citing the authority helps counsel evaluate and defend the policy; it does not guarantee enforceability." Colorado now cites the General Assembly's current CRS and HB25-1043 (signed 2025-06-04, effective 2025-10-01); the 2024 PDF link is gone. Florida wording verified against 720.3085: notice of late assessment before attorney fees may be charged to the owner (statutory notice gives 30 days), 45-day notice of intent to lien, 45-day pre-foreclosure notice. Association type named per state (Colorado CCIOA: condos, co-ops, planned communities; California Davis-Stirling: CIDs incl. condos and planned developments; Florida ch. 720: HOAs, condos under ch. 718). Adding a stage no longer described as leaving attorney timelines unaffected.
+- **Alloy's role.** CTAs use: "Alloy helps management companies review operations, evaluate options and coordinate implementation. The association's attorney reviews legal requirements, policy language and fee authority." Financial-interest disclosure retained. Legal disclaimer added to the end of every cluster page (template).
+- **Comparison page.** Gomez Law and LS Carlson ranges removed everywhere (general HOA legal-cost guides, not assessment-collection pricing); table says "per the association's actual attorney fee schedule". The ProPublica/Alcock Colorado foreclosure figure stays as one verified, attributed data point in prose. "Leverage" language replaced with service descriptions. No fixed demand-letter → lien → lawsuit sequence or upfront-payment assumption. Hanson replaced with the client's sentence and verified against the order (N.D. Cal. No. 13-05377 RS, Judge Seeborg, order denying second motion to dismiss, 2014-07-11; prior order 2014-02-19 granted in part with leave to amend) and linked. Cisneros verified against the opinion (Bankr. N.D. Cal. No. 12-10468, Judge Jaroslovsky, 2012-10-01; $7,720 + $7,024 disallowed; §§1366(e), 1366.1) and linked to the govinfo copy.
+- **Publication.** Pages 1–6 dated 2026-10-13 (actual publication). Comparison page indexable: its source and accuracy checks passed.
+
+## Page status
+
+| # | URL | Status on staging | Index |
+|---|---|---|---|
+| 1 | `/resources/collections` | Repositioned: profitability/operations framing, four-approach overview, eight-step process review, conditional revenue, bigger-picture close. Proof placeholders removed. | Indexable, in sitemap (2026-10-13) |
+| 2 | `/resources/collections/pre-legal-collections` | Rewritten provider-neutral: definition, stages, generic window, when it fits / doesn't, existing relationships, what to ask. The brief's final copy no longer applies. | Indexable (2026-10-13) |
+| 3 | `/resources/collections/attorney-first-vs-pre-legal` | Rebalanced; 2026-10-13: dollar ranges removed, service descriptions instead of leverage, Hanson and Cisneros verified and linked. | Indexable, in sitemap (2026-10-13) |
+| 4 | `/resources/collections/automating-hoa-dues-collection` | Hedged capabilities, trigger section with ranges, integration realities, where admin work goes away. CTA: operations. | Indexable (2026-10-13) |
+| 5 | `/resources/collections/cost-of-delinquent-accounts` | Added opportunity cost, homeowner experience, profitability per association; worksheet assumptions spelled out; four options instead of one. | Indexable (2026-10-13) |
+| 6 | `/resources/collections/collection-policy` | Reframed around assessing the policy you have; middle stage "if the board adopts one"; outline + download updated. | Indexable (2026-10-13) |
+| 7 | `/resources/hoa-management-company-revenue-streams` | Revenue vs contribution table and worksheet; collections line conditional. CTA: profitability. | Gated to 2026-10-27 |
+| 8 | `/resources/how-to-grow-an-hoa-management-company` | "Wrong scoreboard" section, margin on the revenue lever, owner-dependence test in the 12-month plan. CTA: growth. | Gated to 2026-10-27 |
+| 9 | `/resources/hoa-management-software-limits` | People/process/platform section, vendor questions, hedged claims. CTA: operations. | Gated to 2026-11-03 |
+| 10 | `/resources/why-associations-change-management-companies` | Light touch: statistics as sourced and directional, absolutes removed. CTA: retention. Retitled "Why HOA Boards Change Management Companies" after the Ahrefs check. | Gated to 2026-11-10 |
+| 11 | `/resources/winning-hoa-management-proposals` | Board-priority section with the survey, "show value instead of claiming it", delinquency plan as a process not a provider. CTA: proposals. Ahrefs check done; RFP added to description and answer. | Gated to 2026-11-10 |
+
+Gating: `data.noindex` → `robots noindex,follow`, out of `SITEMAP_ROUTES`, inbound links left as `TODO(date)` comments. Everything can merge on 2026-10-20; later waves un-gate on their dates.
+
+## Editorial workflow
+
+1. **Draft** in `src/data/articles/<slug>.ts` (copy, links, FAQ, CTA, `noindex` reason). Sources linked inline; statutes from official code sites only.
+2. **Lint**: `node scripts/content-lint.mjs` must exit 0 (positioning rules, sentence length, lengths, links).
+3. **Build + crawl** locally (`npm run build`; the route returns 200 with one H1, valid Article/Breadcrumb/FAQ schema, canonical, correct robots).
+4. **Push to `staging`** → review on stg.alloygp.co (Pastel round). Reviewer checks: accuracy, positioning rules, CTA fit, anything needing legal sign-off.
+5. **Approval** (Skyler) → PR `staging` → `main`. After merge, `git push origin main:staging`.
+6. **Go-live per page**: delete `noindex` in the data file, add the path to `SITEMAP_ROUTES` + `LASTMOD`, resolve `TODO(date)` links, add to `public/llms.txt` and (optionally) the `LATEST` list in `ResourceHubPage.tsx`.
+
+## Article deliverables (per page)
+
+- Data file with: title (≤60), description (≤160), H1 (two-tone), 40–60-word opening answer, question-form H2s, FAQ (40–60-word answers), keep-reading links, per-article CTA and contact intent, sources linked inline, `noindex` reason if gated.
+- Lint clean; build clean; crawl clean.
+- A line in the change summary below, and a list of statements needing business or legal approval.
+
+## Change summary by article (2026-10-12)
+
+- **Hub**: new framing (profitability and operations, not a product); approaches section (internal / attorney-first / pre-legal / hybrid); "well-designed process" with eight generic pieces and timeline ranges; revenue section rewritten as two conditional models; who-pays section with three cost structures and risks; relationships paragraph; eight-check process review with Alloy CTA; bigger-picture close; proof boxes removed; indexable.
+- **Pre-legal**: full rewrite (definition kept generic; stages hedged; window as a range; "when it fits and when it doesn't"; existing relationships; FDCPA/state licensing; handoff; "what to ask"); provider link and process description removed.
+- **Attorney-first vs. pre-legal**: attorney-first gets its advantages and deferred-billing note; pre-legal gets cost models and limitations; table gains Leverage and Relationships rows; "no savings figure" paragraph now includes "including us"; decision section on your own data; proof boxes removed; stays noindex.
+- **Automation**: "rarely go late by accident"; trigger ranges with lien deadlines; integration-realities paragraph; "where admin work goes away" section; revenue claim removed; CTA operations.
+- **Cost of delinquency**: "what else does delinquency cost" (opportunity cost, homeowner experience, profitability per association); worksheet assumptions; four options; "managed line, sometimes a revenue line" with conditions.
+- **Collection policy**: "assess the policy you have" (five checks); "add a middle stage, if you decide to" with internal/attorney/vendor options and ranges; element 7 renamed "next-stage handoff"; outline and download updated; licensing note.
+- **Revenue streams**: revenue-vs-contribution table and worksheet; collections line rewritten as two conditional forms; audit paragraph; CTA profitability.
+- **How to grow**: "why more doors is the wrong scoreboard" (four numbers, Alloy's five-point view); survey citation on communication; margin added to the revenue lever; plan ends on owner dependence; CTA growth.
+- **Software limits**: "on its own" throughout; people/process/platform section; vendor questions; "most established platforms"; CTA operations.
+- **Why associations change**: "rarely" for "almost never"; "not in every case"; next stage "whoever runs it"; CTA retention.
+- **Proposals**: "what boards actually weigh" with the survey; differentiator reframed as a delinquency plan (process, not provider; keep the board's attorney); "show value instead of claiming it"; CTA proposals.
+
+## Statements needing business or legal approval
+
+- The interest disclosure wording (above), and whether it stays on all 11 pages.
+- Statute summaries on pages 3 and 6: Cal. Civ. Code 5650 / 5655 / 5660, C.R.S. 38-33.3-209.5, Fla. Stat. 720.3085. Linked to official sources; an attorney should confirm the summaries before those pages index.
+- The owner-paid fee debate on page 3 (In re Cisneros, Hanson v. JQD, Tinnelly Law Group commentary): accurate to the sources, California-specific, labelled not legal advice. Attorney read recommended.
+- Attorney-fee ranges on page 3 (Gomez Law 2025, LS Carlson Law 2025, ProPublica 2023 / Alcock Law Group filing): sourced, labelled orientation not a quote. Business to confirm it is comfortable citing them.
+- "In many states" licensing of third-party collectors and FDCPA applicability: stated generally, Regulation F linked. Attorney to confirm the phrasing.
+- CTA offers: "Review your collections process", "Review your growth strategy", "Review your operations and tools", "Talk through revenue and margin", "Review your proposals", "Review how you keep boards". All phrased as a conversation with a CAM operator; contact topics added to match. Confirm the wording and that no deliverable is implied.
+
+## Open items
+
+- ~~Cameron Lange's LinkedIn URL~~ added 2026-10-12 (`AUTHOR.linkedIn` → Person `sameAs` on every cluster page).
+- ~~Ahrefs volume checks for pages 10 and 11~~ run 2026-10-12 (US, via the Ahrefs MCP on Skyler's Mac):
+  - Page 10: "how to change hoa management company" **100/mo, KD 0, CPC $4.00**; "change hoa management company" 60; "how to switch hoa management companies" 30; "how to fire hoa management company" 30 (KD 31); "switching hoa management companies" 20. The brief's "why hoa boards change management companies" has no measured volume. **Retitled** to "Why HOA Boards Change Management Companies" (H1 "Why HOA boards change management companies"); description leads with "change". Reader stays the operator; the phrase is board-side, so expect some board traffic.
+  - Page 11: "hoa management proposal" **40/mo**; "hoa rfp" 40; "hoa rfp template" 30; "rfp for hoa management services" 10 (KD 0). "property management proposal" (50) and "property management proposal template" (60, KD 0) exist but are excluded under the no-property-management rule. Title kept; description and opening answer now mention RFP responses.
+- **Published dates**: pages 1–6 carry 2026-10-13 (actual publication). Pages 7–11 still carry the brief's planned dates; set them to the real date when they un-gate.
+- **Resources hub listing / nav**: the cluster is not on `/resources` or in the nav. Recommend adding the indexable pages to `LATEST` in `ResourceHubPage.tsx` at go-live.
+- Hub runs ~2,300 words (brief guide 1,800–2,200) after the approaches and process-review sections were added at the client's request.
+- Skyler reviews all copy on stg (Pastel) before any push to `main`.

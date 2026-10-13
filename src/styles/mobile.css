@@ -443,6 +443,10 @@
   .rd-article { gap: 40px; }
   .rd-article p, .rd-article ul, .rd-article ol { font-size: 16px; line-height: 1.65; }
   .rd-article-section { scroll-margin-top: 124px; }
+  .rd-ws-row { grid-template-columns: 1fr 96px; gap: 12px; }
+  .rd-article-cta { flex-direction: column; align-items: stretch; }
+  .rd-article-cta .rd-btn { width: 100%; }
+  .rd-article .rd-table th[scope=row] { position: sticky; left: 0; background: #fff; min-width: 150px; }
 
   /* ── Editorial (frame 1g) ──────────────────────────────────────────────── */
   .rd-arch-row { grid-template-columns: 1fr 20px; gap: 6px 12px; }
