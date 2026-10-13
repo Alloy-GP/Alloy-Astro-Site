@@ -45,7 +45,7 @@ export const data: ArticleData = {
         { t: 'ul', items: [
           `**Account verification first.** The balance is checked against the ledger, the governing documents and the collection policy before anyone contacts the owner. Ledger verification does not replace required debt-validation notices or dispute procedures. Follow-up must pause when applicable law requires it.`,
           `**A plain-language first notice.** What is owed, why, and a clear way to pay or ask a question.`,
-          `**A written cadence.** Letters, emails and calls on a schedule, so the board knows what the owner will receive and when. The cadence pauses for a dispute, a bankruptcy notice or a required notice period.`,
+          `**A written cadence.** Letters, emails and calls on a schedule, so the board knows what the owner will receive and when. The cadence pauses for a dispute, a bankruptcy notice or a required notice period. A pause in outreach does not extend lien or filing deadlines; counsel tracks those separately.`,
           `**Standard payment plans.** Terms the board approved in advance. The owner can pay in full or enroll.`,
           `**Resolution or return.** At the end of the window, the account is resolved, in a plan, or back with the board. A complete record of every contact goes with it.`,
         ] },

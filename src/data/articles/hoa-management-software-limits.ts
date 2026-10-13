@@ -57,7 +57,7 @@ export const data: ArticleData = {
       id: 'gap-delinquent-accounts',
       h2: 'Gap three: software does not resolve delinquent accounts on its own',
       blocks: [
-        { t: 'p', s: `This is the gap most operators discover last. Platforms bill, remind and accept payments, and that keeps most owners current. The owners who stop responding are not a software problem. Past the policy trigger, an account needs account verification, a plain-language notice, calls and a payment-plan option. It needs a deadline that pauses when law requires it, and someone accountable for each.` },
+        { t: 'p', s: `This is the gap most operators discover last. Platforms bill, remind and accept payments, and that keeps most owners current. The owners who stop responding are not a software problem. Past the policy trigger, an account needs account verification, a plain-language notice, calls and a payment-plan option. It needs a defined timeline, with collection activity paused when required and legal deadlines tracked separately, and someone accountable for each.` },
         { t: 'p', s: `A defined next stage fills this gap, whether it is an internal team, the attorney's pre-lien cadence or a pre-legal vendor. It has a window, a cadence and an exit rule, and the platform stays the ledger. [Automating HOA Dues Collection](/resources/collections/automating-hoa-dues-collection) maps where software stops and the process starts. [Collections as a Revenue Stream for HOA Management Companies](/resources/collections) covers the approaches and what each one costs.` },
       ],
     },
