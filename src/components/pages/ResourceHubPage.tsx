@@ -6,63 +6,38 @@
 // route so only the form hydrates.
 import type { ReactNode } from 'react';
 import { formatIssueDate, type NewsletterIssue } from '~/lib/newsletter-issue';
-import { Eyebrow, Label, TextLink, LinkLabel, ArrowIcon } from '~/components/rd/atoms';
-import { PINK, YELLOW, BLUE, GREEN, REACH_INK, MATCH_INK, RETAIN_INK } from '~/lib/tokens';
+import { Eyebrow, Label, TextLink, ArrowIcon } from '~/components/rd/atoms';
+import ResourceCard, { type ResourceCardItem as Resource } from '~/components/rd/ResourceCard';
+import { REACH_INK, MATCH_INK, RETAIN_INK } from '~/lib/tokens';
 
 // Label ink for blue-accented cards (the prototype's #4a86ad). Not yet a token.
 const BLUE_INK = '#4a86ad';
 
-interface Resource {
-  kind: string;
-  ink: string;
-  accent: string;
-  meta: string;
-  title: string;
-  href: string;
-}
-
 const SIDE: Resource[] = [
-  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies', href: '/resources/courses/trust-building' },
-  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Course', ink: RETAIN_INK, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies', href: '/resources/courses/trust-building' },
+  { kind: 'Strategy', ink: BLUE_INK, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics', href: '/resources/cam-marketing-strategy' },
 ];
 
 // Collections series (2026-10-13): the hub + five spokes, all live. Gated insights pages join here as they un-gate.
 const COLLECTIONS: Resource[] = [
-  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: 'Start here · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
-  { kind: 'Collections', ink: REACH_INK, accent: PINK, meta: '9 min read', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections' },
-  { kind: 'Collections', ink: MATCH_INK, accent: YELLOW, meta: '9 min read', title: 'Attorney-first vs. pre-legal collections: a cost comparison.', href: '/resources/collections/attorney-first-vs-pre-legal' },
-  { kind: 'Collections', ink: BLUE_INK, accent: BLUE, meta: '7 min read', title: 'Automating HOA dues collection: what software does and doesn\u2019t solve.', href: '/resources/collections/automating-hoa-dues-collection' },
-  { kind: 'Collections', ink: MATCH_INK, accent: YELLOW, meta: 'Worksheet · 7 min', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts' },
-  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: 'Outline + PDF · 9 min', title: 'Building an HOA collection policy a board will approve.', href: '/resources/collections/collection-policy' },
+  { kind: 'Collections', ink: RETAIN_INK, meta: 'Start here · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
+  { kind: 'Collections', ink: REACH_INK, meta: '9 min read', title: 'What pre-legal collections are and where they fit.', href: '/resources/collections/pre-legal-collections' },
+  { kind: 'Collections', ink: MATCH_INK, meta: '9 min read', title: 'Attorney-first vs. pre-legal collections: a cost comparison.', href: '/resources/collections/attorney-first-vs-pre-legal' },
+  { kind: 'Collections', ink: BLUE_INK, meta: '7 min read', title: 'Automating HOA dues collection: what software does and doesn\u2019t solve.', href: '/resources/collections/automating-hoa-dues-collection' },
+  { kind: 'Collections', ink: MATCH_INK, meta: 'Worksheet · 7 min', title: 'What delinquent accounts cost a management company.', href: '/resources/collections/cost-of-delinquent-accounts' },
+  { kind: 'Collections', ink: RETAIN_INK, meta: 'Outline + PDF · 9 min', title: 'Building an HOA collection policy a board will approve.', href: '/resources/collections/collection-policy' },
 ];
 
 // Real pieces only (client, 2026-10-01: no placeholder articles). Add new articles here as they publish.
 // 2026-10-13: the collections hub leads; the newsletter archive moved to the Briefing band below + footer.
 const LATEST: Resource[] = [
-  { kind: 'Collections', ink: RETAIN_INK, accent: GREEN, meta: 'New series · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
-  { kind: 'AI search', ink: REACH_INK, accent: PINK, meta: '3 min read', title: 'How CAM firms win in AI search.', href: '/resources/ai-search-for-cam' },
-  { kind: 'Strategy', ink: BLUE_INK, accent: BLUE, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
-  { kind: 'Guide', ink: MATCH_INK, accent: YELLOW, meta: 'Long read', title: 'Best HOA management software (2026): platforms, pricing, and the RFP.', href: '/resources/hoa-management-software-guide' },
-  { kind: 'Course', ink: RETAIN_INK, accent: GREEN, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies.', href: '/resources/courses/trust-building' },
-  { kind: 'Proof', ink: REACH_INK, accent: PINK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
+  { kind: 'Collections', ink: RETAIN_INK, meta: 'New series · 11 min', title: 'Collections as a revenue stream for HOA management companies.', href: '/resources/collections' },
+  { kind: 'AI search', ink: REACH_INK, meta: '3 min read', title: 'How CAM firms win in AI search.', href: '/resources/ai-search-for-cam', image: '/assets/resources/ai-search-for-cam-card.jpg' },
+  { kind: 'Strategy', ink: BLUE_INK, meta: '12 min read', title: 'Marketing an HOA management company: the plan before the tactics.', href: '/resources/cam-marketing-strategy' },
+  { kind: 'Guide', ink: MATCH_INK, meta: 'Long read', title: 'Best HOA management software (2026): platforms, pricing, and the RFP.', href: '/resources/hoa-management-software-guide' },
+  { kind: 'Course', ink: RETAIN_INK, meta: 'Self-paced · 10 sections', title: 'Trust building for CAM firms: reviews, testimonials, case studies.', href: '/resources/courses/trust-building' },
+  { kind: 'Proof', ink: REACH_INK, meta: 'Case study · 12 min', title: 'How one CAM partner went from chasing RFPs to inbound boards.', href: '/results/apex-cmg' },
 ];
-
-function ResourceCard({ r }: { r: Resource }) {
-  return (
-    <a
-      href={r.href}
-      className="rd-card-link"
-      style={{ background: '#fff', borderRadius: 10, borderLeft: `5px solid ${r.accent}`, padding: '26px 26px 22px 28px', boxShadow: 'var(--shadow-sm)', gap: 12 }}
-    >
-      <div className="rd-row rd-row--between">
-        <span className="rd-label rd-label--12" style={{ color: r.ink }}>{r.kind}</span>
-        <span className="rd-tiny rd-tiny--12">{r.meta}</span>
-      </div>
-      <div className="rd-title-22 rd-ink" style={{ fontSize: 21 }}>{r.title}</div>
-      <div style={{ marginTop: 'auto' }}><LinkLabel>Read</LinkLabel></div>
-    </a>
-  );
-}
 
 export default function ResourceHubPage({ children, issues = [] }: { children?: ReactNode; issues?: NewsletterIssue[] }) {
   return (
@@ -72,7 +47,8 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
         <div className="rd-wrap rd-grid rd-grid--hero-wide rd-grid--end">
           <div className="rd-stack" style={{ gap: 28 }}>
             <Eyebrow>Resources</Eyebrow>
-            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 7.25vw, 84px)' }}>Field notes for <span className="rd-accent">CAM operators.</span></h1>
+            {/* Two lines on desktop: "Field notes for" / "CAM operators." (client, 2026-10-13: no orphan words) */}
+            <h1 className="rd-h1" style={{ fontSize: 'clamp(36px, 6.2vw, 72px)' }}>Field notes for <span className="rd-accent rd-nowrap">CAM operators.</span></h1>
           </div>
           <p className="rd-intro">Guides, courses, and articles on how boards find, choose, and keep management companies. Written by people who have run portfolios, not marketers guessing at the category.</p>
         </div>
@@ -106,7 +82,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
             </div>
             <p className="rd-body">A six-part series for management company owners: what delinquency really costs, the approaches and their trade-offs, where software stops, and how to build a collection policy a board will approve. Start with the hub.</p>
           </div>
-          <div className="rd-grid rd-grid--3 rd-gap-20">
+          <div className="rd-grid rd-grid--3 rd-gap-20 rd-res-grid">
             {COLLECTIONS.map((r) => <ResourceCard key={r.href} r={r} />)}
           </div>
          </div>
@@ -120,7 +96,7 @@ export default function ResourceHubPage({ children, issues = [] }: { children?: 
             <h2 className="rd-h2">Latest.</h2>
             <p className="rd-body">What’s changing in how boards search, shop, and decide, and what to do about it this quarter.</p>
           </div>
-          <div className="rd-grid rd-grid--3 rd-gap-20">
+          <div className="rd-grid rd-grid--3 rd-gap-20 rd-res-grid">
             {LATEST.map((r) => <ResourceCard key={r.title} r={r} />)}
           </div>
         </div>

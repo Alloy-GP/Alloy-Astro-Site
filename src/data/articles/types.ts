@@ -40,6 +40,8 @@ export interface KeepReading {
   title: string;
   href: string;
   tone?: ReadingTone;
+  /** Card image, when the linked article has one. */
+  image?: string;
 }
 
 export interface ArticleData {
