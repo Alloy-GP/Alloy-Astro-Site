@@ -6,6 +6,7 @@
 import { useState, useEffect } from 'react';
 import type { CSSProperties, ChangeEvent, FormEvent } from 'react';
 import { Btn, CheckIcon } from '~/components/rd/atoms';
+import { Honeypot, useFormGuard } from '~/components/modules/FormGuard';
 
 const CALENDAR_URL = 'https://calendar.app.google/ssQ22vSCJC38Cy8QA';
 const CONTACT_EMAIL = 'cameron@alloygp.co';
@@ -28,6 +29,7 @@ export default function BookClubForm() {
   const [error, setError] = useState('');
   const [offline, setOffline] = useState(false); // request never reached the server → offer the email fallback
   const [source, setSource] = useState('');
+  const stamp = useFormGuard(); // honeypot + fill time for /api/book-club (src/lib/form-guard.ts)
 
   // Attribution travels with every submission (unchanged pattern from the Contact form).
   useEffect(() => {
@@ -54,7 +56,7 @@ export default function BookClubForm() {
     return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('HOA Leader Book Club')}&body=${encodeURIComponent(lines.join('\n'))}`;
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const problems: string[] = [];
     if (!name.trim()) problems.push('your name');
@@ -72,6 +74,7 @@ export default function BookClubForm() {
     fd.append('cell', cell.trim());
     seats().forEach((t) => fd.append('team', t));
     fd.append('source', source);
+    stamp(fd, e.currentTarget);
     try {
       const res = await fetch('/api/book-club', { method: 'POST', body: fd });
       let json: { error?: unknown } = {};
@@ -120,6 +123,7 @@ export default function BookClubForm() {
       ) : null}
 
       <form id="ge-book-club" name="hoa-leader-book-club" action="/api/book-club" method="post" onSubmit={handleSubmit} className="rd-stack" style={{ gap: 22 }} noValidate>
+        <Honeypot />
         <div className="rd-grid rd-grid--2 rd-form-grid" style={{ gap: 16 }}>
           <label className="rd-field-group" style={{ ...fieldGroup, ...span2 }}>
             <span className="rd-field-label" style={fieldLabel}>Name</span>

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Honeypot, useFormGuard } from '~/components/modules/FormGuard';
 import type { CSSProperties } from 'react';
 
 // ---------------------------------------------------------------------------
@@ -38,6 +39,7 @@ export default function GrowthPortalPage() {
   const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'done'>('idle');
   const [formError, setFormError] = useState('');
   const [formFirst, setFormFirst] = useState('');
+  const stamp = useFormGuard(); // honeypot + fill time for /api/lead (src/lib/form-guard.ts)
   const animatedWidgets = useRef<Set<number>>(new Set());
   const heroCopyRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
@@ -296,6 +298,7 @@ export default function GrowthPortalPage() {
       /* ignore */
     }
 
+    stamp(fd, f);
     setFormError('');
     setFormStatus('sending');
     try {
@@ -926,6 +929,7 @@ export default function GrowthPortalPage() {
               </div>
             ) : (
               <form className="gp-form" id="gp-walkthrough-form" name="growth-portal-walkthrough" action="/api/lead" method="post" onSubmit={onFormSubmit}>
+                <Honeypot />
                 <div className="gp-form-row">
                   <input className="gp-input" name="name" placeholder="First name" required />
                   <input className="gp-input" name="company" placeholder="CAM company" required />

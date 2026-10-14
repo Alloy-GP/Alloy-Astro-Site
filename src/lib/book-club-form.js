@@ -79,6 +79,10 @@ export function ctaBookClub(opts){
   opts = opts || {};
   var source = opts.source || "unknown page";
   var data = {name:"", email:"", company:"", cell:"", team:[]};
+  /* Spam guard (src/lib/form-guard.ts): a hidden honeypot nobody sees plus how long the form was open. */
+  var openedAt = Date.now();
+  var hp = el("input",{type:"text",name:"website",tabindex:"-1",autocomplete:"off"});
+  var hpWrap = el("div",{style:"position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none","aria-hidden":"true"},[el("label",{},[el("span",{text:"Website"}),hp])]);
   var submit;
   var msg = el("div",{class:"ge-stack ge-g8"});
   var teamwrap = el("div",{class:"ge-teamwrap"});
@@ -170,6 +174,8 @@ export function ctaBookClub(opts){
       fd.append("cell", data.cell.trim());
       seats().forEach(function(t){ fd.append("team", t); });
       fd.append("source", sourceInfo(source));
+      fd.append("website", hp.value);
+      fd.append("elapsed", String(Date.now() - openedAt));
       fetch(FORM_ENDPOINT,{method:"POST",body:fd})
         .then(function(r){ if(!r.ok) throw new Error("bad response"); submit.textContent = "Saved"; done(); })
         .catch(function(){ submit.disabled = false; submit.textContent = label(); manual(); });
@@ -195,6 +201,7 @@ export function ctaBookClub(opts){
     ]),
     el("p",{class:"ge-small ge-muted",text:"Your seat is included because you were at the retreat. So are seats for the senior leaders you are developing."}),
     form,
+    hpWrap,
     el("div",{class:"ge-stack ge-g8"},[
       el("div",{class:"ge-seatnote",text:"Included seats for your senior leaders"}),
       teamwrap

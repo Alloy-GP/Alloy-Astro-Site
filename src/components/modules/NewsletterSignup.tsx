@@ -4,6 +4,7 @@
 // ["newsletter", source]) + Resend welcome email. Inline success / error states.
 import { useState } from 'react';
 import type { FormEvent } from 'react';
+import { Honeypot, useFormGuard } from '~/components/modules/FormGuard';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -12,6 +13,7 @@ export default function NewsletterSignup({ source = 'resources-page' }: { source
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
+  const stamp = useFormGuard(); // honeypot + fill time for /api/subscribe (src/lib/form-guard.ts)
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,6 +24,7 @@ export default function NewsletterSignup({ source = 'resources-page' }: { source
     fd.append('email', email.trim());
     fd.append('firstName', firstName.trim());
     fd.append('source', source);
+    stamp(fd, e.currentTarget);
     try {
       const res = await fetch('/api/subscribe', { method: 'POST', body: fd });
       let json: Record<string, string> = {};
@@ -57,6 +60,7 @@ export default function NewsletterSignup({ source = 'resources-page' }: { source
   // id / name / action / method are what WhatConverts keys on (Tracking › Web Forms, Attribute Type "ID" → newsletter-signup)
   return (
       <form id="newsletter-signup" name="newsletter-signup" action="/api/subscribe" method="post" onSubmit={handleSubmit} className="rd-stack rd-stack--14" noValidate={false}>
+      <Honeypot />
       <div className="rd-field-group">
         <label className="rd-field-label" htmlFor="nl-first">First name</label>
         <input id="nl-first" type="text" name="firstName" autoComplete="given-name" placeholder="Your first name" className="rd-field" value={firstName} onChange={(e) => setFirstName(e.target.value)} />

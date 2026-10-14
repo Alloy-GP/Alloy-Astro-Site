@@ -1314,6 +1314,11 @@
           <label for="address">Address</label>
           <input id="address" name="address" type="text" required="" autocomplete="street-address" placeholder="Street, City, State, ZIP">
         </div>
+        <!-- Spam guard (src/lib/form-guard.ts): hidden honeypot nobody sees; bots fill it. -->
+        <div style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none" aria-hidden="true">
+          <label for="hp-website">Website</label>
+          <input id="hp-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
         <button type="submit" class="submit-btn" id="submitBtn">
           <span>Send my request</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="13 6 19 12 13 18"></polyline></svg>
@@ -1341,6 +1346,7 @@
   const drinkBtns = document.querySelectorAll('.drink');
   const drinkNote = document.getElementById('drinkNote');
   let selectedDrink = null;
+  const openedAt = Date.now(); // spam guard: /api/thinktank wants to know how long the form was open
 
   drinkBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1407,7 +1413,11 @@
     fetch('/api/thinktank', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ drink: drinkLine, name, email, address }),
+      body: JSON.stringify({
+        drink: drinkLine, name, email, address,
+        website: (document.getElementById('hp-website') || {}).value || '',
+        elapsed: Date.now() - openedAt,
+      }),
     })
     .then(r => r.json())
     .then(data => {
