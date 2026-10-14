@@ -10,10 +10,12 @@
 // 4. Mailchimp: upsert the requester with tags `book-club` + `growth-engine`. Seat-holders are
 //    only ever emailed by Cameron (they did not opt in themselves).
 // WhatConverts records the lead client-side (the form has id/name/action/method; see growth-engine.js).
+// Spam guard (2026-10-14): src/lib/form-guard.ts (honeypot, same-origin, fill time, content, rate limit).
 import type { APIRoute } from "astro";
 import { createHash } from "node:crypto";
 import { Resend } from "resend";
 import mailchimp from "@mailchimp/mailchimp_marketing";
+import { EMAIL_RE, esc, field, guardSubmission, json, rejectionResponse, safeFirstName, subjectLine } from "~/lib/form-guard";
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
@@ -22,7 +24,6 @@ mailchimp.setConfig({
   server: import.meta.env.MAILCHIMP_SERVER_PREFIX,
 });
 
-const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 const MAX_SEATS = 10;
 const CALENDAR_URL = "https://calendar.app.google/ssQ22vSCJC38Cy8QA";
 const FORM_LABEL = "HOA Leader Book Club";
@@ -35,16 +36,8 @@ const NOTIFY_TO = Array.from(
   ).values(),
 );
 
-const json = (body: Record<string, unknown>, status: number) =>
-  new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json" } });
-
-const esc = (s: string) =>
-  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] ?? c);
-
-const field = (data: FormData, key: string, max: number) =>
-  (data.get(key)?.toString() ?? "").replace(/\s+/g, " ").trim().slice(0, max);
-
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async (ctx) => {
+  const { request } = ctx;
   try {
     // Empty or non-form bodies (bots, health probes) are a client error, not a server error.
     let data: FormData;
@@ -73,6 +66,9 @@ export const POST: APIRoute = async ({ request }) => {
     if (badSeat) return json({ error: `That email does not look right: ${badSeat}` }, 400);
     if (team.length > MAX_SEATS) return json({ error: `Up to ${MAX_SEATS} leader seats per request.` }, 400);
 
+    const verdict = guardSubmission(ctx, { form: "book-club", data, email, name, text: [company], fallbackEmail: "cameron@alloygp.co" });
+    if (!verdict.ok) return rejectionResponse("book-club", verdict, { name, email, company });
+
     const firstName = name.split(" ")[0] ?? name;
     const lastName = name.split(" ").slice(1).join(" ");
     const seatSummary = team.length ? `${team.length} leader seat${team.length === 1 ? "" : "s"}` : "no extra seats";
@@ -83,7 +79,7 @@ export const POST: APIRoute = async ({ request }) => {
         from: "Alloy Growth Partners <notifications@alloygp.co>",
         to: NOTIFY_TO,
         replyTo: email,
-        subject: `Book club seats: ${company} (${name}, ${seatSummary})`,
+        subject: subjectLine(`Book club seats: ${company} (${name}, ${seatSummary})`),
         html: `<h2>${FORM_LABEL} request</h2>
 <p><strong>Name:</strong> ${esc(name)}</p>
 <p><strong>Email:</strong> ${esc(email)}</p>
@@ -137,7 +133,7 @@ ${source ? `<hr><p style="color:#888;font-size:13px"><strong>Source</strong><br>
         from: "Alloy Growth Partners <hello@alloygp.co>",
         to: email,
         subject: `Your seat in the ${FORM_LABEL}. Alloy Growth Partners`,
-        html: `<p>Hi ${esc(firstName)},</p>
+        html: `<p>Hi ${esc(safeFirstName(firstName))},</p>
 <p>You are in. Cameron will email the details for the ${FORM_LABEL} to ${esc(email)}${seatLine}.</p>
 <p>Want to talk before then? <a href="${CALENDAR_URL}">Book 20 minutes with Cameron</a>.</p>
 <p>Cameron Lange<br>Alloy Growth Partners</p>`,

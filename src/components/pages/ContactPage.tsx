@@ -4,9 +4,12 @@
 // name / email / message / subscribe / source (page URL + referrer + UTMs). /api/contact only
 // accepts those fields, so the prototype's Company + "reaching out about" fields are appended
 // to the message body rather than sent as new keys. Hydrated with client:load (see contact.astro).
+// Spam guard (2026-10-14): <Honeypot /> + useFormGuard() add the hidden honeypot and the fill time
+// that /api/contact checks (src/lib/form-guard.ts); see src/components/modules/FormGuard.tsx.
 import { useState, useEffect } from 'react';
 import type { CSSProperties, ChangeEvent, FormEvent, ReactNode } from 'react';
 import { Eyebrow, Btn, CheckIcon } from '~/components/rd/atoms';
+import { Honeypot, useFormGuard } from '~/components/modules/FormGuard';
 
 const LH: CSSProperties = { lineHeight: 1.65 };
 
@@ -51,6 +54,7 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState<ContactFormState>({ name: '', email: '', company: '', topic: TOPICS[0], message: '', subscribe: false });
   const [sourceData, setSourceData] = useState('');
+  const stamp = useFormGuard();
 
   // Attribution: page URL, referrer, and UTMs travel with every submission (unchanged).
   useEffect(() => {
@@ -85,7 +89,7 @@ export default function ContactPage() {
   const update = <K extends keyof ContactFormState>(k: K, v: ContactFormState[K]) =>
     setForm(f => ({ ...f, [k]: v }));
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
@@ -94,7 +98,7 @@ export default function ContactPage() {
     const extra = [`Reaching out about: ${form.topic}`, form.company.trim() ? `Company: ${form.company.trim()}` : null]
       .filter(Boolean)
       .join('\n');
-    const message = form.message.trim() ? `${form.message}\n\n, \n${extra}` : form.message;
+    const message = form.message.trim() ? `${form.message}\n\n${extra}` : form.message;
 
     const fd = new FormData();
     fd.append('name', form.name);
@@ -102,6 +106,7 @@ export default function ContactPage() {
     fd.append('message', message);
     fd.append('subscribe', form.subscribe ? 'true' : 'false');
     fd.append('source', sourceData);
+    stamp(fd, e.currentTarget);
 
     try {
       const res = await fetch('/api/contact', { method: 'POST', body: fd });
@@ -163,6 +168,7 @@ export default function ContactPage() {
                 {/* id / name / action / method are what WhatConverts keys on (Tracking › Web Forms, Attribute Type "ID"
                     → contact-form); the submit handler takes over, no navigation. */}
                 <form id="contact-form" name="contact" action="/api/contact" method="post" onSubmit={handleSubmit} className="rd-stack" style={{ gap: 22 }}>
+                  <Honeypot />
                   <div className="rd-grid rd-grid--2 rd-form-grid" style={{ gap: 16 }}>
                     <label className="rd-field-group" style={{ ...fieldGroup, ...span2 }}>
                       <span className="rd-field-label" style={fieldLabel}>Name</span>
