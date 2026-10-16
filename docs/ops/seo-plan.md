@@ -53,6 +53,57 @@ All terms KD 0, all searched by the operators we want. Each needs one asset + a 
 ## Phase 5 — Board-side demand (MatchHOA, not alloygp.co)
 "hoa management companies" 2,000 · "hoa management company" 1,300 · "near me" 600 · metro queries in partner markets (Austin 200, Houston 250, Dallas 150, San Antonio 150; all KD 0). Build metro pages on matchhoa.com naming the partner; alloygp.co only hosts the "how to choose" guide and links across.
 
+## Phase 6 — Links from properties we control (added 2026-10-16)
+
+### MatchHOA → alloygp.co (checked 2026-10-16)
+- **The reported "broken link" was a script tag, not a link.** Every one of MatchHOA's 3,642 sitemap URLs loaded `https://alloygp.co/content.js` through a `next/script` tag in `frontend/src/app/layout.tsx`. It was added on 2026-08-31 as a placeholder when GroAS's `app.groas.ai/content.js` was dropped, waiting for an Alloy-hosted script that was never built. The URL has served alloygp.co's 404 page ever since (the file never existed on the WordPress or Astro site; no Wayback copy), so every page load fetched a 156 KB HTML 404 and crawlers reported a broken outlink from matchhoa.com to alloygp.co. Fix: Match-HOA PR removing the tag (https://github.com/Alloy-GP/Match-HOA/pull/8). Nothing to restore on alloygp.co; do **not** add a stub `public/content.js`.
+- **The only real links sit on matchhoa.com/about**: "Powered by Alloy Growth Partners" (text) and the Alloy logo ("Visit AlloyGP.co"), both to `https://alloygp.co/?utm_source=MatchHOA&utm_medium=referral`, dofollow, new tab. The URL returns 200 with canonical `https://alloygp.co/`, so the link works. The About schema also names Alloy as `parentOrganization`. `/for-management-companies`, `/become-a-partner`, the three guides and the 3,616 city pages do not link to Alloy at all.
+- Options if Alloy wants the MatchHOA link to carry more (Alloy decides; MatchHOA is positioned as neutral for boards, so keep it factual and small):
+  1. A footer line on every page, "Match HOA is operated by [Alloy Growth Partners](https://alloygp.co/)": 3,642 dofollow pages with a branded anchor.
+  2. One contextual sentence on `/for-management-companies` linking the phrase "HOA management lead generation" to `/boardreach/property-management-lead-generation` (or "BoardMatch" to `/boardmatch`): the deep link the money pages are missing (see "Where we are").
+  3. Drop the UTMs from the About links. The referrer already attributes the visit in GA4 and WhatConverts; a clean target URL is the tidier backlink. Minor.
+
+### Client sites → alloygp.co (the "partner link")
+Yes. A credit link on the sites Alloy built is the cheapest topically relevant authority available, and none of them link to alloygp.co today. It has to look like what it is: an agency credit, placed with the client's consent.
+
+Rules:
+- **Branded anchor only**: "Alloy Growth Partner" or "Alloy Growth Partners". Never a keyword anchor in a footer ("HOA management marketing agency"); widely distributed keyword-rich footer or widget links are the pattern Google's link-spam policy names. One keyword anchor inside an editorial sentence on an About or Partners page is fine.
+- **Dofollow, plain `<a>`**, no `nofollow` or `sponsored`: the credit is editorial, not paid. If a client insists on `nofollow`, it still sends referral traffic, just no authority.
+- **Target `https://alloygp.co/`** with no UTMs. The referrer identifies the site.
+- **Small and consistent**: one line in the footer legal row, same wording on every site, and in `agp-astro-starter` so new sites ship with it.
+- **Ask first**: one line in the next status email per client. Sites Alloy does not maintain (the WordPress ones) only get it if the client adds it.
+
+Wording and look (Skyler, 2026-10-16, four rounds: not "Marketing by" or "Site by"; then "as inconspicuous as possible without looking like we are hiding it: no colour, no bold"; then "we are missing the exclusive part"; then "just use the icon and type out Alloy Growth Partners"). Final form, in the footer legal row at the copyright line's own tone, plain weight, no colour: the **outline Alloy icon** (`public/assets/alloy-mark-outline-white.svg` on dark footers, `alloy-mark-outline-black.svg` on light; cut from the client's outline logos, which are also in `public/assets/` as `alloy-logo-outline-{white,black}.svg`) at 18px and 55% opacity, then the typed text **"Official Alloy Growth Partner · {City}"** (Skyler's final pick, 2026-10-16, from six "official" options; CMGT, which spans several metros, reads "Official Alloy Growth Partner · Louisiana, Mississippi & Alabama"; Innovia, a co-op rather than a metro firm, gets the plain brand name "Alloy Growth Partners" with no note). The designation is the anchor text. Only use "Exclusive" where the metro lock is in place for that firm (check `src/data/metros.ts`). Edison (live 2026-10-16) also lost the "Contact Us" link from its legal strip at Skyler's request, so the credit sits alone on the right. The rejected cuts (coloured mark + bold label; the "alloy" wordmark alone) are kept in `docs/ops/partner-credit-options.html` for the record. First site: Edison (Alloy-GP/Edison-Website#15).
+
+Snippet (footer legal row; copy the icon into the client site's `public/assets/`, do not hotlink):
+```html
+<a class="partner-credit" href="https://alloygp.co/" target="_blank" rel="noopener">
+  <img src="/assets/alloy-mark-outline-white.svg" alt="" width="18" height="18">
+  <span>Official Alloy Growth Partner ·</span> <span>Orlando</span>
+</a>
+<style>.partner-credit{display:inline-flex;align-items:center;flex-wrap:wrap;gap:4px 8px;color:inherit;text-decoration:none;font-size:13px}.partner-credit span{white-space:nowrap}.partner-credit img{width:18px;height:18px;display:block;opacity:.55;transition:opacity 140ms}.partner-credit:hover img{opacity:.9}</style>
+```
+
+Add-on with the most weight, with any footer option: one sentence on the client's About page, "{Firm} is the [Alloy Growth Partner](https://alloygp.co/) for the {Metro} metro, running Alloy's BoardReach, BoardMatch and BoardRetain programs for the associations we serve."
+
+Inventory (live check 2026-10-16; none link to alloygp.co):
+
+| Live site | Repo (Alloy-GP) | Platform live | Notes |
+|---|---|---|---|
+| cmgt.org | cmgt-site-astro | Astro | |
+| edisonassociationmanagement.com | Edison-Website | Astro | |
+| cpepropertymanagement.com | CPE-Website | Astro | |
+| www.e-landmarc.com | Landmarc-site-astro | Astro | |
+| keys-caldwell.com | keys-caldwell-astro | Astro | |
+| innoviaco-op.com | innovia-site-astro | Astro | also a Phase 4 partner-page candidate |
+| tidewaterproperty.com | Tidewater-Website | Astro 4 | |
+| riseamg.com | rise-site-astro | WordPress (Astro build not live) | add when the Astro site launches |
+| microhoa.com | microhoa-astro | WordPress (Astro build not live) | same |
+| chcsbc.org | chcs | WordPress / Elementor | client adds it, or skip |
+| mygermancarsa.com | gcs | custom | not CAM; skip |
+
+Expected effect: about ten new referring domains, all in the CAM niche, which is worth more than the same count of generic directories. Google discounts links between sites that share an owner or host, so treat this as a floor, not a lever: Phases 1 to 3 remain what moves rankings.
+
 ## Measurement cadence
 - Weekly (CC): Rank Tracker (46 terms) + BigQuery pages/queries by day; flag any URL losing impressions.
 - Monthly (CC): re-run the Ahrefs baseline (DR, ref domains, organic keywords), Site Audit, backlink 404 check; update `seo-baseline-*.md`.
