@@ -73,14 +73,15 @@ Rules:
 - **Small and consistent**: one line in the footer legal row, same wording on every site, and in `agp-astro-starter` so new sites ship with it.
 - **Ask first**: one line in the next status email per client. Sites Alloy does not maintain (the WordPress ones) only get it if the client adds it.
 
-Wording (Skyler, 2026-10-16: not "Marketing by" or "Site by"; it has to read as a partnership, not a vendor credit). Preferred: a designation the firm holds, **"Alloy Growth Partner"** (the agency is Alloy Growth Partners; each client firm is an Alloy Growth Partner), shown as a small mark plus text the way the BBB and CAI badges clients already carry, optionally with the metro ("· Austin metro"). Alternatives if a client prefers a sentence: "{Firm} is an Alloy Growth Partner." · "Growth partner: Alloy Growth Partners" · "Partnered with Alloy Growth Partners" · "Growth powered by Alloy Growth Partners". Avoid "Powered by" on its own (reads as if Alloy runs the firm) and "Exclusive" unless the metro lock is in place for that firm. All five rendered in a footer: `docs/ops/partner-credit-options.html` (open in a browser; fonts and the mark load from `public/`).
+Wording and look (Skyler, 2026-10-16, two rounds): not "Marketing by" or "Site by", and then "as inconspicuous as possible without looking like we are hiding it: no colour, no bold". Final form: the **outline Alloy logo** (`public/assets/alloy-logo-outline-white.svg` on dark footers, `alloy-logo-outline-black.svg` on light ones) at 18px tall and 50% opacity (85% on hover), in the footer legal row at the same tone as the copyright line. No visible text; `alt="Alloy Growth Partners"` is the anchor text and `title`/`aria-label` carry the designation "Alloy Growth Partner · {Metro} metro" for anyone who hovers. If a site wants words, the only allowed addition is plain-weight muted text after the logo ("Growth Partner · Orlando metro"), never bold, never a colour. The rejected first cut (coloured mark + bold "Alloy Growth Partner") and the five wording options are in `docs/ops/partner-credit-options.html` for the record. First site: Edison (Alloy-GP/Edison-Website#15).
 
-Snippet (footer legal row; the text carries the link, the mark is decorative; the mark's purple ring disappears on dark footers, so a white-ring variant is worth cutting if the dark sites adopt it):
+Snippet (footer legal row; the logo file is copied into the client site's `public/assets/`, not hotlinked):
 ```html
-<a class="footer-credit" href="https://alloygp.co/" target="_blank" rel="noopener">
-  <img src="https://alloygp.co/assets/alloy-logomark.svg" alt="" width="18" height="18">
-  Alloy Growth Partner<span class="footer-credit-metro"> · Austin metro</span>
+<a class="partner-credit" href="https://alloygp.co/" target="_blank" rel="noopener"
+   title="Alloy Growth Partner · Orlando metro" aria-label="Alloy Growth Partner · Orlando metro">
+  <img src="/assets/alloy-logo-outline-white.svg" alt="Alloy Growth Partners" width="57" height="18">
 </a>
+<style>.partner-credit{display:inline-flex;opacity:.5;transition:opacity 140ms}.partner-credit:hover{opacity:.85}.partner-credit img{height:18px;width:auto;display:block}</style>
 ```
 
 Add-on with the most weight, with any footer option: one sentence on the client's About page, "{Firm} is the [Alloy Growth Partner](https://alloygp.co/) for the {Metro} metro, running Alloy's BoardReach, BoardMatch and BoardRetain programs for the associations we serve."
