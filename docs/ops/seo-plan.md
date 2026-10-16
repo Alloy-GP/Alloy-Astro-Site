@@ -67,16 +67,23 @@ All terms KD 0, all searched by the operators we want. Each needs one asset + a 
 Yes. A credit link on the sites Alloy built is the cheapest topically relevant authority available, and none of them link to alloygp.co today. It has to look like what it is: an agency credit, placed with the client's consent.
 
 Rules:
-- **Branded anchor only**: "Alloy Growth Partners" or "Marketing by Alloy Growth Partners". Never a keyword anchor in a footer ("HOA management marketing agency"); widely distributed keyword-rich footer or widget links are the pattern Google's link-spam policy names. One keyword anchor inside an editorial sentence on an About or Partners page is fine.
+- **Branded anchor only**: "Alloy Growth Partner" or "Alloy Growth Partners". Never a keyword anchor in a footer ("HOA management marketing agency"); widely distributed keyword-rich footer or widget links are the pattern Google's link-spam policy names. One keyword anchor inside an editorial sentence on an About or Partners page is fine.
 - **Dofollow, plain `<a>`**, no `nofollow` or `sponsored`: the credit is editorial, not paid. If a client insists on `nofollow`, it still sends referral traffic, just no authority.
 - **Target `https://alloygp.co/`** with no UTMs. The referrer identifies the site.
 - **Small and consistent**: one line in the footer legal row, same wording on every site, and in `agp-astro-starter` so new sites ship with it.
 - **Ask first**: one line in the next status email per client. Sites Alloy does not maintain (the WordPress ones) only get it if the client adds it.
 
-Snippet (Astro or plain HTML; style with the site's existing footer small-print class):
+Wording (Skyler, 2026-10-16: not "Marketing by" or "Site by"; it has to read as a partnership, not a vendor credit). Preferred: a designation the firm holds, **"Alloy Growth Partner"** (the agency is Alloy Growth Partners; each client firm is an Alloy Growth Partner), shown as a small mark plus text the way the BBB and CAI badges clients already carry, optionally with the metro ("· Austin metro"). Alternatives if a client prefers a sentence: "{Firm} is an Alloy Growth Partner." · "Growth partner: Alloy Growth Partners" · "Partnered with Alloy Growth Partners" · "Growth powered by Alloy Growth Partners". Avoid "Powered by" on its own (reads as if Alloy runs the firm) and "Exclusive" unless the metro lock is in place for that firm. All five rendered in a footer: `docs/ops/partner-credit-options.html` (open in a browser; fonts and the mark load from `public/`).
+
+Snippet (footer legal row; the text carries the link, the mark is decorative; the mark's purple ring disappears on dark footers, so a white-ring variant is worth cutting if the dark sites adopt it):
 ```html
-<p class="footer-credit">Marketing by <a href="https://alloygp.co/" target="_blank" rel="noopener">Alloy Growth Partners</a></p>
+<a class="footer-credit" href="https://alloygp.co/" target="_blank" rel="noopener">
+  <img src="https://alloygp.co/assets/alloy-logomark.svg" alt="" width="18" height="18">
+  Alloy Growth Partner<span class="footer-credit-metro"> · Austin metro</span>
+</a>
 ```
+
+Add-on with the most weight, with any footer option: one sentence on the client's About page, "{Firm} is the [Alloy Growth Partner](https://alloygp.co/) for the {Metro} metro, running Alloy's BoardReach, BoardMatch and BoardRetain programs for the associations we serve."
 
 Inventory (live check 2026-10-16; none link to alloygp.co):
 
