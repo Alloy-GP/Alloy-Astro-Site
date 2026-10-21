@@ -41,3 +41,27 @@ The `setup` script in `.conductor/settings.toml` installs the Toolbox binary to 
 Both Ahrefs and Google also offer OAuth sign-in (Ahrefs via `/mcp` → Authenticate; Google via the remote
 `https://bigquery.googleapis.com/mcp` endpoint). OAuth needs a browser callback, which a headless cloud sandbox
 can't complete, so this setup uses the key / service-account paths that work anywhere.
+
+
+## Cloud workspaces (Conductor sandboxes): why BigQuery shows "Connection closed"
+
+A cloud sandbox is a fresh Linux VM. Nothing from your Mac's `.secrets/`, `.env` or `~/.conductor/secrets.env` is copied
+into it (`.worktreeinclude` only applies to local worktrees), and the Conductor `setup` script may not run, so two things
+are missing that the launcher needs: the Toolbox binary and the two credential values. Either one makes the MCP server
+exit at startup, which Claude Code reports as `CONNECTION_CLOSED`.
+
+Since 2026-10-21 the launcher downloads the binary itself and prints the exact missing credential to stderr. The
+credentials still have to arrive as **environment variables** (cloud sandboxes can't receive files):
+
+```bash
+# on your Mac, from the repo root, when creating the cloud workspace
+conductor workspace create --repo-url https://github.com/Alloy-GP/Alloy-Astro-Site --branch staging --name "…" \
+  --env GSC_BIGQUERY_PROJECT=alloy-gsc \
+  --env GOOGLE_APPLICATION_CREDENTIALS_B64="$(base64 -i .secrets/gcp-service-account.json | tr -d '\n')" \
+  --env AHREFS_MCP_KEY="$(grep AHREFS_MCP_KEY ~/.conductor/secrets.env | cut -d= -f2-)"
+```
+
+The launcher decodes the base64 key into `.secrets/gcp-service-account.json` on first run. For an existing cloud
+workspace, add the same variables in the workspace's environment settings in the Conductor app, then **Refresh status**
+on the MCP server. Verify from inside the sandbox with `bash scripts/mcp/bigquery-toolbox.sh </dev/null` (it should hang
+waiting for stdio rather than print an error).

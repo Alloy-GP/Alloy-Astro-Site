@@ -16,8 +16,18 @@ export GOOGLE_APPLICATION_CREDENTIALS
 export BIGQUERY_PROJECT="${BIGQUERY_PROJECT:-${GSC_BIGQUERY_PROJECT:-}}"
 BIN="${TOOLBOX_BIN:-$HOME/.local/bin/toolbox}"
 command -v "$BIN" >/dev/null 2>&1 || BIN="$(command -v toolbox || true)"
+# Cloud sandboxes don't always run the Conductor setup script: fetch the pinned Toolbox release ourselves if it is missing.
 if [ -z "$BIN" ] || [ ! -x "$BIN" ]; then
-  echo "toolbox binary not found. Install: curl -L -o ~/.local/bin/toolbox https://storage.googleapis.com/mcp-toolbox-for-databases/v1.13.1/$(uname -s | tr '[:upper:]' '[:lower:]')/$( [ "$(uname -m)" = x86_64 ] && echo amd64 || echo arm64)/toolbox && chmod +x ~/.local/bin/toolbox" >&2
-  exit 127
+  BIN="$HOME/.local/bin/toolbox"; mkdir -p "$(dirname "$BIN")"
+  URL="https://storage.googleapis.com/mcp-toolbox-for-databases/v1.13.1/$(uname -s | tr '[:upper:]' '[:lower:]')/$( [ "$(uname -m)" = x86_64 ] && echo amd64 || echo arm64)/toolbox"
+  echo "toolbox binary not found; downloading $URL" >&2
+  curl -sL --max-time 180 -o "$BIN" "$URL" && chmod +x "$BIN" || { echo "toolbox download failed" >&2; exit 127; }
+fi
+# Fail loudly with the real reason instead of letting the server die silently ("Connection closed").
+if [ -z "${BIGQUERY_PROJECT}" ]; then
+  echo "BigQuery MCP: GSC_BIGQUERY_PROJECT is not set (expected in .secrets/mcp.env or the workspace environment)." >&2; exit 2
+fi
+if [ ! -s "$GOOGLE_APPLICATION_CREDENTIALS" ]; then
+  echo "BigQuery MCP: no service-account key at $GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_APPLICATION_CREDENTIALS_B64 is not set." >&2; exit 2
 fi
 exec "$BIN" --prebuilt bigquery --stdio
