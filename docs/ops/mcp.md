@@ -65,3 +65,11 @@ The launcher decodes the base64 key into `.secrets/gcp-service-account.json` on 
 workspace, add the same variables in the workspace's environment settings in the Conductor app, then **Refresh status**
 on the MCP server. Verify from inside the sandbox with `bash scripts/mcp/bigquery-toolbox.sh </dev/null` (it should hang
 waiting for stdio rather than print an error).
+
+## Querying Search Console without the MCP server
+
+`node scripts/gsc-bq.mjs` runs on any machine that has the two credentials (your Mac: they are in
+`~/.conductor/secrets.env`). It mints a read-only BigQuery token from the service-account key and prints the
+collections-cluster report; pass a SQL string for anything else (`T` = the alloygp.co url-impression table). The
+export holds nine properties; the alloygp.co dataset is `searchconsole_alloygp` and (as of 2026-10-21) starts on
+2026-10-15, so there is no pre-launch baseline in BigQuery (that lives in `docs/ops/gsc-baseline-2026-10-06.md`).
