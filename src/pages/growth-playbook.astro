@@ -1,0 +1,19 @@
+---
+// src/pages/growth-playbook.astro
+// Growth Playbook: the /cai-growth worksheet for anyone, not just retreat attendees
+// (Skyler, 2026-10-29). Same shell, app, styles, book club form and /api/book-club endpoint;
+// variant "universal" swaps the retreat / room references, the seat line and the playbook
+// credit line for wording that assumes no event. Same landing-page chrome rules as
+// /cai-growth: hideHeader + hideFooter, noindex, not in nav or the sitemap.
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import GrowthEngine from '~/components/modules/GrowthEngine.astro';
+---
+<BaseLayout
+  title="Build Your Growth Playbook | Alloy Growth Partners"
+  description="A guided worksheet for HOA management companies: your ICP, three uniques, one-liner, pipeline stages, qualification bar and a 30-day plan."
+  robots="noindex,follow"
+  hideHeader
+  hideFooter
+>
+  <GrowthEngine eyebrow="Growth Playbook" variant="universal" />
+</BaseLayout>
