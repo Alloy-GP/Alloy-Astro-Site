@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Growth Engine Walk-Through (/cai-growth)
+   Growth Engine Walk-Through (/cai-growth) and its universal twin (/growth-playbook)
    Self-contained worksheet styles from the client's cai-growth.html handoff.
    Every class is prefixed `ge-` and every element rule is scoped under
    `.ge-root` so nothing collides with site.css / redesign.css (the page runs

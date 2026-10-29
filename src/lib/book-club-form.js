@@ -1,8 +1,8 @@
 // Shared pieces of the Growth Engine handoff that more than one page needs:
 // the tiny DOM helper (`el`), copy-to-clipboard, the "Where is this going next?"
 // Cameron card and the HOA Leader Book Club form. Used by src/lib/growth-engine.js
-// (/cai-growth, inside the worksheet) and src/pages/book-club.astro (/book-club,
-// the standalone signup landing page). Styles: src/styles/growth-engine.css.
+// (/cai-growth and /growth-playbook, inside the worksheet) and src/pages/book-club.astro
+// (/book-club, the standalone signup landing page). Styles: src/styles/growth-engine.css.
 // The form posts to /api/book-club (email Cameron + admin, Slack, Mailchimp tag);
 // if that request fails the viewer gets a prefilled email instead.
 // Plain ES5-style JS from the handoff on purpose; @ts-nocheck keeps `astro check` out.
@@ -74,7 +74,9 @@ export function ctaCall(compact){
 /* The HOA Leader Book Club block: pitch + the seats form (a real <form id="ge-book-club"> so
    WhatConverts records it once it is registered under Tracking › Web Forms, Attribute Type ID).
    opts.source labels the submission ("Growth Engine walk-through" / "Book club landing page");
-   opts.toolNote overrides the "AI tool" bullet (the worksheet says "Like the one you just used"). */
+   opts.toolNote overrides the "AI tool" bullet (the worksheet says "Like the one you just used");
+   opts.seatNote overrides the "included because you were at the retreat" line (/growth-playbook
+   passes the neutral wording from BookClubForm.tsx). */
 export function ctaBookClub(opts){
   opts = opts || {};
   var source = opts.source || "unknown page";
@@ -199,7 +201,7 @@ export function ctaBookClub(opts){
       el("li",{html: opts.toolNote || "<b>An AI tool every session.</b> Like the one you just used. Run your firm through it and leave with your version."}),
       el("li",{html:"<b>Your people.</b> Owners and leaders who know the work, so every example lands."})
     ]),
-    el("p",{class:"ge-small ge-muted",text:"Your seat is included because you were at the retreat. So are seats for the senior leaders you are developing."}),
+    el("p",{class:"ge-small ge-muted",text: opts.seatNote || "Your seat is included because you were at the retreat. So are seats for the senior leaders you are developing."}),
     form,
     hpWrap,
     el("div",{class:"ge-stack ge-g8"},[
