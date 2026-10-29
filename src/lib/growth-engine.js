@@ -1,16 +1,42 @@
-// Growth Engine Walk-Through: the interactive worksheet behind /cai-growth.
-// Vanilla DOM app from the client's cai-growth.html handoff (eight "functions":
-// ICP, uniques, one-liner, stages, qualification bar, 30-day plan, drill, export),
-// state in localStorage (ge_state_v1). Mounted from src/pages/cai-growth.astro,
-// which renders the shell (#ge-root, #ge-app, masthead buttons). Styles:
-// src/styles/growth-engine.css. The Cameron card + book club form come from
-// src/lib/book-club-form.js (shared with the /book-club landing page).
+// Growth Engine Walk-Through: the interactive worksheet behind /cai-growth and its
+// universal twin /growth-playbook. Vanilla DOM app from the client's cai-growth.html
+// handoff (eight "functions": ICP, uniques, one-liner, stages, qualification bar,
+// 30-day plan, drill, export), state in localStorage (ge_state_v1, shared by both
+// routes). Mounted by src/components/modules/GrowthEngine.astro, which renders the
+// shell (#ge-root, #ge-app, masthead buttons) and sets `data-variant` on #ge-root:
+// "cai" keeps the retreat wording, "universal" drops every event reference (see
+// VARIANTS below). Styles: src/styles/growth-engine.css. The Cameron card + book club
+// form come from src/lib/book-club-form.js (shared with the /book-club landing page).
 // Kept as plain JS on purpose: the handoff is ES5-style and it is not worth a
 // strict-TS rewrite. @ts-nocheck keeps `astro check` out of it.
 // @ts-nocheck
 import { el, copyText, CALENDAR_URL, ctaCall, ctaBookClub } from "./book-club-form.js";
 (function(){
 "use strict";
+
+/* ---------------------------------------------------------------- variant */
+/* Two routes share this app. `data-variant` on #ge-root picks the handful of strings that
+   differ: "cai" is /cai-growth (the retreat walk-through, the default) and "universal" is
+   /growth-playbook (the same worksheet for anyone, so no retreat, room or session framework). */
+var root = document.getElementById("ge-root");
+var VARIANTS = {
+  cai: {
+    source:"Growth Engine walk-through",                                   /* labels the book club submission */
+    everyFirm:"Every firm in the room says it, so it differentiates nobody.", /* method deck, "responsive and local" */
+    tableStakes:"Every firm at the retreat said it.",                        /* ICP sameness warning */
+    credit:"built with the Supercharge Your Sales Process framework",        /* playbook text header + PDF footer */
+    seatNote:null                                                            /* book club: ctaBookClub's default retreat line */
+  },
+  universal: {
+    source:"Growth playbook page",
+    everyFirm:"Every firm in your market says it, so it differentiates nobody.",
+    tableStakes:"Every firm in your market says it.",
+    credit:"built with Alloy Growth Partners",
+    seatNote:"Your seat is included. So are seats for the senior leaders you are developing."
+  }
+};
+var V = VARIANTS[(root && root.getAttribute("data-variant")) || "cai"] || VARIANTS.cai;
+function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
 
 /* ---------------------------------------------------------------- state */
 var BLANK = {
@@ -90,7 +116,7 @@ var DECK_B = [
    hint:"Think about who has to be able to confirm it."},
   {lvl:1, q:"A firm says it is 'responsive and local.' What is that?",
    opts:["Table stakes","A unique","A positioning statement","A value proposition"],
-   a:0, why:"Every firm in the room says it, so it differentiates nobody.",
+   a:0, why:V.everyFirm,
    hint:"Would a competitor's brochure say the same thing?"},
   {lvl:1, q:"Which belongs in the 'without' clause of a one-liner?",
    opts:["The tradeoff the board is afraid of","Your years in business","Your software","Your service menu"],
@@ -132,7 +158,6 @@ var ROLEPLAY = [
 ];
 
 /* ---------------------------------------------------------------- helpers */
-var root = document.getElementById("ge-root");
 var app = document.getElementById("ge-app");
 var view = {name:"menu", data:null};
 
@@ -287,7 +312,7 @@ function renderICP(){
        valid:function(){
          if(S.icp.solve.trim().length<8) return "One sentence. The specific version, not the category.";
          var hits = samenessIn(S.icp.solve);
-         if(hits.length && !S.icp._warned){ S.icp._warned=true; return "<strong>"+hits.join(", ")+"</strong> is table stakes. Every firm at the retreat said it. What is the checkable version? Tap Next again to keep what you wrote."; }
+         if(hits.length && !S.icp._warned){ S.icp._warned=true; return "<strong>"+hits.join(", ")+"</strong> is table stakes. "+V.tableStakes+" What is the checkable version? Tap Next again to keep what you wrote."; }
          return null; }},
       {q:"Name two communities you manage today that prove it.",
        help:"If you cannot name two, that claim is aspiration. We will keep it, labelled honestly.",
@@ -878,7 +903,7 @@ function checks(){
   return out;
 }
 function fullPlaybook(){
-  var L = ["GROWTH PLAYBOOK","Built with the Supercharge Your Sales Process framework","",""];
+  var L = ["GROWTH PLAYBOOK",cap(V.credit),"",""];
   ["icp","uniques","one","stages","qual","plan"].forEach(function(id){
     if(has(id)){ L.push(artifactText(id)); L.push(""); L.push("----------------------------------------"); L.push(""); }
     else { L.push("("+FUNCTIONS.filter(function(f){return f.id===id;})[0].title+": not built yet)"); L.push(""); }
@@ -917,7 +942,7 @@ function buildPDF(J){
   var M = 56, W = 612, right = W - M, y = 0, page = 1;
   function footer(){
     doc.setFont("helvetica","normal"); doc.setFontSize(8); doc.setTextColor(140,128,150);
-    doc.text("Growth playbook  ·  built with the Supercharge Your Sales Process framework", M, 762);
+    doc.text("Growth playbook  ·  "+V.credit, M, 762);
     doc.text(String(page), right, 762, {align:"right"});
     doc.setTextColor(61,26,82);
   }
@@ -1083,7 +1108,7 @@ function renderReset(){
 function closing(compact){
   return el("div",{class:"ge-stack ge-g12"},[
     el("div",{class:"ge-privacy",text:"Your answers stay in this browser. Nothing is sent anywhere unless you ask for it."}),
-    el("div",{class:"ge-cta-zone"},[ ctaCall(compact), ctaBookClub({source:"Growth Engine walk-through"}) ])
+    el("div",{class:"ge-cta-zone"},[ ctaCall(compact), ctaBookClub({source:V.source, seatNote:V.seatNote}) ])
   ]);
 }
 

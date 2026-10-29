@@ -39,6 +39,11 @@ const FORMS = [
     submit: '#ge-book-club button[type="submit"]', successSel: '.ge-ok',
   },
   {
+    label: 'Worksheet book club, universal copy (/growth-playbook → /api/book-club)', path: '/growth-playbook', api: '/api/book-club',
+    fill: [['#bc_name', 'Jane Doe'], ['#bc_email', 'jane.gpb@example.com'], ['#bc_company', 'Peak CAM']],
+    submit: '#ge-book-club button[type="submit"]', successSel: '.ge-ok',
+  },
+  {
     label: 'Think Tank (/thinktank → /api/thinktank)', path: '/thinktank', api: '/api/thinktank',
     presubmit: async (page) => { await page.waitForSelector('[data-drink]'); await page.click('[data-drink]'); },
     fill: [['#name', 'Jane Doe'], ['#email', 'jane.tt@example.com'], ['#address', '1234 Main St, Austin, TX 78701']],

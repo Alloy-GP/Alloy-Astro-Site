@@ -1,0 +1,39 @@
+---
+// src/components/modules/GrowthEngine.astro
+// The Growth Engine worksheet shell shared by /cai-growth (the retreat walk-through) and
+// /growth-playbook (the same worksheet for anyone). Renders the masthead (eyebrow, Export /
+// Start over / Theme) and the #ge-app mount, imports the worksheet styles and mounts
+// src/lib/growth-engine.js. `variant` lands on #ge-root as `data-variant`, which the app
+// reads to pick the few strings that differ (retreat / room references, the book club seat
+// line, the playbook credit line). Both routes run hideHeader + hideFooter and rely on this
+// masthead for their chrome. Answers live in localStorage (ge_state_v1) on both routes.
+import '~/styles/growth-engine.css';
+
+interface Props {
+  eyebrow: string;
+  variant: 'cai' | 'universal';
+}
+
+const { eyebrow, variant } = Astro.props;
+---
+<div class="ge-root" id="ge-root" data-variant={variant}>
+  <div class="ge-wrap">
+    <div class="ge-mast">
+      <div>
+        <div class="ge-eyebrow">{eyebrow}</div>
+        <div class="ge-by">Built by Alloy Growth Partners</div>
+      </div>
+      <div class="ge-row" style="gap:8px">
+        <button class="ge-btn ge-ghost ge-small" id="ge-export" type="button">Export</button>
+        <button class="ge-btn ge-ghost ge-small" id="ge-reset" type="button">Start over</button>
+        <button class="ge-btn ge-ghost ge-small" id="ge-theme" type="button">Theme</button>
+      </div>
+    </div>
+    <div id="ge-app">
+      <noscript><p class="ge-muted">This worksheet needs JavaScript turned on.</p></noscript>
+    </div>
+  </div>
+</div>
+<script>
+  import '~/lib/growth-engine.js';
+</script>
